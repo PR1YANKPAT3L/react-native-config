@@ -96,7 +96,7 @@ do {
     try androidEnvironmentFileRelease.write(string: try env_release.androidEnvEntry())
     
     if let env_local = env_local {
-        androidEnvironmentFileLocal = try androidFolder.createFileIfNeeded(named: ".env.release")
+        androidEnvironmentFileLocal = try androidFolder.createFileIfNeeded(named: ".env.local")
 
         try androidEnvironmentFileLocal?.write(string: try env_local.xcconfigEntry())
     }
