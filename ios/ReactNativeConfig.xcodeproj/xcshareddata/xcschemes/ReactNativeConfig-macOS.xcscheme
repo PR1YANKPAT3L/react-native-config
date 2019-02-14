@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FD7F1D212215D390009A4F34"
-               BuildableName = "ReactNativeConfig.framework"
+               BuildableName = "ReactNativeConfigSwift.framework"
                BlueprintName = "ReactNativeConfigSwift-macOS"
                ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FD7F1D212215D390009A4F34"
-            BuildableName = "ReactNativeConfig.framework"
+            BuildableName = "ReactNativeConfigSwift.framework"
             BlueprintName = "ReactNativeConfigSwift-macOS"
             ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FD7F1D212215D390009A4F34"
-            BuildableName = "ReactNativeConfig.framework"
+            BuildableName = "ReactNativeConfigSwift.framework"
             BlueprintName = "ReactNativeConfigSwift-macOS"
             ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
          </BuildableReference>
