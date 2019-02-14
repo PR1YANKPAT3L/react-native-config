@@ -18,95 +18,50 @@ enum Error: Swift.Error {
 
 let signPost = SignPost.shared
 signPost.message("🚀 ReactNativeConfig main.swift\nExecuted at path \(currentFolder.path)\n...")
-let envFileName_debug = ".env.debug.json"
-let envFileName_release = ".env.release.json"
-var envFileName_local = ".env.local.json"
 
 do {
     
-    var reactNativeFolder = try currentFolder.parentFolder()
-    
-    // ios environment .xcconfig files
-    
-    var environmentFileDebug: FileProtocol!
-    var environmentFileRelease: FileProtocol!
-    var environmentFileLocal: FileProtocol?
-
-    
-    
-    var androidFolder: FolderProtocol!
-    var iosFolder: FolderProtocol!
-    
-    do {
-        SignPost.shared.verbose("PrepareReactNativeconfig run from post install in node_modules folder")
-        environmentFileDebug = try reactNativeFolder.file(named: envFileName_debug)
-        environmentFileRelease = try reactNativeFolder.file(named: envFileName_release)
-        do { environmentFileLocal = try reactNativeFolder.file(named: envFileName_local) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(envFileName_local) to have a local config. Ignoring for now") }
-        iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
-        androidFolder = try reactNativeFolder.subfolder(named: "android")
-    } catch {
-        
-        reactNativeFolder = try reactNativeFolder.parentFolder().parentFolder().parentFolder()
-        
-        SignPost.shared.verbose("PrepareReactNativeconfig run from building in the carthage checkouts folder")
-        environmentFileDebug = try reactNativeFolder.file(named: envFileName_debug)
-        environmentFileRelease = try reactNativeFolder.file(named: envFileName_release)
-        do { environmentFileLocal = try reactNativeFolder.file(named: envFileName_local) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(envFileName_local) to have a local config. Ignoring for now") }
-
-        iosFolder = currentFolder
-        androidFolder = try reactNativeFolder.subfolder(named: "android")
-    }
+    let configurationFiles = try ConfigurationFiles(reactNativeFolder: try currentFolder.parentFolder())
     
     // Generate ios config files
     
-    let frameworkSwiftFolder = try iosFolder.subfolder(named: "ReactNativeConfigSwift")
-    
-    let generatedEnvironmentSwiftFile = try frameworkSwiftFolder.createFileIfNeeded(named: "Environment.swift")
-    let generatedPlistFile = try iosFolder.subfolder(named: "ReactNativeConfigSwift").createFileIfNeeded(named: "Info.plist")
-    let generatedPlistSwiftFile = try frameworkSwiftFolder.createFileIfNeeded(named: "Plist.swift")
-    
-    let debugXconfigFile = try iosFolder.createFileIfNeeded(named: "Debug.xcconfig")
-    let env_debug: Env = try JSONDecoder().decode(Env.self, from:  try environmentFileDebug.read())
+    let env_debug: Env = try JSONDecoder().decode(Env.self, from:  try configurationFiles.debugJSONfile.read())
 
-    try debugXconfigFile.write(string: try env_debug.xcconfigEntry())
+    try configurationFiles.debugXconfigFile.write(string: try env_debug.xcconfigEntry())
     
-    let releaseXconfigFile = try iosFolder.createFileIfNeeded(named: "Release.xcconfig")
-    let env_release: Env = try JSONDecoder().decode(Env.self, from:  try environmentFileRelease.read())
+    let env_release: Env = try JSONDecoder().decode(Env.self, from:  try configurationFiles.releaseJSONfile.read())
 
-    try releaseXconfigFile.write(string: try env_release.xcconfigEntry())
+    try configurationFiles.releaseXconfigFile.write(string: try env_release.xcconfigEntry())
     
     var env_local: Env?
-    var localXconfigFile: FileProtocol?
     
-    if let environmentFile_local = environmentFileLocal {
-        localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
-        env_local = try JSONDecoder().decode(Env.self, from: try environmentFile_local.read())
+    if let environmentFileLocal = configurationFiles.localJSONfile {
+        env_local = try JSONDecoder().decode(Env.self, from: try environmentFileLocal.read())
         
-        try localXconfigFile?.write(string: try env_local!.xcconfigEntry())
-
+        try configurationFiles.localXconfigFile?.write(string: try env_local!.xcconfigEntry())
     }
     
     // android config files
     
     // android .env files
-    let androidEnvironmentFileDebug: FileProtocol = try androidFolder.createFileIfNeeded(named: ".env.debug")
-    let androidEnvironmentFileRelease: FileProtocol = try androidFolder.createFileIfNeeded(named: ".env.release")
+    let androidEnvironmentFileDebug: FileProtocol = try configurationFiles.androidFolder.createFileIfNeeded(named: ".env.debug")
+    let androidEnvironmentFileRelease: FileProtocol = try configurationFiles.androidFolder.createFileIfNeeded(named: ".env.release")
     var androidEnvironmentFileLocal: FileProtocol?
     
     try androidEnvironmentFileDebug.write(string: try env_debug.androidEnvEntry())
     try androidEnvironmentFileRelease.write(string: try env_release.androidEnvEntry())
     
     if let env_local = env_local {
-        androidEnvironmentFileLocal = try androidFolder.createFileIfNeeded(named: ".env.local")
+        androidEnvironmentFileLocal = try configurationFiles.androidFolder.createFileIfNeeded(named: ".env.local")
 
         try androidEnvironmentFileLocal?.write(string: try env_local.xcconfigEntry())
     }
     
     SignPost.shared.message("""
         🚀 Env read from
-            \(environmentFileDebug!)
-            \(environmentFileRelease!)
-            \(String(describing: environmentFileLocal))
+            \(configurationFiles.debugJSONfile)
+            \(configurationFiles.releaseJSONfile)
+            \(String(describing: configurationFiles.localJSONfile))
          ...
         """
     )
@@ -114,9 +69,9 @@ do {
     SignPost.shared.message("""
         🚀 Written to config files
         # ios
-            \(debugXconfigFile)
-            \(releaseXconfigFile)
-            \(String(describing: localXconfigFile))
+            \(configurationFiles.debugXconfigFile)
+            \(configurationFiles.releaseXconfigFile)
+            \(String(describing: configurationFiles.localXconfigFile))
         # android
             \(androidEnvironmentFileDebug)
             \(androidEnvironmentFileRelease)
@@ -154,7 +109,7 @@ do {
     
     let swiftLines = """
     //
-    //  Environment.swift
+    //  ConfigurationWorker
     //  ReactNativeConfigSwift
     //
     //  Created by Stijn on 29/01/2019.
@@ -164,7 +119,7 @@ do {
     import Foundation
 
     /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
-    @objc public class Environment: NSObject {
+    @objc public class ConfigurationWorker: NSObject {
         
         public enum Error: Swift.Error {
             case noInfoDictonary
@@ -234,7 +189,7 @@ do {
 
     """
    
-    try generatedEnvironmentSwiftFile.write(data: swiftLines.data(using: .utf8)!)
+    try configurationFiles.configurationWorkerFile.write(data: swiftLines.data(using: .utf8)!)
     
     let plistVar: String = text
         .map { $0.plistVar }
@@ -247,7 +202,7 @@ do {
     
     let plistLinesSwift = """
     //
-    //  EnvironmentCustomPlist.swift
+    //  Configuration.swift
     //  ReactNativeConfigSwift
     //
     //  Created by Stijn on 30/01/2019.
@@ -258,7 +213,7 @@ do {
 
     //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
 
-    public struct Plist: Codable, CustomStringConvertible {
+    public struct Configuration: Codable, CustomStringConvertible {
         
         
         // These are the normal plist things
@@ -277,7 +232,7 @@ do {
         
         public var description: String {
             return \"""
-            Environment Plist
+            Configuration.swift read from Info.plist of ReactNativeConfigSwift framework
     
             // Config variable of Framework ReactNativeConfigSwift
     
@@ -299,7 +254,7 @@ do {
     }
     
     """
-    try generatedPlistSwiftFile.write(string: plistLinesSwift)
+    try configurationFiles.configurationFile.write(string: plistLinesSwift)
     
     let plistLinesXmlText: String = text
         .map { $0.xmlEntry }
@@ -332,7 +287,7 @@ do {
     </plist>
     """
     
-    try generatedPlistFile.write(string: plistLinesXml)
+    try configurationFiles.plistFile.write(string: plistLinesXml)
     SignPost.shared.message("🚀 ReactNativeConfig main.swift ✅")
     
     exit(EXIT_SUCCESS)
@@ -343,7 +298,7 @@ do {
          \(error)
     
     ❌
-        ♥️ Fix it by adding \(envFileName_debug) & \(envFileName_release) at <#react native#>/
+        ♥️ Fix it by adding \(ConfigurationFiles.debugJSON) & \(ConfigurationFiles.releaseJSON) or (optionally) \(ConfigurationFiles.localJSON)at <#react native#>/
     """
     )
     exit(EXIT_FAILURE)
