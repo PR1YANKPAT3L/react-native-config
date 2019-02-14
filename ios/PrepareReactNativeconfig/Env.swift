@@ -12,9 +12,10 @@ struct Env: Decodable {
     let env: [String: JSONEntry]
     
     func xcconfigEntry() throws -> String {
-        return try env.map {
-            return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"
-        }.joined(separator: "\n")
+        return try env
+            .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"}
+            .sorted()
+            .joined(separator: "\n")
     }
     
     func androidEnvEntry() throws -> String {
