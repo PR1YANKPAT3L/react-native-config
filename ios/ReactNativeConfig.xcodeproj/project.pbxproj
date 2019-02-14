@@ -405,7 +405,7 @@
 		FD55CBED2200A2750044D1A7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "$(SRCROOT)/../.build/$(CONFIGURATION)";
+			dstPath = "$(SRCROOT)/../.build";
 			dstSubfolderSpec = 0;
 			files = (
 				FD55CBEE2200A2860044D1A7 /* PrepareReactNativeconfig.app in CopyFiles */,
