@@ -45,7 +45,14 @@ public struct JSONEntry: Codable {
         }
         
         var typePlistString: String {
-            return typeSwiftString.lowercased()
+            
+            switch self {
+            case .url(_), .bool(_):
+                return "string"
+            default:
+               return typeSwiftString.lowercased()
+            }
+            
         }
         
         var valueString: String {

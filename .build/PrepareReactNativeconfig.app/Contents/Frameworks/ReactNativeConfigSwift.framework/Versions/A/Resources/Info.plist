@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BE_BOLIDES_RELEASE_CHANNEL</key>
+	<string>staging-bolides</string>
+	<key>BE_BOLIDES_RELEASE_MANIFEST_URL</key>
+	<string>https:\/\/exp.host/@bart2050/Bolides?release-channel=staging-bolides</string>
+	<key>BOLIDES_BASE_URL</key>
+	<string>https:\/\/staging.armada.bolides.be</string>
+	<key>BOLIDES_ITSME_SECURE_KEY</key>
+	<string>DEBUG: some key to get stuff for secure storage</string>
+	<key>Be_custom</key>
+	<string>0</string>
 	<key>BuildMachineOSBuild</key>
 	<string>18D109</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -38,7 +48,7 @@
 	<string>1010</string>
 	<key>DTXcodeBuild</key>
 	<string>10B61</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2019 Pedro Belo. All rights reserved.</string>
+	<key>ONESIGNAL_APP_ID</key>
+	<string>cad3f497-898e-4e73-9bfd-442974a2ad59</string>
 </dict>
 </plist>

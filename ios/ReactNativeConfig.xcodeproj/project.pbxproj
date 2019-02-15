@@ -475,7 +475,6 @@
 		FD661CDE2216C47200F27AD5 /* Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
 		FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactNativeConfigSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig_macOS.h; sourceTree = "<group>"; };
-		FD7F1D252215D390009A4F34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD82E7FE2216CE3A00837A3E /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
 		FD82E8002216D17500837A3E /* Builds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builds.swift; sourceTree = "<group>"; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
@@ -690,7 +689,6 @@
 			isa = PBXGroup;
 			children = (
 				FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */,
-				FD7F1D252215D390009A4F34 /* Info.plist */,
 			);
 			path = "ReactNativeConfig-macOS";
 			sourceTree = "<group>";
@@ -1894,7 +1892,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfig-macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ReactNativeConfigSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
@@ -1929,7 +1927,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfig-macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ReactNativeConfigSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
@@ -1962,7 +1960,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfig-macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ReactNativeConfigSwift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
