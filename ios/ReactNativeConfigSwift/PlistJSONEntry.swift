@@ -14,6 +14,14 @@ public struct JSONEntry: Codable {
     
     public let typedValue: PossibleTypes
     
+    init(
+        typedValue: PossibleTypes
+        ) {
+        self.value = "\(typedValue)"
+        self.valueType = typedValue.typeSwiftString
+        self.typedValue = typedValue
+    }
+    
     public enum PossibleTypes {
         
         public typealias RawValue = String
@@ -21,6 +29,7 @@ public struct JSONEntry: Codable {
         case url(URL)
         case string(String)
         case int(Int)
+        case bool(Bool)
     
         var typeSwiftString: String {
             switch self {
@@ -30,19 +39,28 @@ public struct JSONEntry: Codable {
                 return "Int"
             case .string(_):
                 return "String"
+            case .bool(_):
+                return "Bool"
             }
         }
         
         var typePlistString: String {
+            return typeSwiftString.lowercased()
+        }
+        
+        var valueString: String {
             switch self {
-            case .url(_):
-                return "string"
-            case .int(_):
-                return "int"
-            case .string(_):
-                return "string"
+            case let .url(url):
+                return "\(url.absoluteString)"
+            case let .int(int):
+                return "\(int)"
+            case let .string(string):
+                return string
+            case let .bool(bool):
+                return "\(bool)"
             }
         }
+        
     }
     
     public enum CodingKeys: String, CodingKey {
@@ -60,21 +78,27 @@ public struct JSONEntry: Codable {
         value = try container.decode(String.self, forKey: .value)
         valueType = try container.decode(String.self, forKey: .valueType)
         
-        switch valueType {
-        case "Url":
+        switch valueType.lowercased() {
+        case "url":
             guard let url = URL(string: value) else {
                 throw Error.invalidUrl(value)
             }
             
             typedValue = .url(url)
-        case "String":
+        case "string":
             typedValue = .string(value)
-        case "Int":
+        case "int":
             guard let int = Int(value) else {
                 throw Error.invalidUrl(value)
             }
             
             typedValue = .int(int)
+        case "bool":
+            guard let _value = Bool(value) else {
+                throw Error.invalidUrl(value)
+            }
+            
+            typedValue = .bool(_value)
         default:
             throw Error.couldNotResolveType(valueType)
         }

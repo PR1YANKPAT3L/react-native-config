@@ -46,7 +46,7 @@ struct Builds {
             local = nil
         }
         
-        allKeys = debug.env.enumerated().compactMap {
+        var allKeys: [(case: String, plistVar: String, plistVarString: String, xmlEntry: String)] = debug.typed.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = $0.element.value.typedValue
             let swiftTypeString = typedValue.typeSwiftString
@@ -62,6 +62,26 @@ struct Builds {
                 """
             )
         }
+        
+        let booleanKeys: [(case: String, plistVar: String, plistVarString: String, xmlEntry: String)] = debug.booleans.enumerated().compactMap {
+            let key = $0.element.key
+            let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
+            let swiftTypeString = typedValue.typeSwiftString
+            let xmlType = typedValue.typePlistString
+            
+            return (
+                case: "case \(key)",
+                plistVar: "public let \(key): \(swiftTypeString)",
+                plistVarString: "\(key): \\(\(key))",
+                xmlEntry: """
+                <key>\(key)</key>
+                <\(xmlType)>$(\(key))</\(xmlType)>
+                """
+            )
+        }
+        allKeys.append(contentsOf: booleanKeys)
+        
+        self.allKeys = allKeys
         
         casesForEnum = allKeys
                 .map { $0.case }
@@ -93,17 +113,18 @@ struct Builds {
     
     struct JSON: Decodable {
         
-        let env: [String: JSONEntry]
+        let typed: [String: JSONEntry]
+        let booleans: [String: Bool]
         
         func xcconfigEntry() throws -> String {
-            return try env
+            return try typed
                 .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"}
                 .sorted()
                 .joined(separator: "\n")
         }
         
         func androidEnvEntry() throws -> String {
-            return try env
+            return try typed
                 .map { return "\($0.key) = \(try androidEnvRawValue(for: $0.value))" }
                 .sorted()
                 .joined(separator: "\n")
@@ -121,6 +142,8 @@ struct Builds {
                 return string
             case let .int(int):
                 return "\(int)"
+            case let .bool(boolValue):
+                return "\(boolValue)"
             }
         }
         
@@ -132,6 +155,8 @@ struct Builds {
                 return string
             case let .int(int):
                 return "\(int)"
+            case let .bool(boolValue):
+                return "\(boolValue)"
             }
         }
     }
