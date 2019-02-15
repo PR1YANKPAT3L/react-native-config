@@ -11,6 +11,7 @@ import ZFile
 import SignPost
 
 let currentFolder = FileSystem.shared.currentFolder
+
 enum Error: Swift.Error {
     case noPrepareInSwiftFile
     case missingIOSFolder
@@ -23,39 +24,7 @@ do {
     
     let configurationFiles = try ConfigurationFiles(reactNativeFolder: try currentFolder.parentFolder())
     
-    // Generate ios config files
-    
-    let env_debug: Env = try JSONDecoder().decode(Env.self, from:  try configurationFiles.debugJSONfile.read())
-
-    try configurationFiles.debugXconfigFile.write(string: try env_debug.xcconfigEntry())
-    
-    let env_release: Env = try JSONDecoder().decode(Env.self, from:  try configurationFiles.releaseJSONfile.read())
-
-    try configurationFiles.releaseXconfigFile.write(string: try env_release.xcconfigEntry())
-    
-    var env_local: Env?
-    
-    if let environmentFileLocal = configurationFiles.localJSONfile {
-        env_local = try JSONDecoder().decode(Env.self, from: try environmentFileLocal.read())
-        
-        try configurationFiles.localXconfigFile?.write(string: try env_local!.xcconfigEntry())
-    }
-    
-    // android config files
-    
-    // android .env files
-    let androidEnvironmentFileDebug: FileProtocol = try configurationFiles.androidFolder.createFileIfNeeded(named: ".env.debug")
-    let androidEnvironmentFileRelease: FileProtocol = try configurationFiles.androidFolder.createFileIfNeeded(named: ".env.release")
-    var androidEnvironmentFileLocal: FileProtocol?
-    
-    try androidEnvironmentFileDebug.write(string: try env_debug.androidEnvEntry())
-    try androidEnvironmentFileRelease.write(string: try env_release.androidEnvEntry())
-    
-    if let env_local = env_local {
-        androidEnvironmentFileLocal = try configurationFiles.androidFolder.createFileIfNeeded(named: ".env.local")
-
-        try androidEnvironmentFileLocal?.write(string: try env_local.xcconfigEntry())
-    }
+    let configurations = try writeToPlatformReadableConfiguarationFiles(from: configurationFiles)
     
     SignPost.shared.message("""
         🚀 Env read from
@@ -73,9 +42,9 @@ do {
             \(configurationFiles.releaseXconfigFile)
             \(String(describing: configurationFiles.localXconfigFile))
         # android
-            \(androidEnvironmentFileDebug)
-            \(androidEnvironmentFileRelease)
-            \(String(describing: androidEnvironmentFileLocal))
+            \(configurationFiles.debugAndroidConfigurationFile)
+            \(configurationFiles.releaseAndroidConfigurationFile)
+            \(String(describing: configurationFiles.localAndroidConfigurationFile))
         ...
         """
     )
@@ -83,22 +52,7 @@ do {
     // iOS
     // Only 1 environment read is good. Values come form configuration files
     
-    let text: [(case: String, plistVar: String, plistVarString: String, xmlEntry: String)] = env_debug.env.enumerated().compactMap {
-        let key = $0.element.key
-        let typedValue = $0.element.value.typedValue
-        let swiftTypeString = typedValue.typeSwiftString
-        let xmlType = typedValue.typePlistString
-        
-        return (
-            case: "case \(key)",
-            plistVar: "public let \(key): \(swiftTypeString)",
-            plistVarString: "\(key): \\(\(key))",
-            xmlEntry: """
-            <key>\(key)</key>
-            <\(xmlType)>$(\(key))</\(xmlType)>
-            """
-        )
-    }
+    
     
     let allCases: String = text
         .map { $0.case }
@@ -106,91 +60,8 @@ do {
         .joined(separator: "\n")
     
     SignPost.shared.verbose("Writing environment variables to swift files and plist")
-    
-    let swiftLines = """
-    //
-    //  ConfigurationWorker
-    //  ReactNativeConfigSwift
-    //
-    //  Created by Stijn on 29/01/2019.
-    //  Copyright © 2019 Pedro Belo. All rights reserved.
-    //
-
-    import Foundation
-
-    /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
-    @objc public class ConfigurationWorker: NSObject {
-        
-        public enum Error: Swift.Error {
-            case noInfoDictonary
-            case infoDictionaryNotReadableAsDictionary
-        }
-        
-        @objc public class func allValuesDictionary() throws -> [String : String] {
-            
-            var dict = [String : String]()
-            
-             try Environment.allConstants().forEach { _case in
-                dict[_case.key.rawValue] = _case.value
-            }
-            return dict
-        }
-       
-        /// All custom environment dependend keys that are added to the plist and in the dictionary
-        @objc public func allCustomKeys() -> [String] {
-            return Case.allCases.map { $0.rawValue }
-        }
-        
-        /// Keys used in the plist of ReactNativeConfigSwift module when building for the selected configuration (Debug or Release)
-        public enum Case: String, CaseIterable {
-            
-    \(allCases)
-            
-        }
-        
-        /// Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-        public static func plist() throws ->  Plist {
-            
-            guard let infoDict = Bundle(for: Environment.self).infoDictionary else {
-                throw Error.noInfoDictonary
-            }
-            
-            let data = try JSONSerialization.data(withJSONObject: infoDict, options: .prettyPrinted)
-            
-            return try JSONDecoder().decode(Plist.self, from: data)
-        }
-        
-        /// If using swift use plist()
-        /// In Objective-C you can access this dictionary containing all custom environment dependend keys.
-        /// They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-        public static func  allConstants() throws ->  [Environment.Case: String] {
-            var result = [Case: String]()
-            
-            let plist = try Environment.plist()
-            let data = try JSONEncoder().encode(plist)
-            
-            guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {
-                throw Error.infoDictionaryNotReadableAsDictionary
-            }
-            
-            dict.forEach {
-                
-                guard let key = Case(rawValue: $0.key) else {
-                    return
-                }
-                result[key] = $0.value
-            }
-            
-            return result
-        }
-        
-        
-    }
-
-    """
+    try generateConfigurationWorker(allCases: allCases, configurationFiles: configurationFiles)
    
-    try configurationFiles.configurationWorkerFile.write(data: swiftLines.data(using: .utf8)!)
-    
     let plistVar: String = text
         .map { $0.plistVar }
         .map {"    \($0)"}

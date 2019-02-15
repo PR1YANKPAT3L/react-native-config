@@ -34,6 +34,10 @@ struct ConfigurationFiles {
     let releaseXconfigFile: FileProtocol
     let localXconfigFile: FileProtocol?
     
+    let debugAndroidConfigurationFile: FileProtocol
+    let releaseAndroidConfigurationFile: FileProtocol
+    let localAndroidConfigurationFile: FileProtocol?
+    
     init(reactNativeFolder: FolderProtocol) throws {
         var reactNativeFolder = reactNativeFolder
         
@@ -82,9 +86,15 @@ struct ConfigurationFiles {
 
         if localJSON != nil {
             localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
+            localAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.local")
         } else {
             localXconfigFile = nil
+            localAndroidConfigurationFile = nil
         }
+        
+        debugAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.debug")
+        releaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.release")
+        
     }
     
 }

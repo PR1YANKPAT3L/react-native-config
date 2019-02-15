@@ -16,7 +16,7 @@
 		FD4868772201D1810092A63E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* Configuration.swift */; };
 		FD4868AF2201E2D00092A63E /* PlistJSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* PlistJSONEntry.swift */; };
 		FD4868B02201E3180092A63E /* PlistJSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* PlistJSONEntry.swift */; };
-		FD4868B42201E7FD0092A63E /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868B32201E7FD0092A63E /* Env.swift */; };
+		FD4868B42201E7FD0092A63E /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868B32201E7FD0092A63E /* JSON.swift */; };
 		FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD4BE2A92201A9F0008903DC /* SignPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC282200A36C0044D1A7 /* SignPost.framework */; };
 		FD4BE2AA2201A9F0008903DC /* SignPost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC282200A36C0044D1A7 /* SignPost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,6 +40,8 @@
 		FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD7F1D322215D3F2009A4F34 /* ConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* ConfigurationWorker.swift */; };
 		FD7F1D332215D3F2009A4F34 /* PlistJSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* PlistJSONEntry.swift */; };
+		FD82E7FF2216CE3A00837A3E /* SwiftCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E7FE2216CE3A00837A3E /* SwiftCodeGenerator.swift */; };
+		FD82E8012216D17500837A3E /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E8002216D17500837A3E /* Configurations.swift */; };
 		FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BE2B12201AA38008903DC /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -453,7 +455,7 @@
 		FD4867C92201B6D10092A63E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		FD4868762201D1810092A63E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FD4868AE2201E2D00092A63E /* PlistJSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistJSONEntry.swift; sourceTree = "<group>"; };
-		FD4868B32201E7FD0092A63E /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		FD4868B32201E7FD0092A63E /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CBB522009FF50044D1A7 /* PrepareReactNativeconfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepareReactNativeconfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -476,6 +478,8 @@
 		FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactNativeConfigSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig_macOS.h; sourceTree = "<group>"; };
 		FD7F1D252215D390009A4F34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD82E7FE2216CE3A00837A3E /* SwiftCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCodeGenerator.swift; sourceTree = "<group>"; };
+		FD82E8002216D17500837A3E /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -590,7 +594,9 @@
 			children = (
 				FD661CDE2216C47200F27AD5 /* ConfigurationFiles.swift */,
 				FD55CC6E2200A68A0044D1A7 /* main.swift */,
-				FD4868B32201E7FD0092A63E /* Env.swift */,
+				FD82E7FE2216CE3A00837A3E /* SwiftCodeGenerator.swift */,
+				FD82E8002216D17500837A3E /* Configurations.swift */,
+				FD4868B32201E7FD0092A63E /* JSON.swift */,
 				FD55CBC022009FF70044D1A7 /* Info.plist */,
 				FD55CBC122009FF70044D1A7 /* PrepareReactNativeconfig.entitlements */,
 			);
@@ -1331,7 +1337,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD661CDF2216C47200F27AD5 /* ConfigurationFiles.swift in Sources */,
-				FD4868B42201E7FD0092A63E /* Env.swift in Sources */,
+				FD82E8012216D17500837A3E /* Configurations.swift in Sources */,
+				FD4868B42201E7FD0092A63E /* JSON.swift in Sources */,
+				FD82E7FF2216CE3A00837A3E /* SwiftCodeGenerator.swift in Sources */,
 				FD55CC6F2200A68A0044D1A7 /* main.swift in Sources */,
 				FD4868B02201E3180092A63E /* PlistJSONEntry.swift in Sources */,
 			);
