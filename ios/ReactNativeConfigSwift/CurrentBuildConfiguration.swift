@@ -25,10 +25,10 @@ public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
     public let CFBundleVersion: String
 
     // Custom plist properties are added here
-    public let ONESIGNAL_APP_ID: String
-    public let BOLIDES_ITSME_SECURE_KEY: String
     public let BE_BOLIDES_RELEASE_CHANNEL: String
     public let BOLIDES_BASE_URL: URLEscaped
+    public let BOLIDES_ITSME_SECURE_KEY: String
+    public let ONESIGNAL_APP_ID: String
 
     public var description: String {
         return """
@@ -47,10 +47,10 @@ public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
 
             // Custom environment dependend constants from .env.debug.json or .env.release.json
 
-            * ONESIGNAL_APP_ID: \(ONESIGNAL_APP_ID)
-            * BOLIDES_ITSME_SECURE_KEY: \(BOLIDES_ITSME_SECURE_KEY)
             * BE_BOLIDES_RELEASE_CHANNEL: \(BE_BOLIDES_RELEASE_CHANNEL)
             * BOLIDES_BASE_URL: \(BOLIDES_BASE_URL)
+            * BOLIDES_ITSME_SECURE_KEY: \(BOLIDES_ITSME_SECURE_KEY)
+            * ONESIGNAL_APP_ID: \(ONESIGNAL_APP_ID)
             """
     }
 
