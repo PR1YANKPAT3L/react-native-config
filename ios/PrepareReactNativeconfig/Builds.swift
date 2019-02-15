@@ -46,7 +46,7 @@ struct Builds {
             local = nil
         }
         
-        allKeys = debug.dictionary.enumerated().compactMap {
+        allKeys = debug.env.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = $0.element.value.typedValue
             let swiftTypeString = typedValue.typeSwiftString
@@ -88,17 +88,17 @@ struct Builds {
     
     struct JSON: Decodable {
         
-        let dictionary: [String: JSONEntry]
+        let env: [String: JSONEntry]
         
         func xcconfigEntry() throws -> String {
-            return try dictionary
+            return try env
                 .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"}
                 .sorted()
                 .joined(separator: "\n")
         }
         
         func androidEnvEntry() throws -> String {
-            return try dictionary
+            return try env
                 .map { return "\($0.key) = \(try androidEnvRawValue(for: $0.value))" }
                 .sorted()
                 .joined(separator: "\n")

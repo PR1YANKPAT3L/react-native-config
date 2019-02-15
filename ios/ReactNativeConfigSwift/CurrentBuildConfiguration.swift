@@ -1,5 +1,5 @@
 //
-//  EnvironmentCustomPlist.swift
+//  Configuration.swift
 //  ReactNativeConfigSwift
 //
 //  Created by Stijn on 30/01/2019.
@@ -11,8 +11,8 @@ import Foundation
 //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
 
 public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
-    
-    
+
+
     // These are the normal plist things
 
     public let CFBundleDevelopmentRegion: String
@@ -23,18 +23,18 @@ public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
     public let CFBundlePackageType: String
     public let CFBundleShortVersionString: String
     public let CFBundleVersion: String
-    
+
     // Custom plist properties are added here
-    public let BOLIDES_ITSME_SECURE_KEY: String
-    public let ONESIGNAL_APP_ID: String
-    public let BOLIDES_BASE_URL: URLEscaped
     public let BE_BOLIDES_RELEASE_CHANNEL: String
-    
+    public let BOLIDES_ITSME_SECURE_KEY: String
+    public let BOLIDES_BASE_URL: URLEscaped
+    public let ONESIGNAL_APP_ID: String
+
     public var description: String {
         return """
-        Configuration.swift read from Info.plist of ReactNativeConfigSwift framework
+            Configuration.swift read from Info.plist of ReactNativeConfigSwift framework
 
-        // Config variable of Framework ReactNativeConfigSwift
+            // Config variable of Framework ReactNativeConfigSwift
 
             * CFBundleDevelopmentRegion = \(CFBundleDevelopmentRegion)
             * CFBundleExecutable = \(CFBundleExecutable)
@@ -45,13 +45,13 @@ public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
             * CFBundleShortVersionString = \(CFBundleShortVersionString)
             * CFBundleVersion = \(CFBundleVersion)
 
-        // Custom environment dependend constants from .env.debug.json or .env.release.json 
+            // Custom environment dependend constants from .env.debug.json or .env.release.json
 
-            * BOLIDES_ITSME_SECURE_KEY: \(BOLIDES_ITSME_SECURE_KEY)
-            * ONESIGNAL_APP_ID: \(ONESIGNAL_APP_ID)
-            * BOLIDES_BASE_URL: \(BOLIDES_BASE_URL)
             * BE_BOLIDES_RELEASE_CHANNEL: \(BE_BOLIDES_RELEASE_CHANNEL)
-        """
+            * BOLIDES_ITSME_SECURE_KEY: \(BOLIDES_ITSME_SECURE_KEY)
+            * BOLIDES_BASE_URL: \(BOLIDES_BASE_URL)
+            * ONESIGNAL_APP_ID: \(ONESIGNAL_APP_ID)
+            """
     }
 
 }
