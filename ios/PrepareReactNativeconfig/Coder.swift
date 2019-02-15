@@ -154,7 +154,7 @@ struct Coder {
                     \"""
             }
         
-            init(decoder: Decoder) throws {
+            public init(from decoder: Decoder) throws {
         
                 let container = try decoder.container(keyedBy: CodingKeys.self)
         

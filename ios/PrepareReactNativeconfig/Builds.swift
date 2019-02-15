@@ -133,17 +133,33 @@ struct Builds {
         let booleans: [String: Bool]
         
         func xcconfigEntry() throws -> String {
-            return try typed
+            var entries = try typed
                 .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"}
                 .sorted()
-                .joined(separator: "\n")
+            
+            let booleanEntries = booleans
+                .map { return "\($0.key) = \($0.value)"}
+                .sorted()
+            entries.append(contentsOf: booleanEntries)
+            
+            return entries.joined(separator: "\n")
         }
         
         func androidEnvEntry() throws -> String {
-            return try typed
+            var entries = try typed
                 .map { return "\($0.key) = \(try androidEnvRawValue(for: $0.value))" }
                 .sorted()
-                .joined(separator: "\n")
+            
+            let booleanEntries: [String] = try booleans
+                .map {
+                    let key = $0.key
+                    let jsonEntry = JSONEntry(typedValue: .bool($0.value))
+                    return "\(key) = \(try androidEnvRawValue(for: jsonEntry))"}
+                .sorted()
+            
+            entries.append(contentsOf: booleanEntries)
+            
+            return entries.joined(separator: "\n")
         }
         
         // MARK: - Private
