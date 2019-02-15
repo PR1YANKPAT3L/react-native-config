@@ -66,22 +66,27 @@ struct Builds {
         casesForEnum = allKeys
                 .map { $0.case }
                 .map {"      \($0)"}
+                .stored()
                 .joined(separator: "\n")
         
         plistVar = allKeys
-            .map { $0.plistVar }
-            .map {"    \($0)"}
-            .joined(separator: "\n")
+                .map { $0.plistVar }
+                .map {"    \($0)"}
+                .stored()
+                .joined(separator: "\n")
         
         plistVarString = allKeys
-            .map { $0.plistVarString }
-            .map { "            * \($0)" }
-            .joined(separator: "\n")
+                .map { $0.plistVarString }
+                .map { "            * \($0)" }
+                .stored()
+                .joined(separator: "\n")
         
         plistLinesXmlText  = allKeys
                 .map { $0.xmlEntry }
                 .map {"      \($0)"}
+                .stored()
                 .joined(separator: "\n")
+        
     }
     
     // MARK: - JSON struct
