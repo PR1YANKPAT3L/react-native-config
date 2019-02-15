@@ -10,7 +10,7 @@ import Foundation
 
 //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
 
-public struct Configuration: Codable, CustomStringConvertible {
+public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
     
     
     // These are the normal plist things

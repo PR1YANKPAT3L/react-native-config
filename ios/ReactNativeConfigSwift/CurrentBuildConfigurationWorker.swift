@@ -9,7 +9,7 @@
 import Foundation
 
 /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
-@objc public class ConfigurationWorker: NSObject {
+@objc public class CurrentBuildConfigurationWorker: NSObject {
     
     public enum Error: Swift.Error {
         case noInfoDictonary
@@ -20,7 +20,7 @@ import Foundation
         
         var dict = [String : String]()
         
-         try ConfigurationWorker.allConstants().forEach { _case in
+         try CurrentBuildConfigurationWorker.allConstants().forEach { _case in
             dict[_case.key.rawValue] = _case.value
         }
         return dict
@@ -42,24 +42,24 @@ import Foundation
     }
     
     /// Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-    public static func plist() throws ->  Configuration {
+    public static func readCurrentBuildConfiguration() throws ->  CurrentBuildConfiguration {
         
-        guard let infoDict = Bundle(for: ConfigurationWorker.self).infoDictionary else {
+        guard let infoDict = Bundle(for: CurrentBuildConfigurationWorker.self).infoDictionary else {
             throw Error.noInfoDictonary
         }
         
         let data = try JSONSerialization.data(withJSONObject: infoDict, options: .prettyPrinted)
         
-        return try JSONDecoder().decode(Configuration.self, from: data)
+        return try JSONDecoder().decode(CurrentBuildConfiguration.self, from: data)
     }
     
     /// If using swift use plist()
     /// In Objective-C you can access this dictionary containing all custom environment dependend keys.
     /// They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-    public static func  allConstants() throws ->  [ConfigurationWorker.Case: String] {
+    public static func  allConstants() throws ->  [CurrentBuildConfigurationWorker.Case: String] {
         var result = [Case: String]()
         
-        let plist = try ConfigurationWorker.plist()
+        let plist = try CurrentBuildConfigurationWorker.readCurrentBuildConfiguration()
         let data = try JSONEncoder().encode(plist)
         
         guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {

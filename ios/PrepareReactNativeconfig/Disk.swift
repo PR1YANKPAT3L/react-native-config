@@ -10,7 +10,7 @@ import Foundation
 import SignPost
 import ZFile
 
-struct ConfigurationFiles {
+struct Disk {
     
     static let debugJSON = ".env.debug.json"
     static let releaseJSON = ".env.release.json"
@@ -50,9 +50,9 @@ struct ConfigurationFiles {
         
         do {
             SignPost.shared.verbose("PrepareReactNativeconfig run from post install in node_modules folder")
-            debugJSON = try reactNativeFolder.file(named: ConfigurationFiles.debugJSON)
-            releaseJSON = try reactNativeFolder.file(named: ConfigurationFiles.releaseJSON)
-            do { localJSON = try reactNativeFolder.file(named: ConfigurationFiles.localJSON) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationFiles.localJSON) to have a local config. Ignoring for now") }
+            debugJSON = try reactNativeFolder.file(named: Disk.debugJSON)
+            releaseJSON = try reactNativeFolder.file(named: Disk.releaseJSON)
+            do { localJSON = try reactNativeFolder.file(named: Disk.localJSON) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.localJSON) to have a local config. Ignoring for now") }
             iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
             androidFolder = try reactNativeFolder.subfolder(named: "android")
         } catch {
@@ -60,9 +60,9 @@ struct ConfigurationFiles {
             reactNativeFolder = try reactNativeFolder.parentFolder().parentFolder().parentFolder()
             
             SignPost.shared.verbose("PrepareReactNativeconfig run from building in the carthage checkouts folder")
-            debugJSON = try reactNativeFolder.file(named: ConfigurationFiles.debugJSON)
-            releaseJSON = try reactNativeFolder.file(named: ConfigurationFiles.releaseJSON)
-            do { localJSON = try reactNativeFolder.file(named: ConfigurationFiles.localJSON) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationFiles.localJSON) to have a local config. Ignoring for now") }
+            debugJSON = try reactNativeFolder.file(named: Disk.debugJSON)
+            releaseJSON = try reactNativeFolder.file(named: Disk.releaseJSON)
+            do { localJSON = try reactNativeFolder.file(named: Disk.localJSON) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.localJSON) to have a local config. Ignoring for now") }
             
             iosFolder = currentFolder
             androidFolder = try reactNativeFolder.subfolder(named: "android")
