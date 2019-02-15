@@ -15,28 +15,36 @@ struct Disk {
     static let debugJSON = ".env.debug.json"
     static let releaseJSON = ".env.release.json"
     static var localJSON = ".env.local.json"
-
+    
+    let inputJSON: Input
+    
     let reactNativeFolder: FolderProtocol
     let reactNativeConfigSwiftSourcesFolder: FolderProtocol
-    
-    let debugJSONfile: FileProtocol
-    let releaseJSONfile: FileProtocol
-    let localJSONfile: FileProtocol?
-    
     let androidFolder: FolderProtocol
     let iosFolder: FolderProtocol
     
-    let configurationWorkerFile: FileProtocol
-    let plistFile: FileProtocol
-    let configurationFile: FileProtocol
+    let iOS: Output
+    let android: Output
     
-    let debugXconfigFile: FileProtocol
-    let releaseXconfigFile: FileProtocol
-    let localXconfigFile: FileProtocol?
+    let code: Output.Code
     
-    let debugAndroidConfigurationFile: FileProtocol
-    let releaseAndroidConfigurationFile: FileProtocol
-    let localAndroidConfigurationFile: FileProtocol?
+    struct Input {
+        let debug: FileProtocol
+        let release: FileProtocol
+        let local: FileProtocol?
+    }
+    
+    struct Output {
+        let debug: FileProtocol
+        let release: FileProtocol
+        let local: FileProtocol?
+        
+        struct Code {
+            let configurationWorkerFile: FileProtocol
+            let infoPlist: FileProtocol
+            let currentBuild: FileProtocol
+        }
+    }
     
     init(reactNativeFolder: FolderProtocol) throws {
         var reactNativeFolder = reactNativeFolder
@@ -70,20 +78,19 @@ struct Disk {
         
         reactNativeConfigSwiftSourcesFolder = try iosFolder.subfolder(named: "ReactNativeConfigSwift")
         
-        self.debugJSONfile = debugJSON
-        self.releaseJSONfile = releaseJSON
-        self.localJSONfile = localJSON
+        self.inputJSON = Input(
+            debug: debugJSON,
+            release: releaseJSON,
+            local: localJSON
+        )
+        
         self.androidFolder = androidFolder
         self.iosFolder = iosFolder
         self.reactNativeFolder = reactNativeFolder
         
-        configurationWorkerFile = try reactNativeConfigSwiftSourcesFolder.createFileIfNeeded(named: "ConfigurationWorker.swift")
-        plistFile = try iosFolder.subfolder(named: "ReactNativeConfigSwift").createFileIfNeeded(named: "Info.plist")
-        configurationFile = try reactNativeConfigSwiftSourcesFolder.createFileIfNeeded(named: "Configuration.swift")
+        var localXconfigFile: FileProtocol?
+        var localAndroidConfigurationFile: FileProtocol?
         
-        debugXconfigFile = try iosFolder.createFileIfNeeded(named: "Debug.xcconfig")
-        releaseXconfigFile = try iosFolder.createFileIfNeeded(named: "Release.xcconfig")
-
         if localJSON != nil {
             localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
             localAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.local")
@@ -92,8 +99,23 @@ struct Disk {
             localAndroidConfigurationFile = nil
         }
         
-        debugAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.debug")
-        releaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.release")
+        iOS = Output(
+            debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
+            release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
+            local: localXconfigFile
+        )
+        
+        android = Output(
+            debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
+            release: try androidFolder.createFileIfNeeded(named: ".env.release"),
+            local: localAndroidConfigurationFile
+        )
+        
+        code = Output.Code(
+            configurationWorkerFile: try reactNativeConfigSwiftSourcesFolder.createFileIfNeeded(named: "CurrentBuildConfigurationWorker.swift"),
+            infoPlist: try iosFolder.subfolder(named: "ReactNativeConfigSwift").createFileIfNeeded(named: "Info.plist"),
+            currentBuild: try reactNativeConfigSwiftSourcesFolder.createFileIfNeeded(named: "CurrentBuildConfiguration.swift")
+        )
         
     }
     

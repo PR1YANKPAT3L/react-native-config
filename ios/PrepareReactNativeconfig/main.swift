@@ -22,9 +22,9 @@ do {
     
     SignPost.shared.message("""
         🚀 Env read from
-            \(disk.debugJSONfile)
-            \(disk.releaseJSONfile)
-            \(String(describing: disk.localJSONfile))
+            \(disk.inputJSON.debug)
+            \(disk.inputJSON.release)
+            \(String(describing: disk.inputJSON.local))
          ...
         """
     )
@@ -32,13 +32,13 @@ do {
     SignPost.shared.message("""
         🚀 Written to config files
         # ios
-            \(disk.debugXconfigFile)
-            \(disk.releaseXconfigFile)
-            \(String(describing: disk.localXconfigFile))
+            \(disk.iOS.debug)
+            \(disk.iOS.release)
+            \(String(describing: disk.iOS.local))
         # android
-            \(disk.debugAndroidConfigurationFile)
-            \(disk.releaseAndroidConfigurationFile)
-            \(String(describing: disk.localAndroidConfigurationFile))
+            \(disk.android.debug)
+            \(disk.android.release)
+            \(String(describing: disk.android.local))
         ...
         """
     )

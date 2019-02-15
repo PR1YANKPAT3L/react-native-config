@@ -27,20 +27,20 @@ struct Builds {
     // MARK: Initialize
     
     init(configurationFiles: Disk) throws {
-        debug = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.debugJSONfile.read())
-        release = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.releaseJSONfile.read())
+        debug = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.debug.read())
+        release = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.release.read())
         
-        try configurationFiles.debugAndroidConfigurationFile.write(string: try debug.androidEnvEntry())
-        try configurationFiles.debugXconfigFile.write(string: try debug.xcconfigEntry())
+        try configurationFiles.android.debug.write(string: try debug.androidEnvEntry())
+        try configurationFiles.iOS.debug.write(string: try debug.xcconfigEntry())
         
-        try configurationFiles.releaseAndroidConfigurationFile.write(string: try release.androidEnvEntry())
-        try configurationFiles.releaseXconfigFile.write(string: try release.xcconfigEntry())
+        try configurationFiles.android.release.write(string: try release.androidEnvEntry())
+        try configurationFiles.iOS.release.write(string: try release.xcconfigEntry())
         
-        if  let localJSONfile = configurationFiles.localJSONfile,
+        if  let localJSONfile = configurationFiles.inputJSON.local,
             let local = try? JSONDecoder().decode(JSON.self, from: try localJSONfile.read()) {
             
-            try configurationFiles.localAndroidConfigurationFile?.write(string: try local.androidEnvEntry())
-            try configurationFiles.localXconfigFile?.write(string: try local.xcconfigEntry())
+            try configurationFiles.android.local?.write(string: try local.androidEnvEntry())
+            try configurationFiles.iOS.local?.write(string: try local.xcconfigEntry())
             self.local = local
         } else {
             local = nil

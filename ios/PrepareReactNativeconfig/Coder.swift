@@ -98,7 +98,7 @@ struct Coder {
         
         """
         
-        try disk.configurationWorkerFile.write(data: swiftLines.data(using: .utf8)!)
+        try disk.code.configurationWorkerFile.write(data: swiftLines.data(using: .utf8)!)
     }
     
     func generateConfigurationForCurrentBuild() throws {
@@ -156,7 +156,7 @@ struct Coder {
         }
         
         """
-        try disk.configurationFile.write(string: plistLinesSwift)
+        try disk.code.currentBuild.write(string: plistLinesSwift)
     }
     
     func genereateInfoPlistForFrameworkForAllBuilds() throws {
@@ -186,7 +186,7 @@ struct Coder {
         </plist>
         """
         
-        try disk.plistFile.write(string: plistLinesXml)
+        try disk.code.infoPlist.write(string: plistLinesXml)
     }
 }
 
