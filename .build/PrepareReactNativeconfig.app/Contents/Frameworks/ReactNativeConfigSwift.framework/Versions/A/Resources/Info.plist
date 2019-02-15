@@ -6,12 +6,12 @@
 	<string>staging-bolides</string>
 	<key>BE_BOLIDES_RELEASE_MANIFEST_URL</key>
 	<string>https:\/\/exp.host/@bart2050/Bolides?release-channel=staging-bolides</string>
+	<key>BE_BOLIDES_SHOULD_OVERRIDE_MANIFEST_URL</key>
+	<string></string>
 	<key>BOLIDES_BASE_URL</key>
 	<string>https:\/\/staging.armada.bolides.be</string>
 	<key>BOLIDES_ITSME_SECURE_KEY</key>
 	<string>DEBUG: some key to get stuff for secure storage</string>
-	<key>Be_custom</key>
-	<string>0</string>
 	<key>BuildMachineOSBuild</key>
 	<string>18D109</string>
 	<key>CFBundleDevelopmentRegion</key>

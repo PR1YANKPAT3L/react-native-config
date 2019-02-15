@@ -154,6 +154,27 @@ struct Coder {
                     \"""
             }
         
+            init(decoder: Decoder) throws {
+        
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+                CFBundleDevelopmentRegion = try container.decode(String.self, forKey: .CFBundleDevelopmentRegion)
+                CFBundleExecutable = try container.decode(String.self, forKey: .CFBundleExecutable)
+                CFBundleIdentifier = try container.decode(String.self, forKey: .CFBundleIdentifier)
+                CFBundleInfoDictionaryVersion = try container.decode(String.self, forKey: .CFBundleInfoDictionaryVersion)
+                CFBundleName = try container.decode(String.self, forKey: .CFBundleName)
+                CFBundlePackageType = try container.decode(String.self, forKey: .CFBundlePackageType)
+                CFBundleShortVersionString = try container.decode(String.self, forKey: .CFBundleShortVersionString)
+                CFBundleVersion = try container.decode(String.self, forKey: .CFBundleVersion)
+        
+        \(builds.decoderInit)
+        
+            }
+        
+            enum Error: Swift.Error {
+                case invalidBool(forKey: String)
+            }
+        
         }
         
         """

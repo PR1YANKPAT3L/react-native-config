@@ -10,6 +10,8 @@ import Foundation
 
 struct Builds {
     
+    private typealias MappingKeys = [(case: String, plistVar: String, plistVarString: String, xmlEntry: String, decoderInit: String)]
+
     let debug: JSON
     let release: JSON
     let local: JSON?
@@ -19,10 +21,11 @@ struct Builds {
     let plistVar: String
     let plistVarString: String
     let plistLinesXmlText: String
+    let decoderInit: String
     
     // MARK: - Private
     
-    private let allKeys: [(case: String, plistVar: String, plistVarString: String, xmlEntry: String)]
+    private let allKeys: Builds.MappingKeys
     
     // MARK: Initialize
     
@@ -46,7 +49,7 @@ struct Builds {
             local = nil
         }
         
-        var allKeys: [(case: String, plistVar: String, plistVarString: String, xmlEntry: String)] = debug.typed.enumerated().compactMap {
+        var allKeys: MappingKeys = debug.typed.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = $0.element.value.typedValue
             let swiftTypeString = typedValue.typeSwiftString
@@ -59,11 +62,12 @@ struct Builds {
                 xmlEntry: """
                 <key>\(key)</key>
                 <\(xmlType)>$(\(key))</\(xmlType)>
-                """
+                """,
+                decoderInit: "\(key) = try container.decode(\(swiftTypeString).self, forKey: .\(key))"
             )
         }
         
-        let booleanKeys: [(case: String, plistVar: String, plistVarString: String, xmlEntry: String)] = debug.booleans.enumerated().compactMap {
+        let booleanKeys: MappingKeys = debug.booleans.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
             let swiftTypeString = typedValue.typeSwiftString
@@ -76,6 +80,12 @@ struct Builds {
                 xmlEntry: """
                 <key>\(key)</key>
                 <\(xmlType)>$(\(key))</\(xmlType)>
+                """,
+                decoderInit:"""
+                
+                        guard let \(key) = Bool(try container.decode(String.self, forKey: .\(key))) else { throw Error.invalidBool(forKey: \"\(key)\")}
+                
+                        self.\(key) = \(key)
                 """
             )
         }
@@ -106,6 +116,12 @@ struct Builds {
                 .map {"      \($0)"}
                 .sorted()
                 .joined(separator: "\n")
+        
+        decoderInit  = allKeys
+            .map { $0.decoderInit }
+            .sorted()
+            .map {"         \($0)"}
+            .joined(separator: "\n")
         
     }
     
