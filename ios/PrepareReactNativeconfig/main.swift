@@ -61,7 +61,7 @@ do {
          \(error)
     
     ❌
-        ♥️ Fix it by adding \(Disk.debugJSON) & \(Disk.releaseJSON) or (optionally) \(Disk.localJSON)at <#react native#>/
+        ♥️ Fix it by adding \(Disk.FileName.JSON.debug) & \(Disk.FileName.JSON.release) or (optionally) \(Disk.FileName.JSON.local)at <#react native#>/
     """
     )
     exit(EXIT_FAILURE)

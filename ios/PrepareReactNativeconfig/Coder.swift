@@ -115,43 +115,43 @@ struct Coder {
         
         //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
         
-        public struct Configuration: Codable, CustomStringConvertible {
+        public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
         
         
-        // These are the normal plist things
+            // These are the normal plist things
         
-        public let CFBundleDevelopmentRegion: String
-        public let CFBundleExecutable: String
-        public let CFBundleIdentifier: String
-        public let CFBundleInfoDictionaryVersion: String
-        public let CFBundleName: String
-        public let CFBundlePackageType: String
-        public let CFBundleShortVersionString: String
-        public let CFBundleVersion: String
+            public let CFBundleDevelopmentRegion: String
+            public let CFBundleExecutable: String
+            public let CFBundleIdentifier: String
+            public let CFBundleInfoDictionaryVersion: String
+            public let CFBundleName: String
+            public let CFBundlePackageType: String
+            public let CFBundleShortVersionString: String
+            public let CFBundleVersion: String
         
-        // Custom plist properties are added here
+            // Custom plist properties are added here
         \(builds.plistVar)
         
-        public var description: String {
-        return \"""
-        Configuration.swift read from Info.plist of ReactNativeConfigSwift framework
+            public var description: String {
+                return \"""
+                    Configuration.swift read from Info.plist of ReactNativeConfigSwift framework
         
-        // Config variable of Framework ReactNativeConfigSwift
+                    // Config variable of Framework ReactNativeConfigSwift
         
-        * CFBundleDevelopmentRegion = \\(CFBundleDevelopmentRegion)
-        * CFBundleExecutable = \\(CFBundleExecutable)
-        * CFBundleIdentifier = \\(CFBundleIdentifier)
-        * CFBundleInfoDictionaryVersion = \\(CFBundleInfoDictionaryVersion)
-        * CFBundleName = \\(CFBundleName)
-        * CFBundlePackageType = \\(CFBundlePackageType)
-        * CFBundleShortVersionString = \\(CFBundleShortVersionString)
-        * CFBundleVersion = \\(CFBundleVersion)
+                    * CFBundleDevelopmentRegion = \\(CFBundleDevelopmentRegion)
+                    * CFBundleExecutable = \\(CFBundleExecutable)
+                    * CFBundleIdentifier = \\(CFBundleIdentifier)
+                    * CFBundleInfoDictionaryVersion = \\(CFBundleInfoDictionaryVersion)
+                    * CFBundleName = \\(CFBundleName)
+                    * CFBundlePackageType = \\(CFBundlePackageType)
+                    * CFBundleShortVersionString = \\(CFBundleShortVersionString)
+                    * CFBundleVersion = \\(CFBundleVersion)
         
-        // Custom environment dependend constants from .env.debug.json or .env.release.json
+                    // Custom environment dependend constants from .env.debug.json or .env.release.json
         
         \(builds.plistVarString)
-        \"""
-        }
+                    \"""
+            }
         
         }
         
@@ -166,21 +166,21 @@ struct Coder {
         <plist version="1.0">
         <dict>
         <key>CFBundleDevelopmentRegion</key>
-        <string>$(DEVELOPMENT_LANGUAGE)</string>
+            <string>$(DEVELOPMENT_LANGUAGE)</string>
         <key>CFBundleExecutable</key>
-        <string>$(EXECUTABLE_NAME)</string>
+            <string>$(EXECUTABLE_NAME)</string>
         <key>CFBundleIdentifier</key>
-        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
         <key>CFBundleInfoDictionaryVersion</key>
         <string>6.0</string>
         <key>CFBundleName</key>
-        <string>$(PRODUCT_NAME)</string>
+            <string>$(PRODUCT_NAME)</string>
         <key>CFBundlePackageType</key>
-        <string>FMWK</string>
+            <string>FMWK</string>
         <key>CFBundleShortVersionString</key>
-        <string>1.0</string>
+            <string>1.0</string>
         <key>CFBundleVersion</key>
-        <string>$(CURRENT_PROJECT_VERSION)</string>
+            <string>$(CURRENT_PROJECT_VERSION)</string>
         \(builds.plistLinesXmlText)
         </dict>
         </plist>
