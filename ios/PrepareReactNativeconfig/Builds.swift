@@ -9,20 +9,34 @@
 import Foundation
 import ReactNativeConfigSwift
 
-struct Builds {
+public struct Builds {
     
     private typealias MappingKeys = [(case: String, plistVar: String, plistVarString: String, xmlEntry: String, decoderInit: String)]
 
-    let debug: JSON
-    let release: JSON
-    let local: JSON?
     
-    let casesForEnum: String
+    public let input: Input
+    public let output: Output
+    
+    public let casesForEnum: String
 
-    let plistVar: String
-    let plistVarString: String
-    let plistLinesXmlText: String
-    let decoderInit: String
+    public let plistVar: String
+    public let plistVarString: String
+    public let plistLinesXmlText: String
+    public let decoderInit: String
+    
+    // MARK: - Structs
+    
+    public struct Output {
+        public let debug: CurrentBuildConfiguration
+        public let release: CurrentBuildConfiguration
+        public let local: CurrentBuildConfiguration?
+    }
+    
+    public struct Input {
+        public let debug: JSON
+        public let release: JSON
+        public let local: JSON?
+    }
     
     // MARK: - Private
     
@@ -30,9 +44,9 @@ struct Builds {
     
     // MARK: Initialize
     
-    init(configurationFiles: Disk) throws {
-        debug = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.debug.read())
-        release = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.release.read())
+    public init(configurationFiles: Disk) throws {
+        let debug = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.debug.read())
+        let release = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.release.read())
         
         try configurationFiles.android.debug.write(string: try debug.androidEnvEntry())
         try configurationFiles.iOS.debug.write(string: try debug.xcconfigEntry())
@@ -40,14 +54,15 @@ struct Builds {
         try configurationFiles.android.release.write(string: try release.androidEnvEntry())
         try configurationFiles.iOS.release.write(string: try release.xcconfigEntry())
         
+        
         if  let localJSONfile = configurationFiles.inputJSON.local,
             let local = try? JSONDecoder().decode(JSON.self, from: try localJSONfile.read()) {
             
             try configurationFiles.android.local?.write(string: try local.androidEnvEntry())
             try configurationFiles.iOS.local?.write(string: try local.xcconfigEntry())
-            self.local = local
+            input = Input(debug: debug, release: release, local: local)
         } else {
-            local = nil
+            input = Input(debug: debug, release: release, local: nil)
         }
         
         var allKeys: MappingKeys = debug.typed.enumerated().compactMap {
@@ -124,76 +139,41 @@ struct Builds {
             .map {"         \($0)"}
             .joined(separator: "\n")
         
+        
+        if let local = input.local {
+            output = Output(
+                debug: try Builds.config(for: input.debug),
+                release: try Builds.config(for: input.release),
+                local:  try Builds.config(for: local)
+            )
+        } else {
+            output = Output(
+                debug: try Builds.config(for: input.debug),
+                release: try Builds.config(for: input.release),
+                local: nil
+            )
+        }
+        
     }
     
-    // MARK: - JSON struct
-    
-    struct JSON: Decodable {
+    private static func config(for json: JSON) throws -> CurrentBuildConfiguration {
+        var jsonTyped = "{"
+        jsonTyped.append(contentsOf: json.typed.compactMap {
+            return "\"\($0.key)\": \"\($0.value.value)\","
+            }.joined(separator: "\n"))
         
-        let typed: [String: JSONEntry]
-        let booleans: [String: Bool]
+        let jsonBooleans = json.booleans.compactMap {
+            return "\"\($0.key)\": \"\($0.value)\","
+            }.joined(separator: "\n")
         
-        func xcconfigEntry() throws -> String {
-            var entries = try typed
-                .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"}
-                .sorted()
-            
-            let booleanEntries = booleans
-                .map { return "\($0.key) = \($0.value)"}
-                .sorted()
-            entries.append(contentsOf: booleanEntries)
-            
-            return entries.joined(separator: "\n")
-        }
+        jsonTyped.append(contentsOf: jsonBooleans)
+        jsonTyped.removeLast()
+        jsonTyped.append(contentsOf: "}")
         
-        func androidEnvEntry() throws -> String {
-            var entries = try typed
-                .map { return "\($0.key) = \(try androidEnvRawValue(for: $0.value))" }
-                .sorted()
-            
-            let booleanEntries: [String] = try booleans
-                .map {
-                    let key = $0.key
-                    let jsonEntry = JSONEntry(typedValue: .bool($0.value))
-                    return "\(key) = \(try androidEnvRawValue(for: jsonEntry))"}
-                .sorted()
-            
-            entries.append(contentsOf: booleanEntries)
-            
-            return entries.joined(separator: "\n")
-        }
+        let decoder = JSONDecoder()
         
-        // MARK: - Private
-        
-        private func xcconfigRawValue(for jsonEntry: JSONEntry) throws -> String {
-            switch jsonEntry.typedValue {
-            case let .url(url):
-                return url.absoluteString
-                    .replacingOccurrences(of: "http://", with: "http:\\/\\/")
-                    .replacingOccurrences(of: "https://", with: "https:\\/\\/")
-            case let .string(string):
-                return string
-            case let .int(int):
-                return "\(int)"
-            case let .bool(boolValue):
-                return "\(boolValue)"
-            }
-        }
-        
-        private func androidEnvRawValue(for jsonEntry: JSONEntry) throws -> String {
-            switch jsonEntry.typedValue {
-            case let .url(url):
-                return url.absoluteString
-            case let .string(string):
-                return string
-            case let .int(int):
-                return "\(int)"
-            case let .bool(boolValue):
-                return "\(boolValue)"
-            }
-        }
+        return try decoder.decode(CurrentBuildConfiguration.self, from: jsonTyped.data(using: .utf8)!)
     }
-    
     
 }
 

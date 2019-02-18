@@ -118,18 +118,6 @@ struct Coder {
         
         public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
         
-        
-            // These are the normal plist things
-        
-            public let CFBundleDevelopmentRegion: String
-            public let CFBundleExecutable: String
-            public let CFBundleIdentifier: String
-            public let CFBundleInfoDictionaryVersion: String
-            public let CFBundleName: String
-            public let CFBundlePackageType: String
-            public let CFBundleShortVersionString: String
-            public let CFBundleVersion: String
-        
             // Custom plist properties are added here
         \(builds.plistVar)
         
@@ -137,18 +125,7 @@ struct Coder {
                 return \"""
                     Configuration.swift read from Info.plist of ReactNativeConfigSwift framework
         
-                    // Config variable of Framework ReactNativeConfigSwift
-        
-                    * CFBundleDevelopmentRegion = \\(CFBundleDevelopmentRegion)
-                    * CFBundleExecutable = \\(CFBundleExecutable)
-                    * CFBundleIdentifier = \\(CFBundleIdentifier)
-                    * CFBundleInfoDictionaryVersion = \\(CFBundleInfoDictionaryVersion)
-                    * CFBundleName = \\(CFBundleName)
-                    * CFBundlePackageType = \\(CFBundlePackageType)
-                    * CFBundleShortVersionString = \\(CFBundleShortVersionString)
-                    * CFBundleVersion = \\(CFBundleVersion)
-        
-                    // Custom environment dependend constants from .env.debug.json or .env.release.json
+                    // Custom environment dependend constants from .env.<CONFIGURATION>.json
         
         \(builds.plistVarString)
                     \"""
@@ -158,17 +135,14 @@ struct Coder {
         
                 let container = try decoder.container(keyedBy: CodingKeys.self)
         
-                CFBundleDevelopmentRegion = try container.decode(String.self, forKey: .CFBundleDevelopmentRegion)
-                CFBundleExecutable = try container.decode(String.self, forKey: .CFBundleExecutable)
-                CFBundleIdentifier = try container.decode(String.self, forKey: .CFBundleIdentifier)
-                CFBundleInfoDictionaryVersion = try container.decode(String.self, forKey: .CFBundleInfoDictionaryVersion)
-                CFBundleName = try container.decode(String.self, forKey: .CFBundleName)
-                CFBundlePackageType = try container.decode(String.self, forKey: .CFBundlePackageType)
-                CFBundleShortVersionString = try container.decode(String.self, forKey: .CFBundleShortVersionString)
-                CFBundleVersion = try container.decode(String.self, forKey: .CFBundleVersion)
-        
         \(builds.decoderInit)
         
+            }
+        
+            public static func create(from json: JSON) throws -> CurrentBuildConfiguration {
+                let data = try JSONEncoder().encode(json)
+        
+                return try JSONDecoder().decode(CurrentBuildConfiguration.self, from: data)
             }
         
             enum Error: Swift.Error {
@@ -177,11 +151,13 @@ struct Coder {
         
         }
         
+        
+        
         """
         try disk.code.currentBuild.write(string: plistLinesSwift)
     }
     
-    func genereateInfoPlistForFrameworkForAllBuilds() throws {
+    func genereateInfoPlistForFrameworkForAllBuildsWithPlaceholders() throws {
         let plistLinesXml = """
         <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

@@ -14,7 +14,7 @@
 		FD4867CF2201BA850092A63E /* ReactNativeConfigSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* ReactNativeConfigSwift.framework */; };
 		FD4867D02201BA960092A63E /* ReactNativeConfigSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* ReactNativeConfigSwift.framework */; };
 		FD4868772201D1810092A63E /* CurrentBuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */; };
-		FD4868AF2201E2D00092A63E /* PlistJSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* PlistJSONEntry.swift */; };
+		FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		FD55CBCB22009FF70044D1A7 /* PrepareReactNativeconfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CBCA22009FF70044D1A7 /* PrepareReactNativeconfigTests.swift */; };
@@ -36,12 +36,14 @@
 		FD7F1D302215D3F2009A4F34 /* CurrentBuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */; };
 		FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD7F1D322215D3F2009A4F34 /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
-		FD7F1D332215D3F2009A4F34 /* PlistJSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* PlistJSONEntry.swift */; };
+		FD7F1D332215D3F2009A4F34 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FD82E7FF2216CE3A00837A3E /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E7FE2216CE3A00837A3E /* Coder.swift */; };
 		FD82E8012216D17500837A3E /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E8002216D17500837A3E /* Builds.swift */; };
 		FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BE2B12201AA38008903DC /* AppKit.framework */; };
 		FDECFBDC221B3BC200EA1E33 /* SignPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; };
 		FDECFBDE221B3BEB00EA1E33 /* ZFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */; };
+		FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
+		FDECFC49221B536100EA1E33 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +134,7 @@
 		FD4867C82201B6C50092A63E /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		FD4867C92201B6D10092A63E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfiguration.swift; sourceTree = "<group>"; };
-		FD4868AE2201E2D00092A63E /* PlistJSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistJSONEntry.swift; sourceTree = "<group>"; };
+		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CBB522009FF50044D1A7 /* PrepareReactNativeconfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepareReactNativeconfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDECFC47221B530E00EA1E33 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,11 +302,12 @@
 		FD55CC872200B4270044D1A7 /* ReactNativeConfigSwift */ = {
 			isa = PBXGroup;
 			children = (
+				FD4868B52201EF0D0092A63E /* Generated */,
+				FD55CC892200B4270044D1A7 /* Info.plist */,
+				FDECFC47221B530E00EA1E33 /* JSON.swift */,
+				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
 				FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */,
 				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
-				FD4868B52201EF0D0092A63E /* Generated */,
-				FD4868AE2201E2D00092A63E /* PlistJSONEntry.swift */,
-				FD55CC892200B4270044D1A7 /* Info.plist */,
 			);
 			path = ReactNativeConfigSwift;
 			sourceTree = "<group>";
@@ -705,7 +709,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD4868772201D1810092A63E /* CurrentBuildConfiguration.swift in Sources */,
-				FD4868AF2201E2D00092A63E /* PlistJSONEntry.swift in Sources */,
+				FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */,
+				FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */,
 				FD55CC952200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift in Sources */,
 				FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */,
 			);
@@ -727,9 +732,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD7F1D302215D3F2009A4F34 /* CurrentBuildConfiguration.swift in Sources */,
+				FDECFC49221B536100EA1E33 /* JSON.swift in Sources */,
 				FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */,
 				FD7F1D322215D3F2009A4F34 /* CurrentBuildConfigurationWorker.swift in Sources */,
-				FD7F1D332215D3F2009A4F34 /* PlistJSONEntry.swift in Sources */,
+				FD7F1D332215D3F2009A4F34 /* JSONEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,51 +10,56 @@ import Foundation
 import SignPost
 import ZFile
 
-struct Disk {
+public struct Disk {
     
-    struct FileName {
+    // MARK: - Variables
+    
+    public let inputJSON: Input
+    public let reactNativeFolder: FolderProtocol
+    public let reactNativeConfigSwiftSourcesFolder: FolderProtocol
+    public let androidFolder: FolderProtocol
+    public let iosFolder: FolderProtocol
+    
+    public let iOS: Output
+    public let android: Output
+    
+    public let code: Output.Code
+    
+    public let signPost: SignPostProtocol
+    
+    // MARK: - Structs
+    
+    public struct FileName {
         
-        struct JSON {
+        public struct JSON {
             static let debug = ".env.debug.json"
             static let release = ".env.release.json"
             static var local = ".env.local.json"
         }
-
-    }
-    
-    let inputJSON: Input
-    
-    let reactNativeFolder: FolderProtocol
-    let reactNativeConfigSwiftSourcesFolder: FolderProtocol
-    let androidFolder: FolderProtocol
-    let iosFolder: FolderProtocol
-    
-    let iOS: Output
-    let android: Output
-    
-    let code: Output.Code
-    
-    let signPost: SignPostProtocol
-    
-    struct Input {
-        let debug: FileProtocol
-        let release: FileProtocol
-        let local: FileProtocol?
-    }
-    
-    struct Output {
-        let debug: FileProtocol
-        let release: FileProtocol
-        let local: FileProtocol?
         
-        struct Code {
-            let configurationWorkerFile: FileProtocol
-            let infoPlist: FileProtocol
-            let currentBuild: FileProtocol
+    }
+    
+    public struct Input {
+        public let debug: FileProtocol
+        public let release: FileProtocol
+        public let local: FileProtocol?
+    }
+    
+    public struct Output {
+        public let debug: FileProtocol
+        public let release: FileProtocol
+        public let local: FileProtocol?
+        
+        public struct Code {
+            public let configurationWorkerFile: FileProtocol
+            public let infoPlist: FileProtocol
+            public let currentBuild: FileProtocol
         }
     }
     
-    init(reactNativeFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared, currentFolder: FolderProtocol = FileSystem.shared.currentFolder) throws {
+    // MARK: - Init
+    
+    public init(reactNativeFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared, currentFolder: FolderProtocol = FileSystem.shared.currentFolder) throws {
         
         self.signPost = signPost
                 

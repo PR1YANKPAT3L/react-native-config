@@ -60,6 +60,6 @@ public struct MainWorker: MainWorkerProtocol {
         
         try coder.generateConfigurationWorker()
         try coder.generateConfigurationForCurrentBuild()
-        try coder.genereateInfoPlistForFrameworkForAllBuilds()
+        try coder.genereateInfoPlistForFrameworkForAllBuildsWithPlaceholders()
     }
 }
