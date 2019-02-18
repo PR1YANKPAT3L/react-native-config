@@ -9,18 +9,13 @@
 import Foundation
 
 public struct JSONEntry: Codable {
+    
     public let value: String
     public let valueType: String
     
     public let typedValue: PossibleTypes
     
-    init(
-        typedValue: PossibleTypes
-        ) {
-        self.value = "\(typedValue)"
-        self.valueType = typedValue.typeSwiftString
-        self.typedValue = typedValue
-    }
+    // MARK: - Enums
     
     public enum PossibleTypes {
         
@@ -31,7 +26,7 @@ public struct JSONEntry: Codable {
         case int(Int)
         case bool(Bool)
     
-        var typeSwiftString: String {
+        public var typeSwiftString: String {
             switch self {
             case .url(_):
                 return "URLEscaped"
@@ -44,7 +39,7 @@ public struct JSONEntry: Codable {
             }
         }
         
-        var typePlistString: String {
+         public var typePlistString: String {
             
             switch self {
             case .url(_), .bool(_):
@@ -55,7 +50,7 @@ public struct JSONEntry: Codable {
             
         }
         
-        var valueString: String {
+         public var valueString: String {
             switch self {
             case let .url(url):
                 return "\(url.absoluteString)"
@@ -78,6 +73,16 @@ public struct JSONEntry: Codable {
     public enum Error: Swift.Error {
         case couldNotResolveType(String)
         case invalidUrl(String)
+    }
+    
+    // MARK: - Initializers
+    
+    public init(
+        typedValue: PossibleTypes
+        ) {
+        self.value = "\(typedValue)"
+        self.valueType = typedValue.typeSwiftString
+        self.typedValue = typedValue
     }
     
     public init(from decoder: Decoder) throws {

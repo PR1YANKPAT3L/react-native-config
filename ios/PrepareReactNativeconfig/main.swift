@@ -10,60 +10,30 @@ import Foundation
 import ZFile
 import SignPost
 
-let currentFolder = FileSystem.shared.currentFolder
-
-let signPost = SignPost.shared
-signPost.message("🚀 ReactNativeConfig main.swift\nExecuted at path \(currentFolder.path)\n...")
 
 do {
-    
-    let disk = try Disk(reactNativeFolder: try currentFolder.parentFolder())
-    let builds = try writeToPlatformReadableConfiguarationFiles(from: disk)
-    
-    SignPost.shared.message("""
-        🚀 Env read from
-            \(disk.inputJSON.debug)
-            \(disk.inputJSON.release)
-            \(String(describing: disk.inputJSON.local))
-         ...
-        """
-    )
-    
-    SignPost.shared.message("""
-        🚀 Written to config files
-        # ios
-            \(disk.iOS.debug)
-            \(disk.iOS.release)
-            \(String(describing: disk.iOS.local))
-        # android
-            \(disk.android.debug)
-            \(disk.android.release)
-            \(String(describing: disk.android.local))
-        ...
-        """
-    )
-    
-    SignPost.shared.verbose("Writing environment variables to swift files and plist")
-    
-    let coder = Coder(disk: disk, builds: builds)
-    
-    try coder.generateConfigurationWorker()
-    try coder.generateConfigurationForCurrentBuild()
-    try coder.genereateInfoPlistForFrameworkForAllBuilds()
+    let currentFolder = FileSystem.shared.currentFolder
+    SignPost.shared.message("🚀 PREPARE from Current Folder:\n \(currentFolder)\n")
+
+    let reactNativeFolder = try FileSystem.shared.currentFolder.parentFolder().parentFolder().parentFolder().parentFolder().parentFolder()
+    SignPost.shared.message("🚀 ReactNativeConfig RN root:\n \(reactNativeFolder)\n")
+
+    let main = MainWorker(reactNativeFolder: reactNativeFolder)
+
+    try main.attempt()
     
     SignPost.shared.message("🚀 ReactNativeConfig main.swift ✅")
     
     exit(EXIT_SUCCESS)
 } catch {
     SignPost.shared.error("""
-    ❌ Prepare React Native Config
-    
-         \(error)
-    
-    ❌
+        ❌ Prepare React Native Config
+        
+        \(error)
+        
+        ❌
         ♥️ Fix it by adding \(Disk.FileName.JSON.debug) & \(Disk.FileName.JSON.release) or (optionally) \(Disk.FileName.JSON.local)at <#react native#>/
-    """
+        """
     )
     exit(EXIT_FAILURE)
 }
-
