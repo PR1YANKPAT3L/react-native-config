@@ -17,7 +17,7 @@
 		FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
-		FD55CBCB22009FF70044D1A7 /* PrepareReactNativeconfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CBCA22009FF70044D1A7 /* PrepareReactNativeconfigTests.swift */; };
+		FD55CBCB22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CBCA22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift */; };
 		FD55CC6F2200A68A0044D1A7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC6E2200A68A0044D1A7 /* main.swift */; };
 		FD55CC8A2200B4270044D1A7 /* ReactNativeConfigSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD55CC952200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
@@ -140,9 +140,9 @@
 		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
-		FD55CBB522009FF50044D1A7 /* PrepareReactNativeconfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepareReactNativeconfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD55CBB522009FF50044D1A7 /* PrepareReactNativeConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepareReactNativeConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CBC622009FF70044D1A7 /* PrepareReactNativeconfigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrepareReactNativeconfigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD55CBCA22009FF70044D1A7 /* PrepareReactNativeconfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareReactNativeconfigTests.swift; sourceTree = "<group>"; };
+		FD55CBCA22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareReactNativeConfigTests.swift; sourceTree = "<group>"; };
 		FD55CBCC22009FF70044D1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD55CC6E2200A68A0044D1A7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FD55CC862200B4270044D1A7 /* ReactNativeConfigSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactNativeConfigSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,8 +239,8 @@
 				FD55CCA12200BCB40044D1A7 /* README.md */,
 				FD55CCA22200BDAA0044D1A7 /* package.json */,
 				EB2648E11C7BE17A00B8F155 /* ReactNativeConfig */,
-				FD55CBB622009FF50044D1A7 /* PrepareReactNativeconfig */,
-				FD55CBC922009FF70044D1A7 /* PrepareReactNativeconfigTests */,
+				FD55CBB622009FF50044D1A7 /* PrepareReactNativeConfig */,
+				FD55CBC922009FF70044D1A7 /* PrepareReactNativeConfigTests */,
 				FD55CC872200B4270044D1A7 /* ReactNativeConfigSwift */,
 				FD7F1D232215D390009A4F34 /* ReactNativeConfig-macOS */,
 				EB2648E01C7BE17A00B8F155 /* Products */,
@@ -253,7 +253,7 @@
 			children = (
 				EB2648DF1C7BE17A00B8F155 /* libReactNativeConfig.a */,
 				3DF7F6AC203AA09B00D0EAB7 /* libReactNativeConfig-tvOS.a */,
-				FD55CBB522009FF50044D1A7 /* PrepareReactNativeconfig.app */,
+				FD55CBB522009FF50044D1A7 /* PrepareReactNativeConfig.app */,
 				FD55CBC622009FF70044D1A7 /* PrepareReactNativeconfigTests.xctest */,
 				FD55CC862200B4270044D1A7 /* ReactNativeConfigSwift.framework */,
 				FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */,
@@ -280,7 +280,7 @@
 			name = Generated;
 			sourceTree = "<group>";
 		};
-		FD55CBB622009FF50044D1A7 /* PrepareReactNativeconfig */ = {
+		FD55CBB622009FF50044D1A7 /* PrepareReactNativeConfig */ = {
 			isa = PBXGroup;
 			children = (
 				FD661CDE2216C47200F27AD5 /* Disk.swift */,
@@ -291,16 +291,16 @@
 				FD589B3A221AECD600335F55 /* Info.plist */,
 				FD589AEE221AE42F00335F55 /* PrepareReactNativeConfig.h */,
 			);
-			path = PrepareReactNativeconfig;
+			path = PrepareReactNativeConfig;
 			sourceTree = "<group>";
 		};
-		FD55CBC922009FF70044D1A7 /* PrepareReactNativeconfigTests */ = {
+		FD55CBC922009FF70044D1A7 /* PrepareReactNativeConfigTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD55CBCA22009FF70044D1A7 /* PrepareReactNativeconfigTests.swift */,
+				FD55CBCA22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift */,
 				FD55CBCC22009FF70044D1A7 /* Info.plist */,
 			);
-			path = PrepareReactNativeconfigTests;
+			path = PrepareReactNativeConfigTests;
 			sourceTree = "<group>";
 		};
 		FD55CC872200B4270044D1A7 /* ReactNativeConfigSwift */ = {
@@ -409,9 +409,9 @@
 			productReference = EB2648DF1C7BE17A00B8F155 /* libReactNativeConfig.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		FD55CBB422009FF50044D1A7 /* PrepareReactNativeconfig */ = {
+		FD55CBB422009FF50044D1A7 /* PrepareReactNativeConfig-script */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FD55CBCD22009FF70044D1A7 /* Build configuration list for PBXNativeTarget "PrepareReactNativeconfig" */;
+			buildConfigurationList = FD55CBCD22009FF70044D1A7 /* Build configuration list for PBXNativeTarget "PrepareReactNativeConfig-script" */;
 			buildPhases = (
 				FD55CBB122009FF50044D1A7 /* Sources */,
 				FD55CBB222009FF50044D1A7 /* Frameworks */,
@@ -424,9 +424,9 @@
 				FD7F1D282215D390009A4F34 /* PBXTargetDependency */,
 				FD589AF2221AE42F00335F55 /* PBXTargetDependency */,
 			);
-			name = PrepareReactNativeconfig;
+			name = "PrepareReactNativeConfig-script";
 			productName = PrepareReactNativeconfig;
-			productReference = FD55CBB522009FF50044D1A7 /* PrepareReactNativeconfig.app */;
+			productReference = FD55CBB522009FF50044D1A7 /* PrepareReactNativeConfig.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FD55CBC522009FF70044D1A7 /* PrepareReactNativeconfigTests */ = {
@@ -557,7 +557,7 @@
 			targets = (
 				EB2648DE1C7BE17A00B8F155 /* ReactNativeConfig */,
 				3DF7F6AB203AA09B00D0EAB7 /* ReactNativeConfig-tvOS */,
-				FD55CBB422009FF50044D1A7 /* PrepareReactNativeconfig */,
+				FD55CBB422009FF50044D1A7 /* PrepareReactNativeConfig-script */,
 				FD55CBC522009FF70044D1A7 /* PrepareReactNativeconfigTests */,
 				FD55CC852200B4270044D1A7 /* ReactNativeConfigSwift-iOS */,
 				FD7F1D212215D390009A4F34 /* ReactNativeConfigSwift-macOS */,
@@ -704,7 +704,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD55CBCB22009FF70044D1A7 /* PrepareReactNativeconfigTests.swift in Sources */,
+				FD55CBCB22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,7 +753,7 @@
 		};
 		FD55CBC822009FF70044D1A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FD55CBB422009FF50044D1A7 /* PrepareReactNativeconfig */;
+			target = FD55CBB422009FF50044D1A7 /* PrepareReactNativeConfig-script */;
 			targetProxy = FD55CBC722009FF70044D1A7 /* PBXContainerItemProxy */;
 		};
 		FD589AF2221AE42F00335F55 /* PBXTargetDependency */ = {
@@ -768,7 +768,7 @@
 		};
 		FD589B12221AEA4200335F55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FD55CBB422009FF50044D1A7 /* PrepareReactNativeconfig */;
+			target = FD55CBB422009FF50044D1A7 /* PrepareReactNativeConfig-script */;
 			targetProxy = FD589B11221AEA4200335F55 /* PBXContainerItemProxy */;
 		};
 		FD7F1D282215D390009A4F34 /* PBXTargetDependency */ = {
@@ -1019,8 +1019,8 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ReactNativeConfig.PrepareReactNativeconfig.PrepareReactNativeconfig;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReactNativeConfig.PrepareReactNativeConfig.PrepareReactNativeConfig;
+				PRODUCT_NAME = PrepareReactNativeConfig;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1073,8 +1073,8 @@
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ReactNativeConfig.PrepareReactNativeconfig.PrepareReactNativeconfig;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReactNativeConfig.PrepareReactNativeConfig.PrepareReactNativeConfig;
+				PRODUCT_NAME = PrepareReactNativeConfig;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
@@ -1591,8 +1591,8 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ReactNativeConfig.PrepareReactNativeconfig.PrepareReactNativeconfig;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReactNativeConfig.PrepareReactNativeConfig.PrepareReactNativeConfig;
+				PRODUCT_NAME = PrepareReactNativeConfig;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1823,8 +1823,8 @@
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ReactNativeConfig.PrepareReactNativeconfig.PrepareReactNativeconfig;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReactNativeConfig.PrepareReactNativeConfig.PrepareReactNativeConfig;
+				PRODUCT_NAME = PrepareReactNativeConfig;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
@@ -2013,7 +2013,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FD55CBCD22009FF70044D1A7 /* Build configuration list for PBXNativeTarget "PrepareReactNativeconfig" */ = {
+		FD55CBCD22009FF70044D1A7 /* Build configuration list for PBXNativeTarget "PrepareReactNativeConfig-script" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD55CBCE22009FF70044D1A7 /* Debug */,
