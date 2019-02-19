@@ -30,12 +30,14 @@ public struct Builds {
         public let debug: CurrentBuildConfiguration
         public let release: CurrentBuildConfiguration
         public let local: CurrentBuildConfiguration?
+        public let testRelease: CurrentBuildConfiguration?
     }
     
     public struct Input {
         public let debug: JSON
         public let release: JSON
         public let local: JSON?
+        public let testRelease: JSON?
     }
     
     // MARK: - Private
@@ -54,17 +56,29 @@ public struct Builds {
         try configurationFiles.android.release.write(string: try release.androidEnvEntry())
         try configurationFiles.iOS.release.write(string: try release.xcconfigEntry())
         
+        var local: JSON?
+        var testRelease: JSON?
         
-        if  let localJSONfile = configurationFiles.inputJSON.local,
-            let local = try? JSONDecoder().decode(JSON.self, from: try localJSONfile.read()) {
-            
-            try configurationFiles.android.local?.write(string: try local.androidEnvEntry())
-            try configurationFiles.iOS.local?.write(string: try local.xcconfigEntry())
-            input = Input(debug: debug, release: release, local: local)
+        if  let localJSONfile = configurationFiles.inputJSON.local {
+            local = try JSONDecoder().decode(JSON.self, from: try localJSONfile.read())
+            try configurationFiles.android.local?.write(string: try local!.androidEnvEntry())
+            try configurationFiles.iOS.local?.write(string: try local!.xcconfigEntry())
         } else {
-            input = Input(debug: debug, release: release, local: nil)
+            local = nil
         }
         
+        if  let testReleaseJSONfile = configurationFiles.inputJSON.testRelease{
+            
+            testRelease = try JSONDecoder().decode(JSON.self, from: try testReleaseJSONfile.read())
+            
+            try configurationFiles.android.testRelease?.write(string: try testRelease!.androidEnvEntry())
+            try configurationFiles.iOS.testRelease?.write(string: try testRelease!.xcconfigEntry())
+        } else {
+            testRelease = nil
+        }
+        
+        input = Input(debug: debug, release: release, local: local, testRelease: testRelease)
+
         var allKeys: MappingKeys = debug.typed.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = $0.element.value.typedValue
@@ -139,20 +153,12 @@ public struct Builds {
             .map {"         \($0)"}
             .joined(separator: "\n")
         
-        
-        if let local = input.local {
-            output = Output(
-                debug: try Builds.config(for: input.debug),
-                release: try Builds.config(for: input.release),
-                local:  try Builds.config(for: local)
-            )
-        } else {
-            output = Output(
-                debug: try Builds.config(for: input.debug),
-                release: try Builds.config(for: input.release),
-                local: nil
-            )
-        }
+        output = Output(
+            debug: try Builds.config(for: input.debug),
+            release: try Builds.config(for: input.release),
+            local:  local != nil ? try Builds.config(for: local!) : nil,
+            testRelease: testRelease != nil ? try Builds.config(for: testRelease!) : nil
+        )
         
     }
     

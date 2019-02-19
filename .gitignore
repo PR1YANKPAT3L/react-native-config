@@ -3,15 +3,7 @@
 xcuserdata
 *.xcuserdatad
 /Carthage
-/ios/Debug.xcconfig
-/ios/Release.xcconfig
-/ios/ReactNativeConfigSwift/Environment.swift
-/ios/ReactNativeConfigSwift/Plist.swift
-/ios/ReactNativeConfigSwift/Info.plist
-/ios/Local.xcconfig
 /android/build
 /android/.gradle
 /android/.gradle/4.10.1
 /android/.idea
-/ios/ReactNativeConfigSwift/CurrentBuildConfiguration.swift
-/ios/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift

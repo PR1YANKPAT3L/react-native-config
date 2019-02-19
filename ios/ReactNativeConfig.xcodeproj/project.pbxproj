@@ -32,6 +32,8 @@
 		FD661CDF2216C47200F27AD5 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD661CDE2216C47200F27AD5 /* Disk.swift */; };
 		FD6633DC221C1D0A00CDAC50 /* SignPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; };
 		FD6633DD221C1D0A00CDAC50 /* SignPost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD68EC90221C34D300006B0B /* ZFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */; };
+		FD68EC91221C34D300006B0B /* ZFile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD7F1D262215D390009A4F34 /* ReactNativeConfig_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD7F1D292215D390009A4F34 /* ReactNativeConfigSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */; };
 		FD7F1D2A2215D390009A4F34 /* ReactNativeConfigSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -77,13 +79,6 @@
 			remoteGlobalIDString = FD7F1D212215D390009A4F34;
 			remoteInfo = "ReactNativeConfigSwift-macOS";
 		};
-		FD589B11221AEA4200335F55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD55CBB422009FF50044D1A7;
-			remoteInfo = PrepareReactNativeconfig;
-		};
 		FD7F1D272215D390009A4F34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
@@ -121,6 +116,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FD6633DD221C1D0A00CDAC50 /* SignPost.framework in Embed Frameworks */,
+				FD68EC91221C34D300006B0B /* ZFile.framework in Embed Frameworks */,
 				FD589AF4221AE42F00335F55 /* PrepareReactNativeConfig.framework in Embed Frameworks */,
 				FD7F1D2A2215D390009A4F34 /* ReactNativeConfigSwift.framework in Embed Frameworks */,
 			);
@@ -139,6 +135,8 @@
 		FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfiguration.swift; sourceTree = "<group>"; };
 		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
+		FD49389D221C380A00B6BBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TestRelease.xcconfig; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CBB522009FF50044D1A7 /* PrepareReactNativeConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepareReactNativeConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CBC622009FF70044D1A7 /* PrepareReactNativeconfigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrepareReactNativeconfigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,11 +145,9 @@
 		FD55CC6E2200A68A0044D1A7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FD55CC862200B4270044D1A7 /* ReactNativeConfigSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactNativeConfigSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfigSwift.h; sourceTree = "<group>"; };
-		FD55CC892200B4270044D1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfigurationWorker.swift; sourceTree = "<group>"; };
 		FD55CCA12200BCB40044D1A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FD55CCA22200BDAA0044D1A7 /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = package.json; path = ../package.json; sourceTree = "<group>"; };
-		FD55CCA42200C19A0044D1A7 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile.private; path = ../Cartfile.private; sourceTree = "<group>"; };
 		FD589AE5221AE34100335F55 /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
 		FD589AEC221AE42F00335F55 /* PrepareReactNativeConfig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrepareReactNativeConfig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD589AEE221AE42F00335F55 /* PrepareReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrepareReactNativeConfig.h; sourceTree = "<group>"; };
@@ -193,6 +189,7 @@
 				FD6633DC221C1D0A00CDAC50 /* SignPost.framework in Frameworks */,
 				FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */,
 				FD7F1D292215D390009A4F34 /* ReactNativeConfigSwift.framework in Frameworks */,
+				FD68EC90221C34D300006B0B /* ZFile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +234,7 @@
 				FD4867C82201B6C50092A63E /* Debug.xcconfig */,
 				FD84BA112209C8D7000B86BC /* Local.xcconfig */,
 				FD4867C92201B6D10092A63E /* Release.xcconfig */,
-				FD55CCA42200C19A0044D1A7 /* Cartfile.private */,
+				FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */,
 				FD55CCA12200BCB40044D1A7 /* README.md */,
 				FD55CCA22200BDAA0044D1A7 /* package.json */,
 				EB2648E11C7BE17A00B8F155 /* ReactNativeConfig */,
@@ -308,8 +305,8 @@
 		FD55CC872200B4270044D1A7 /* ReactNativeConfigSwift */ = {
 			isa = PBXGroup;
 			children = (
+				FD49389D221C380A00B6BBAE /* Info.plist */,
 				FD4868B52201EF0D0092A63E /* Generated */,
-				FD55CC892200B4270044D1A7 /* Info.plist */,
 				FDECFC47221B530E00EA1E33 /* JSON.swift */,
 				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
 				FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */,
@@ -415,6 +412,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD55CBCD22009FF70044D1A7 /* Build configuration list for PBXNativeTarget "PrepareReactNativeConfig-script" */;
 			buildPhases = (
+				FD68EC92221C350E00006B0B /* Prepare Files */,
 				FD55CBB122009FF50044D1A7 /* Sources */,
 				FD55CBB222009FF50044D1A7 /* Frameworks */,
 				FD55CBB322009FF50044D1A7 /* Resources */,
@@ -462,7 +460,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				FD589B12221AEA4200335F55 /* PBXTargetDependency */,
 			);
 			name = "ReactNativeConfigSwift-iOS";
 			productName = ReactNativeConfigSwift;
@@ -473,6 +470,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD589AF5221AE42F00335F55 /* Build configuration list for PBXNativeTarget "PrepareReactNativeConfig" */;
 			buildPhases = (
+				FD68EC93221C35F400006B0B /* Prepare Files */,
 				FD589AE7221AE42F00335F55 /* Headers */,
 				FD589AE8221AE42F00335F55 /* Sources */,
 				FD589AE9221AE42F00335F55 /* Frameworks */,
@@ -651,7 +649,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\n${BUILD_DIR}/${CONFIGURATION}/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\n";
+			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n";
+		};
+		FD68EC92221C350E00006B0B /* Prepare Files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Prepare Files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n";
+		};
+		FD68EC93221C35F400006B0B /* Prepare Files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Prepare Files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n";
 		};
 		FD7F1D2F2215D3AF009A4F34 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -669,7 +703,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\n\n\n";
+			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -767,11 +801,6 @@
 			isa = PBXTargetDependency;
 			target = FD7F1D212215D390009A4F34 /* ReactNativeConfigSwift-macOS */;
 			targetProxy = FD589B07221AE5F700335F55 /* PBXContainerItemProxy */;
-		};
-		FD589B12221AEA4200335F55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD55CBB422009FF50044D1A7 /* PrepareReactNativeConfig-script */;
-			targetProxy = FD589B11221AEA4200335F55 /* PBXContainerItemProxy */;
 		};
 		FD7F1D282215D390009A4F34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -997,9 +1026,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
@@ -1052,9 +1079,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
@@ -1248,6 +1273,7 @@
 		};
 		FD589AF6221AE42F00335F55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1283,6 +1309,7 @@
 		};
 		FD589AF7221AE42F00335F55 /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1316,6 +1343,7 @@
 		};
 		FD589AF8221AE42F00335F55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1349,6 +1377,7 @@
 		};
 		FD7F1D2C2215D390009A4F34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1364,7 +1393,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "$(SRCROOT)/ReactNativeConfigSwift/Info.plist";
+				INFOPLIST_FILE = ReactNativeConfigSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
@@ -1384,6 +1413,7 @@
 		};
 		FD7F1D2D2215D390009A4F34 /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1399,7 +1429,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "$(SRCROOT)/ReactNativeConfigSwift/Info.plist";
+				INFOPLIST_FILE = ReactNativeConfigSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
@@ -1417,6 +1447,7 @@
 		};
 		FD7F1D2E2215D390009A4F34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1432,7 +1463,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "$(SRCROOT)/ReactNativeConfigSwift/Info.plist";
+				INFOPLIST_FILE = ReactNativeConfigSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
@@ -1569,9 +1600,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
@@ -1688,7 +1717,7 @@
 		};
 		FDECFC8E221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1746,7 +1775,7 @@
 		};
 		FDECFC8F221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1756,7 +1785,7 @@
 		};
 		FDECFC90221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1783,7 +1812,7 @@
 		};
 		FDECFC91221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1802,9 +1831,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
@@ -1836,7 +1863,7 @@
 		};
 		FDECFC92221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1873,7 +1900,7 @@
 		};
 		FDECFC93221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1915,6 +1942,7 @@
 		};
 		FDECFC94221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1930,7 +1958,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "$(SRCROOT)/ReactNativeConfigSwift/Info.plist";
+				INFOPLIST_FILE = ReactNativeConfigSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
@@ -1948,6 +1976,7 @@
 		};
 		FDECFC95221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
