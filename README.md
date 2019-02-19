@@ -197,14 +197,14 @@ If you use `debug`, `local` and `release` configurations there is nothing more t
 
 ## Prepare excutable
 
-The files needed are generated using an executable app that is pre build `./.build/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig`
+The files needed are generated using an executable app that is pre build `./.build/PrepareReactNativeConfig.app/Contents/MacOS/PrepareReactNativeConfig`
 
 If you need to rebuild this file you can do so but first resolve the dependencies using [carthage](https://github.com/Carthage/Carthage)
 
 ``` bash
 carthage update --no-build
 ```
-Then add a scheme to the excoe project to build the target `PrepareReactNativeconfig`.
+Then add a scheme to the excoe project to build the target `PrepareReactNativeConfig`.
 Adjust the code in the `main.swift`
 
 ## Troubleshooting

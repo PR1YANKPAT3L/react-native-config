@@ -1,0 +1,6 @@
+github "Bolides/ZFile"
+
+# Automation
+
+github "Bolides/highway"
+github "antitypical/Result" ~> 4.0
