@@ -4,6 +4,13 @@ Module to expose config variables to your javascript code in React Native, suppo
 
 Bring some [12 factor](http://12factor.net/config) love to your mobile apps!
 
+Run this before building
+``` bash
+touch <#SRCROOT#>/ios/Debug.xcconfig
+touch <#SRCROOT#>/ios/Release.xcconfig
+touch <#SRCROOT#>/ios/Local.xcconfig
+
+```
 
 ## Basic Usage
 
