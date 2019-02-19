@@ -1,6 +1,6 @@
 //
 //  PlatformConfiguarionFileWriter.swift
-//  PrepareReactNativeconfig
+//  PrepareReactNativeConfig
 //
 //  Created by Stijn on 15/02/2019.
 //  Copyright © 2019 Pedro Belo. All rights reserved.

@@ -30,6 +30,8 @@
 		FD589B06221AE5A700335F55 /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E8002216D17500837A3E /* Builds.swift */; };
 		FD589B09221AE60300335F55 /* ReactNativeConfigSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */; };
 		FD661CDF2216C47200F27AD5 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD661CDE2216C47200F27AD5 /* Disk.swift */; };
+		FD6633DC221C1D0A00CDAC50 /* SignPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; };
+		FD6633DD221C1D0A00CDAC50 /* SignPost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD7F1D262215D390009A4F34 /* ReactNativeConfig_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD7F1D292215D390009A4F34 /* ReactNativeConfigSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */; };
 		FD7F1D2A2215D390009A4F34 /* ReactNativeConfigSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -118,6 +120,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FD6633DD221C1D0A00CDAC50 /* SignPost.framework in Embed Frameworks */,
 				FD589AF4221AE42F00335F55 /* PrepareReactNativeConfig.framework in Embed Frameworks */,
 				FD7F1D2A2215D390009A4F34 /* ReactNativeConfigSwift.framework in Embed Frameworks */,
 			);
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD589AF3221AE42F00335F55 /* PrepareReactNativeConfig.framework in Frameworks */,
+				FD6633DC221C1D0A00CDAC50 /* SignPost.framework in Frameworks */,
 				FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */,
 				FD7F1D292215D390009A4F34 /* ReactNativeConfigSwift.framework in Frameworks */,
 			);
@@ -645,7 +649,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${BUILD_DIR}/${CONFIGURATION}/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\n";
+			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\n${BUILD_DIR}/${CONFIGURATION}/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\n";
 		};
 		FD7F1D2F2215D3AF009A4F34 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -663,7 +667,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "pushd ${SRCROOT}\n./.build/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\npopd\n";
+			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

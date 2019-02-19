@@ -1,6 +1,6 @@
 //
 //  SwiftFileWorker.swift
-//  PrepareReactNativeconfig
+//  PrepareReactNativeConfig
 //
 //  Created by Stijn on 15/02/2019.
 //  Copyright © 2019 Pedro Belo. All rights reserved.
@@ -27,7 +27,7 @@ struct Coder {
 
         import Foundation
 
-        /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
+        /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
         @objc public class CurrentBuildConfigurationWorker: NSObject {
             
             public enum Error: Swift.Error {

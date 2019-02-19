@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PrepareReactNativeconfig
+@testable import PrepareReactNativeConfig
 
 class PrepareReactNativeconfigTests: XCTestCase {
 
