@@ -79,13 +79,6 @@
 			remoteGlobalIDString = FD7F1D212215D390009A4F34;
 			remoteInfo = "ReactNativeConfigSwift-macOS";
 		};
-		FD589B11221AEA4200335F55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD55CBB422009FF50044D1A7;
-			remoteInfo = PrepareReactNativeconfig;
-		};
 		FD7F1D272215D390009A4F34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
@@ -143,6 +136,7 @@
 		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
 		FD49389D221C380A00B6BBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TestRelease.xcconfig; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CBB522009FF50044D1A7 /* PrepareReactNativeConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepareReactNativeConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CBC622009FF70044D1A7 /* PrepareReactNativeconfigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrepareReactNativeconfigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +234,7 @@
 				FD4867C82201B6C50092A63E /* Debug.xcconfig */,
 				FD84BA112209C8D7000B86BC /* Local.xcconfig */,
 				FD4867C92201B6D10092A63E /* Release.xcconfig */,
+				FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */,
 				FD55CCA12200BCB40044D1A7 /* README.md */,
 				FD55CCA22200BDAA0044D1A7 /* package.json */,
 				EB2648E11C7BE17A00B8F155 /* ReactNativeConfig */,
@@ -465,7 +460,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				FD589B12221AEA4200335F55 /* PBXTargetDependency */,
 			);
 			name = "ReactNativeConfigSwift-iOS";
 			productName = ReactNativeConfigSwift;
@@ -655,7 +649,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n${BUILD_DIR}/${CONFIGURATION}/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\n";
+			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n";
 		};
 		FD68EC92221C350E00006B0B /* Prepare Files */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -807,11 +801,6 @@
 			isa = PBXTargetDependency;
 			target = FD7F1D212215D390009A4F34 /* ReactNativeConfigSwift-macOS */;
 			targetProxy = FD589B07221AE5F700335F55 /* PBXContainerItemProxy */;
-		};
-		FD589B12221AEA4200335F55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD55CBB422009FF50044D1A7 /* PrepareReactNativeConfig-script */;
-			targetProxy = FD589B11221AEA4200335F55 /* PBXContainerItemProxy */;
 		};
 		FD7F1D282215D390009A4F34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1284,6 +1273,7 @@
 		};
 		FD589AF6221AE42F00335F55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1319,6 +1309,7 @@
 		};
 		FD589AF7221AE42F00335F55 /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1352,6 +1343,7 @@
 		};
 		FD589AF8221AE42F00335F55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1385,6 +1377,7 @@
 		};
 		FD7F1D2C2215D390009A4F34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1420,6 +1413,7 @@
 		};
 		FD7F1D2D2215D390009A4F34 /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1453,6 +1447,7 @@
 		};
 		FD7F1D2E2215D390009A4F34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1722,7 +1717,7 @@
 		};
 		FDECFC8E221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1780,7 +1775,7 @@
 		};
 		FDECFC8F221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1790,7 +1785,7 @@
 		};
 		FDECFC90221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1817,7 +1812,7 @@
 		};
 		FDECFC91221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1868,7 +1863,7 @@
 		};
 		FDECFC92221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1905,7 +1900,7 @@
 		};
 		FDECFC93221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1947,6 +1942,7 @@
 		};
 		FDECFC94221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1980,6 +1976,7 @@
 		};
 		FDECFC95221B652300EA1E33 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
