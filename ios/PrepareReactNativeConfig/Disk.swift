@@ -57,6 +57,48 @@ public struct Disk {
             public let configurationWorkerFile: FileProtocol
             public let infoPlist: FileProtocol
             public let currentBuild: FileProtocol
+            
+            public func clearContentAllFiles() throws {
+                try configurationWorkerFile.write(string: """
+                    import Foundation
+
+                    /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
+                    @objc public class CurrentBuildConfigurationWorker: NSObject {
+                    }
+                """
+                )
+                try infoPlist.write(string: """
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+                    <plist version="1.0">
+                    <dict>
+                    <key>CFBundleDevelopmentRegion</key>
+                        <string>$(DEVELOPMENT_LANGUAGE)</string>
+                    <key>CFBundleExecutable</key>
+                        <string>$(EXECUTABLE_NAME)</string>
+                    <key>CFBundleIdentifier</key>
+                        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+                    <key>CFBundleInfoDictionaryVersion</key>
+                    <string>6.0</string>
+                    <key>CFBundleName</key>
+                        <string>$(PRODUCT_NAME)</string>
+                    <key>CFBundlePackageType</key>
+                        <string>FMWK</string>
+                    <key>CFBundleShortVersionString</key>
+                        <string>1.0</string>
+                    <key>CFBundleVersion</key>
+                        <string>$(CURRENT_PROJECT_VERSION)</string>
+                    </dict>
+                    </plist>
+
+                """)
+                try currentBuild.write(string: """
+                    //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
+
+                    public struct CurrentBuildConfiguration: Codable {
+                    }
+                """)
+            }
         }
     }
     

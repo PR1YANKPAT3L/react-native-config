@@ -29,7 +29,9 @@ public struct MainWorker: MainWorkerProtocol {
     public func attempt() throws {
         
         let disk = try Disk(reactNativeFolder: reactNativeFolder)
-        let builds = try writeToPlatformReadableConfiguarationFiles(from: disk)
+        try disk.code.clearContentAllFiles()
+        
+        let builds = try Builds(from: disk)
         
         SignPost.shared.message("""
             🚀 Env read from

@@ -1,6 +1,5 @@
-BE_BOLIDES_RELEASE_CHANNEL = staging-bolides
-BE_BOLIDES_RELEASE_MANIFEST_URL = https:\/\/exp.host/@bart2050/Bolides?release-channel=staging-bolides
-BOLIDES_BASE_URL = https:\/\/staging.armada.bolides.be
-BOLIDES_ITSME_SECURE_KEY = TEST RELEASE: some key to get stuff for secure storage
+BE_BOLIDES_BASE_URL = https:\/\/staging.armada.bolides.be
+BE_BOLIDES_EXPO_RELEASE_CHANNEL = staging-bolides
+BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL = https:\/\/exp.host/@bart2050/Bolides?release-channel=staging-bolides
+BE_BOLIDES_ITSME_SECURE_KEY = TEST RELEASE: some key to get stuff for secure storage
 ONESIGNAL_APP_ID = cad3f497-898e-4e73-9bfd-442974a2ad59
-BE_BOLIDES_SHOULD_OVERRIDE_MANIFEST_URL = true

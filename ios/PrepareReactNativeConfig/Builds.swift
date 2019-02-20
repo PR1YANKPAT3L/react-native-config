@@ -46,33 +46,33 @@ public struct Builds {
     
     // MARK: Initialize
     
-    public init(configurationFiles: Disk) throws {
-        let debug = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.debug.read())
-        let release = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.release.read())
+    public init(from disk: Disk) throws {
+        let debug = try JSONDecoder().decode(JSON.self, from:  try disk.inputJSON.debug.read())
+        let release = try JSONDecoder().decode(JSON.self, from:  try disk.inputJSON.release.read())
         
-        try configurationFiles.android.debug.write(string: try debug.androidEnvEntry())
-        try configurationFiles.iOS.debug.write(string: try debug.xcconfigEntry())
+        try disk.android.debug.write(string: try debug.androidEnvEntry())
+        try disk.iOS.debug.write(string: try debug.xcconfigEntry())
         
-        try configurationFiles.android.release.write(string: try release.androidEnvEntry())
-        try configurationFiles.iOS.release.write(string: try release.xcconfigEntry())
+        try disk.android.release.write(string: try release.androidEnvEntry())
+        try disk.iOS.release.write(string: try release.xcconfigEntry())
         
         var local: JSON?
         var testRelease: JSON?
         
-        if  let localJSONfile = configurationFiles.inputJSON.local {
+        if  let localJSONfile = disk.inputJSON.local {
             local = try JSONDecoder().decode(JSON.self, from: try localJSONfile.read())
-            try configurationFiles.android.local?.write(string: try local!.androidEnvEntry())
-            try configurationFiles.iOS.local?.write(string: try local!.xcconfigEntry())
+            try disk.android.local?.write(string: try local!.androidEnvEntry())
+            try disk.iOS.local?.write(string: try local!.xcconfigEntry())
         } else {
             local = nil
         }
         
-        if  let testReleaseJSONfile = configurationFiles.inputJSON.testRelease{
+        if  let testReleaseJSONfile = disk.inputJSON.testRelease{
             
             testRelease = try JSONDecoder().decode(JSON.self, from: try testReleaseJSONfile.read())
             
-            try configurationFiles.android.testRelease?.write(string: try testRelease!.androidEnvEntry())
-            try configurationFiles.iOS.testRelease?.write(string: try testRelease!.xcconfigEntry())
+            try disk.android.testRelease?.write(string: try testRelease!.androidEnvEntry())
+            try disk.iOS.testRelease?.write(string: try testRelease!.xcconfigEntry())
         } else {
             testRelease = nil
         }
@@ -97,7 +97,7 @@ public struct Builds {
             )
         }
         
-        let booleanKeys: MappingKeys = debug.booleans.enumerated().compactMap {
+        if let booleanKeys: MappingKeys = (debug.booleans?.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
             let swiftTypeString = typedValue.typeSwiftString
@@ -118,8 +118,10 @@ public struct Builds {
                         self.\(key) = \(key)
                 """
             )
+        }) {
+            allKeys.append(contentsOf: booleanKeys)
         }
-        allKeys.append(contentsOf: booleanKeys)
+        
         
         self.allKeys = allKeys
         
@@ -168,11 +170,15 @@ public struct Builds {
             return "\"\($0.key)\": \"\($0.value.value)\","
             }.joined(separator: "\n"))
         
-        let jsonBooleans = json.booleans.compactMap {
-            return "\"\($0.key)\": \"\($0.value)\","
-            }.joined(separator: "\n")
+        if let jsonBooleans = (
+            json.booleans?
+            .compactMap { return "\"\($0.key)\": \"\($0.value)\"," }
+            .joined(separator: "\n")) {
+            
+            jsonTyped.append(contentsOf: jsonBooleans)
+
+        }
         
-        jsonTyped.append(contentsOf: jsonBooleans)
         jsonTyped.removeLast()
         jsonTyped.append(contentsOf: "}")
         
@@ -181,8 +187,4 @@ public struct Builds {
         return try decoder.decode(CurrentBuildConfiguration.self, from: jsonTyped.data(using: .utf8)!)
     }
     
-}
-
-func writeToPlatformReadableConfiguarationFiles(from configurationFiles: Disk) throws -> Builds {
-   return try Builds(configurationFiles: configurationFiles)
 }
