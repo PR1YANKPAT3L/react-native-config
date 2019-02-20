@@ -44,6 +44,8 @@
 		FD82E7FF2216CE3A00837A3E /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E7FE2216CE3A00837A3E /* Coder.swift */; };
 		FD82E8012216D17500837A3E /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E8002216D17500837A3E /* Builds.swift */; };
 		FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BE2B12201AA38008903DC /* AppKit.framework */; };
+		FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
+		FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDECFBDC221B3BC200EA1E33 /* SignPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; };
 		FDECFBDE221B3BEB00EA1E33 /* ZFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */; };
 		FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
@@ -159,6 +161,7 @@
 		FD82E7FE2216CE3A00837A3E /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
 		FD82E8002216D17500837A3E /* Builds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builds.swift; sourceTree = "<group>"; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
+		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFC47221B530E00EA1E33 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -308,6 +311,7 @@
 				FD49389D221C380A00B6BBAE /* Info.plist */,
 				FD4868B52201EF0D0092A63E /* Generated */,
 				FDECFC47221B530E00EA1E33 /* JSON.swift */,
+				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
 				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
 				FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */,
 				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
@@ -748,6 +752,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */,
 				FD4868772201D1810092A63E /* CurrentBuildConfiguration.swift in Sources */,
 				FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */,
 				FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */,
@@ -771,6 +776,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */,
 				FD7F1D302215D3F2009A4F34 /* CurrentBuildConfiguration.swift in Sources */,
 				FDECFC49221B536100EA1E33 /* JSON.swift in Sources */,
 				FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */,
