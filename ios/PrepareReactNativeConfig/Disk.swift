@@ -35,7 +35,7 @@ public struct Disk {
             static let debug = ".env.debug.json"
             static let release = ".env.release.json"
             static let local = ".env.local.json"
-            static let testRelease = ".env.testRelease.json"
+            static let betaRelease = ".env.betaRelease.json"
         }
         
     }
@@ -44,14 +44,14 @@ public struct Disk {
         public let debug: FileProtocol
         public let release: FileProtocol
         public let local: FileProtocol?
-        public let testRelease: FileProtocol?
+        public let betaRelease: FileProtocol?
     }
     
     public struct Output {
         public let debug: FileProtocol
         public let release: FileProtocol
         public let local: FileProtocol?
-        public let testRelease: FileProtocol?
+        public let betaRelease: FileProtocol?
         
         public struct Code {
             public let configurationWorkerFile: FileProtocol
@@ -119,7 +119,7 @@ public struct Disk {
         debugJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.debug)
         releaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.release)
         do { localJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.local) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.local) to have a local config. Ignoring for now") }
-        do { testReleaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.testRelease) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.testRelease) to have a TestRelease config. Ignoring for now") }
+        do { testReleaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.betaRelease) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.betaRelease) to have a BetaRelease config. Ignoring for now") }
 
         iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
         androidFolder = try reactNativeFolder.subfolder(named: "android")
@@ -130,7 +130,7 @@ public struct Disk {
             debug: debugJSON,
             release: releaseJSON,
             local: localJSON,
-            testRelease: testReleaseJSON
+            betaRelease: testReleaseJSON
         )
         
         self.androidFolder = androidFolder
@@ -151,8 +151,8 @@ public struct Disk {
         }
         
         if testReleaseJSON != nil {
-            testReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "TestRelease.xcconfig")
-            testReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.testRelease")
+            testReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
+            testReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
         } else {
             testReleaseXconfigFile = nil
             testReleaseAndroidConfigurationFile = nil
@@ -162,14 +162,14 @@ public struct Disk {
             debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
             release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
             local: localXconfigFile,
-            testRelease: testReleaseXconfigFile
+            betaRelease: testReleaseXconfigFile
         )
         
         android = Output(
             debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
             release: try androidFolder.createFileIfNeeded(named: ".env.release"),
             local: localAndroidConfigurationFile,
-            testRelease: testReleaseAndroidConfigurationFile
+            betaRelease: testReleaseAndroidConfigurationFile
         )
         
         code = Output.Code(

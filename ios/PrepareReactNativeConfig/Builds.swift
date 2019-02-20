@@ -30,14 +30,14 @@ public struct Builds {
         public let debug: CurrentBuildConfiguration
         public let release: CurrentBuildConfiguration
         public let local: CurrentBuildConfiguration?
-        public let testRelease: CurrentBuildConfiguration?
+        public let betaRelease: CurrentBuildConfiguration?
     }
     
     public struct Input {
         public let debug: JSON
         public let release: JSON
         public let local: JSON?
-        public let testRelease: JSON?
+        public let betaRelease: JSON?
     }
     
     // MARK: - Private
@@ -57,7 +57,7 @@ public struct Builds {
         try disk.iOS.release.write(string: try release.xcconfigEntry())
         
         var local: JSON?
-        var testRelease: JSON?
+        var betaRelease: JSON?
         
         if  let localJSONfile = disk.inputJSON.local {
             local = try JSONDecoder().decode(JSON.self, from: try localJSONfile.read())
@@ -67,17 +67,17 @@ public struct Builds {
             local = nil
         }
         
-        if  let testReleaseJSONfile = disk.inputJSON.testRelease{
+        if  let testReleaseJSONfile = disk.inputJSON.betaRelease{
             
-            testRelease = try JSONDecoder().decode(JSON.self, from: try testReleaseJSONfile.read())
+            betaRelease = try JSONDecoder().decode(JSON.self, from: try testReleaseJSONfile.read())
             
-            try disk.android.testRelease?.write(string: try testRelease!.androidEnvEntry())
-            try disk.iOS.testRelease?.write(string: try testRelease!.xcconfigEntry())
+            try disk.android.betaRelease?.write(string: try betaRelease!.androidEnvEntry())
+            try disk.iOS.betaRelease?.write(string: try betaRelease!.xcconfigEntry())
         } else {
-            testRelease = nil
+            betaRelease = nil
         }
         
-        input = Input(debug: debug, release: release, local: local, testRelease: testRelease)
+        input = Input(debug: debug, release: release, local: local, betaRelease: betaRelease)
 
         var allKeys: MappingKeys = debug.typed.enumerated().compactMap {
             let key = $0.element.key
@@ -159,7 +159,7 @@ public struct Builds {
             debug: try Builds.config(for: input.debug),
             release: try Builds.config(for: input.release),
             local:  local != nil ? try Builds.config(for: local!) : nil,
-            testRelease: testRelease != nil ? try Builds.config(for: testRelease!) : nil
+            betaRelease: betaRelease != nil ? try Builds.config(for: betaRelease!) : nil
         )
         
     }
