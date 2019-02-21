@@ -67,9 +67,9 @@ public struct Builds {
             local = nil
         }
         
-        if  let testReleaseJSONfile = disk.inputJSON.betaRelease{
+        if  let betaReleaseJSONfile = disk.inputJSON.betaRelease{
             
-            betaRelease = try JSONDecoder().decode(JSON.self, from: try testReleaseJSONfile.read())
+            betaRelease = try JSONDecoder().decode(JSON.self, from: try betaReleaseJSONfile.read())
             
             try disk.android.betaRelease?.write(string: try betaRelease!.androidEnvEntry())
             try disk.iOS.betaRelease?.write(string: try betaRelease!.xcconfigEntry())

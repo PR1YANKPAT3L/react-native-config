@@ -111,7 +111,7 @@ public struct Disk {
         var debugJSON: FileProtocol!
         var releaseJSON: FileProtocol!
         var localJSON: FileProtocol?
-        var testReleaseJSON: FileProtocol?
+        var betaReleaseJSON: FileProtocol?
         
         var androidFolder: FolderProtocol!
         var iosFolder: FolderProtocol!
@@ -119,7 +119,7 @@ public struct Disk {
         debugJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.debug)
         releaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.release)
         do { localJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.local) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.local) to have a local config. Ignoring for now") }
-        do { testReleaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.betaRelease) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.betaRelease) to have a BetaRelease config. Ignoring for now") }
+        do { betaReleaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.betaRelease) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.betaRelease) to have a BetaRelease config. Ignoring for now") }
 
         iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
         androidFolder = try reactNativeFolder.subfolder(named: "android")
@@ -130,7 +130,7 @@ public struct Disk {
             debug: debugJSON,
             release: releaseJSON,
             local: localJSON,
-            betaRelease: testReleaseJSON
+            betaRelease: betaReleaseJSON
         )
         
         self.androidFolder = androidFolder
@@ -139,8 +139,8 @@ public struct Disk {
         
         var localXconfigFile: FileProtocol?
         var localAndroidConfigurationFile: FileProtocol?
-        var testReleaseXconfigFile: FileProtocol?
-        var testReleaseAndroidConfigurationFile: FileProtocol?
+        var betaReleaseXconfigFile: FileProtocol?
+        var betaReleaseAndroidConfigurationFile: FileProtocol?
         
         if localJSON != nil {
             localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
@@ -150,26 +150,26 @@ public struct Disk {
             localAndroidConfigurationFile = nil
         }
         
-        if testReleaseJSON != nil {
-            testReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
-            testReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
+        if betaReleaseJSON != nil {
+            betaReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
+            betaReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
         } else {
-            testReleaseXconfigFile = nil
-            testReleaseAndroidConfigurationFile = nil
+            betaReleaseXconfigFile = nil
+            betaReleaseAndroidConfigurationFile = nil
         }
         
         iOS = Output(
             debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
             release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
             local: localXconfigFile,
-            betaRelease: testReleaseXconfigFile
+            betaRelease: betaReleaseXconfigFile
         )
         
         android = Output(
             debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
             release: try androidFolder.createFileIfNeeded(named: ".env.release"),
             local: localAndroidConfigurationFile,
-            betaRelease: testReleaseAndroidConfigurationFile
+            betaRelease: betaReleaseAndroidConfigurationFile
         )
         
         code = Output.Code(
