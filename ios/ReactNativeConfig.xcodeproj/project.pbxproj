@@ -51,6 +51,32 @@
 		FDAA4BF422257F5F0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF322257F5F0091F9C3 /* Quick.framework */; };
 		FDAA4BF622257F660091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF522257F660091F9C3 /* Nimble.framework */; };
 		FDAA4BF722257FB40091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */; };
+		FDAA4BF9222582FC0091F9C3 /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BF8222582FC0091F9C3 /* TestRunner.swift */; };
+		FDAA4BFA222582FC0091F9C3 /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BF8222582FC0091F9C3 /* TestRunner.swift */; };
+		FDAA4BFC222583130091F9C3 /* Terminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BFB222583130091F9C3 /* Terminal.framework */; };
+		FDAA4BFD222583130091F9C3 /* Terminal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BFB222583130091F9C3 /* Terminal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4BFF2225837C0091F9C3 /* Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BFE2225837C0091F9C3 /* Task.framework */; };
+		FDAA4C002225837C0091F9C3 /* Task.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BFE2225837C0091F9C3 /* Task.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C02222583B30091F9C3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C01222583B30091F9C3 /* Result.framework */; };
+		FDAA4C03222583B30091F9C3 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C01222583B30091F9C3 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C05222584ED0091F9C3 /* XCBuild.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C04222584ED0091F9C3 /* XCBuild.framework */; };
+		FDAA4C06222584ED0091F9C3 /* XCBuild.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C04222584ED0091F9C3 /* XCBuild.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C08222585380091F9C3 /* Errors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C07222585380091F9C3 /* Errors.framework */; };
+		FDAA4C09222585380091F9C3 /* Errors.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C07222585380091F9C3 /* Errors.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C0B2225854A0091F9C3 /* Arguments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C0A2225854A0091F9C3 /* Arguments.framework */; };
+		FDAA4C0C2225854A0091F9C3 /* Arguments.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C0A2225854A0091F9C3 /* Arguments.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C0E2225856B0091F9C3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C0D2225856B0091F9C3 /* Result.framework */; };
+		FDAA4C0F2225856B0091F9C3 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C0D2225856B0091F9C3 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C112225856B0091F9C3 /* POSIX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C102225856B0091F9C3 /* POSIX.framework */; };
+		FDAA4C122225856B0091F9C3 /* POSIX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C102225856B0091F9C3 /* POSIX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C142225856B0091F9C3 /* SourceryAutoProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C132225856B0091F9C3 /* SourceryAutoProtocols.framework */; };
+		FDAA4C152225856B0091F9C3 /* SourceryAutoProtocols.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C132225856B0091F9C3 /* SourceryAutoProtocols.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C172225856B0091F9C3 /* Url.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C162225856B0091F9C3 /* Url.framework */; };
+		FDAA4C182225856B0091F9C3 /* Url.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C162225856B0091F9C3 /* Url.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDAA4C1F222596120091F9C3 /* Terminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C1E222596120091F9C3 /* Terminal.framework */; };
+		FDAA4C212225961E0091F9C3 /* XCBuild.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C202225961E0091F9C3 /* XCBuild.framework */; };
+		FDAA4C232225962D0091F9C3 /* Arguments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C222225962D0091F9C3 /* Arguments.framework */; };
+		FDAA4C252225963E0091F9C3 /* SourceryAutoProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */; };
 		FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BE2B12201AA38008903DC /* AppKit.framework */; };
 		FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
@@ -139,10 +165,20 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FDAA4C06222584ED0091F9C3 /* XCBuild.framework in Embed Frameworks */,
+				FDAA4C0F2225856B0091F9C3 /* Result.framework in Embed Frameworks */,
+				FDAA4C122225856B0091F9C3 /* POSIX.framework in Embed Frameworks */,
 				FD6633DD221C1D0A00CDAC50 /* SignPost.framework in Embed Frameworks */,
+				FDAA4C03222583B30091F9C3 /* Result.framework in Embed Frameworks */,
+				FDAA4C152225856B0091F9C3 /* SourceryAutoProtocols.framework in Embed Frameworks */,
+				FDAA4C0C2225854A0091F9C3 /* Arguments.framework in Embed Frameworks */,
 				FD68EC91221C34D300006B0B /* ZFile.framework in Embed Frameworks */,
 				FD589AF4221AE42F00335F55 /* PrepareReactNativeConfig.framework in Embed Frameworks */,
+				FDAA4C09222585380091F9C3 /* Errors.framework in Embed Frameworks */,
+				FDAA4C182225856B0091F9C3 /* Url.framework in Embed Frameworks */,
+				FDAA4BFD222583130091F9C3 /* Terminal.framework in Embed Frameworks */,
 				FD7F1D2A2215D390009A4F34 /* ReactNativeConfigSwift.framework in Embed Frameworks */,
+				FDAA4C002225837C0091F9C3 /* Task.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +225,22 @@
 		FDAA4BEA22257F530091F9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDAA4BF322257F5F0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BF522257F660091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BF8222582FC0091F9C3 /* TestRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunner.swift; sourceTree = "<group>"; };
+		FDAA4BFB222583130091F9C3 /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BFE2225837C0091F9C3 /* Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C01222583B30091F9C3 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C04222584ED0091F9C3 /* XCBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C07222585380091F9C3 /* Errors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Errors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C0A2225854A0091F9C3 /* Arguments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Arguments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C0D2225856B0091F9C3 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C102225856B0091F9C3 /* POSIX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = POSIX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C132225856B0091F9C3 /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C162225856B0091F9C3 /* Url.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Url.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C192225856B0091F9C3 /* SourceryWorker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryWorker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C1E222596120091F9C3 /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C202225961E0091F9C3 /* XCBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C222225962D0091F9C3 /* Arguments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Arguments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,11 +268,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAA4C05222584ED0091F9C3 /* XCBuild.framework in Frameworks */,
+				FDAA4BFF2225837C0091F9C3 /* Task.framework in Frameworks */,
+				FDAA4BFC222583130091F9C3 /* Terminal.framework in Frameworks */,
+				FDAA4C0E2225856B0091F9C3 /* Result.framework in Frameworks */,
+				FDAA4C08222585380091F9C3 /* Errors.framework in Frameworks */,
 				FD589AF3221AE42F00335F55 /* PrepareReactNativeConfig.framework in Frameworks */,
+				FDAA4C02222583B30091F9C3 /* Result.framework in Frameworks */,
+				FDAA4C172225856B0091F9C3 /* Url.framework in Frameworks */,
 				FD6633DC221C1D0A00CDAC50 /* SignPost.framework in Frameworks */,
+				FDAA4C0B2225854A0091F9C3 /* Arguments.framework in Frameworks */,
 				FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */,
 				FD7F1D292215D390009A4F34 /* ReactNativeConfigSwift.framework in Frameworks */,
+				FDAA4C142225856B0091F9C3 /* SourceryAutoProtocols.framework in Frameworks */,
 				FD68EC90221C34D300006B0B /* ZFile.framework in Frameworks */,
+				FDAA4C112225856B0091F9C3 /* POSIX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +304,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAA4C252225963E0091F9C3 /* SourceryAutoProtocols.framework in Frameworks */,
+				FDAA4C232225962D0091F9C3 /* Arguments.framework in Frameworks */,
+				FDAA4C212225961E0091F9C3 /* XCBuild.framework in Frameworks */,
+				FDAA4C1F222596120091F9C3 /* Terminal.framework in Frameworks */,
 				FDECFBDE221B3BEB00EA1E33 /* ZFile.framework in Frameworks */,
 				FDECFBDC221B3BC200EA1E33 /* SignPost.framework in Frameworks */,
 				FD589B09221AE60300335F55 /* ReactNativeConfigSwift.framework in Frameworks */,
@@ -281,6 +347,17 @@
 		EB2648D61C7BE17A00B8F155 = {
 			isa = PBXGroup;
 			children = (
+				FDAA4C192225856B0091F9C3 /* SourceryWorker.framework */,
+				FDAA4C162225856B0091F9C3 /* Url.framework */,
+				FDAA4C132225856B0091F9C3 /* SourceryAutoProtocols.framework */,
+				FDAA4C102225856B0091F9C3 /* POSIX.framework */,
+				FDAA4C0D2225856B0091F9C3 /* Result.framework */,
+				FDAA4C0A2225854A0091F9C3 /* Arguments.framework */,
+				FDAA4C07222585380091F9C3 /* Errors.framework */,
+				FDAA4C04222584ED0091F9C3 /* XCBuild.framework */,
+				FDAA4C01222583B30091F9C3 /* Result.framework */,
+				FDAA4BFE2225837C0091F9C3 /* Task.framework */,
+				FDAA4BFB222583130091F9C3 /* Terminal.framework */,
 				FD4867C82201B6C50092A63E /* Debug.xcconfig */,
 				FD84BA112209C8D7000B86BC /* Local.xcconfig */,
 				FD4867C92201B6D10092A63E /* Release.xcconfig */,
@@ -335,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				FDAA4BBF222549460091F9C3 /* main.swift */,
+				FDAA4BF8222582FC0091F9C3 /* TestRunner.swift */,
 				FD661CDE2216C47200F27AD5 /* Disk.swift */,
 				FD589AE5221AE34100335F55 /* MainWorker.swift */,
 				FD82E7FE2216CE3A00837A3E /* Coder.swift */,
@@ -371,6 +449,10 @@
 		FD55CC902200B4460044D1A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */,
+				FDAA4C222225962D0091F9C3 /* Arguments.framework */,
+				FDAA4C202225961E0091F9C3 /* XCBuild.framework */,
+				FDAA4C1E222596120091F9C3 /* Terminal.framework */,
 				FDAA4BF522257F660091F9C3 /* Nimble.framework */,
 				FDAA4BF322257F5F0091F9C3 /* Quick.framework */,
 				FDAA4BE022257CD60091F9C3 /* Nimble.framework */,
@@ -863,6 +945,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD661CDF2216C47200F27AD5 /* Disk.swift in Sources */,
+				FDAA4BF9222582FC0091F9C3 /* TestRunner.swift in Sources */,
 				FDAA4BC0222549460091F9C3 /* main.swift in Sources */,
 				FD82E8012216D17500837A3E /* Builds.swift in Sources */,
 				FD82E7FF2216CE3A00837A3E /* Coder.swift in Sources */,
@@ -897,6 +980,7 @@
 			files = (
 				FD589B04221AE59400335F55 /* Disk.swift in Sources */,
 				FD589B05221AE59F00335F55 /* Coder.swift in Sources */,
+				FDAA4BFA222582FC0091F9C3 /* TestRunner.swift in Sources */,
 				FD589B06221AE5A700335F55 /* Builds.swift in Sources */,
 				FD589AFC221AE52A00335F55 /* MainWorker.swift in Sources */,
 			);

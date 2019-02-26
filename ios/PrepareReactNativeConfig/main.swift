@@ -9,6 +9,8 @@
 import Foundation
 import ZFile
 import SignPost
+import XCBuild
+import Task
 
 let reactNativeFolderPrefixOption = "-reactNativeFolder:"
 
@@ -30,11 +32,25 @@ do {
     do {
         let main = MainWorker(reactNativeFolder: reactNativeFolder)
         
+        let xcbuild = XCBuild(system: try LocalSystem())
+        
+        // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme ReactNativeConfigSwift-macOS
+        let workspace = try reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
+        let testOptions = try MinimalTestOptions(scheme: "ReactNativeConfigSwift-macOS", workspace: workspace)
+        let testRunner = try TestRunner(xcbuild: xcbuild, testOptions: testOptions)
+        try testRunner.attempt()
         try main.attempt()
         
         SignPost.shared.message("🚀 ReactNativeConfig main.swift ✅")
         
         exit(EXIT_SUCCESS)
+    } catch let XCBuild.TestRunError.testsFailed(report: testReport) {
+        SignPost.shared.error("""
+            ❌ Prepare React Native Config tests failed
+            \(testReport)
+            """
+        )
+        exit(EXIT_FAILURE)
     } catch {
         SignPost.shared.error("""
             ❌ Prepare React Native Config
