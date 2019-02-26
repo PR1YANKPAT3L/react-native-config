@@ -34,11 +34,7 @@ import Foundation
     /// Keys used in the plist of ReactNativeConfigSwift module when building for the selected configuration (Debug or Release)
     public enum Case: String, CaseIterable {
         
-      case BE_BOLIDES_BASE_URL
-      case BE_BOLIDES_EXPO_RELEASE_CHANNEL
-      case BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL
-      case BE_BOLIDES_ITSME_SECURE_KEY
-      case ONESIGNAL_APP_ID
+      case hasConfiguration
         
     }
     

@@ -27,19 +27,17 @@ public struct Disk {
     
     public let signPost: SignPostProtocol
     
-    // MARK: - Structs
-    
-    public struct FileName {
-        
-        public struct JSON {
-            static let debug = ".env.debug.json"
-            static let release = ".env.release.json"
-            static let local = ".env.local.json"
-            static let betaRelease = ".env.betaRelease.json"
-        }
-        
+    // MARK: - Enum
+
+    enum JSONFileName: String, CaseIterable {
+        case debug = "env.debug.json"
+        case release = "env.release.json"
+        case local = "env.local.json"
+        case betaRelease = "env.betaRelease.json"
     }
     
+    // MARK: - Structs
+
     public struct Input {
         public let debug: FileProtocol
         public let release: FileProtocol
@@ -116,12 +114,18 @@ public struct Disk {
         var androidFolder: FolderProtocol!
         var iosFolder: FolderProtocol!
         
-        debugJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.debug)
-        releaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.release)
-        do { localJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.local) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.local) to have a local config. Ignoring for now") }
-        do { betaReleaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.betaRelease) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.betaRelease) to have a BetaRelease config. Ignoring for now") }
+        debugJSON = try reactNativeFolder.file(named: Disk.JSONFileName.debug.rawValue)
+        releaseJSON = try reactNativeFolder.file(named: Disk.JSONFileName.release.rawValue)
+        do { localJSON = try reactNativeFolder.file(named: Disk.JSONFileName.local.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.JSONFileName.local.rawValue) to have a local config. Ignoring for now") }
+        do { betaReleaseJSON = try reactNativeFolder.file(named: Disk.JSONFileName.betaRelease.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.JSONFileName.betaRelease.rawValue) to have a BetaRelease config. Ignoring for now") }
 
-        iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
+        do {
+            iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
+        } catch {
+            signPost.message("PREPARE CONFIGURATION run in its own project space")
+            iosFolder = try reactNativeFolder.subfolder(named: "/ios")
+        }
+        
         androidFolder = try reactNativeFolder.subfolder(named: "android")
         
         reactNativeConfigSwiftSourcesFolder = try iosFolder.subfolder(named: "ReactNativeConfigSwift")

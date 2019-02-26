@@ -18,15 +18,7 @@
     <string>1.0</string>
 <key>CFBundleVersion</key>
     <string>$(CURRENT_PROJECT_VERSION)</string>
-      <key>BE_BOLIDES_BASE_URL</key>
-<string>$(BE_BOLIDES_BASE_URL)</string>
-      <key>BE_BOLIDES_EXPO_RELEASE_CHANNEL</key>
-<string>$(BE_BOLIDES_EXPO_RELEASE_CHANNEL)</string>
-      <key>BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL</key>
-<string>$(BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL)</string>
-      <key>BE_BOLIDES_ITSME_SECURE_KEY</key>
-<string>$(BE_BOLIDES_ITSME_SECURE_KEY)</string>
-      <key>ONESIGNAL_APP_ID</key>
-<string>$(ONESIGNAL_APP_ID)</string>
+      <key>hasConfiguration</key>
+<string>$(hasConfiguration)</string>
 </dict>
 </plist>

@@ -12,10 +12,13 @@ import Foundation
 
 public struct JSON: Codable {
     
-    public let typed: [String: JSONEntry]
+    public let typed: [String: JSONEntry]?
     public let booleans: [String: Bool]?
     
     public func xcconfigEntry() throws -> String {
+        
+        guard let typed = typed else { return ""}
+        
         var entries = try typed
             .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"}
             .sorted()
@@ -32,6 +35,9 @@ public struct JSON: Codable {
     }
     
     public func androidEnvEntry() throws -> String {
+
+        guard let typed = typed else { return ""}
+
         var entries = try typed
             .map { return "\($0.key) = \(try androidEnvRawValue(for: $0.value))" }
             .sorted()

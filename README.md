@@ -6,10 +6,6 @@ Bring some [12 factor](http://12factor.net/config) love to your mobile apps!
 
 Run this before building
 ``` bash
-touch <#SRCROOT#>/ios/Debug.xcconfig
-touch <#SRCROOT#>/ios/Release.xcconfig
-touch <#SRCROOT#>/ios/Local.xcconfig
-touch <#SRCROOT#>/ios/BetaRelease.xcconfig
 cartage checkout
 xcodebuild --scheme React
 ```

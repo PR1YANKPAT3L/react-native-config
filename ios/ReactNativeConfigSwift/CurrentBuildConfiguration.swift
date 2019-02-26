@@ -13,11 +13,7 @@ import Foundation
 public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
 
     // Custom plist properties are added here
-    public let BE_BOLIDES_BASE_URL: URLEscaped
-    public let BE_BOLIDES_EXPO_RELEASE_CHANNEL: String
-    public let BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL: URLEscaped
-    public let BE_BOLIDES_ITSME_SECURE_KEY: String
-    public let ONESIGNAL_APP_ID: String
+    public let hasConfiguration: Bool
 
     public var description: String {
         return """
@@ -25,11 +21,7 @@ public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
 
             // Custom environment dependend constants from .env.<CONFIGURATION>.json
 
-            * BE_BOLIDES_BASE_URL: \(BE_BOLIDES_BASE_URL)
-            * BE_BOLIDES_EXPO_RELEASE_CHANNEL: \(BE_BOLIDES_EXPO_RELEASE_CHANNEL)
-            * BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL: \(BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL)
-            * BE_BOLIDES_ITSME_SECURE_KEY: \(BE_BOLIDES_ITSME_SECURE_KEY)
-            * ONESIGNAL_APP_ID: \(ONESIGNAL_APP_ID)
+            * hasConfiguration: \(hasConfiguration)
             """
     }
 
@@ -37,11 +29,10 @@ public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-         BE_BOLIDES_BASE_URL = try container.decode(URLEscaped.self, forKey: .BE_BOLIDES_BASE_URL)
-         BE_BOLIDES_EXPO_RELEASE_CHANNEL = try container.decode(String.self, forKey: .BE_BOLIDES_EXPO_RELEASE_CHANNEL)
-         BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL = try container.decode(URLEscaped.self, forKey: .BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL)
-         BE_BOLIDES_ITSME_SECURE_KEY = try container.decode(String.self, forKey: .BE_BOLIDES_ITSME_SECURE_KEY)
-         ONESIGNAL_APP_ID = try container.decode(String.self, forKey: .ONESIGNAL_APP_ID)
+         
+        guard let hasConfiguration = Bool(try container.decode(String.self, forKey: .hasConfiguration)) else { throw Error.invalidBool(forKey: "hasConfiguration")}
+
+        self.hasConfiguration = hasConfiguration
 
     }
 

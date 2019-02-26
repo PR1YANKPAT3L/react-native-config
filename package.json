@@ -11,11 +11,11 @@
     "ios",
     "12factor"
   ],
-  "homepage": "https://github.com/luggit/react-native-config",
+  "homepage": "https://github.com/Bolides/react-native-config",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/luggit/react-native-config"
+    "url": "https://github.com/Bolides/react-native-config"
   },
   "private": false,
   "author": "Pedro Belo",
@@ -23,8 +23,7 @@
     "android/",
     "ios/",
     "index.js",
-    "index.d.ts",
-    "react-native-config.podspec"
+    "index.d.ts"
   ],
   "types": "./index.d.ts",
   "license": "MIT"

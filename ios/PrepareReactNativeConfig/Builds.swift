@@ -43,12 +43,15 @@ public struct Builds {
     // MARK: - Private
     
     private let allKeys: Builds.MappingKeys
+    private let decoder: JSONDecoder
     
     // MARK: Initialize
     
-    public init(from disk: Disk) throws {
-        let debug = try JSONDecoder().decode(JSON.self, from:  try disk.inputJSON.debug.read())
-        let release = try JSONDecoder().decode(JSON.self, from:  try disk.inputJSON.release.read())
+    public init(from disk: Disk, decoder: JSONDecoder = JSONDecoder()) throws {
+
+        self.decoder = decoder
+        let debug = try decoder.decode(JSON.self, from:  try disk.inputJSON.debug.read())
+        let release = try decoder.decode(JSON.self, from:  try disk.inputJSON.release.read())
         
         try disk.android.debug.write(string: try debug.androidEnvEntry())
         try disk.iOS.debug.write(string: try debug.xcconfigEntry())
@@ -60,7 +63,7 @@ public struct Builds {
         var betaRelease: JSON?
         
         if  let localJSONfile = disk.inputJSON.local {
-            local = try JSONDecoder().decode(JSON.self, from: try localJSONfile.read())
+            local = try decoder.decode(JSON.self, from: try localJSONfile.read())
             try disk.android.local?.write(string: try local!.androidEnvEntry())
             try disk.iOS.local?.write(string: try local!.xcconfigEntry())
         } else {
@@ -69,7 +72,7 @@ public struct Builds {
         
         if  let betaReleaseJSONfile = disk.inputJSON.betaRelease{
             
-            betaRelease = try JSONDecoder().decode(JSON.self, from: try betaReleaseJSONfile.read())
+            betaRelease = try decoder.decode(JSON.self, from: try betaReleaseJSONfile.read())
             
             try disk.android.betaRelease?.write(string: try betaRelease!.androidEnvEntry())
             try disk.iOS.betaRelease?.write(string: try betaRelease!.xcconfigEntry())
@@ -79,7 +82,7 @@ public struct Builds {
         
         input = Input(debug: debug, release: release, local: local, betaRelease: betaRelease)
 
-        var allKeys: MappingKeys = debug.typed.enumerated().compactMap {
+        var allKeys: MappingKeys = debug.typed?.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = $0.element.value.typedValue
             let swiftTypeString = typedValue.typeSwiftString
@@ -95,7 +98,7 @@ public struct Builds {
                 """,
                 decoderInit: "\(key) = try container.decode(\(swiftTypeString).self, forKey: .\(key))"
             )
-        }
+        } ?? [(case: String, plistVar: String, plistVarString: String, xmlEntry: String, decoderInit: String)]()
         
         if let booleanKeys: MappingKeys = (debug.booleans?.enumerated().compactMap {
             let key = $0.element.key
@@ -121,7 +124,6 @@ public struct Builds {
         }) {
             allKeys.append(contentsOf: booleanKeys)
         }
-        
         
         self.allKeys = allKeys
         
@@ -156,17 +158,21 @@ public struct Builds {
             .joined(separator: "\n")
         
         output = Output(
-            debug: try Builds.config(for: input.debug),
-            release: try Builds.config(for: input.release),
-            local:  local != nil ? try Builds.config(for: local!) : nil,
-            betaRelease: betaRelease != nil ? try Builds.config(for: betaRelease!) : nil
+            debug: try Builds.config(for: input.debug, decoder),
+            release: try Builds.config(for: input.release, decoder),
+            local:  local != nil ? try Builds.config(for: local!, decoder) : nil,
+            betaRelease: betaRelease != nil ? try Builds.config(for: betaRelease!, decoder) : nil
         )
         
     }
     
-    private static func config(for json: JSON) throws -> CurrentBuildConfiguration {
+    private static func config(for json: JSON, _ decoder: JSONDecoder) throws -> CurrentBuildConfiguration {
+
+        let typed = json.typed ?? [String: JSONEntry]()
+        
         var jsonTyped = "{"
-        jsonTyped.append(contentsOf: json.typed.compactMap {
+        
+        jsonTyped.append(contentsOf: typed.compactMap {
             return "\"\($0.key)\": \"\($0.value.value)\","
             }.joined(separator: "\n"))
         
@@ -179,10 +185,9 @@ public struct Builds {
 
         }
         
-        jsonTyped.removeLast()
-        jsonTyped.append(contentsOf: "}")
+        if jsonTyped.count > 1 { jsonTyped.removeLast() }
         
-        let decoder = JSONDecoder()
+        jsonTyped.append(contentsOf: "}")
         
         return try decoder.decode(CurrentBuildConfiguration.self, from: jsonTyped.data(using: .utf8)!)
     }
