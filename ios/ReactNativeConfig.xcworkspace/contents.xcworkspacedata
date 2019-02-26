@@ -14,6 +14,12 @@
       location = "group:../env.debug.json">
    </FileRef>
    <FileRef
+      location = "group:../Cartfile">
+   </FileRef>
+   <FileRef
+      location = "group:../Cartfile.private">
+   </FileRef>
+   <FileRef
       location = "group:../env.local.json">
    </FileRef>
    <FileRef
@@ -30,5 +36,11 @@
    </FileRef>
    <FileRef
       location = "group:../../highway/Sources/highway/Highway.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Checkouts/Nimble/Nimble.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Checkouts/Quick/Quick.xcodeproj">
    </FileRef>
 </Workspace>

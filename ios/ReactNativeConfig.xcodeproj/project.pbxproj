@@ -43,6 +43,14 @@
 		FD82E7FF2216CE3A00837A3E /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E7FE2216CE3A00837A3E /* Coder.swift */; };
 		FD82E8012216D17500837A3E /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E8002216D17500837A3E /* Builds.swift */; };
 		FDAA4BC0222549460091F9C3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BBF222549460091F9C3 /* main.swift */; };
+		FDAA4BD422257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */; };
+		FDAA4BD622257CA90091F9C3 /* ReactNativeConfigSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* ReactNativeConfigSwift.framework */; };
+		FDAA4BDF22257CCD0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BDE22257CCD0091F9C3 /* Quick.framework */; };
+		FDAA4BE122257CD60091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BE022257CD60091F9C3 /* Nimble.framework */; };
+		FDAA4BEB22257F530091F9C3 /* ReactNativeConfigSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */; };
+		FDAA4BF422257F5F0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF322257F5F0091F9C3 /* Quick.framework */; };
+		FDAA4BF622257F660091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF522257F660091F9C3 /* Nimble.framework */; };
+		FDAA4BF722257FB40091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */; };
 		FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BE2B12201AA38008903DC /* AppKit.framework */; };
 		FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
@@ -87,6 +95,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = FD7F1D212215D390009A4F34;
 			remoteInfo = "ReactNativeConfig-macOS";
+		};
+		FDAA4BD722257CA90091F9C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD55CC852200B4270044D1A7;
+			remoteInfo = "ReactNativeConfigSwift-iOS";
+		};
+		FDAA4BEC22257F530091F9C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD7F1D212215D390009A4F34;
+			remoteInfo = "ReactNativeConfigSwift-macOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -152,13 +174,21 @@
 		FD589AEE221AE42F00335F55 /* PrepareReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrepareReactNativeConfig.h; sourceTree = "<group>"; };
 		FD589B3A221AECD600335F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD661CDE2216C47200F27AD5 /* Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
-		FD68EC8C221C261D00006B0B /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
 		FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactNativeConfigSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig_macOS.h; sourceTree = "<group>"; };
 		FD82E7FE2216CE3A00837A3E /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
 		FD82E8002216D17500837A3E /* Builds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builds.swift; sourceTree = "<group>"; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 		FDAA4BBF222549460091F9C3 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FDAA4BD122257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeConfigSwift-iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfigurationWorkerSpec.swift; sourceTree = "<group>"; };
+		FDAA4BD522257CA90091F9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDAA4BDE22257CCD0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BE022257CD60091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BE622257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeConfigSwift-macOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BEA22257F530091F9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDAA4BF322257F5F0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BF522257F660091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,13 +255,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FDAA4BCE22257CA90091F9C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDAA4BE122257CD60091F9C3 /* Nimble.framework in Frameworks */,
+				FDAA4BDF22257CCD0091F9C3 /* Quick.framework in Frameworks */,
+				FDAA4BD622257CA90091F9C3 /* ReactNativeConfigSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDAA4BE322257F530091F9C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDAA4BF622257F660091F9C3 /* Nimble.framework in Frameworks */,
+				FDAA4BF422257F5F0091F9C3 /* Quick.framework in Frameworks */,
+				FDAA4BEB22257F530091F9C3 /* ReactNativeConfigSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		EB2648D61C7BE17A00B8F155 = {
 			isa = PBXGroup;
 			children = (
-				FD68EC8C221C261D00006B0B /* Cartfile */,
 				FD4867C82201B6C50092A63E /* Debug.xcconfig */,
 				FD84BA112209C8D7000B86BC /* Local.xcconfig */,
 				FD4867C92201B6D10092A63E /* Release.xcconfig */,
@@ -241,6 +290,8 @@
 				FD55CBC922009FF70044D1A7 /* PrepareReactNativeConfigTests */,
 				FD55CC872200B4270044D1A7 /* ReactNativeConfigSwift */,
 				FD7F1D232215D390009A4F34 /* ReactNativeConfig-macOS */,
+				FDAA4BD222257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests */,
+				FDAA4BE722257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests */,
 				EB2648E01C7BE17A00B8F155 /* Products */,
 				FD55CC902200B4460044D1A7 /* Frameworks */,
 			);
@@ -256,6 +307,8 @@
 				FD55CC862200B4270044D1A7 /* ReactNativeConfigSwift.framework */,
 				FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */,
 				FD589AEC221AE42F00335F55 /* PrepareReactNativeConfig.framework */,
+				FDAA4BD122257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests.xctest */,
+				FDAA4BE622257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -318,6 +371,10 @@
 		FD55CC902200B4460044D1A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDAA4BF522257F660091F9C3 /* Nimble.framework */,
+				FDAA4BF322257F5F0091F9C3 /* Quick.framework */,
+				FDAA4BE022257CD60091F9C3 /* Nimble.framework */,
+				FDAA4BDE22257CCD0091F9C3 /* Quick.framework */,
 				FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */,
 				FDECFBDB221B3BC200EA1E33 /* SignPost.framework */,
 				FD4BE2B12201AA38008903DC /* AppKit.framework */,
@@ -331,6 +388,23 @@
 				FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */,
 			);
 			path = "ReactNativeConfig-macOS";
+			sourceTree = "<group>";
+		};
+		FDAA4BD222257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */,
+				FDAA4BD522257CA90091F9C3 /* Info.plist */,
+			);
+			path = "ReactNativeConfigSwift-iOS-Tests";
+			sourceTree = "<group>";
+		};
+		FDAA4BE722257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FDAA4BEA22257F530091F9C3 /* Info.plist */,
+			);
+			path = "ReactNativeConfigSwift-macOS-Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,6 +579,42 @@
 			productReference = FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		FDAA4BD022257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDAA4BD922257CA90091F9C3 /* Build configuration list for PBXNativeTarget "ReactNativeConfigSwift-iOS-Tests" */;
+			buildPhases = (
+				FDAA4BCD22257CA90091F9C3 /* Sources */,
+				FDAA4BCE22257CA90091F9C3 /* Frameworks */,
+				FDAA4BCF22257CA90091F9C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDAA4BD822257CA90091F9C3 /* PBXTargetDependency */,
+			);
+			name = "ReactNativeConfigSwift-iOS-Tests";
+			productName = "ReactNativeConfigSwift-iOS-Tests";
+			productReference = FDAA4BD122257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FDAA4BE522257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDAA4BEE22257F530091F9C3 /* Build configuration list for PBXNativeTarget "ReactNativeConfigSwift-macOS-Tests" */;
+			buildPhases = (
+				FDAA4BE222257F530091F9C3 /* Sources */,
+				FDAA4BE322257F530091F9C3 /* Frameworks */,
+				FDAA4BE422257F530091F9C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDAA4BED22257F530091F9C3 /* PBXTargetDependency */,
+			);
+			name = "ReactNativeConfigSwift-macOS-Tests";
+			productName = "ReactNativeConfigSwift-macOS-Tests";
+			productReference = FDAA4BE622257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -540,6 +650,14 @@
 					FD7F1D212215D390009A4F34 = {
 						CreatedOnToolsVersion = 10.1;
 					};
+					FDAA4BD022257CA90091F9C3 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = WWFDRU947Q;
+						ProvisioningStyle = Automatic;
+					};
+					FDAA4BE522257F530091F9C3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = EB2648DA1C7BE17A00B8F155 /* Build configuration list for PBXProject "ReactNativeConfig" */;
@@ -562,6 +680,8 @@
 				FD55CC852200B4270044D1A7 /* ReactNativeConfigSwift-iOS */,
 				FD7F1D212215D390009A4F34 /* ReactNativeConfigSwift-macOS */,
 				FD589AEB221AE42F00335F55 /* PrepareReactNativeConfig */,
+				FDAA4BD022257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests */,
+				FDAA4BE522257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -596,6 +716,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FD7F1D202215D390009A4F34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDAA4BCF22257CA90091F9C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDAA4BE422257F530091F9C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -781,6 +915,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FDAA4BCD22257CA90091F9C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDAA4BD422257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDAA4BE222257F530091F9C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDAA4BF722257FB40091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -808,6 +958,16 @@
 			isa = PBXTargetDependency;
 			target = FD7F1D212215D390009A4F34 /* ReactNativeConfigSwift-macOS */;
 			targetProxy = FD7F1D272215D390009A4F34 /* PBXContainerItemProxy */;
+		};
+		FDAA4BD822257CA90091F9C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD55CC852200B4270044D1A7 /* ReactNativeConfigSwift-iOS */;
+			targetProxy = FDAA4BD722257CA90091F9C3 /* PBXContainerItemProxy */;
+		};
+		FDAA4BED22257F530091F9C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD7F1D212215D390009A4F34 /* ReactNativeConfigSwift-macOS */;
+			targetProxy = FDAA4BEC22257F530091F9C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1717,6 +1877,206 @@
 			};
 			name = Local;
 		};
+		FDAA4BDA22257CA90091F9C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ReactNativeConfigSwift-iOS-Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FDAA4BDB22257CA90091F9C3 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ReactNativeConfigSwift-iOS-Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Local;
+		};
+		FDAA4BDC22257CA90091F9C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ReactNativeConfigSwift-iOS-Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FDAA4BDD22257CA90091F9C3 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ReactNativeConfigSwift-iOS-Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-iOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = BetaRelease;
+		};
+		FDAA4BEF22257F530091F9C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ReactNativeConfigSwift-macOS-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-macOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		FDAA4BF022257F530091F9C3 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ReactNativeConfigSwift-macOS-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-macOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Local;
+		};
+		FDAA4BF122257F530091F9C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ReactNativeConfigSwift-macOS-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-macOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		FDAA4BF222257F530091F9C3 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ReactNativeConfigSwift-macOS-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-macOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = BetaRelease;
+		};
 		FDECFC8E221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
@@ -2097,6 +2457,28 @@
 				FD7F1D2D2215D390009A4F34 /* Local */,
 				FD7F1D2E2215D390009A4F34 /* Release */,
 				FDECFC94221B652300EA1E33 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDAA4BD922257CA90091F9C3 /* Build configuration list for PBXNativeTarget "ReactNativeConfigSwift-iOS-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDAA4BDA22257CA90091F9C3 /* Debug */,
+				FDAA4BDB22257CA90091F9C3 /* Local */,
+				FDAA4BDC22257CA90091F9C3 /* Release */,
+				FDAA4BDD22257CA90091F9C3 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDAA4BEE22257F530091F9C3 /* Build configuration list for PBXNativeTarget "ReactNativeConfigSwift-macOS-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDAA4BEF22257F530091F9C3 /* Debug */,
+				FDAA4BF022257F530091F9C3 /* Local */,
+				FDAA4BF122257F530091F9C3 /* Release */,
+				FDAA4BF222257F530091F9C3 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,2 +1,4 @@
 
 github "expo/react-native" ~> 0.57.5
+github "doozMen/Quick"
+github "doozMen/Nimble"
