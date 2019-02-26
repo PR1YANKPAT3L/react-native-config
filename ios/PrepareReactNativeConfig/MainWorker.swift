@@ -29,34 +29,43 @@ public struct MainWorker: MainWorkerProtocol {
     public func attempt() throws {
         
         let disk = try Disk(reactNativeFolder: reactNativeFolder)
-        let builds = try writeToPlatformReadableConfiguarationFiles(from: disk)
+        try disk.code.clearContentAllFiles()
+        
+        let builds = try Builds(from: disk)
         
         SignPost.shared.message("""
             🚀 Env read from
             \(disk.inputJSON.debug)
             \(disk.inputJSON.release)
             \(String(describing: disk.inputJSON.local))
+            \(String(describing: disk.inputJSON.betaRelease))
             ...
             """
         )
         
         SignPost.shared.message("""
             🚀 Written to config files
+            
             # ios
-            \(disk.iOS.debug)
-            \(disk.iOS.release)
-            \(String(describing: disk.iOS.local))
+            
+            * \(disk.iOS.debug)
+            * \(disk.iOS.release)
+            * \(String(describing: disk.iOS.local))
+            * \(String(describing: disk.iOS.betaRelease))
+            
             # android
-            \(disk.android.debug)
-            \(disk.android.release)
-            \(String(describing: disk.android.local))
-            ...
+            
+            * \(disk.android.debug)
+            * \(disk.android.release)
+            * \(String(describing: disk.android.local))
+            * \(String(describing: disk.android.betaRelease))
+            
             """
         )
         
-        SignPost.shared.verbose("Writing environment variables to swift files and plist")
+        SignPost.shared.message("🚀 Generating SWIFT code")
         
-        let coder = Coder(disk: disk, builds: builds)
+        let coder = Coder(disk: disk, builds: builds, signPost: signPost)
         
         try coder.generateConfigurationWorker()
         try coder.generateConfigurationForCurrentBuild()

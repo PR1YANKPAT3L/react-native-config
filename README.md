@@ -6,11 +6,10 @@ Bring some [12 factor](http://12factor.net/config) love to your mobile apps!
 
 Run this before building
 ``` bash
-touch <#SRCROOT#>/ios/Debug.xcconfig
-touch <#SRCROOT#>/ios/Release.xcconfig
-touch <#SRCROOT#>/ios/Local.xcconfig
-
+cartage checkout
+xcodebuild --scheme React
 ```
+Then you should be able to build every target. If not build react for the platform you try to build.
 
 ## Basic Usage
 

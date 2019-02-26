@@ -30,56 +30,59 @@ public struct Builds {
         public let debug: CurrentBuildConfiguration
         public let release: CurrentBuildConfiguration
         public let local: CurrentBuildConfiguration?
-        public let testRelease: CurrentBuildConfiguration?
+        public let betaRelease: CurrentBuildConfiguration?
     }
     
     public struct Input {
         public let debug: JSON
         public let release: JSON
         public let local: JSON?
-        public let testRelease: JSON?
+        public let betaRelease: JSON?
     }
     
     // MARK: - Private
     
     private let allKeys: Builds.MappingKeys
+    private let decoder: JSONDecoder
     
     // MARK: Initialize
     
-    public init(configurationFiles: Disk) throws {
-        let debug = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.debug.read())
-        let release = try JSONDecoder().decode(JSON.self, from:  try configurationFiles.inputJSON.release.read())
+    public init(from disk: Disk, decoder: JSONDecoder = JSONDecoder()) throws {
+
+        self.decoder = decoder
+        let debug = try decoder.decode(JSON.self, from:  try disk.inputJSON.debug.read())
+        let release = try decoder.decode(JSON.self, from:  try disk.inputJSON.release.read())
         
-        try configurationFiles.android.debug.write(string: try debug.androidEnvEntry())
-        try configurationFiles.iOS.debug.write(string: try debug.xcconfigEntry())
+        try disk.android.debug.write(string: try debug.androidEnvEntry())
+        try disk.iOS.debug.write(string: try debug.xcconfigEntry())
         
-        try configurationFiles.android.release.write(string: try release.androidEnvEntry())
-        try configurationFiles.iOS.release.write(string: try release.xcconfigEntry())
+        try disk.android.release.write(string: try release.androidEnvEntry())
+        try disk.iOS.release.write(string: try release.xcconfigEntry())
         
         var local: JSON?
-        var testRelease: JSON?
+        var betaRelease: JSON?
         
-        if  let localJSONfile = configurationFiles.inputJSON.local {
-            local = try JSONDecoder().decode(JSON.self, from: try localJSONfile.read())
-            try configurationFiles.android.local?.write(string: try local!.androidEnvEntry())
-            try configurationFiles.iOS.local?.write(string: try local!.xcconfigEntry())
+        if  let localJSONfile = disk.inputJSON.local {
+            local = try decoder.decode(JSON.self, from: try localJSONfile.read())
+            try disk.android.local?.write(string: try local!.androidEnvEntry())
+            try disk.iOS.local?.write(string: try local!.xcconfigEntry())
         } else {
             local = nil
         }
         
-        if  let testReleaseJSONfile = configurationFiles.inputJSON.testRelease{
+        if  let betaReleaseJSONfile = disk.inputJSON.betaRelease{
             
-            testRelease = try JSONDecoder().decode(JSON.self, from: try testReleaseJSONfile.read())
+            betaRelease = try decoder.decode(JSON.self, from: try betaReleaseJSONfile.read())
             
-            try configurationFiles.android.testRelease?.write(string: try testRelease!.androidEnvEntry())
-            try configurationFiles.iOS.testRelease?.write(string: try testRelease!.xcconfigEntry())
+            try disk.android.betaRelease?.write(string: try betaRelease!.androidEnvEntry())
+            try disk.iOS.betaRelease?.write(string: try betaRelease!.xcconfigEntry())
         } else {
-            testRelease = nil
+            betaRelease = nil
         }
         
-        input = Input(debug: debug, release: release, local: local, testRelease: testRelease)
+        input = Input(debug: debug, release: release, local: local, betaRelease: betaRelease)
 
-        var allKeys: MappingKeys = debug.typed.enumerated().compactMap {
+        var allKeys: MappingKeys = debug.typed?.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = $0.element.value.typedValue
             let swiftTypeString = typedValue.typeSwiftString
@@ -95,9 +98,9 @@ public struct Builds {
                 """,
                 decoderInit: "\(key) = try container.decode(\(swiftTypeString).self, forKey: .\(key))"
             )
-        }
+        } ?? [(case: String, plistVar: String, plistVarString: String, xmlEntry: String, decoderInit: String)]()
         
-        let booleanKeys: MappingKeys = debug.booleans.enumerated().compactMap {
+        if let booleanKeys: MappingKeys = (debug.booleans?.enumerated().compactMap {
             let key = $0.element.key
             let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
             let swiftTypeString = typedValue.typeSwiftString
@@ -118,8 +121,9 @@ public struct Builds {
                         self.\(key) = \(key)
                 """
             )
+        }) {
+            allKeys.append(contentsOf: booleanKeys)
         }
-        allKeys.append(contentsOf: booleanKeys)
         
         self.allKeys = allKeys
         
@@ -154,35 +158,38 @@ public struct Builds {
             .joined(separator: "\n")
         
         output = Output(
-            debug: try Builds.config(for: input.debug),
-            release: try Builds.config(for: input.release),
-            local:  local != nil ? try Builds.config(for: local!) : nil,
-            testRelease: testRelease != nil ? try Builds.config(for: testRelease!) : nil
+            debug: try Builds.config(for: input.debug, decoder),
+            release: try Builds.config(for: input.release, decoder),
+            local:  local != nil ? try Builds.config(for: local!, decoder) : nil,
+            betaRelease: betaRelease != nil ? try Builds.config(for: betaRelease!, decoder) : nil
         )
         
     }
     
-    private static func config(for json: JSON) throws -> CurrentBuildConfiguration {
+    private static func config(for json: JSON, _ decoder: JSONDecoder) throws -> CurrentBuildConfiguration {
+
+        let typed = json.typed ?? [String: JSONEntry]()
+        
         var jsonTyped = "{"
-        jsonTyped.append(contentsOf: json.typed.compactMap {
+        
+        jsonTyped.append(contentsOf: typed.compactMap {
             return "\"\($0.key)\": \"\($0.value.value)\","
             }.joined(separator: "\n"))
         
-        let jsonBooleans = json.booleans.compactMap {
-            return "\"\($0.key)\": \"\($0.value)\","
-            }.joined(separator: "\n")
+        if let jsonBooleans = (
+            json.booleans?
+            .compactMap { return "\"\($0.key)\": \"\($0.value)\"," }
+            .joined(separator: "\n")) {
+            
+            jsonTyped.append(contentsOf: jsonBooleans)
+
+        }
         
-        jsonTyped.append(contentsOf: jsonBooleans)
-        jsonTyped.removeLast()
+        if jsonTyped.count > 1 { jsonTyped.removeLast() }
+        
         jsonTyped.append(contentsOf: "}")
-        
-        let decoder = JSONDecoder()
         
         return try decoder.decode(CurrentBuildConfiguration.self, from: jsonTyped.data(using: .utf8)!)
     }
     
-}
-
-func writeToPlatformReadableConfiguarationFiles(from configurationFiles: Disk) throws -> Builds {
-   return try Builds(configurationFiles: configurationFiles)
 }

@@ -18,7 +18,6 @@
 		FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		FD55CBCB22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CBCA22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift */; };
-		FD55CC6F2200A68A0044D1A7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC6E2200A68A0044D1A7 /* main.swift */; };
 		FD55CC8A2200B4270044D1A7 /* ReactNativeConfigSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD55CC952200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
 		FD589AE6221AE34100335F55 /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD589AE5221AE34100335F55 /* MainWorker.swift */; };
@@ -43,7 +42,10 @@
 		FD7F1D332215D3F2009A4F34 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FD82E7FF2216CE3A00837A3E /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E7FE2216CE3A00837A3E /* Coder.swift */; };
 		FD82E8012216D17500837A3E /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E8002216D17500837A3E /* Builds.swift */; };
+		FDAA4BC0222549460091F9C3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BBF222549460091F9C3 /* main.swift */; };
 		FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BE2B12201AA38008903DC /* AppKit.framework */; };
+		FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
+		FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDECFBDC221B3BC200EA1E33 /* SignPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; };
 		FDECFBDE221B3BEB00EA1E33 /* ZFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */; };
 		FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
@@ -136,18 +138,15 @@
 		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
 		FD49389D221C380A00B6BBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TestRelease.xcconfig; sourceTree = "<group>"; };
+		FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BetaRelease.xcconfig; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CBB522009FF50044D1A7 /* PrepareReactNativeConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrepareReactNativeConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CBC622009FF70044D1A7 /* PrepareReactNativeconfigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrepareReactNativeconfigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CBCA22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareReactNativeConfigTests.swift; sourceTree = "<group>"; };
 		FD55CBCC22009FF70044D1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD55CC6E2200A68A0044D1A7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FD55CC862200B4270044D1A7 /* ReactNativeConfigSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactNativeConfigSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfigSwift.h; sourceTree = "<group>"; };
 		FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfigurationWorker.swift; sourceTree = "<group>"; };
-		FD55CCA12200BCB40044D1A7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		FD55CCA22200BDAA0044D1A7 /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = package.json; path = ../package.json; sourceTree = "<group>"; };
 		FD589AE5221AE34100335F55 /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
 		FD589AEC221AE42F00335F55 /* PrepareReactNativeConfig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrepareReactNativeConfig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD589AEE221AE42F00335F55 /* PrepareReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrepareReactNativeConfig.h; sourceTree = "<group>"; };
@@ -159,6 +158,8 @@
 		FD82E7FE2216CE3A00837A3E /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
 		FD82E8002216D17500837A3E /* Builds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builds.swift; sourceTree = "<group>"; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
+		FDAA4BBF222549460091F9C3 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFC47221B530E00EA1E33 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -234,9 +235,7 @@
 				FD4867C82201B6C50092A63E /* Debug.xcconfig */,
 				FD84BA112209C8D7000B86BC /* Local.xcconfig */,
 				FD4867C92201B6D10092A63E /* Release.xcconfig */,
-				FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */,
-				FD55CCA12200BCB40044D1A7 /* README.md */,
-				FD55CCA22200BDAA0044D1A7 /* package.json */,
+				FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */,
 				EB2648E11C7BE17A00B8F155 /* ReactNativeConfig */,
 				FD55CBB622009FF50044D1A7 /* PrepareReactNativeConfig */,
 				FD55CBC922009FF70044D1A7 /* PrepareReactNativeConfigTests */,
@@ -282,8 +281,8 @@
 		FD55CBB622009FF50044D1A7 /* PrepareReactNativeConfig */ = {
 			isa = PBXGroup;
 			children = (
+				FDAA4BBF222549460091F9C3 /* main.swift */,
 				FD661CDE2216C47200F27AD5 /* Disk.swift */,
-				FD55CC6E2200A68A0044D1A7 /* main.swift */,
 				FD589AE5221AE34100335F55 /* MainWorker.swift */,
 				FD82E7FE2216CE3A00837A3E /* Coder.swift */,
 				FD82E8002216D17500837A3E /* Builds.swift */,
@@ -308,6 +307,7 @@
 				FD49389D221C380A00B6BBAE /* Info.plist */,
 				FD4868B52201EF0D0092A63E /* Generated */,
 				FDECFC47221B530E00EA1E33 /* JSON.swift */,
+				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
 				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
 				FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */,
 				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
@@ -729,9 +729,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD661CDF2216C47200F27AD5 /* Disk.swift in Sources */,
+				FDAA4BC0222549460091F9C3 /* main.swift in Sources */,
 				FD82E8012216D17500837A3E /* Builds.swift in Sources */,
 				FD82E7FF2216CE3A00837A3E /* Coder.swift in Sources */,
-				FD55CC6F2200A68A0044D1A7 /* main.swift in Sources */,
 				FD589AE6221AE34100335F55 /* MainWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +748,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */,
 				FD4868772201D1810092A63E /* CurrentBuildConfiguration.swift in Sources */,
 				FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */,
 				FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */,
@@ -771,6 +772,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */,
 				FD7F1D302215D3F2009A4F34 /* CurrentBuildConfiguration.swift in Sources */,
 				FDECFC49221B536100EA1E33 /* JSON.swift in Sources */,
 				FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */,
@@ -1715,9 +1717,9 @@
 			};
 			name = Local;
 		};
-		FDECFC8E221B652300EA1E33 /* TestRelease */ = {
+		FDECFC8E221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1771,21 +1773,21 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = TestRelease;
+			name = BetaRelease;
 		};
-		FDECFC8F221B652300EA1E33 /* TestRelease */ = {
+		FDECFC8F221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
-			name = TestRelease;
+			name = BetaRelease;
 		};
-		FDECFC90221B652300EA1E33 /* TestRelease */ = {
+		FDECFC90221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1808,11 +1810,11 @@
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.2;
 			};
-			name = TestRelease;
+			name = BetaRelease;
 		};
-		FDECFC91221B652300EA1E33 /* TestRelease */ = {
+		FDECFC91221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1859,11 +1861,11 @@
 				SWIFT_VERSION = 4.2;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks;
 			};
-			name = TestRelease;
+			name = BetaRelease;
 		};
-		FDECFC92221B652300EA1E33 /* TestRelease */ = {
+		FDECFC92221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1896,11 +1898,11 @@
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig";
 			};
-			name = TestRelease;
+			name = BetaRelease;
 		};
-		FDECFC93221B652300EA1E33 /* TestRelease */ = {
+		FDECFC93221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1938,11 +1940,11 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = TestRelease;
+			name = BetaRelease;
 		};
-		FDECFC94221B652300EA1E33 /* TestRelease */ = {
+		FDECFC94221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1972,11 +1974,11 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = TestRelease;
+			name = BetaRelease;
 		};
-		FDECFC95221B652300EA1E33 /* TestRelease */ = {
+		FDECFC95221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* TestRelease.xcconfig */;
+			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2006,7 +2008,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = TestRelease;
+			name = BetaRelease;
 		};
 /* End XCBuildConfiguration section */
 
@@ -2017,7 +2019,7 @@
 				3DF7F6B2203AA09B00D0EAB7 /* Debug */,
 				FD84BA0D2209C8BC000B86BC /* Local */,
 				3DF7F6B3203AA09B00D0EAB7 /* Release */,
-				FDECFC90221B652300EA1E33 /* TestRelease */,
+				FDECFC90221B652300EA1E33 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2028,7 +2030,7 @@
 				EB2648E61C7BE17A00B8F155 /* Debug */,
 				FD84BA0B2209C8BC000B86BC /* Local */,
 				EB2648E71C7BE17A00B8F155 /* Release */,
-				FDECFC8E221B652300EA1E33 /* TestRelease */,
+				FDECFC8E221B652300EA1E33 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2039,7 +2041,7 @@
 				EB2648E91C7BE17A00B8F155 /* Debug */,
 				FD84BA0C2209C8BC000B86BC /* Local */,
 				EB2648EA1C7BE17A00B8F155 /* Release */,
-				FDECFC8F221B652300EA1E33 /* TestRelease */,
+				FDECFC8F221B652300EA1E33 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2050,7 +2052,7 @@
 				FD55CBCE22009FF70044D1A7 /* Debug */,
 				FD84BA0E2209C8BC000B86BC /* Local */,
 				FD55CBCF22009FF70044D1A7 /* Release */,
-				FDECFC91221B652300EA1E33 /* TestRelease */,
+				FDECFC91221B652300EA1E33 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2061,7 +2063,7 @@
 				FD55CBD122009FF70044D1A7 /* Debug */,
 				FD84BA0F2209C8BC000B86BC /* Local */,
 				FD55CBD222009FF70044D1A7 /* Release */,
-				FDECFC92221B652300EA1E33 /* TestRelease */,
+				FDECFC92221B652300EA1E33 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2072,7 +2074,7 @@
 				FD55CC8C2200B4270044D1A7 /* Debug */,
 				FD84BA102209C8BC000B86BC /* Local */,
 				FD55CC8D2200B4270044D1A7 /* Release */,
-				FDECFC93221B652300EA1E33 /* TestRelease */,
+				FDECFC93221B652300EA1E33 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2083,7 +2085,7 @@
 				FD589AF6221AE42F00335F55 /* Debug */,
 				FD589AF7221AE42F00335F55 /* Local */,
 				FD589AF8221AE42F00335F55 /* Release */,
-				FDECFC95221B652300EA1E33 /* TestRelease */,
+				FDECFC95221B652300EA1E33 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2094,7 +2096,7 @@
 				FD7F1D2C2215D390009A4F34 /* Debug */,
 				FD7F1D2D2215D390009A4F34 /* Local */,
 				FD7F1D2E2215D390009A4F34 /* Release */,
-				FDECFC94221B652300EA1E33 /* TestRelease */,
+				FDECFC94221B652300EA1E33 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

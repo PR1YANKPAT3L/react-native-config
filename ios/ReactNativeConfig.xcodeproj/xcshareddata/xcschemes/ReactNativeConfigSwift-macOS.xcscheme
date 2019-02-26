@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD55CBB422009FF50044D1A7"
-               BuildableName = "PrepareReactNativeConfig.app"
-               BlueprintName = "PrepareReactNativeConfig-script"
+               BlueprintIdentifier = "FD7F1D212215D390009A4F34"
+               BuildableName = "ReactNativeConfigSwift.framework"
+               BlueprintName = "ReactNativeConfigSwift-macOS"
                ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD55CBB422009FF50044D1A7"
-            BuildableName = "PrepareReactNativeConfig.app"
-            BlueprintName = "PrepareReactNativeConfig-script"
-            ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,22 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD55CBB422009FF50044D1A7"
-            BuildableName = "PrepareReactNativeConfig.app"
-            BlueprintName = "PrepareReactNativeConfig-script"
+            BlueprintIdentifier = "FD7F1D212215D390009A4F34"
+            BuildableName = "ReactNativeConfigSwift.framework"
+            BlueprintName = "ReactNativeConfigSwift-macOS"
             ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-reactNativeFolder:/../../../../../../"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -76,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD55CBB422009FF50044D1A7"
-            BuildableName = "PrepareReactNativeConfig.app"
-            BlueprintName = "PrepareReactNativeConfig-script"
+            BlueprintIdentifier = "FD7F1D212215D390009A4F34"
+            BuildableName = "ReactNativeConfigSwift.framework"
+            BlueprintName = "ReactNativeConfigSwift-macOS"
             ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

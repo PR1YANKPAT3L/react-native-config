@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import SignPost
 
 /// Generates code or plist content and write to corresponding file
 struct Coder {
     
     let disk: Disk
     let builds: Builds
+    let signPost: SignPostProtocol
     
     func generateConfigurationWorker() throws {
         
@@ -100,6 +102,11 @@ struct Coder {
         """
         
         try disk.code.configurationWorkerFile.write(data: swiftLines.data(using: .utf8)!)
+        
+        SignPost.shared.message("* \(disk.code.configurationWorkerFile.name) at \(disk.code.configurationWorkerFile)")
+        SignPost.shared.message("* \(disk.code.currentBuild.name) at \(disk.code.currentBuild)")
+        SignPost.shared.message("* \(disk.code.infoPlist.name) at \(disk.code.infoPlist)")
+
     }
     
     func generateConfigurationForCurrentBuild() throws {

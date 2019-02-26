@@ -27,36 +27,76 @@ public struct Disk {
     
     public let signPost: SignPostProtocol
     
-    // MARK: - Structs
-    
-    public struct FileName {
-        
-        public struct JSON {
-            static let debug = ".env.debug.json"
-            static let release = ".env.release.json"
-            static let local = ".env.local.json"
-            static let testRelease = ".env.testRelease.json"
-        }
-        
+    // MARK: - Enum
+
+    enum JSONFileName: String, CaseIterable {
+        case debug = "env.debug.json"
+        case release = "env.release.json"
+        case local = "env.local.json"
+        case betaRelease = "env.betaRelease.json"
     }
     
+    // MARK: - Structs
+
     public struct Input {
         public let debug: FileProtocol
         public let release: FileProtocol
         public let local: FileProtocol?
-        public let testRelease: FileProtocol?
+        public let betaRelease: FileProtocol?
     }
     
     public struct Output {
         public let debug: FileProtocol
         public let release: FileProtocol
         public let local: FileProtocol?
-        public let testRelease: FileProtocol?
+        public let betaRelease: FileProtocol?
         
         public struct Code {
             public let configurationWorkerFile: FileProtocol
             public let infoPlist: FileProtocol
             public let currentBuild: FileProtocol
+            
+            public func clearContentAllFiles() throws {
+                try configurationWorkerFile.write(string: """
+                    import Foundation
+
+                    /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
+                    @objc public class CurrentBuildConfigurationWorker: NSObject {
+                    }
+                """
+                )
+                try infoPlist.write(string: """
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+                    <plist version="1.0">
+                    <dict>
+                    <key>CFBundleDevelopmentRegion</key>
+                        <string>$(DEVELOPMENT_LANGUAGE)</string>
+                    <key>CFBundleExecutable</key>
+                        <string>$(EXECUTABLE_NAME)</string>
+                    <key>CFBundleIdentifier</key>
+                        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+                    <key>CFBundleInfoDictionaryVersion</key>
+                    <string>6.0</string>
+                    <key>CFBundleName</key>
+                        <string>$(PRODUCT_NAME)</string>
+                    <key>CFBundlePackageType</key>
+                        <string>FMWK</string>
+                    <key>CFBundleShortVersionString</key>
+                        <string>1.0</string>
+                    <key>CFBundleVersion</key>
+                        <string>$(CURRENT_PROJECT_VERSION)</string>
+                    </dict>
+                    </plist>
+
+                """)
+                try currentBuild.write(string: """
+                    //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
+
+                    public struct CurrentBuildConfiguration: Codable {
+                    }
+                """)
+            }
         }
     }
     
@@ -69,17 +109,23 @@ public struct Disk {
         var debugJSON: FileProtocol!
         var releaseJSON: FileProtocol!
         var localJSON: FileProtocol?
-        var testReleaseJSON: FileProtocol?
+        var betaReleaseJSON: FileProtocol?
         
         var androidFolder: FolderProtocol!
         var iosFolder: FolderProtocol!
         
-        debugJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.debug)
-        releaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.release)
-        do { localJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.local) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.local) to have a local config. Ignoring for now") }
-        do { testReleaseJSON = try reactNativeFolder.file(named: Disk.FileName.JSON.testRelease) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.FileName.JSON.testRelease) to have a TestRelease config. Ignoring for now") }
+        debugJSON = try reactNativeFolder.file(named: Disk.JSONFileName.debug.rawValue)
+        releaseJSON = try reactNativeFolder.file(named: Disk.JSONFileName.release.rawValue)
+        do { localJSON = try reactNativeFolder.file(named: Disk.JSONFileName.local.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.JSONFileName.local.rawValue) to have a local config. Ignoring for now") }
+        do { betaReleaseJSON = try reactNativeFolder.file(named: Disk.JSONFileName.betaRelease.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(Disk.JSONFileName.betaRelease.rawValue) to have a BetaRelease config. Ignoring for now") }
 
-        iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
+        do {
+            iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
+        } catch {
+            signPost.message("PREPARE CONFIGURATION run in its own project space")
+            iosFolder = try reactNativeFolder.subfolder(named: "/ios")
+        }
+        
         androidFolder = try reactNativeFolder.subfolder(named: "android")
         
         reactNativeConfigSwiftSourcesFolder = try iosFolder.subfolder(named: "ReactNativeConfigSwift")
@@ -88,7 +134,7 @@ public struct Disk {
             debug: debugJSON,
             release: releaseJSON,
             local: localJSON,
-            testRelease: testReleaseJSON
+            betaRelease: betaReleaseJSON
         )
         
         self.androidFolder = androidFolder
@@ -97,8 +143,8 @@ public struct Disk {
         
         var localXconfigFile: FileProtocol?
         var localAndroidConfigurationFile: FileProtocol?
-        var testReleaseXconfigFile: FileProtocol?
-        var testReleaseAndroidConfigurationFile: FileProtocol?
+        var betaReleaseXconfigFile: FileProtocol?
+        var betaReleaseAndroidConfigurationFile: FileProtocol?
         
         if localJSON != nil {
             localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
@@ -108,26 +154,26 @@ public struct Disk {
             localAndroidConfigurationFile = nil
         }
         
-        if testReleaseJSON != nil {
-            testReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "TestRelease.xcconfig")
-            testReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.testRelease")
+        if betaReleaseJSON != nil {
+            betaReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
+            betaReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
         } else {
-            testReleaseXconfigFile = nil
-            testReleaseAndroidConfigurationFile = nil
+            betaReleaseXconfigFile = nil
+            betaReleaseAndroidConfigurationFile = nil
         }
         
         iOS = Output(
             debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
             release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
             local: localXconfigFile,
-            testRelease: testReleaseXconfigFile
+            betaRelease: betaReleaseXconfigFile
         )
         
         android = Output(
             debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
             release: try androidFolder.createFileIfNeeded(named: ".env.release"),
             local: localAndroidConfigurationFile,
-            testRelease: testReleaseAndroidConfigurationFile
+            betaRelease: betaReleaseAndroidConfigurationFile
         )
         
         code = Output.Code(
