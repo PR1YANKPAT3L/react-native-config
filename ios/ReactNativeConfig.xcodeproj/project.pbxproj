@@ -80,6 +80,8 @@
 		FDAA4C292225AACC0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C282225AACC0091F9C3 /* Quick.framework */; };
 		FDAA4C2B2225AAD20091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */; };
 		FDAA4C2C2225AAD70091F9C3 /* PrepareReactNativeConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD589AEC221AE42F00335F55 /* PrepareReactNativeConfig.framework */; };
+		FDAA4C2E2225B15A0091F9C3 /* CoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4C2D2225B15A0091F9C3 /* CoderSpec.swift */; };
+		FDAA4C302225B20A0091F9C3 /* TestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4C2F2225B20A0091F9C3 /* TestSetup.swift */; };
 		FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BE2B12201AA38008903DC /* AppKit.framework */; };
 		FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
@@ -246,6 +248,8 @@
 		FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4C282225AACC0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C2D2225B15A0091F9C3 /* CoderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderSpec.swift; sourceTree = "<group>"; };
+		FDAA4C2F2225B20A0091F9C3 /* TestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetup.swift; sourceTree = "<group>"; };
 		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -435,6 +439,8 @@
 			isa = PBXGroup;
 			children = (
 				FD55CBCA22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift */,
+				FDAA4C2F2225B20A0091F9C3 /* TestSetup.swift */,
+				FDAA4C2D2225B15A0091F9C3 /* CoderSpec.swift */,
 				FD55CBCC22009FF70044D1A7 /* Info.plist */,
 			);
 			path = PrepareReactNativeConfigTests;
@@ -966,6 +972,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAA4C2E2225B15A0091F9C3 /* CoderSpec.swift in Sources */,
+				FDAA4C302225B20A0091F9C3 /* TestSetup.swift in Sources */,
 				FD55CBCB22009FF70044D1A7 /* PrepareReactNativeConfigTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

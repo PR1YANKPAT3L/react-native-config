@@ -21,20 +21,8 @@ class MainWorkerSpec: QuickSpec {
             var sut: MainWorker?
             
             beforeEach {
-                expect {
-                    guard let rnoffset = (CommandLine
-                        .arguments
-                        .first { $0.hasPrefix(MainWorker.reactNativeFolderPrefixOption) }?
-                        .replacingOccurrences(of: MainWorker.reactNativeFolderPrefixOption, with: "")) else {
-                            throw MainWorker.Error()
-                    }
-                    
-                    let reactNativeFolder = try Folder(relativePath: rnoffset)
-                    
-                    sut = MainWorker(reactNativeFolder: reactNativeFolder)
-                    
-                    return sut
-                }.toNot(throwError())
+                
+                expect { sut = MainWorker(reactNativeFolder: try reactNativeFolder()) }.toNot(throwError())
                
             }
             

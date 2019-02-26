@@ -1,11 +1,3 @@
-//
-//  CurrentBuildConfigurationWorker
-//  ReactNativeConfigSwift
-//
-//  Created by Stijn on 29/01/2019.
-//  Copyright © 2019 Pedro Belo. All rights reserved.
-//
-
 import Foundation
 
 /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
@@ -74,6 +66,4 @@ import Foundation
         return result
     }
     
-    
 }
-

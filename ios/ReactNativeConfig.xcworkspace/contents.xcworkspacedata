@@ -8,16 +8,16 @@
       location = "group:../package.json">
    </FileRef>
    <FileRef
-      location = "group:../env.betaRelease.json">
-   </FileRef>
-   <FileRef
-      location = "group:../env.debug.json">
-   </FileRef>
-   <FileRef
       location = "group:../Cartfile">
    </FileRef>
    <FileRef
       location = "group:../Cartfile.private">
+   </FileRef>
+   <FileRef
+      location = "group:../env.betaRelease.json">
+   </FileRef>
+   <FileRef
+      location = "group:../env.debug.json">
    </FileRef>
    <FileRef
       location = "group:../env.local.json">

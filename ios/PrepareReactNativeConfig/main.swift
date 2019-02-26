@@ -64,16 +64,8 @@ do {
             \(Disk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
             at \(MainWorker.reactNativeFolderPrefixOption): \(reactNativeFolder)
             and fill them with valid json
-            {
-            "typed": {"key":{"typedValue": "value", "type": "String"}}
-            "booleans": { "key": true }
-            }
             
-            All keys are optional, but it has to be JSON. So adding
-            
-            ``` JSON
-            {"booleans": {"hasConfiguration": true }}
-            ```
+            `{}`
             
             is the minimum.
             """
