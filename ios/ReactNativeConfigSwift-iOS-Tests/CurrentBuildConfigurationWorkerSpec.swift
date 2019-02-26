@@ -24,7 +24,7 @@ class CurrentBuildConfigurationWorkerSpec: QuickSpec {
             }
             
             it("should instantiate CurrentBuildConfigurationWorker") {
-                expect { sut?.allCustomKeys().count } > 1
+                expect { sut?.allCustomKeys().count } >= 1
             }
             
             context ("can read current build configuration ") {

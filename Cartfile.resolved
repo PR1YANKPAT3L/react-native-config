@@ -1,6 +1,6 @@
 github "Bolides/CupertinoJWT" "1.0.1"
 github "Bolides/ZFile" "1.1.1"
-github "Bolides/highway" "1.4.1"
+github "Bolides/highway" "1.5.0"
 github "antitypical/Result" "4.1.0"
 github "doozMen/Nimble" "v7.3.5"
 github "doozMen/Quick" "v1.3.6"

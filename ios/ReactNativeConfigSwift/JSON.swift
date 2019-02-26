@@ -17,37 +17,36 @@ public struct JSON: Codable {
     
     public func xcconfigEntry() throws -> String {
         
-        guard let typed = typed else { return ""}
+        var entries = [String]()
         
-        var entries = try typed
-            .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"}
-            .sorted()
-        
-        guard let booleanEntries = booleans else {
-            return entries.joined(separator: "\n")
+        if let typed = typed {
+            entries = try typed
+                .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))"}
+                .sorted()
         }
         
-        entries.append(contentsOf: booleanEntries
-            .map { return "\($0.key) = \($0.value)"}
-            .sorted())
+        if let booleanEntries = booleans  {
+            entries.append(contentsOf: booleanEntries
+                .map { return "\($0.key) = \($0.value)"}
+                .sorted())
+        }
         
         return entries.joined(separator: "\n")
     }
     
     public func androidEnvEntry() throws -> String {
 
-        guard let typed = typed else { return ""}
+        var entries = [String]()
 
-        var entries = try typed
-            .map { return "\($0.key) = \(try androidEnvRawValue(for: $0.value))" }
-            .sorted()
-        
-        guard let booleanEntries = booleans else {
-            return entries.joined(separator: "\n")
+        if let typed = typed {
+            entries = try typed
+                .map { return "\($0.key) = \(try androidEnvRawValue(for: $0.value))" }
+                .sorted()
         }
         
-        entries.append(
-            contentsOf:
+        if let booleanEntries = booleans  {
+            entries.append(
+                contentsOf:
                 try booleanEntries
                     .map {
                         let key = $0.key
@@ -56,7 +55,9 @@ public struct JSON: Codable {
                         return "\(key) = \(try androidEnvRawValue(for: jsonEntry))"
                     }
                     .sorted()
-        )
+            )
+            
+        }
         
         return entries.joined(separator: "\n")
     }

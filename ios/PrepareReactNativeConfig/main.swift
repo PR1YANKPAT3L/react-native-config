@@ -12,18 +12,13 @@ import SignPost
 import XCBuild
 import Task
 
-let reactNativeFolderPrefixOption = "-reactNativeFolder:"
-
-struct Error: Swift.Error {
-    let message = "PrepareReactNativeConfig requires option -reactNativeFolder: which is releative path to folder you are running the script in."
-}
 
 do {
     guard let rnoffset = (CommandLine
         .arguments
-        .first { $0.hasPrefix(reactNativeFolderPrefixOption) }?
-    .replacingOccurrences(of: reactNativeFolderPrefixOption, with: "")) else {
-        throw Error()
+        .first { $0.hasPrefix(MainWorker.reactNativeFolderPrefixOption) }?
+    .replacingOccurrences(of: MainWorker.reactNativeFolderPrefixOption, with: "")) else {
+        throw MainWorker.Error()
     }
     
     let reactNativeFolder = try Folder(relativePath: rnoffset)
@@ -31,15 +26,22 @@ do {
 
     do {
         let main = MainWorker(reactNativeFolder: reactNativeFolder)
-        
-        let xcbuild = XCBuild(system: try LocalSystem())
-        
-        // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme ReactNativeConfigSwift-macOS
-        let workspace = try reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
-        let testOptions = try MinimalTestOptions(scheme: "ReactNativeConfigSwift-macOS", workspace: workspace)
-        let testRunner = try TestRunner(xcbuild: xcbuild, testOptions: testOptions)
-        try testRunner.attempt()
         try main.attempt()
+
+        do {
+            SignPost.shared.message("🚀 Running tests on configuration preparition")
+            let xcbuild = XCBuild(system: try LocalSystem())
+            
+            // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme ReactNativeConfigSwift-macOS
+            let workspace = try reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
+            let testOptions = try MinimalTestOptions(scheme: "PrepareReactNativeConfig-script", workspace: workspace)
+            let testRunner = try TestRunner(xcbuild: xcbuild, testOptions: testOptions)
+            try testRunner.attempt()
+            SignPost.shared.message("✅ Prepepare tests success")
+
+        } catch {
+            SignPost.shared.message("⚠️ First time with new configuration tests can fail, they should not in the future. \n\(error)\n")
+        }
         
         SignPost.shared.message("🚀 ReactNativeConfig main.swift ✅")
         
@@ -60,7 +62,7 @@ do {
             ❌
             ♥️ Fix it by adding environment files
             \(Disk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
-            at \(reactNativeFolderPrefixOption): \(reactNativeFolder)
+            at \(MainWorker.reactNativeFolderPrefixOption): \(reactNativeFolder)
             and fill them with valid json
             {
             "typed": {"key":{"typedValue": "value", "type": "String"}}
@@ -88,7 +90,7 @@ do {
         ❌
         ♥️ Fix it by adding environment files
         \(Disk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
-        at \(reactNativeFolderPrefixOption)
+        at \(MainWorker.reactNativeFolderPrefixOption)
         """
     )
     exit(EXIT_FAILURE)

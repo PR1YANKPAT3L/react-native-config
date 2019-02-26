@@ -77,6 +77,9 @@
 		FDAA4C212225961E0091F9C3 /* XCBuild.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C202225961E0091F9C3 /* XCBuild.framework */; };
 		FDAA4C232225962D0091F9C3 /* Arguments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C222225962D0091F9C3 /* Arguments.framework */; };
 		FDAA4C252225963E0091F9C3 /* SourceryAutoProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */; };
+		FDAA4C292225AACC0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C282225AACC0091F9C3 /* Quick.framework */; };
+		FDAA4C2B2225AAD20091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */; };
+		FDAA4C2C2225AAD70091F9C3 /* PrepareReactNativeConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD589AEC221AE42F00335F55 /* PrepareReactNativeConfig.framework */; };
 		FDAB3C57220DF1CE004DEC7F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BE2B12201AA38008903DC /* AppKit.framework */; };
 		FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
@@ -93,13 +96,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FD55CC852200B4270044D1A7;
 			remoteInfo = ReactNativeConfigSwift;
-		};
-		FD55CBC722009FF70044D1A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD55CBB422009FF50044D1A7;
-			remoteInfo = PrepareReactNativeconfig;
 		};
 		FD589AF1221AE42F00335F55 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -135,6 +131,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = FD7F1D212215D390009A4F34;
 			remoteInfo = "ReactNativeConfigSwift-macOS";
+		};
+		FDAA4C262225A96C0091F9C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD589AEB221AE42F00335F55;
+			remoteInfo = PrepareReactNativeConfig;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -241,6 +244,8 @@
 		FDAA4C202225961E0091F9C3 /* XCBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4C222225962D0091F9C3 /* Arguments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Arguments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C282225AACC0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,6 +295,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAA4C2C2225AAD70091F9C3 /* PrepareReactNativeConfig.framework in Frameworks */,
+				FDAA4C2B2225AAD20091F9C3 /* Nimble.framework in Frameworks */,
+				FDAA4C292225AACC0091F9C3 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +457,8 @@
 		FD55CC902200B4460044D1A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */,
+				FDAA4C282225AACC0091F9C3 /* Quick.framework */,
 				FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */,
 				FDAA4C222225962D0091F9C3 /* Arguments.framework */,
 				FDAA4C202225961E0091F9C3 /* XCBuild.framework */,
@@ -596,7 +606,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FD55CBC822009FF70044D1A7 /* PBXTargetDependency */,
+				FDAA4C272225A96C0091F9C3 /* PBXTargetDependency */,
 			);
 			name = PrepareReactNativeconfigTests;
 			productName = PrepareReactNativeconfigTests;
@@ -720,7 +730,6 @@
 					FD55CBC522009FF70044D1A7 = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
-						TestTargetID = FD55CBB422009FF50044D1A7;
 					};
 					FD55CC852200B4270044D1A7 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1023,11 +1032,6 @@
 			target = FD55CC852200B4270044D1A7 /* ReactNativeConfigSwift-iOS */;
 			targetProxy = FD4867D12201BB080092A63E /* PBXContainerItemProxy */;
 		};
-		FD55CBC822009FF70044D1A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD55CBB422009FF50044D1A7 /* PrepareReactNativeConfig-script */;
-			targetProxy = FD55CBC722009FF70044D1A7 /* PBXContainerItemProxy */;
-		};
 		FD589AF2221AE42F00335F55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD589AEB221AE42F00335F55 /* PrepareReactNativeConfig */;
@@ -1052,6 +1056,11 @@
 			isa = PBXTargetDependency;
 			target = FD7F1D212215D390009A4F34 /* ReactNativeConfigSwift-macOS */;
 			targetProxy = FDAA4BEC22257F530091F9C3 /* PBXContainerItemProxy */;
+		};
+		FDAA4C272225A96C0091F9C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD589AEB221AE42F00335F55 /* PrepareReactNativeConfig */;
+			targetProxy = FDAA4C262225A96C0091F9C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1360,7 +1369,6 @@
 			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1390,7 +1398,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig";
 			};
 			name = Debug;
 		};
@@ -1399,7 +1406,6 @@
 			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1427,7 +1433,6 @@
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig";
 			};
 			name = Release;
 		};
@@ -1883,7 +1888,6 @@
 			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1913,7 +1917,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig";
 			};
 			name = Local;
 		};
@@ -2312,7 +2315,6 @@
 			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2340,7 +2342,6 @@
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig";
 			};
 			name = BetaRelease;
 		};

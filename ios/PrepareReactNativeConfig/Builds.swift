@@ -54,7 +54,8 @@ public struct Builds {
         let release = try decoder.decode(JSON.self, from:  try disk.inputJSON.release.read())
         
         try disk.android.debug.write(string: try debug.androidEnvEntry())
-        try disk.iOS.debug.write(string: try debug.xcconfigEntry())
+        let entry = try debug.xcconfigEntry()
+        try disk.iOS.debug.write(string: entry )
         
         try disk.android.release.write(string: try release.androidEnvEntry())
         try disk.iOS.release.write(string: try release.xcconfigEntry())

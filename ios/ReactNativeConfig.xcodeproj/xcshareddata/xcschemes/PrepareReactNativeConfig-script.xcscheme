@@ -20,6 +20,34 @@
                ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD55CBC522009FF70044D1A7"
+               BuildableName = "PrepareReactNativeconfigTests.xctest"
+               BlueprintName = "PrepareReactNativeconfigTests"
+               ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FDAA4BE522257F530091F9C3"
+               BuildableName = "ReactNativeConfigSwift-macOS-Tests.xctest"
+               BlueprintName = "ReactNativeConfigSwift-macOS-Tests"
+               ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,6 +56,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD55CBC522009FF70044D1A7"
+               BuildableName = "PrepareReactNativeconfigTests.xctest"
+               BlueprintName = "PrepareReactNativeconfigTests"
+               ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FDAA4BE522257F530091F9C3"
+               BuildableName = "ReactNativeConfigSwift-macOS-Tests.xctest"
+               BlueprintName = "ReactNativeConfigSwift-macOS-Tests"
+               ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
