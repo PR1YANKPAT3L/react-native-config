@@ -9,7 +9,8 @@ Run this before building
 touch <#SRCROOT#>/ios/Debug.xcconfig
 touch <#SRCROOT#>/ios/Release.xcconfig
 touch <#SRCROOT#>/ios/Local.xcconfig
-
+touch <#SRCROOT#>/ios/BetaRelease.xcconfig
+cartage checkout
 ```
 
 ## Basic Usage
