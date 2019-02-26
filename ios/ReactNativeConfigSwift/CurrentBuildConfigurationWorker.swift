@@ -34,7 +34,7 @@ import Foundation
     /// Keys used in the plist of ReactNativeConfigSwift module when building for the selected configuration (Debug or Release)
     public enum Case: String, CaseIterable {
         
-      case hasConfiguration
+      case _noCases
         
     }
     
