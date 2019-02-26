@@ -11,7 +11,9 @@ touch <#SRCROOT#>/ios/Release.xcconfig
 touch <#SRCROOT#>/ios/Local.xcconfig
 touch <#SRCROOT#>/ios/BetaRelease.xcconfig
 cartage checkout
+xcodebuild --scheme React
 ```
+Then you should be able to build every target. If not build react for the platform you try to build.
 
 ## Basic Usage
 
