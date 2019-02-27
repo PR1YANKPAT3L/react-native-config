@@ -29,7 +29,7 @@ do {
         try main.attempt()
 
         do {
-            SignPost.shared.message("🚀 Running tests on configuration preparition")
+            SignPost.shared.verbose("🚀 Running tests on configuration preparition")
             let xcbuild = XCBuild(system: try LocalSystem())
             
             // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme ReactNativeConfigSwift-macOS
@@ -37,10 +37,10 @@ do {
             let testOptions = try MinimalTestOptions(scheme: "PrepareReactNativeConfig-script", workspace: workspace)
             let testRunner = try TestRunner(xcbuild: xcbuild, testOptions: testOptions)
             try testRunner.attempt()
-            SignPost.shared.message("✅ Prepepare tests success")
+            SignPost.shared.verbose("✅ Prepepare tests success")
 
         } catch {
-            SignPost.shared.message("⚠️ First time with new configuration tests can fail, they should not in the future. \n\(error)\n")
+            SignPost.shared.error("⚠️ First time with new configuration tests can fail, they should not in the future. \n\(error)\n")
         }
         
         SignPost.shared.message("🚀 ReactNativeConfig main.swift ✅")

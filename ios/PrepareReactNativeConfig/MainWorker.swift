@@ -41,7 +41,7 @@ public struct MainWorker: MainWorkerProtocol {
         
         let builds = try Builds(from: disk)
         
-        SignPost.shared.message("""
+        SignPost.shared.verbose("""
             🚀 Env read from
             \(disk.inputJSON.debug)
             \(disk.inputJSON.release)
@@ -51,7 +51,7 @@ public struct MainWorker: MainWorkerProtocol {
             """
         )
         
-        SignPost.shared.message("""
+        SignPost.shared.verbose("""
             🚀 Written to config files
             
             # ios
