@@ -546,7 +546,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DF7F6B4203AA09B00D0EAB7 /* Build configuration list for PBXNativeTarget "ReactNativeConfig-tvOS" */;
 			buildPhases = (
-				3DF7F6B5203AA0A900D0EAB7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */,
 				3DF7F6A8203AA09B00D0EAB7 /* Sources */,
 				3DF7F6A9203AA09B00D0EAB7 /* Frameworks */,
 				3DF7F6AA203AA09B00D0EAB7 /* CopyFiles */,
@@ -564,7 +563,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "ReactNativeConfig" */;
 			buildPhases = (
-				EBE4E8281C7BF689000F8875 /* Prepare configuration files - Swift and Objective-C (For React-Native) */,
 				FD55CB9622009A750044D1A7 /* Headers */,
 				EB2648DB1C7BE17A00B8F155 /* Sources */,
 				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
@@ -836,34 +834,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DF7F6B5203AA0A900D0EAB7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Prepare configuration files - Swift and Objective-C (For React-Native)";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "pushd ${SRCROOT}\n./.build/$(CONFIGURATION)/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\npopd\n";
-		};
-		EBE4E8281C7BF689000F8875 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Prepare configuration files - Swift and Objective-C (For React-Native)";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "pushd ${SRCROOT}\n./.build/$(CONFIGURATION)/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\npopd\n";
-		};
 		FD55CCA02200BC310044D1A7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
