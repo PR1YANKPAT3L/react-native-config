@@ -9,3 +9,5 @@ xcuserdata
 /android/.idea
 /ios/.build
 /.gitmodules
+/.build/Build/Intermediates.noindex
+/.build/ModuleCache.noindex
