@@ -24,11 +24,11 @@
 		FD589AF3221AE42F00335F55 /* PrepareReactNativeConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD589AEC221AE42F00335F55 /* PrepareReactNativeConfig.framework */; };
 		FD589AF4221AE42F00335F55 /* PrepareReactNativeConfig.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD589AEC221AE42F00335F55 /* PrepareReactNativeConfig.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD589AFC221AE52A00335F55 /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD589AE5221AE34100335F55 /* MainWorker.swift */; };
-		FD589B04221AE59400335F55 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD661CDE2216C47200F27AD5 /* Disk.swift */; };
+		FD589B04221AE59400335F55 /* ConfigurationDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD661CDE2216C47200F27AD5 /* ConfigurationDisk.swift */; };
 		FD589B05221AE59F00335F55 /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E7FE2216CE3A00837A3E /* Coder.swift */; };
 		FD589B06221AE5A700335F55 /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD82E8002216D17500837A3E /* Builds.swift */; };
 		FD589B09221AE60300335F55 /* ReactNativeConfigSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */; };
-		FD661CDF2216C47200F27AD5 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD661CDE2216C47200F27AD5 /* Disk.swift */; };
+		FD661CDF2216C47200F27AD5 /* ConfigurationDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD661CDE2216C47200F27AD5 /* ConfigurationDisk.swift */; };
 		FD6633DC221C1D0A00CDAC50 /* SignPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; };
 		FD6633DD221C1D0A00CDAC50 /* SignPost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDB221B3BC200EA1E33 /* SignPost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD68EC90221C34D300006B0B /* ZFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */; };
@@ -214,7 +214,7 @@
 		FD589AEC221AE42F00335F55 /* PrepareReactNativeConfig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrepareReactNativeConfig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD589AEE221AE42F00335F55 /* PrepareReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrepareReactNativeConfig.h; sourceTree = "<group>"; };
 		FD589B3A221AECD600335F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD661CDE2216C47200F27AD5 /* Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
+		FD661CDE2216C47200F27AD5 /* ConfigurationDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDisk.swift; sourceTree = "<group>"; };
 		FD7F1D222215D390009A4F34 /* ReactNativeConfigSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactNativeConfigSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig_macOS.h; sourceTree = "<group>"; };
 		FD82E7FE2216CE3A00837A3E /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 			children = (
 				FDAA4BBF222549460091F9C3 /* main.swift */,
 				FDAA4BF8222582FC0091F9C3 /* TestRunner.swift */,
-				FD661CDE2216C47200F27AD5 /* Disk.swift */,
+				FD661CDE2216C47200F27AD5 /* ConfigurationDisk.swift */,
 				FD589AE5221AE34100335F55 /* MainWorker.swift */,
 				FD82E7FE2216CE3A00837A3E /* Coder.swift */,
 				FD82E8002216D17500837A3E /* Builds.swift */,
@@ -563,6 +563,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "ReactNativeConfig" */;
 			buildPhases = (
+				FDFD28F72228A4FB00367617 /* ShellScript */,
 				FD55CB9622009A750044D1A7 /* Headers */,
 				EB2648DB1C7BE17A00B8F155 /* Sources */,
 				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
@@ -834,34 +835,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DF7F6B5203AA0A900D0EAB7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Prepare configuration files - Swift and Objective-C (For React-Native)";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "pushd ${SRCROOT}\n./.build/$(CONFIGURATION)/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\npopd\n";
-		};
-		EBE4E8281C7BF689000F8875 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Prepare configuration files - Swift and Objective-C (For React-Native)";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./.build/PrepareReactNativeconfig.app/Contents/MacOS/PrepareReactNativeconfig\n";
-		};
 		FD55CCA02200BC310044D1A7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -934,6 +907,23 @@
 			shellPath = /bin/sh;
 			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n\n";
 		};
+		FDFD28F72228A4FB00367617 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/.build/Build/Products/Debug/PrepareReactNativeConfig.app/Contents/MacOS/PrepareReactNativeConfig -srcRoot /../../../../../../../../ ${CONFIGURATION}\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -957,7 +947,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD661CDF2216C47200F27AD5 /* Disk.swift in Sources */,
+				FD661CDF2216C47200F27AD5 /* ConfigurationDisk.swift in Sources */,
 				FDAA4BF9222582FC0091F9C3 /* TestRunner.swift in Sources */,
 				FDAA4BC0222549460091F9C3 /* main.swift in Sources */,
 				FD82E8012216D17500837A3E /* Builds.swift in Sources */,
@@ -993,7 +983,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD589B04221AE59400335F55 /* Disk.swift in Sources */,
+				FD589B04221AE59400335F55 /* ConfigurationDisk.swift in Sources */,
 				FD589B05221AE59F00335F55 /* Coder.swift in Sources */,
 				FDAA4BFA222582FC0091F9C3 /* TestRunner.swift in Sources */,
 				FD589B06221AE5A700335F55 /* Builds.swift in Sources */,
@@ -1288,7 +1278,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
@@ -1342,7 +1331,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
@@ -1860,7 +1848,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,
@@ -2290,7 +2277,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks,

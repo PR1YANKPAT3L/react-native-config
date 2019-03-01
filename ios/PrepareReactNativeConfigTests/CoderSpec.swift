@@ -22,7 +22,7 @@ class CoderSpec: QuickSpec {
             
             beforeEach {
                 expect {
-                    let disk = try Disk(reactNativeFolder: try reactNativeFolder())
+                    let disk = try ConfigurationDisk(reactNativeFolder: try reactNativeFolder())
                     let builds = try Builds(from: disk)
                     
                     sut = Coder(disk: disk, builds: builds)

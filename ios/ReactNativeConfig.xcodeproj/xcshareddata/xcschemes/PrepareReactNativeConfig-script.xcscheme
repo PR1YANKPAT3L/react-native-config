@@ -111,7 +111,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-reactNativeFolder:/../../../../../../"
+            argument = "-srcRoot /../../../../../../../../"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
