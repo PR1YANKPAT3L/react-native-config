@@ -114,42 +114,42 @@ public struct Coder {
     
     public static let currentBuildConfigurationDefault_TOP = """
         import Foundation
-        
+        import RNModels
+
         //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
         public struct RNConfigurationModel: Codable, CustomStringConvertible {
 
     """
     public static let currentBuildConfigurationDefault_BOTTOM = """
-         public static func create(from json: JSON) throws -> RNConfigurationModel {
-                        let typed = json.typed ?? [String: JSONEntry]()
-            
-                        var jsonTyped = "{"
-            
-                        jsonTyped.append(contentsOf: typed.compactMap {
-                        return "\\"\\($0.key)\\": \\"\\($0.value.value)\\","
-                        }.joined(separator: "\\n"))
-            
-                        if let jsonBooleans = (
-                        json.booleans?
-                        .compactMap { return "\\"\\($0.key)\\": \\"\\($0.value)\\"," }
-                        .joined(separator: "\\n")) {
-            
-                        jsonTyped.append(contentsOf: jsonBooleans)
-            
-                        }
-            
-                        if jsonTyped.count > 1 { jsonTyped.removeLast() }
-            
-                        jsonTyped.append(contentsOf: "}")
-            
-                        return try JSONDecoder().decode(RNConfigurationModel.self, from: jsonTyped.data(using: .utf8)!)
-                    }
-            
-                    enum Error: Swift.Error {
-                        case invalidBool(forKey: String)
-                    }
-            
+         
+        public static func create(from json: JSON) throws -> RNConfigurationModel {
+                let typed = json.typed ?? [String: JSONEntry]()
+    
+                var jsonTyped = "{"
+    
+                jsonTyped.append(contentsOf: typed.compactMap {
+                return "\\"\\($0.key)\\": \\"\\($0.value.value)\\","
+                }.joined(separator: "\\n"))
+    
+                if let jsonBooleans = (
+                json.booleans?
+                .compactMap { return "\\"\\($0.key)\\": \\"\\($0.value)\\"," }
+                .joined(separator: "\\n")) {
+    
+                jsonTyped.append(contentsOf: jsonBooleans)
+    
                 }
+    
+                if jsonTyped.count > 1 { jsonTyped.removeLast() }
+    
+                jsonTyped.append(contentsOf: "}")
+    
+                return try JSONDecoder().decode(RNConfigurationModel.self, from: jsonTyped.data(using: .utf8)!)
+        }
+            
+        public enum Error: Swift.Error {
+            case invalidBool(forKey: String)
+        }
     """
     
     public let disk: ConfigurationDisk
@@ -262,7 +262,8 @@ public struct Coder {
         lines = """
         \(Coder.currentBuildConfigurationDefault_TOP)
         
-        // MARK: - Custom plist properties are added here
+            // MARK: - Custom plist properties are added here
+        
         \(builds.configurationModelVar)
         
             public init(from decoder: Decoder) throws {
@@ -270,17 +271,18 @@ public struct Coder {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
         
         \(builds.decoderInit)
-        
+            }
         \(Coder.currentBuildConfigurationDefault_BOTTOM)
         
-        public var description: String {
-            return \"""
-            Configuration.swift read from Info.plist of RNConfiguration framework
+            public var description: String {
+                return \"""
+                Configuration.swift read from Info.plist of RNConfiguration framework
         
-            // Custom environment dependend constants from .env.<CONFIGURATION>.json
+                // Custom environment dependend constants from .env.<CONFIGURATION>.json
         
-            \(builds.configurationModelVarDescription)
-            \"""
+                \(builds.configurationModelVarDescription)
+                \"""
+            }
         }
         
         """

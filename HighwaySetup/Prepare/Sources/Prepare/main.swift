@@ -23,11 +23,17 @@ do {
     let reactNativeFolder = disk.srcRoot
     let xcbuild = XCBuild(system: try LocalSystem())
     let prepareCode = try PrepareCode(reactNativeFolder: reactNativeFolder)
-    let workspace = try reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
+    let workspace = try? reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
 
     do {
         try prepareCode.attempt()
 
+        guard let workspace = workspace else {
+            SignPost.shared.message("🏗 PREPARE **RNConfiguration** ✅")
+            
+            exit(EXIT_SUCCESS)
+        }
+        
         try TestableSchemes.allCases.forEach { scheme in
             
             signPost.message("🧪 TESTING \(scheme.rawValue)")
