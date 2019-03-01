@@ -11,3 +11,4 @@ xcuserdata
 /.build/Build/Intermediates.noindex
 /.build/ModuleCache.noindex
 /.build/PrepareTestBuild
+/.build/Build/Products/Debug

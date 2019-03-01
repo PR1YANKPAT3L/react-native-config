@@ -458,7 +458,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-iOS" */;
 			buildPhases = (
-				FDFD28F72228A4FB00367617 /* ShellScript */,
+				FDFD28F72228A4FB00367617 /* RNConfig PREPARE */,
 				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
 				FD55CB9622009A750044D1A7 /* Headers */,
 				EB2648DB1C7BE17A00B8F155 /* Sources */,
@@ -794,7 +794,7 @@
 			shellPath = /bin/sh;
 			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n\n";
 		};
-		FDFD28F72228A4FB00367617 /* ShellScript */ = {
+		FDFD28F72228A4FB00367617 /* RNConfig PREPARE */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
@@ -803,13 +803,14 @@
 			);
 			inputPaths = (
 			);
+			name = "RNConfig PREPARE";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/.build/Build/Products/Debug/PrepareReactNativeConfig.app/Contents/MacOS/PrepareReactNativeConfig -srcRoot /../../../../../../../../ ${CONFIGURATION}\n";
+			shellScript = "${SRCROOT}/.build/Build/Products/Release/PrepareReactNativeConfig.app/Contents/MacOS/PrepareReactNativeConfig -srcRoot /../../../../../../../../ ${CONFIGURATION}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1848,6 +1849,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1873,6 +1879,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1896,6 +1907,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1919,6 +1931,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MTL_FAST_MATH = YES;

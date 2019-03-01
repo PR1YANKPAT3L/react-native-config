@@ -167,7 +167,7 @@ public struct Coder {
         var lines = Coder.currentBuildConfigurationWorkerDefault
         
         guard builds.casesForEnum.count > 0 else {
-            try disk.code.rnConfigurationModelFactorySwiftFile.write(data: lines.data(using: .utf8)!)
+            try disk.code.rnConfigurationModelFactorySwiftFile.write(string: lines)
             return
         }
         
@@ -255,7 +255,7 @@ public struct Coder {
         var lines = Coder.currentBuildConfigurationDefault_TOP + Coder.currentBuildConfigurationDefault_BOTTOM
         
         guard builds.configurationModelVar.count > 0 else {
-            try disk.code.rnConfigurationModelSwiftFile.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: ""))
+            try disk.code.rnConfigurationModelSwiftFile.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: "")  + "\n}")
             return
         }
         

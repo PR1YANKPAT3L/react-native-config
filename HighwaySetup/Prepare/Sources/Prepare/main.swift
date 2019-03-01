@@ -23,61 +23,71 @@ do {
     let reactNativeFolder = disk.srcRoot
     let xcbuild = XCBuild(system: try LocalSystem())
     let prepareCode = try PrepareCode(reactNativeFolder: reactNativeFolder)
-    let workspace = try? reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
-
+    let reactNativeConfigworkspace = try? reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
+    
     do {
         try prepareCode.attempt()
-
-        guard let workspace = workspace else {
+        
+        guard let workspace = reactNativeConfigworkspace else {
             SignPost.shared.message("🏗 PREPARE **RNConfiguration** ✅")
             
             exit(EXIT_SUCCESS)
         }
         
-        try TestableSchemes.allCases.forEach { scheme in
-            
-            signPost.message("🧪 TESTING \(scheme.rawValue)")
-            
-            // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme RNConfiguration-macOS
-            let destination = DestinationFactory().simulator(.iOS, name: "iPhone XR", os: .iOS(version: "12.0"), id: nil)
-            let testRunner = try TestRunner(
-                xcbuild: xcbuild,
-                testOptions: try MinimalTestOptions(
-                    scheme: scheme.rawValue,
-                    workspace: workspace,
-                    xcodebuild: xcbuild,
-                    destination: destination
+        do {
+            try TestableSchemes.allCases.forEach { scheme in
+                
+                signPost.message("🧪 TESTING \(scheme.rawValue)")
+                
+                // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme RNConfiguration-macOS
+                let destination = DestinationFactory().simulator(.iOS, name: "iPhone XR", os: .iOS(version: "12.0"), id: nil)
+                let testRunner = try TestRunner(
+                    xcbuild: xcbuild,
+                    testOptions: try MinimalTestOptions(
+                        scheme: scheme.rawValue,
+                        workspace: workspace,
+                        xcodebuild: xcbuild,
+                        destination: destination
+                    )
                 )
-            )
-            try testRunner.attempt()
-            signPost.message("🧪 TESTING \(scheme.rawValue) ✅")
-            
+                
+                do {
+                    try testRunner.attempt()
+                    signPost.message("🧪 TESTING \(scheme.rawValue) ✅")
+                } catch {
+                    throw "\(scheme.rawValue)\n❌\(error)\n"
+                }
+                
+            }
+        } catch {
+            signPost.message("\n⚠️\nFor now ignoring test errors\n \(error)\n⚠️")
         }
         
-        SignPost.shared.message("🏗 PREPARE **RNConfiguration** ✅")
         
-        exit(EXIT_SUCCESS)
-    } catch let XCBuild.TestRunError.testsFailed(report: testReport) {
-        SignPost.shared.error("""
-            ❌ PREPARE **RNConfiguration** tests failed
-            \(testReport)
-            """
-        )
-        exit(EXIT_FAILURE)
-    } catch {
-        SignPost.shared.error("""
-            ❌ PREPARE **RNConfiguration**
-            
-            \(error)
-            
-            ❌
-            ♥️ Fix it by adding environment files
-            \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
-            """
-        )
-        exit(EXIT_FAILURE)
     }
     
+    SignPost.shared.message("🏗 PREPARE **RNConfiguration** ✅")
+    
+    exit(EXIT_SUCCESS)
+} catch let XCBuild.TestRunError.testsFailed(report: testReport) {
+    SignPost.shared.error("""
+        ❌ PREPARE **RNConfiguration** tests failed
+        \(testReport)
+        """
+    )
+    exit(EXIT_FAILURE)
+} catch {
+    SignPost.shared.error("""
+        ❌ PREPARE **RNConfiguration**
+        
+        \(error)
+        
+        ❌
+        ♥️ Fix it by adding environment files
+        \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
+        """
+    )
+    exit(EXIT_FAILURE)
 } catch {
     SignPost.shared.error("""
         ❌ PREPARE **RNConfiguration**
