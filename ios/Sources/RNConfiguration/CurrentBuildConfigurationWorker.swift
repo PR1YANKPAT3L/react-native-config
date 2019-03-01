@@ -23,7 +23,7 @@ import Foundation
         return Case.allCases.map { $0.rawValue }
     }
     
-    /// Keys used in the plist of ReactNativeConfigSwift module when building for the selected configuration (Debug or Release)
+    /// Keys used in the plist of RNConfiguration module when building for the selected configuration (Debug or Release)
     public enum Case: String, CaseIterable {
         
       case _noCases

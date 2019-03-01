@@ -1,5 +1,5 @@
 #import "ReactNativeConfig.h"
-#import <ReactNativeConfigSwift/ReactNativeConfigSwift-Swift.h>
+#import <RNConfiguration/RNConfiguration-Swift.h>
 
 
 @implementation ReactNativeConfig

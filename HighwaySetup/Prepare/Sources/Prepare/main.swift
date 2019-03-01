@@ -17,7 +17,6 @@ import Arguments
 do {
     let disk = try Disk()
     let reactNativeFolder = disk.srcRoot
-    SignPost.shared.message("🚀 ReactNativeConfig RN root:\n \(reactNativeFolder)\n")
 
     do {
         let main = MainWorker(reactNativeFolder: reactNativeFolder)
@@ -27,7 +26,7 @@ do {
             SignPost.shared.verbose("🚀 Running tests on configuration preparition")
             let xcbuild = XCBuild(system: try LocalSystem())
             
-            // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme ReactNativeConfigSwift-macOS
+            // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme RNConfiguration-macOS
             let workspace = try reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
             let testOptions = try MinimalTestOptions(scheme: "PrepareReactNativeConfig-script", workspace: workspace)
             let testRunner = try TestRunner(xcbuild: xcbuild, testOptions: testOptions)
@@ -43,26 +42,20 @@ do {
         exit(EXIT_SUCCESS)
     } catch let XCBuild.TestRunError.testsFailed(report: testReport) {
         SignPost.shared.error("""
-            ❌ Prepare React Native Config tests failed
+            ❌ PREPARE **RNConfiguration** tests failed
             \(testReport)
             """
         )
         exit(EXIT_FAILURE)
     } catch {
         SignPost.shared.error("""
-            ❌ Prepare React Native Config
+            ❌ PREPARE **RNConfiguration**
             
             \(error)
             
             ❌
             ♥️ Fix it by adding environment files
             \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
-            at \(MainWorker.reactNativeFolderPrefixOption): \(reactNativeFolder)
-            and fill them with valid json
-            
-            `{}`
-            
-            is the minimum.
             """
         )
         exit(EXIT_FAILURE)
@@ -70,14 +63,13 @@ do {
     
 } catch {
     SignPost.shared.error("""
-        ❌ Prepare React Native Config
+        ❌ PREPARE **RNConfiguration**
         
         \(error)
         
         ❌
         ♥️ Fix it by adding environment files
         \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
-        at \(MainWorker.reactNativeFolderPrefixOption)
         """
     )
     exit(EXIT_FAILURE)

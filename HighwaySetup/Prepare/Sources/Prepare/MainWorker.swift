@@ -18,14 +18,6 @@ public protocol MainWorkerProtocol {
 
 public struct MainWorker: MainWorkerProtocol {
     
-    public static let reactNativeFolderPrefixOption = "-reactNativeFolder:"
-   
-    public struct Error: Swift.Error {
-        let message = "PrepareReactNativeConfig requires option -reactNativeFolder: which is releative path to folder you are running the script in."
-        
-        public init() {}
-    }
-    
     private let reactNativeFolder: FolderProtocol
     private let signPost: SignPostProtocol
 
@@ -78,5 +70,8 @@ public struct MainWorker: MainWorkerProtocol {
         try coder.generateConfigurationWorker()
         try coder.generateConfigurationForCurrentBuild()
         try coder.genereateInfoPlistForFrameworkForAllBuildsWithPlaceholders()
+        
+        SignPost.shared.message("🚀 Generating SWIFT code ✅")
+
     }
 }

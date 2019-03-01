@@ -65,7 +65,7 @@ public struct Coder {
             return Case.allCases.map { $0.rawValue }
         }
         
-        /// Keys used in the plist of ReactNativeConfigSwift module when building for the selected configuration (Debug or Release)
+        /// Keys used in the plist of RNConfiguration module when building for the selected configuration (Debug or Release)
         public enum Case: String, CaseIterable {
             
           case _noCases
@@ -125,7 +125,7 @@ public struct Coder {
                         var jsonTyped = "{"
             
                         jsonTyped.append(contentsOf: typed.compactMap {
-                        return "\"\\($0.key)\": \"\\($0.value.value)\","
+                        return \"\\"\\($0.key)\": \"\\($0.value.value)\\",\"
                         }.joined(separator: "\\n"))
             
                         if let jsonBooleans = (
@@ -196,7 +196,7 @@ public struct Coder {
                 return Case.allCases.map { $0.rawValue }
             }
             
-            /// Keys used in the plist of ReactNativeConfigSwift module when building for the selected configuration (Debug or Release)
+            /// Keys used in the plist of RNConfiguration module when building for the selected configuration (Debug or Release)
             public enum Case: String, CaseIterable {
                 
         \(builds.casesForEnum)
@@ -273,7 +273,7 @@ public struct Coder {
         
         public var description: String {
             return \"""
-            Configuration.swift read from Info.plist of ReactNativeConfigSwift framework
+            Configuration.swift read from Info.plist of RNConfiguration framework
         
             // Custom environment dependend constants from .env.<CONFIGURATION>.json
         

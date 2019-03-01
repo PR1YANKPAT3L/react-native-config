@@ -5,6 +5,8 @@
 #else
 #import "RCTBridgeModule.h"
 #endif
+
+    // TODO: rename
 @interface ReactNativeConfig : NSObject <RCTBridgeModule>
 
 + (NSDictionary *)env;

@@ -16,7 +16,7 @@ public struct ConfigurationDisk {
     
     public let inputJSON: Input
     public let reactNativeFolder: FolderProtocol
-    public let reactNativeConfigSwiftSourcesFolder: FolderProtocol
+    public let RNConfigurationSourcesFolder: FolderProtocol
     public let androidFolder: FolderProtocol
     public let iosFolder: FolderProtocol
     
@@ -128,7 +128,7 @@ public struct ConfigurationDisk {
         
         androidFolder = try reactNativeFolder.subfolder(named: "android")
         
-        reactNativeConfigSwiftSourcesFolder = try iosFolder.subfolder(named: "ReactNativeConfigSwift")
+        RNConfigurationSourcesFolder = try iosFolder.subfolder(named: "RNConfiguration")
         
         self.inputJSON = Input(
             debug: debugJSON,
@@ -177,9 +177,9 @@ public struct ConfigurationDisk {
         )
         
         code = Output.Code(
-            configurationWorkerFile: try reactNativeConfigSwiftSourcesFolder.createFileIfNeeded(named: "CurrentBuildConfigurationWorker.swift"),
-            infoPlist: try iosFolder.subfolder(named: "ReactNativeConfigSwift").createFileIfNeeded(named: "Info.plist"),
-            currentBuild: try reactNativeConfigSwiftSourcesFolder.createFileIfNeeded(named: "CurrentBuildConfiguration.swift")
+            configurationWorkerFile: try RNConfigurationSourcesFolder.createFileIfNeeded(named: "CurrentBuildConfigurationWorker.swift"),
+            infoPlist: try iosFolder.subfolder(named: "RNConfiguration").createFileIfNeeded(named: "Info.plist"),
+            currentBuild: try RNConfigurationSourcesFolder.createFileIfNeeded(named: "CurrentBuildConfiguration.swift")
         )
         
     }

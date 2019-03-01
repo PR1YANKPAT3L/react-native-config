@@ -1,6 +1,6 @@
 //
 //  JSON.swift
-//  ReactNativeConfigSwift-iOS
+//  RNConfiguration-iOS
 //
 //  Created by Stijn on 18/02/2019.
 //  Copyright © 2019 Pedro Belo. All rights reserved.
