@@ -16,7 +16,7 @@ public protocol MainWorkerProtocol {
     
 }
 
-public struct MainWorker: MainWorkerProtocol {
+public struct PrepareCode: MainWorkerProtocol {
     
     private let reactNativeFolder: FolderProtocol
     private let signPost: SignPostProtocol
@@ -63,7 +63,7 @@ public struct MainWorker: MainWorkerProtocol {
             """
         )
         
-        SignPost.shared.message("🚀 Generating SWIFT code")
+        SignPost.shared.message("🏗🧙‍♂️ Generating SWIFT code")
         
         let coder = Coder(disk: disk, builds: builds, signPost: signPost)
         
@@ -71,7 +71,7 @@ public struct MainWorker: MainWorkerProtocol {
         try coder.generateConfigurationForCurrentBuild()
         try coder.genereateInfoPlistForFrameworkForAllBuildsWithPlaceholders()
         
-        SignPost.shared.message("🚀 Generating SWIFT code ✅")
+        SignPost.shared.message("🏗🧙‍♂️ Generating SWIFT code ✅")
 
     }
 }

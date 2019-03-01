@@ -10,7 +10,6 @@
 		FDB74AD622291999000B068C /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74AC822291950000B068C /* TestRunner.swift */; };
 		FDB74AD72229199D000B068C /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACA22291950000B068C /* Builds.swift */; };
 		FDB74AD82229199D000B068C /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACB22291950000B068C /* Coder.swift */; };
-		FDB74AD92229199D000B068C /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACC22291950000B068C /* MainWorker.swift */; };
 		FDB74ADA2229199D000B068C /* ConfigurationDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACD22291950000B068C /* ConfigurationDisk.swift */; };
 		FDB74ADB2229199D000B068C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACE22291950000B068C /* main.swift */; };
 		FDB74ADE22291B6A000B068C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74ADD22291B6A000B068C /* Result.framework */; };
@@ -31,7 +30,6 @@
 		FDB74AF422291B6A000B068C /* XCBuild.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF222291B6A000B068C /* XCBuild.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDB74AF622291B6A000B068C /* Errors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF522291B6A000B068C /* Errors.framework */; };
 		FDB74AF722291B6A000B068C /* Errors.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF522291B6A000B068C /* Errors.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AF922291B6A000B068C /* SourceryAutoProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF822291B6A000B068C /* SourceryAutoProtocols.framework */; };
 		FDB74AFA22291B6A000B068C /* SourceryAutoProtocols.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF822291B6A000B068C /* SourceryAutoProtocols.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDB74AFC22291B6A000B068C /* Git.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AFB22291B6A000B068C /* Git.framework */; };
 		FDB74AFD22291B6A000B068C /* Git.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AFB22291B6A000B068C /* Git.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -49,6 +47,7 @@
 		FDB74B0F22291B6A000B068C /* SwiftFormatWorker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0D22291B6A000B068C /* SwiftFormatWorker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDB74B2922291EF8000B068C /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B2822291EF8000B068C /* RNModels.framework */; };
 		FDB74B2A22291EF8000B068C /* RNModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B2822291EF8000B068C /* RNModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDB74B4B222938AA000B068C /* PrepareCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74B4A222938AA000B068C /* PrepareCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +98,6 @@
 		FDB74AC922291950000B068C /* PrepareReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrepareReactNativeConfig.h; sourceTree = "<group>"; };
 		FDB74ACA22291950000B068C /* Builds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builds.swift; sourceTree = "<group>"; };
 		FDB74ACB22291950000B068C /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
-		FDB74ACC22291950000B068C /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
 		FDB74ACD22291950000B068C /* ConfigurationDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDisk.swift; sourceTree = "<group>"; };
 		FDB74ACE22291950000B068C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FDB74ACF22291950000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,6 +123,7 @@
 		FDB74B0A22291B6A000B068C /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74B0D22291B6A000B068C /* SwiftFormatWorker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftFormatWorker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74B2822291EF8000B068C /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB74B4A222938AA000B068C /* PrepareCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +140,6 @@
 				FDB74B0822291B6A000B068C /* SourceryAutoProtocols.framework in Frameworks */,
 				FDB74AFF22291B6A000B068C /* Task.framework in Frameworks */,
 				FDB74AF022291B6A000B068C /* POSIX.framework in Frameworks */,
-				FDB74AF922291B6A000B068C /* SourceryAutoProtocols.framework in Frameworks */,
 				FDB74B0222291B6A000B068C /* Url.framework in Frameworks */,
 				FDB74B0E22291B6A000B068C /* SwiftFormatWorker.framework in Frameworks */,
 				FDB74B2922291EF8000B068C /* RNModels.framework in Frameworks */,
@@ -223,8 +221,8 @@
 				FDB74ACD22291950000B068C /* ConfigurationDisk.swift */,
 				FDB74ACF22291950000B068C /* Info.plist */,
 				FDB74ACE22291950000B068C /* main.swift */,
-				FDB74ACC22291950000B068C /* MainWorker.swift */,
 				FDB74AC922291950000B068C /* PrepareReactNativeConfig.h */,
+				FDB74B4A222938AA000B068C /* PrepareCode.swift */,
 				FDB74AC822291950000B068C /* TestRunner.swift */,
 			);
 			path = Prepare;
@@ -344,7 +342,7 @@
 				FDB74AD622291999000B068C /* TestRunner.swift in Sources */,
 				FDB74AD72229199D000B068C /* Builds.swift in Sources */,
 				FDB74ADA2229199D000B068C /* ConfigurationDisk.swift in Sources */,
-				FDB74AD92229199D000B068C /* MainWorker.swift in Sources */,
+				FDB74B4B222938AA000B068C /* PrepareCode.swift in Sources */,
 				FDB74AD82229199D000B068C /* Coder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

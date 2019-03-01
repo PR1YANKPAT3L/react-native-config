@@ -13,31 +13,42 @@ import XCBuild
 import Task
 import Arguments
 
+let signPost = SignPost.shared
 
+enum TestableSchemes: String, CaseIterable {
+    case iOS = "RNConfigurationBridge-iOS"
+}
 do {
     let disk = try Disk()
     let reactNativeFolder = disk.srcRoot
+    let xcbuild = XCBuild(system: try LocalSystem())
+    let prepareCode = PrepareCode(reactNativeFolder: reactNativeFolder)
+    let workspace = try reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
 
     do {
-        let main = MainWorker(reactNativeFolder: reactNativeFolder)
-        try main.attempt()
+        try prepareCode.attempt()
 
-        do {
-            SignPost.shared.verbose("🚀 Running tests on configuration preparition")
-            let xcbuild = XCBuild(system: try LocalSystem())
+        try TestableSchemes.allCases.forEach { scheme in
+            
+            signPost.message("🧪 TESTING \(scheme.rawValue)")
             
             // xcodebuild test -workspace ios/ReactNativeConfig.xcworkspace -scheme RNConfiguration-macOS
-            let workspace = try reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
-            let testOptions = try MinimalTestOptions(scheme: "PrepareReactNativeConfig-script", workspace: workspace)
-            let testRunner = try TestRunner(xcbuild: xcbuild, testOptions: testOptions)
+            let destination = DestinationFactory().simulator(.iOS, name: "iPhone XR", os: .iOS(version: "12.0"), id: nil)
+            let testRunner = try TestRunner(
+                xcbuild: xcbuild,
+                testOptions: try MinimalTestOptions(
+                    scheme: scheme.rawValue,
+                    workspace: workspace,
+                    xcodebuild: xcbuild,
+                    destination: destination
+                )
+            )
             try testRunner.attempt()
-            SignPost.shared.verbose("✅ Prepepare tests success")
-
-        } catch {
-            SignPost.shared.error("⚠️ First time with new configuration tests can fail, they should not in the future. \n\(error)\n")
+            signPost.message("🧪 TESTING \(scheme.rawValue) ✅")
+            
         }
         
-        SignPost.shared.message("🚀 ReactNativeConfig main.swift ✅")
+        SignPost.shared.message("🏗 PREPARE **RNConfiguration** ✅")
         
         exit(EXIT_SUCCESS)
     } catch let XCBuild.TestRunError.testsFailed(report: testReport) {
