@@ -183,18 +183,43 @@ class CoderSpec: QuickSpec {
                     }
                 }
                 
-                context("env filled json data") {
+                context("env contains some keys and values") {
                     
                     var workerSwiftWrittenData: String?
                     var configurationSwiftWrittenData: String?
                     var plistWrittenData: String?
                     
+                    var localStringXcconfig: String?
+                    var debugStringXcconfig: String?
+                    var betaReleaseStringXcconfig: String?
+                    var releaseStringXcconfig: String?
+    
+                    var localStringEnvAndroid: String?
+                    var debugStringEnvAndroid: String?
+                    var betaReleaseStringEnvAndroid: String?
+                    var releaseStringEnvAndroid: String?
+                    
                     beforeEach {
+                        
+                        // Setup files to write to to receive data
+                        
                         currentBuildConfigurationWorker_swift.writeStringClosure = { workerSwiftWrittenData = $0 }
                         rnConfigurationModelSwiftFile.writeStringClosure = {
                             configurationSwiftWrittenData = $0
                         }
                         info_plist.writeStringClosure = { plistWrittenData = $0 }
+                        
+                        // config files
+                        
+                        local_xcconfig.writeStringClosure       = { localStringXcconfig = $0}
+                        debug_xcconfig.writeStringClosure       = { debugStringXcconfig = $0}
+                        release_xcconfig.writeStringClosure     = { releaseStringXcconfig = $0}
+                        betaRelease_xcconfig.writeStringClosure = { betaReleaseStringXcconfig = $0}
+                        
+                        env_local.writeStringClosure       = { localStringEnvAndroid = $0}
+                        env_debug.writeStringClosure       = { debugStringEnvAndroid = $0}
+                        env_release.writeStringClosure     = { releaseStringEnvAndroid = $0}
+                        env_betaRelease.writeStringClosure = { betaReleaseStringEnvAndroid = $0}
                     }
                     
                     context("booleans") {
@@ -264,6 +289,7 @@ class CoderSpec: QuickSpec {
                             }
                             
                             context("has written swift code") {
+                                let expectedConfingContent = "1_mocked_bool_key = false\n2_mocked_bool_key = true"
                                 
                                 it("worker has case with key for all values") {
                                     let casesForEnum = builds?.casesForEnum ?? "to worker test went wrong"
@@ -282,13 +308,26 @@ class CoderSpec: QuickSpec {
                                 }
                                 
                                 it("ios xcconfigFile has keys and values") {
+                                    
                                     expect(debug_xcconfig.writeStringCalled) == true
+                                    expect(debugStringXcconfig) == expectedConfingContent
                                     expect(local_xcconfig.writeStringCalled) == true
+                                    expect(localStringXcconfig) == expectedConfingContent
                                     expect(release_xcconfig.writeStringCalled) == true
+                                    expect(releaseStringXcconfig) == expectedConfingContent
                                     expect(betaRelease_xcconfig.writeStringCalled) == true
+                                    expect(betaReleaseStringXcconfig) == expectedConfingContent
                                 }
                                 
                                 it("android env file has keys and values") {
+                                    
+                                    expect(debugStringEnvAndroid) == expectedConfingContent
+                                    expect(env_local.writeStringCalled) == true
+                                    expect(localStringEnvAndroid) == expectedConfingContent
+                                    expect(env_release.writeStringCalled) == true
+                                    expect(releaseStringEnvAndroid) == expectedConfingContent
+                                    expect(env_betaRelease.writeStringCalled) == true
+                                    expect(betaReleaseStringEnvAndroid) == expectedConfingContent
                                 }
                             }
                         }
@@ -296,6 +335,7 @@ class CoderSpec: QuickSpec {
                     }
                     
                     context("typed value") {
+                        // TODO: some day test this and also different json content per configuration
                     }
                     
                 }
