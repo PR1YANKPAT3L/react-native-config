@@ -9,18 +9,18 @@
 import Foundation
 import RNModels
 
-/// Will load input and decode input JSON -> Use CurrentBuildConfiguration.create from this JSON
+/// Will load input and decode input JSON -> Use RNConfigurationModel.create from this JSON
 public struct Builds {
     
-    private typealias MappingKeys = [(case: String, plistVar: String, plistVarString: String, xmlEntry: String, decoderInit: String)]
+    private typealias MappingKeys = [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]
 
     
     public let input: Input
     
     public let casesForEnum: String
 
-    public let plistVar: String
-    public let plistVarString: String
+    public let configurationModelVar: String
+    public let configurationModelVarDescription: String
     public let plistLinesXmlText: String
     public let decoderInit: String
     
@@ -84,15 +84,15 @@ public struct Builds {
             
             return (
                 case: "case \(key)",
-                plistVar: "public let \(key): \(swiftTypeString)",
-                plistVarString: "\(key): \\(\(key))",
+                configurationModelVar: "public let \(key): \(swiftTypeString)",
+                configurationModelVarDescription: "\(key): \\(\(key))",
                 xmlEntry: """
                 <key>\(key)</key>
                 <\(xmlType)>$(\(key))</\(xmlType)>
                 """,
                 decoderInit: "\(key) = try container.decode(\(swiftTypeString).self, forKey: .\(key))"
             )
-        } ?? [(case: String, plistVar: String, plistVarString: String, xmlEntry: String, decoderInit: String)]()
+        } ?? [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]()
         
         if let booleanKeys: MappingKeys = (debug.booleans?.enumerated().compactMap {
             let key = $0.element.key
@@ -102,8 +102,8 @@ public struct Builds {
             
             return (
                 case: "case \(key)",
-                plistVar: "public let \(key): \(swiftTypeString)",
-                plistVarString: "\(key): \\(\(key))",
+                configurationModelVar: "public let \(key): \(swiftTypeString)",
+                configurationModelVarDescription: "\(key): \\(\(key))",
                 xmlEntry: """
                 <key>\(key)</key>
                 <\(xmlType)>$(\(key))</\(xmlType)>
@@ -127,14 +127,14 @@ public struct Builds {
                 .sorted()
                 .joined(separator: "\n")
         
-        plistVar = allKeys
-                .map { $0.plistVar }
+        configurationModelVar = allKeys
+                .map { $0.configurationModelVar }
                 .map {"    \($0)"}
                 .sorted()
                 .joined(separator: "\n")
         
-        plistVarString = allKeys
-                .map { $0.plistVarString }
+        configurationModelVarDescription = allKeys
+                .map { $0.configurationModelVarDescription }
                 .map { "            * \($0)" }
                 .sorted()
                 .joined(separator: "\n")

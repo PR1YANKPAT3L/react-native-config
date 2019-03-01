@@ -16,22 +16,22 @@ class CurrentBuildConfigurationWorkerSpec: QuickSpec {
         
         describe("RNConfiguration") {
             
-            var sut: CurrentBuildConfigurationWorker?
+            var sut: RNConfigurationModelFactory?
             
             beforeEach {
-                sut = CurrentBuildConfigurationWorker()
+                sut = RNConfigurationModelFactory()
             }
             
-            it("should instantiate CurrentBuildConfigurationWorker") {
+            it("should instantiate RNConfigurationModelFactory") {
                 expect { sut?.allCustomKeys().count } >= 1
             }
             
             context ("can read current build configuration ") {
                 
-                var currentBuildConfiguration: CurrentBuildConfiguration?
+                var currentBuildConfiguration: RNConfigurationModel?
                 
                 beforeEach {
-                    expect { currentBuildConfiguration = try CurrentBuildConfigurationWorker.readCurrentBuildConfiguration() }.toNot(throwError())
+                    expect { currentBuildConfiguration = try RNConfigurationModelFactory.readCurrentBuildConfiguration() }.toNot(throwError())
                 }
                 
                 it("has cases") {

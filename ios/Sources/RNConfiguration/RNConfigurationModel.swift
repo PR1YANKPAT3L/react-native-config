@@ -1,8 +1,8 @@
     import Foundation
     
     //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
-    public struct CurrentBuildConfiguration: Codable {
-     public static func create(from json: JSON) throws -> CurrentBuildConfiguration {
+    public struct RNConfigurationModel: Codable {
+     public static func create(from json: JSON) throws -> RNConfigurationModel {
                     let typed = json.typed ?? [String: JSONEntry]()
         
                     var jsonTyped = "{"
@@ -24,7 +24,7 @@
         
                     jsonTyped.append(contentsOf: "}")
         
-                    return try JSONDecoder().decode(CurrentBuildConfiguration.self, from: jsonTyped.data(using: .utf8)!)
+                    return try JSONDecoder().decode(RNConfigurationModel.self, from: jsonTyped.data(using: .utf8)!)
                 }
         
                 enum Error: Swift.Error {

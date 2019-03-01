@@ -11,7 +11,7 @@ RCT_EXPORT_MODULE()
 }
 
 + (NSDictionary *)env {
-    return [CurrentBuildConfigurationWorker allValuesDictionaryAndReturnError:nil];
+    return [RNConfigurationModelFactory allValuesDictionaryAndReturnError:nil];
 }
 
 + (NSString *)envFor: (NSString *)key {
@@ -20,7 +20,7 @@ RCT_EXPORT_MODULE()
 }
 
 - (NSDictionary *)constantsToExport {
-    return [CurrentBuildConfigurationWorker allValuesDictionaryAndReturnError:nil];
+    return [RNConfigurationModelFactory allValuesDictionaryAndReturnError:nil];
 }
 
 @end

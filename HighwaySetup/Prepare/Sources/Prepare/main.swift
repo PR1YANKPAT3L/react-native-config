@@ -22,7 +22,7 @@ do {
     let disk = try Disk()
     let reactNativeFolder = disk.srcRoot
     let xcbuild = XCBuild(system: try LocalSystem())
-    let prepareCode = PrepareCode(reactNativeFolder: reactNativeFolder)
+    let prepareCode = try PrepareCode(reactNativeFolder: reactNativeFolder)
     let workspace = try reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
 
     do {

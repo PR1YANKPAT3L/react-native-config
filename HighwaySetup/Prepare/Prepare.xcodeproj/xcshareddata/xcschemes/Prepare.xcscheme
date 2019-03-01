@@ -38,6 +38,26 @@
                ReferencedContainer = "container:Prepare.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD1673C422297F4400A67996"
+               BuildableName = "RNConfigurationPrepare.framework"
+               BlueprintName = "RNConfigurationPrepare"
+               ReferencedContainer = "container:Prepare.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD1673CC22297F4400A67996"
+               BuildableName = "RNConfigurationPrepareTests.xctest"
+               BlueprintName = "RNConfigurationPrepareTests"
+               ReferencedContainer = "container:Prepare.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -43,7 +43,7 @@ public struct Coder {
     import Foundation
     
     /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
-    @objc public class CurrentBuildConfigurationWorker: NSObject {
+    @objc public class RNConfigurationModelFactory: NSObject {
         
         public enum Error: Swift.Error {
             case noInfoDictonary
@@ -54,7 +54,7 @@ public struct Coder {
             
             var dict = [String : String]()
             
-             try CurrentBuildConfigurationWorker.allConstants().forEach { _case in
+             try RNConfigurationModelFactory.allConstants().forEach { _case in
                 dict[_case.key.rawValue] = _case.value
             }
             return dict
@@ -73,24 +73,24 @@ public struct Coder {
         }
         
         /// Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-        public static func readCurrentBuildConfiguration() throws ->  CurrentBuildConfiguration {
+        public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModel {
             
-            guard let infoDict = Bundle(for: CurrentBuildConfigurationWorker.self).infoDictionary else {
+            guard let infoDict = Bundle(for: RNConfigurationModelFactory.self).infoDictionary else {
                 throw Error.noInfoDictonary
             }
             
             let data = try JSONSerialization.data(withJSONObject: infoDict, options: .prettyPrinted)
             
-            return try JSONDecoder().decode(CurrentBuildConfiguration.self, from: data)
+            return try JSONDecoder().decode(RNConfigurationModel.self, from: data)
         }
         
         /// If using swift use plist()
         /// In Objective-C you can access this dictionary containing all custom environment dependend keys.
         /// They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-        public static func  allConstants() throws ->  [CurrentBuildConfigurationWorker.Case: String] {
+        public static func  allConstants() throws ->  [RNConfigurationModelFactory.Case: String] {
             var result = [Case: String]()
             
-            let plist = try CurrentBuildConfigurationWorker.readCurrentBuildConfiguration()
+            let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
             let data = try JSONEncoder().encode(plist)
             
             guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {
@@ -115,11 +115,11 @@ public struct Coder {
         import Foundation
         
         //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
-        public struct CurrentBuildConfiguration: Codable, CustomStringConvertible {
+        public struct RNConfigurationModel: Codable, CustomStringConvertible {
 
     """
     public static let currentBuildConfigurationDefault_BOTTOM = """
-         public static func create(from json: JSON) throws -> CurrentBuildConfiguration {
+         public static func create(from json: JSON) throws -> RNConfigurationModel {
                         let typed = json.typed ?? [String: JSONEntry]()
             
                         var jsonTyped = "{"
@@ -141,7 +141,7 @@ public struct Coder {
             
                         jsonTyped.append(contentsOf: "}")
             
-                        return try JSONDecoder().decode(CurrentBuildConfiguration.self, from: jsonTyped.data(using: .utf8)!)
+                        return try JSONDecoder().decode(RNConfigurationModel.self, from: jsonTyped.data(using: .utf8)!)
                     }
             
                     enum Error: Swift.Error {
@@ -161,12 +161,12 @@ public struct Coder {
         self.signPost = signPost
     }
     
-    public func generateConfigurationWorker() throws {
+    public func writeRNConfigurationModelFactory() throws {
         
         var lines = Coder.currentBuildConfigurationWorkerDefault
         
         guard builds.casesForEnum.count > 0 else {
-            try disk.code.configurationWorkerFile.write(data: lines.data(using: .utf8)!)
+            try disk.code.rnConfigurationModelFactorySwiftFile.write(data: lines.data(using: .utf8)!)
             return
         }
         
@@ -174,7 +174,7 @@ public struct Coder {
         import Foundation
 
         /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
-        @objc public class CurrentBuildConfigurationWorker: NSObject {
+        @objc public class RNConfigurationModelFactory: NSObject {
             
             public enum Error: Swift.Error {
                 case noInfoDictonary
@@ -185,7 +185,7 @@ public struct Coder {
                 
                 var dict = [String : String]()
                 
-                 try CurrentBuildConfigurationWorker.allConstants().forEach { _case in
+                 try RNConfigurationModelFactory.allConstants().forEach { _case in
                     dict[_case.key.rawValue] = _case.value
                 }
                 return dict
@@ -204,24 +204,24 @@ public struct Coder {
             }
             
             /// Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-            public static func readCurrentBuildConfiguration() throws ->  CurrentBuildConfiguration {
+            public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModel {
                 
-                guard let infoDict = Bundle(for: CurrentBuildConfigurationWorker.self).infoDictionary else {
+                guard let infoDict = Bundle(for: RNConfigurationModelFactory.self).infoDictionary else {
                     throw Error.noInfoDictonary
                 }
                 
                 let data = try JSONSerialization.data(withJSONObject: infoDict, options: .prettyPrinted)
                 
-                return try JSONDecoder().decode(CurrentBuildConfiguration.self, from: data)
+                return try JSONDecoder().decode(RNConfigurationModel.self, from: data)
             }
             
             /// If using swift use plist()
             /// In Objective-C you can access this dictionary containing all custom environment dependend keys.
             /// They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-            public static func  allConstants() throws ->  [CurrentBuildConfigurationWorker.Case: String] {
+            public static func  allConstants() throws ->  [RNConfigurationModelFactory.Case: String] {
                 var result = [Case: String]()
                 
-                let plist = try CurrentBuildConfigurationWorker.readCurrentBuildConfiguration()
+                let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
                 let data = try JSONEncoder().encode(plist)
                 
                 guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {
@@ -245,15 +245,15 @@ public struct Coder {
         
         """
         
-        try disk.code.configurationWorkerFile.write(data: lines.data(using: .utf8)!)
+        try disk.code.rnConfigurationModelFactorySwiftFile.write(string: lines)
     }
     
-    public func generateConfigurationForCurrentBuild() throws {
+    public func writeRNConfigurationModel() throws {
         
         var lines = Coder.currentBuildConfigurationDefault_TOP + Coder.currentBuildConfigurationDefault_BOTTOM
         
-        guard builds.plistVar.count > 0 else {
-            try disk.code.currentBuild.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: ""))
+        guard builds.configurationModelVar.count > 0 else {
+            try disk.code.rnConfigurationModelSwiftFile.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: ""))
             return
         }
         
@@ -261,7 +261,7 @@ public struct Coder {
         \(Coder.currentBuildConfigurationDefault_TOP)
         
         // MARK: - Custom plist properties are added here
-        \(builds.plistVar)
+        \(builds.configurationModelVar)
         
             public init(from decoder: Decoder) throws {
         
@@ -277,15 +277,15 @@ public struct Coder {
         
             // Custom environment dependend constants from .env.<CONFIGURATION>.json
         
-            \(builds.plistVarString)
+            \(builds.configurationModelVarDescription)
             \"""
         }
         
         """
-        try disk.code.currentBuild.write(string: lines)
+        try disk.code.rnConfigurationModelSwiftFile.write(string: lines)
     }
     
-    public func genereateInfoPlistForFrameworkForAllBuildsWithPlaceholders() throws {
+    public func writeRNConfigurationPlist() throws {
         
         var plistLinesXml = Coder.plistLinesXmlDefault
         

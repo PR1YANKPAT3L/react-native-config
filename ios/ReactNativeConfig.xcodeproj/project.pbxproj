@@ -13,15 +13,15 @@
 		EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
 		FD4867CF2201BA850092A63E /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
 		FD4867D02201BA960092A63E /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
-		FD4868772201D1810092A63E /* CurrentBuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */; };
+		FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD55CC8A2200B4270044D1A7 /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD55CC952200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
-		FD7F1D302215D3F2009A4F34 /* CurrentBuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */; };
+		FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
+		FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
-		FD7F1D322215D3F2009A4F34 /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
+		FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
 		FD7F1D332215D3F2009A4F34 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FDAA4BD422257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */; };
 		FDAA4BD622257CA90091F9C3 /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
@@ -39,8 +39,8 @@
 		FDB74B2622291EA9000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FDB74B3122293318000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FDB74B4122293409000B068C /* CurrentBuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */; };
-		FDB74B4222293409000B068C /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
+		FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
+		FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
 		FDB74B4322293409000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FDB74B4422293409000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDB74B4522293409000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
@@ -111,7 +111,7 @@
 		EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeConfig.m; sourceTree = "<group>"; };
 		FD4867C82201B6C50092A63E /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		FD4867C92201B6D10092A63E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfiguration.swift; sourceTree = "<group>"; };
+		FD4868762201D1810092A63E /* RNConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModel.swift; sourceTree = "<group>"; };
 		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
 		FD49389D221C380A00B6BBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CC862200B4270044D1A7 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CC882200B4270044D1A7 /* RNConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNConfiguration.h; sourceTree = "<group>"; };
-		FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfigurationWorker.swift; sourceTree = "<group>"; };
+		FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModelFactory.swift; sourceTree = "<group>"; };
 		FD7F1D222215D390009A4F34 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 		FDAA4BD122257CA90091F9C3 /* RNConfigurartionTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurartionTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,8 +277,8 @@
 		FD4868B52201EF0D0092A63E /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */,
-				FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */,
+				FD4868762201D1810092A63E /* RNConfigurationModel.swift */,
+				FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */,
 			);
 			name = Generated;
 			sourceTree = "<group>";
@@ -735,10 +735,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */,
-				FD4868772201D1810092A63E /* CurrentBuildConfiguration.swift in Sources */,
+				FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */,
 				FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */,
 				FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */,
-				FD55CC952200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift in Sources */,
+				FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */,
 				FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,10 +748,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */,
-				FD7F1D302215D3F2009A4F34 /* CurrentBuildConfiguration.swift in Sources */,
+				FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */,
 				FDECFC49221B536100EA1E33 /* JSON.swift in Sources */,
 				FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */,
-				FD7F1D322215D3F2009A4F34 /* CurrentBuildConfigurationWorker.swift in Sources */,
+				FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */,
 				FD7F1D332215D3F2009A4F34 /* JSONEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -788,11 +788,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB74B4322293409000B068C /* JSON.swift in Sources */,
-				FDB74B4122293409000B068C /* CurrentBuildConfiguration.swift in Sources */,
+				FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */,
 				FDB74B4522293409000B068C /* JSONEntry.swift in Sources */,
 				FDB74B462229340D000B068C /* UrlEscaped.swift in Sources */,
 				FDB74B4422293409000B068C /* Configuration.swift in Sources */,
-				FDB74B4222293409000B068C /* CurrentBuildConfigurationWorker.swift in Sources */,
+				FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

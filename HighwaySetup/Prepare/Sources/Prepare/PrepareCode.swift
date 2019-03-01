@@ -10,30 +10,30 @@ import Foundation
 import ZFile
 import SignPost
 
-public protocol MainWorkerProtocol {
+public struct PrepareCode {
     
-    func attempt() throws
-    
-}
-
-public struct PrepareCode: MainWorkerProtocol {
+    public let coder: Coder
+    public let disk: ConfigurationDisk
+    public let builds: Builds
     
     private let reactNativeFolder: FolderProtocol
     private let signPost: SignPostProtocol
 
-    public init(reactNativeFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared) {
+    public init(reactNativeFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared) throws {
         self.reactNativeFolder = reactNativeFolder
         self.signPost = signPost
+        
+        disk = try ConfigurationDisk(reactNativeFolder: reactNativeFolder)
+        builds = try Builds(from: disk)
+        coder = Coder(disk: disk, builds: builds, signPost: signPost)
+
     }
     
     public func attempt() throws {
         
-        let disk = try ConfigurationDisk(reactNativeFolder: reactNativeFolder)
         try disk.code.clearContentAllFiles()
         
-        let builds = try Builds(from: disk)
-        
-        SignPost.shared.verbose("""
+        signPost.verbose("""
             🚀 Env read from
             \(disk.inputJSON.debug)
             \(disk.inputJSON.release)
@@ -43,7 +43,7 @@ public struct PrepareCode: MainWorkerProtocol {
             """
         )
         
-        SignPost.shared.verbose("""
+        signPost.verbose("""
             🚀 Written to config files
             
             # ios
@@ -63,15 +63,14 @@ public struct PrepareCode: MainWorkerProtocol {
             """
         )
         
-        SignPost.shared.message("🏗🧙‍♂️ Generating SWIFT code")
+        signPost.message("🏗🧙‍♂️ Generating SWIFT code")
         
-        let coder = Coder(disk: disk, builds: builds, signPost: signPost)
         
-        try coder.generateConfigurationWorker()
-        try coder.generateConfigurationForCurrentBuild()
-        try coder.genereateInfoPlistForFrameworkForAllBuildsWithPlaceholders()
+        try coder.writeRNConfigurationModelFactory()
+        try coder.writeRNConfigurationModel()
+        try coder.writeRNConfigurationPlist()
         
-        SignPost.shared.message("🏗🧙‍♂️ Generating SWIFT code ✅")
+        signPost.message("🏗🧙‍♂️ Generating SWIFT code ✅")
 
     }
 }

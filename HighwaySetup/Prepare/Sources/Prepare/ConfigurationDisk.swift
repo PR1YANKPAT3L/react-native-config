@@ -52,16 +52,16 @@ public struct ConfigurationDisk {
         public let betaRelease: FileProtocol?
         
         public struct Code {
-            public let configurationWorkerFile: FileProtocol
+            public let rnConfigurationModelFactorySwiftFile: FileProtocol
             public let infoPlist: FileProtocol
-            public let currentBuild: FileProtocol
+            public let rnConfigurationModelSwiftFile: FileProtocol
             
             public func clearContentAllFiles() throws {
-                try configurationWorkerFile.write(string: """
+                try rnConfigurationModelFactorySwiftFile.write(string: """
                     import Foundation
 
                     /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
-                    @objc public class CurrentBuildConfigurationWorker: NSObject {
+                    @objc public class RNConfigurationModelFactory: NSObject {
                     }
                 """
                 )
@@ -90,10 +90,10 @@ public struct ConfigurationDisk {
                     </plist>
 
                 """)
-                try currentBuild.write(string: """
+                try rnConfigurationModelSwiftFile.write(string: """
                     //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
 
-                    public struct CurrentBuildConfiguration: Codable {
+                    public struct RNConfigurationModel: Codable {
                     }
                 """)
             }
@@ -177,9 +177,9 @@ public struct ConfigurationDisk {
         )
         
         code = Output.Code(
-            configurationWorkerFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "CurrentBuildConfigurationWorker.swift"),
+            rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModelFactory.swift"),
             infoPlist: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "Info.plist"),
-            currentBuild: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "CurrentBuildConfiguration.swift")
+            rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift")
         )
         
     }

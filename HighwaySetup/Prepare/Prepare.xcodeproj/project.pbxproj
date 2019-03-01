@@ -7,56 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD1673CE22297F4400A67996 /* RNConfigurationPrepare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673C522297F4400A67996 /* RNConfigurationPrepare.framework */; };
+		FD1673D522297F4400A67996 /* CompletedPrepareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1673D422297F4400A67996 /* CompletedPrepareSpec.swift */; };
+		FD1673D722297F4400A67996 /* RNConfigurationPrepare.h in Headers */ = {isa = PBXBuildFile; fileRef = FD1673C722297F4400A67996 /* RNConfigurationPrepare.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD1673DA22297F4400A67996 /* RNConfigurationPrepare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673C522297F4400A67996 /* RNConfigurationPrepare.framework */; };
+		FD1673DB22297F4400A67996 /* RNConfigurationPrepare.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673C522297F4400A67996 /* RNConfigurationPrepare.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD1673E7222980AF00A67996 /* Arguments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673E6222980AF00A67996 /* Arguments.framework */; };
+		FD1673E92229810900A67996 /* CupertinoJWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673E82229810900A67996 /* CupertinoJWT.framework */; };
+		FD1673EB2229810900A67996 /* Errors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673EA2229810900A67996 /* Errors.framework */; };
+		FD1673ED2229810900A67996 /* FoundationGenericHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673EC2229810900A67996 /* FoundationGenericHelper.framework */; };
+		FD1673EF2229810900A67996 /* Git.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673EE2229810900A67996 /* Git.framework */; };
+		FD1673F12229810900A67996 /* Keychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F02229810900A67996 /* Keychain.framework */; };
+		FD1673F32229810900A67996 /* POSIX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F22229810900A67996 /* POSIX.framework */; };
+		FD1673F52229810900A67996 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F42229810900A67996 /* Result.framework */; };
+		FD1673F72229810900A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F62229810900A67996 /* RNModels.framework */; };
+		FD1673F92229810900A67996 /* SourceryAutoProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F82229810900A67996 /* SourceryAutoProtocols.framework */; };
+		FD1673FB2229810900A67996 /* Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673FA2229810900A67996 /* Task.framework */; };
+		FD1673FD2229810900A67996 /* Terminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673FC2229810900A67996 /* Terminal.framework */; };
+		FD1673FF2229810900A67996 /* Url.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673FE2229810900A67996 /* Url.framework */; };
+		FD1674012229810900A67996 /* XCBuild.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674002229810900A67996 /* XCBuild.framework */; };
+		FD1674032229810900A67996 /* ZFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674022229810900A67996 /* ZFile.framework */; };
+		FD167405222981DF00A67996 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD167404222981DF00A67996 /* Quick.framework */; };
+		FD167407222981E600A67996 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD167406222981E600A67996 /* Nimble.framework */; };
+		FD1674082229824500A67996 /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACA22291950000B068C /* Builds.swift */; };
+		FD1674092229824500A67996 /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACB22291950000B068C /* Coder.swift */; };
+		FD16740A2229824500A67996 /* ConfigurationDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACD22291950000B068C /* ConfigurationDisk.swift */; };
+		FD16740B2229824500A67996 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACE22291950000B068C /* main.swift */; };
+		FD16740C2229824500A67996 /* PrepareCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74B4A222938AA000B068C /* PrepareCode.swift */; };
+		FD16740D2229824500A67996 /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74AC822291950000B068C /* TestRunner.swift */; };
+		FD1674112229843100A67996 /* SignPostMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674102229843100A67996 /* SignPostMock.framework */; };
+		FD1674132229843800A67996 /* ArgumentsMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674122229843800A67996 /* ArgumentsMock.framework */; };
+		FD16741422298AC500A67996 /* Errors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673EA2229810900A67996 /* Errors.framework */; };
 		FDB74AD622291999000B068C /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74AC822291950000B068C /* TestRunner.swift */; };
 		FDB74AD72229199D000B068C /* Builds.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACA22291950000B068C /* Builds.swift */; };
 		FDB74AD82229199D000B068C /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACB22291950000B068C /* Coder.swift */; };
 		FDB74ADA2229199D000B068C /* ConfigurationDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACD22291950000B068C /* ConfigurationDisk.swift */; };
 		FDB74ADB2229199D000B068C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74ACE22291950000B068C /* main.swift */; };
-		FDB74ADE22291B6A000B068C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74ADD22291B6A000B068C /* Result.framework */; };
-		FDB74ADF22291B6A000B068C /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74ADD22291B6A000B068C /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AE122291B6A000B068C /* ZFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AE022291B6A000B068C /* ZFile.framework */; };
-		FDB74AE222291B6A000B068C /* ZFile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AE022291B6A000B068C /* ZFile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AE422291B6A000B068C /* FoundationGenericHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AE322291B6A000B068C /* FoundationGenericHelper.framework */; };
-		FDB74AE522291B6A000B068C /* FoundationGenericHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AE322291B6A000B068C /* FoundationGenericHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AE722291B6A000B068C /* Arguments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AE622291B6A000B068C /* Arguments.framework */; };
-		FDB74AE822291B6A000B068C /* Arguments.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AE622291B6A000B068C /* Arguments.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AEA22291B6A000B068C /* Keychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AE922291B6A000B068C /* Keychain.framework */; };
-		FDB74AEB22291B6A000B068C /* Keychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AE922291B6A000B068C /* Keychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AED22291B6A000B068C /* Terminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AEC22291B6A000B068C /* Terminal.framework */; };
-		FDB74AEE22291B6A000B068C /* Terminal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AEC22291B6A000B068C /* Terminal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AF022291B6A000B068C /* POSIX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AEF22291B6A000B068C /* POSIX.framework */; };
-		FDB74AF122291B6A000B068C /* POSIX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AEF22291B6A000B068C /* POSIX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AF322291B6A000B068C /* XCBuild.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF222291B6A000B068C /* XCBuild.framework */; };
-		FDB74AF422291B6A000B068C /* XCBuild.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF222291B6A000B068C /* XCBuild.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AF622291B6A000B068C /* Errors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF522291B6A000B068C /* Errors.framework */; };
-		FDB74AF722291B6A000B068C /* Errors.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF522291B6A000B068C /* Errors.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AFA22291B6A000B068C /* SourceryAutoProtocols.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AF822291B6A000B068C /* SourceryAutoProtocols.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AFC22291B6A000B068C /* Git.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AFB22291B6A000B068C /* Git.framework */; };
-		FDB74AFD22291B6A000B068C /* Git.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AFB22291B6A000B068C /* Git.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74AFF22291B6A000B068C /* Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AFE22291B6A000B068C /* Task.framework */; };
-		FDB74B0022291B6A000B068C /* Task.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74AFE22291B6A000B068C /* Task.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74B0222291B6A000B068C /* Url.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0122291B6A000B068C /* Url.framework */; };
-		FDB74B0322291B6A000B068C /* Url.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0122291B6A000B068C /* Url.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74B0522291B6A000B068C /* SourceryWorker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0422291B6A000B068C /* SourceryWorker.framework */; };
-		FDB74B0622291B6A000B068C /* SourceryWorker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0422291B6A000B068C /* SourceryWorker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74B0822291B6A000B068C /* SourceryAutoProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0722291B6A000B068C /* SourceryAutoProtocols.framework */; };
-		FDB74B0922291B6A000B068C /* SourceryAutoProtocols.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0722291B6A000B068C /* SourceryAutoProtocols.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74B0B22291B6A000B068C /* SignPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0A22291B6A000B068C /* SignPost.framework */; };
-		FDB74B0C22291B6A000B068C /* SignPost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0A22291B6A000B068C /* SignPost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74B0E22291B6A000B068C /* SwiftFormatWorker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0D22291B6A000B068C /* SwiftFormatWorker.framework */; };
-		FDB74B0F22291B6A000B068C /* SwiftFormatWorker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B0D22291B6A000B068C /* SwiftFormatWorker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDB74B2922291EF8000B068C /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B2822291EF8000B068C /* RNModels.framework */; };
-		FDB74B2A22291EF8000B068C /* RNModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B2822291EF8000B068C /* RNModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDB74B4B222938AA000B068C /* PrepareCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB74B4A222938AA000B068C /* PrepareCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FDB74AB6222918C9000B068C /* PBXContainerItemProxy */ = {
+		FD1673CF22297F4400A67996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDB74A9D222918C8000B068C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD1673C422297F4400A67996;
+			remoteInfo = RNConfigurationPrepare;
+		};
+		FD1673D122297F4400A67996 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FDB74A9D222918C8000B068C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FDB74AA4222918C8000B068C;
 			remoteInfo = Prepare;
+		};
+		FD1673D822297F4400A67996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDB74A9D222918C8000B068C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD1673C422297F4400A67996;
+			remoteInfo = RNConfigurationPrepare;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,24 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FDB74AF422291B6A000B068C /* XCBuild.framework in Embed Frameworks */,
-				FDB74AEE22291B6A000B068C /* Terminal.framework in Embed Frameworks */,
-				FDB74AE522291B6A000B068C /* FoundationGenericHelper.framework in Embed Frameworks */,
-				FDB74AE822291B6A000B068C /* Arguments.framework in Embed Frameworks */,
-				FDB74AFD22291B6A000B068C /* Git.framework in Embed Frameworks */,
-				FDB74B0C22291B6A000B068C /* SignPost.framework in Embed Frameworks */,
-				FDB74B0922291B6A000B068C /* SourceryAutoProtocols.framework in Embed Frameworks */,
-				FDB74B0022291B6A000B068C /* Task.framework in Embed Frameworks */,
-				FDB74AF122291B6A000B068C /* POSIX.framework in Embed Frameworks */,
-				FDB74AFA22291B6A000B068C /* SourceryAutoProtocols.framework in Embed Frameworks */,
-				FDB74B0322291B6A000B068C /* Url.framework in Embed Frameworks */,
-				FDB74B0F22291B6A000B068C /* SwiftFormatWorker.framework in Embed Frameworks */,
-				FDB74B2A22291EF8000B068C /* RNModels.framework in Embed Frameworks */,
-				FDB74AF722291B6A000B068C /* Errors.framework in Embed Frameworks */,
-				FDB74B0622291B6A000B068C /* SourceryWorker.framework in Embed Frameworks */,
-				FDB74AEB22291B6A000B068C /* Keychain.framework in Embed Frameworks */,
-				FDB74ADF22291B6A000B068C /* Result.framework in Embed Frameworks */,
-				FDB74AE222291B6A000B068C /* ZFile.framework in Embed Frameworks */,
+				FD1673DB22297F4400A67996 /* RNConfigurationPrepare.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,99 +85,140 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FD1673C522297F4400A67996 /* RNConfigurationPrepare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfigurationPrepare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673C722297F4400A67996 /* RNConfigurationPrepare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNConfigurationPrepare.h; sourceTree = "<group>"; };
+		FD1673C822297F4400A67996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD1673CD22297F4400A67996 /* RNConfigurationPrepareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNConfigurationPrepareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673D422297F4400A67996 /* CompletedPrepareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedPrepareSpec.swift; sourceTree = "<group>"; };
+		FD1673D622297F4400A67996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD1673E6222980AF00A67996 /* Arguments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Arguments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673E82229810900A67996 /* CupertinoJWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CupertinoJWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673EA2229810900A67996 /* Errors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Errors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673EC2229810900A67996 /* FoundationGenericHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FoundationGenericHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673EE2229810900A67996 /* Git.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Git.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673F02229810900A67996 /* Keychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Keychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673F22229810900A67996 /* POSIX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = POSIX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673F42229810900A67996 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673F62229810900A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673F82229810900A67996 /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673FA2229810900A67996 /* Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673FC2229810900A67996 /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1673FE2229810900A67996 /* Url.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Url.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1674002229810900A67996 /* XCBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1674022229810900A67996 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD167404222981DF00A67996 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD167406222981E600A67996 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1674102229843100A67996 /* SignPostMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPostMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1674122229843800A67996 /* ArgumentsMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ArgumentsMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74AA5222918C8000B068C /* Prepare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prepare.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AB5222918C9000B068C /* PrepareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrepareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74AC822291950000B068C /* TestRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunner.swift; sourceTree = "<group>"; };
-		FDB74AC922291950000B068C /* PrepareReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrepareReactNativeConfig.h; sourceTree = "<group>"; };
 		FDB74ACA22291950000B068C /* Builds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builds.swift; sourceTree = "<group>"; };
 		FDB74ACB22291950000B068C /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
 		FDB74ACD22291950000B068C /* ConfigurationDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDisk.swift; sourceTree = "<group>"; };
 		FDB74ACE22291950000B068C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FDB74ACF22291950000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDB74AD122291958000B068C /* CoderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderSpec.swift; sourceTree = "<group>"; };
-		FDB74AD222291958000B068C /* PrepareReactNativeConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareReactNativeConfigTests.swift; sourceTree = "<group>"; };
-		FDB74AD322291958000B068C /* TestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetup.swift; sourceTree = "<group>"; };
-		FDB74AD422291958000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDB74ADD22291B6A000B068C /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AE022291B6A000B068C /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AE322291B6A000B068C /* FoundationGenericHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FoundationGenericHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AE622291B6A000B068C /* Arguments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Arguments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AE922291B6A000B068C /* Keychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Keychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AEC22291B6A000B068C /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AEF22291B6A000B068C /* POSIX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = POSIX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AF222291B6A000B068C /* XCBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AF522291B6A000B068C /* Errors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Errors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AF822291B6A000B068C /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AFB22291B6A000B068C /* Git.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Git.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74AFE22291B6A000B068C /* Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74B0122291B6A000B068C /* Url.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Url.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74B0422291B6A000B068C /* SourceryWorker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryWorker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74B0722291B6A000B068C /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74B0A22291B6A000B068C /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74B0D22291B6A000B068C /* SwiftFormatWorker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftFormatWorker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74B2822291EF8000B068C /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74B4A222938AA000B068C /* PrepareCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FD1673C222297F4400A67996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1673E92229810900A67996 /* CupertinoJWT.framework in Frameworks */,
+				FD1673EB2229810900A67996 /* Errors.framework in Frameworks */,
+				FD1673ED2229810900A67996 /* FoundationGenericHelper.framework in Frameworks */,
+				FD1673EF2229810900A67996 /* Git.framework in Frameworks */,
+				FD1673F12229810900A67996 /* Keychain.framework in Frameworks */,
+				FD1673F32229810900A67996 /* POSIX.framework in Frameworks */,
+				FD1673F52229810900A67996 /* Result.framework in Frameworks */,
+				FD1673F72229810900A67996 /* RNModels.framework in Frameworks */,
+				FD1673F92229810900A67996 /* SourceryAutoProtocols.framework in Frameworks */,
+				FD1673FB2229810900A67996 /* Task.framework in Frameworks */,
+				FD1673FD2229810900A67996 /* Terminal.framework in Frameworks */,
+				FD1673FF2229810900A67996 /* Url.framework in Frameworks */,
+				FD1674012229810900A67996 /* XCBuild.framework in Frameworks */,
+				FD1674032229810900A67996 /* ZFile.framework in Frameworks */,
+				FD1673E7222980AF00A67996 /* Arguments.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD1673CA22297F4400A67996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD16741422298AC500A67996 /* Errors.framework in Frameworks */,
+				FD1674132229843800A67996 /* ArgumentsMock.framework in Frameworks */,
+				FD1674112229843100A67996 /* SignPostMock.framework in Frameworks */,
+				FD167407222981E600A67996 /* Nimble.framework in Frameworks */,
+				FD167405222981DF00A67996 /* Quick.framework in Frameworks */,
+				FD1673CE22297F4400A67996 /* RNConfigurationPrepare.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDB74AA2222918C8000B068C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB74AF322291B6A000B068C /* XCBuild.framework in Frameworks */,
-				FDB74AED22291B6A000B068C /* Terminal.framework in Frameworks */,
-				FDB74AE422291B6A000B068C /* FoundationGenericHelper.framework in Frameworks */,
-				FDB74AE722291B6A000B068C /* Arguments.framework in Frameworks */,
-				FDB74AFC22291B6A000B068C /* Git.framework in Frameworks */,
-				FDB74B0B22291B6A000B068C /* SignPost.framework in Frameworks */,
-				FDB74B0822291B6A000B068C /* SourceryAutoProtocols.framework in Frameworks */,
-				FDB74AFF22291B6A000B068C /* Task.framework in Frameworks */,
-				FDB74AF022291B6A000B068C /* POSIX.framework in Frameworks */,
-				FDB74B0222291B6A000B068C /* Url.framework in Frameworks */,
-				FDB74B0E22291B6A000B068C /* SwiftFormatWorker.framework in Frameworks */,
-				FDB74B2922291EF8000B068C /* RNModels.framework in Frameworks */,
-				FDB74AF622291B6A000B068C /* Errors.framework in Frameworks */,
-				FDB74B0522291B6A000B068C /* SourceryWorker.framework in Frameworks */,
-				FDB74AEA22291B6A000B068C /* Keychain.framework in Frameworks */,
-				FDB74ADE22291B6A000B068C /* Result.framework in Frameworks */,
-				FDB74AE122291B6A000B068C /* ZFile.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDB74AB2222918C9000B068C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				FD1673DA22297F4400A67996 /* RNConfigurationPrepare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD1673C622297F4400A67996 /* RNConfigurationPrepare */ = {
+			isa = PBXGroup;
+			children = (
+				FD1673C722297F4400A67996 /* RNConfigurationPrepare.h */,
+				FD1673C822297F4400A67996 /* Info.plist */,
+			);
+			path = RNConfigurationPrepare;
+			sourceTree = "<group>";
+		};
+		FD1673D322297F4400A67996 /* RNConfigurationPrepareTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD1673D422297F4400A67996 /* CompletedPrepareSpec.swift */,
+				FD1673D622297F4400A67996 /* Info.plist */,
+			);
+			path = RNConfigurationPrepareTests;
+			sourceTree = "<group>";
+		};
+		FD1673E222297FF800A67996 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD1674122229843800A67996 /* ArgumentsMock.framework */,
+				FD1674102229843100A67996 /* SignPostMock.framework */,
+				FD167406222981E600A67996 /* Nimble.framework */,
+				FD167404222981DF00A67996 /* Quick.framework */,
+				FD1673E6222980AF00A67996 /* Arguments.framework */,
+				FD1673E82229810900A67996 /* CupertinoJWT.framework */,
+				FD1673EA2229810900A67996 /* Errors.framework */,
+				FD1673EC2229810900A67996 /* FoundationGenericHelper.framework */,
+				FD1673EE2229810900A67996 /* Git.framework */,
+				FD1673F02229810900A67996 /* Keychain.framework */,
+				FD1673F22229810900A67996 /* POSIX.framework */,
+				FD1673F42229810900A67996 /* Result.framework */,
+				FD1673F62229810900A67996 /* RNModels.framework */,
+				FD1673F82229810900A67996 /* SourceryAutoProtocols.framework */,
+				FD1673FA2229810900A67996 /* Task.framework */,
+				FD1673FC2229810900A67996 /* Terminal.framework */,
+				FD1673FE2229810900A67996 /* Url.framework */,
+				FD1674002229810900A67996 /* XCBuild.framework */,
+				FD1674022229810900A67996 /* ZFile.framework */,
+			);
+			name = Frameworks;
+			path = "../../../../Carthage/Checkouts/react-native-config/HighwaySetup/Prepare";
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		FDB74A9C222918C8000B068C = {
 			isa = PBXGroup;
 			children = (
-				FDB74B2822291EF8000B068C /* RNModels.framework */,
-				FDB74B0D22291B6A000B068C /* SwiftFormatWorker.framework */,
-				FDB74B0A22291B6A000B068C /* SignPost.framework */,
-				FDB74B0722291B6A000B068C /* SourceryAutoProtocols.framework */,
-				FDB74B0422291B6A000B068C /* SourceryWorker.framework */,
-				FDB74B0122291B6A000B068C /* Url.framework */,
-				FDB74AFE22291B6A000B068C /* Task.framework */,
-				FDB74AFB22291B6A000B068C /* Git.framework */,
-				FDB74AF822291B6A000B068C /* SourceryAutoProtocols.framework */,
-				FDB74AF522291B6A000B068C /* Errors.framework */,
-				FDB74AF222291B6A000B068C /* XCBuild.framework */,
-				FDB74AEF22291B6A000B068C /* POSIX.framework */,
-				FDB74AEC22291B6A000B068C /* Terminal.framework */,
-				FDB74AE922291B6A000B068C /* Keychain.framework */,
-				FDB74AE622291B6A000B068C /* Arguments.framework */,
-				FDB74AE322291B6A000B068C /* FoundationGenericHelper.framework */,
-				FDB74AE022291B6A000B068C /* ZFile.framework */,
-				FDB74ADD22291B6A000B068C /* Result.framework */,
-				FDB74AA6222918C8000B068C /* Products */,
 				FDB74AC422291908000B068C /* Sources */,
 				FDB74AC52229190F000B068C /* Tests */,
+				FD1673E222297FF800A67996 /* Frameworks */,
+				FDB74AA6222918C8000B068C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,7 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				FDB74AA5222918C8000B068C /* Prepare.app */,
-				FDB74AB5222918C9000B068C /* PrepareTests.xctest */,
+				FD1673C522297F4400A67996 /* RNConfigurationPrepare.framework */,
+				FD1673CD22297F4400A67996 /* RNConfigurationPrepareTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +235,7 @@
 		FDB74AC422291908000B068C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FD1673C622297F4400A67996 /* RNConfigurationPrepare */,
 				FDB74AC622291950000B068C /* Prepare */,
 			);
 			path = Sources;
@@ -208,7 +244,7 @@
 		FDB74AC52229190F000B068C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				FDB74AD022291958000B068C /* PrepareTests */,
+				FD1673D322297F4400A67996 /* RNConfigurationPrepareTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -216,32 +252,68 @@
 		FDB74AC622291950000B068C /* Prepare */ = {
 			isa = PBXGroup;
 			children = (
+				FDB74ACF22291950000B068C /* Info.plist */,
 				FDB74ACA22291950000B068C /* Builds.swift */,
 				FDB74ACB22291950000B068C /* Coder.swift */,
 				FDB74ACD22291950000B068C /* ConfigurationDisk.swift */,
-				FDB74ACF22291950000B068C /* Info.plist */,
 				FDB74ACE22291950000B068C /* main.swift */,
-				FDB74AC922291950000B068C /* PrepareReactNativeConfig.h */,
 				FDB74B4A222938AA000B068C /* PrepareCode.swift */,
 				FDB74AC822291950000B068C /* TestRunner.swift */,
 			);
 			path = Prepare;
 			sourceTree = "<group>";
 		};
-		FDB74AD022291958000B068C /* PrepareTests */ = {
-			isa = PBXGroup;
-			children = (
-				FDB74AD122291958000B068C /* CoderSpec.swift */,
-				FDB74AD222291958000B068C /* PrepareReactNativeConfigTests.swift */,
-				FDB74AD322291958000B068C /* TestSetup.swift */,
-				FDB74AD422291958000B068C /* Info.plist */,
-			);
-			path = PrepareTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		FD1673C022297F4400A67996 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1673D722297F4400A67996 /* RNConfigurationPrepare.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		FD1673C422297F4400A67996 /* RNConfigurationPrepare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD1673DC22297F4400A67996 /* Build configuration list for PBXNativeTarget "RNConfigurationPrepare" */;
+			buildPhases = (
+				FD1673C022297F4400A67996 /* Headers */,
+				FD1673C122297F4400A67996 /* Sources */,
+				FD1673C222297F4400A67996 /* Frameworks */,
+				FD1673C322297F4400A67996 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNConfigurationPrepare;
+			productName = RNConfigurationPrepare;
+			productReference = FD1673C522297F4400A67996 /* RNConfigurationPrepare.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FD1673CC22297F4400A67996 /* RNConfigurationPrepareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD1673DF22297F4400A67996 /* Build configuration list for PBXNativeTarget "RNConfigurationPrepareTests" */;
+			buildPhases = (
+				FD1673C922297F4400A67996 /* Sources */,
+				FD1673CA22297F4400A67996 /* Frameworks */,
+				FD1673CB22297F4400A67996 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD1673D022297F4400A67996 /* PBXTargetDependency */,
+				FD1673D222297F4400A67996 /* PBXTargetDependency */,
+			);
+			name = RNConfigurationPrepareTests;
+			productName = RNConfigurationPrepareTests;
+			productReference = FD1673CD22297F4400A67996 /* RNConfigurationPrepareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FDB74AA4222918C8000B068C /* Prepare */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB74ABE222918C9000B068C /* Build configuration list for PBXNativeTarget "Prepare" */;
@@ -254,29 +326,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				FD1673D922297F4400A67996 /* PBXTargetDependency */,
 			);
 			name = Prepare;
 			productName = Prepare;
 			productReference = FDB74AA5222918C8000B068C /* Prepare.app */;
 			productType = "com.apple.product-type.application";
-		};
-		FDB74AB4222918C9000B068C /* PrepareTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FDB74AC1222918C9000B068C /* Build configuration list for PBXNativeTarget "PrepareTests" */;
-			buildPhases = (
-				FDB74AB1222918C9000B068C /* Sources */,
-				FDB74AB2222918C9000B068C /* Frameworks */,
-				FDB74AB3222918C9000B068C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FDB74AB7222918C9000B068C /* PBXTargetDependency */,
-			);
-			name = PrepareTests;
-			productName = PrepareTests;
-			productReference = FDB74AB5222918C9000B068C /* PrepareTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -288,12 +343,14 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = bolides;
 				TargetAttributes = {
-					FDB74AA4222918C8000B068C = {
+					FD1673C422297F4400A67996 = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					FDB74AB4222918C9000B068C = {
+					FD1673CC22297F4400A67996 = {
 						CreatedOnToolsVersion = 10.1;
-						TestTargetID = FDB74AA4222918C8000B068C;
+					};
+					FDB74AA4222918C8000B068C = {
+						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
@@ -311,20 +368,28 @@
 			projectRoot = "";
 			targets = (
 				FDB74AA4222918C8000B068C /* Prepare */,
-				FDB74AB4222918C9000B068C /* PrepareTests */,
+				FD1673C422297F4400A67996 /* RNConfigurationPrepare */,
+				FD1673CC22297F4400A67996 /* RNConfigurationPrepareTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FDB74AA3222918C8000B068C /* Resources */ = {
+		FD1673C322297F4400A67996 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDB74AB3222918C9000B068C /* Resources */ = {
+		FD1673CB22297F4400A67996 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB74AA3222918C8000B068C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,6 +399,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FD1673C122297F4400A67996 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD16740C2229824500A67996 /* PrepareCode.swift in Sources */,
+				FD16740D2229824500A67996 /* TestRunner.swift in Sources */,
+				FD16740A2229824500A67996 /* ConfigurationDisk.swift in Sources */,
+				FD1674082229824500A67996 /* Builds.swift in Sources */,
+				FD16740B2229824500A67996 /* main.swift in Sources */,
+				FD1674092229824500A67996 /* Coder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD1673C922297F4400A67996 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1673D522297F4400A67996 /* CompletedPrepareSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDB74AA1222918C8000B068C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,24 +433,113 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDB74AB1222918C9000B068C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FDB74AB7222918C9000B068C /* PBXTargetDependency */ = {
+		FD1673D022297F4400A67996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD1673C422297F4400A67996 /* RNConfigurationPrepare */;
+			targetProxy = FD1673CF22297F4400A67996 /* PBXContainerItemProxy */;
+		};
+		FD1673D222297F4400A67996 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FDB74AA4222918C8000B068C /* Prepare */;
-			targetProxy = FDB74AB6222918C9000B068C /* PBXContainerItemProxy */;
+			targetProxy = FD1673D122297F4400A67996 /* PBXContainerItemProxy */;
+		};
+		FD1673D922297F4400A67996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD1673C422297F4400A67996 /* RNConfigurationPrepare */;
+			targetProxy = FD1673D822297F4400A67996 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		FD1673DD22297F4400A67996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/RNConfigurationPrepare/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.RNConfigurationPrepare;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD1673DE22297F4400A67996 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/RNConfigurationPrepare/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.RNConfigurationPrepare;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD1673E022297F4400A67996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/RNConfigurationPrepareTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.RNConfigurationPrepareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		FD1673E122297F4400A67996 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/RNConfigurationPrepareTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.RNConfigurationPrepareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		FDB74ABC222918C9000B068C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -481,8 +656,10 @@
 		FDB74ABF222918C9000B068C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Sources/Prepare/Info.plist;
@@ -499,8 +676,10 @@
 		FDB74AC0222918C9000B068C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Sources/Prepare/Info.plist;
@@ -514,49 +693,27 @@
 			};
 			name = Release;
 		};
-		FDB74AC2222918C9000B068C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = PrepareTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = be.bolides.PrepareTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prepare.app/Contents/MacOS/Prepare";
-			};
-			name = Debug;
-		};
-		FDB74AC3222918C9000B068C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = PrepareTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = be.bolides.PrepareTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prepare.app/Contents/MacOS/Prepare";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FD1673DC22297F4400A67996 /* Build configuration list for PBXNativeTarget "RNConfigurationPrepare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD1673DD22297F4400A67996 /* Debug */,
+				FD1673DE22297F4400A67996 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD1673DF22297F4400A67996 /* Build configuration list for PBXNativeTarget "RNConfigurationPrepareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD1673E022297F4400A67996 /* Debug */,
+				FD1673E122297F4400A67996 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FDB74AA0222918C8000B068C /* Build configuration list for PBXProject "Prepare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -571,15 +728,6 @@
 			buildConfigurations = (
 				FDB74ABF222918C9000B068C /* Debug */,
 				FDB74AC0222918C9000B068C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FDB74AC1222918C9000B068C /* Build configuration list for PBXNativeTarget "PrepareTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FDB74AC2222918C9000B068C /* Debug */,
-				FDB74AC3222918C9000B068C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
