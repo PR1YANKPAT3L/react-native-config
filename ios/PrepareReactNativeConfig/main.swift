@@ -11,17 +11,12 @@ import ZFile
 import SignPost
 import XCBuild
 import Task
+import Arguments
 
 
 do {
-    guard let rnoffset = (CommandLine
-        .arguments
-        .first { $0.hasPrefix(MainWorker.reactNativeFolderPrefixOption) }?
-    .replacingOccurrences(of: MainWorker.reactNativeFolderPrefixOption, with: "")) else {
-        throw MainWorker.Error()
-    }
-    
-    let reactNativeFolder = try Folder(relativePath: rnoffset)
+    let disk = try Disk()
+    let reactNativeFolder = disk.srcRoot
     SignPost.shared.message("🚀 ReactNativeConfig RN root:\n \(reactNativeFolder)\n")
 
     do {
@@ -61,7 +56,7 @@ do {
             
             ❌
             ♥️ Fix it by adding environment files
-            \(Disk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
+            \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
             at \(MainWorker.reactNativeFolderPrefixOption): \(reactNativeFolder)
             and fill them with valid json
             
@@ -81,7 +76,7 @@ do {
         
         ❌
         ♥️ Fix it by adding environment files
-        \(Disk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
+        \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
         at \(MainWorker.reactNativeFolderPrefixOption)
         """
     )

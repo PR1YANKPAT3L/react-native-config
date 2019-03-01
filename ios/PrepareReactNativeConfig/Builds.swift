@@ -47,7 +47,7 @@ public struct Builds {
     
     // MARK: Initialize
     
-    public init(from disk: Disk, decoder: JSONDecoder = JSONDecoder()) throws {
+    public init(from disk: ConfigurationDisk, decoder: JSONDecoder = JSONDecoder()) throws {
 
         self.decoder = decoder
         let debug = try decoder.decode(JSON.self, from:  try disk.inputJSON.debug.read())

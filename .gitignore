@@ -11,3 +11,4 @@ xcuserdata
 /.gitmodules
 /.build/Build/Intermediates.noindex
 /.build/ModuleCache.noindex
+/.build

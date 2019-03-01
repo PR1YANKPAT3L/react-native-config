@@ -36,7 +36,7 @@ public struct MainWorker: MainWorkerProtocol {
     
     public func attempt() throws {
         
-        let disk = try Disk(reactNativeFolder: reactNativeFolder)
+        let disk = try ConfigurationDisk(reactNativeFolder: reactNativeFolder)
         try disk.code.clearContentAllFiles()
         
         let builds = try Builds(from: disk)

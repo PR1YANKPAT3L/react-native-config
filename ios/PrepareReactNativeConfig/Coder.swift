@@ -136,11 +136,11 @@ public struct Coder {
         }
     """
     
-    public let disk: Disk
+    public let disk: ConfigurationDisk
     public let builds: Builds
     public let signPost: SignPostProtocol
     
-    public init(disk: Disk, builds: Builds, signPost: SignPostProtocol = SignPost.shared) {
+    public init(disk: ConfigurationDisk, builds: Builds, signPost: SignPostProtocol = SignPost.shared) {
         self.disk = disk
         self.builds = builds
         self.signPost = signPost
