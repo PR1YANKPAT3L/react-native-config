@@ -1,7 +1,6 @@
 #import "ReactNativeConfig.h"
 #import <RNConfiguration/RNConfiguration-Swift.h>
 
-
 @implementation ReactNativeConfig
 
 RCT_EXPORT_MODULE()

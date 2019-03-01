@@ -16,10 +16,9 @@
 		FD4868772201D1810092A63E /* CurrentBuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */; };
 		FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
-		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
-		FD55CC8A2200B4270044D1A7 /* ReactNativeConfigSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD55CC8A2200B4270044D1A7 /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD55CC952200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
-		FD7F1D262215D390009A4F34 /* ReactNativeConfig_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD7F1D302215D3F2009A4F34 /* CurrentBuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */; };
 		FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD7F1D322215D3F2009A4F34 /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
@@ -39,18 +38,19 @@
 		FDB74B2522291EA6000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDB74B2622291EA9000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
+		FDB74B3122293318000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FDB74B4122293409000B068C /* CurrentBuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* CurrentBuildConfiguration.swift */; };
+		FDB74B4222293409000B068C /* CurrentBuildConfigurationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */; };
+		FDB74B4322293409000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
+		FDB74B4422293409000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
+		FDB74B4522293409000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
+		FDB74B462229340D000B068C /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
+		FDB74B4722293418000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FDECFC49221B536100EA1E33 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FD4867D12201BB080092A63E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD55CC852200B4270044D1A7;
-			remoteInfo = ReactNativeConfigSwift;
-		};
 		FDAA4BD722257CA90091F9C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
@@ -65,12 +65,19 @@
 			remoteGlobalIDString = FD7F1D212215D390009A4F34;
 			remoteInfo = "ReactNativeConfigSwift-macOS";
 		};
-		FDB74B2D22292890000B068C /* PBXContainerItemProxy */ = {
+		FDB74B2F2229313A000B068C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FD55CC852200B4270044D1A7;
 			remoteInfo = "RNConfiguration-iOS";
+		};
+		FDB74B48222934E0000B068C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDB74B36222933E0000B068C;
+			remoteInfo = "RNConfiguration-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -111,10 +118,9 @@
 		FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BetaRelease.xcconfig; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CC862200B4270044D1A7 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfigSwift.h; sourceTree = "<group>"; };
+		FD55CC882200B4270044D1A7 /* RNConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNConfiguration.h; sourceTree = "<group>"; };
 		FD55CC942200B4BA0044D1A7 /* CurrentBuildConfigurationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfigurationWorker.swift; sourceTree = "<group>"; };
 		FD7F1D222215D390009A4F34 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig_macOS.h; sourceTree = "<group>"; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 		FDAA4BD122257CA90091F9C3 /* RNConfigurartionTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurartionTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfigurationWorkerSpec.swift; sourceTree = "<group>"; };
@@ -122,7 +128,6 @@
 		FDAA4BDE22257CCD0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BE022257CD60091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BE622257F530091F9C3 /* RNConfigurartionTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurartionTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4BEA22257F530091F9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDAA4BF322257F5F0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BF522257F660091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BFB222583130091F9C3 /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +151,7 @@
 		FDB74B1622291E8F000B068C /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74B1822291E8F000B068C /* RNModels_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNModels_macOS.h; sourceTree = "<group>"; };
 		FDB74B1922291E8F000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDB74B37222933E0000B068C /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFC47221B530E00EA1E33 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -209,6 +215,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FDB74B34222933E0000B068C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -247,6 +260,7 @@
 				FDAA4BD122257CA90091F9C3 /* RNConfigurartionTests-iOS.xctest */,
 				FDAA4BE622257F530091F9C3 /* RNConfigurartionTests-macOS.xctest */,
 				FDB74B1622291E8F000B068C /* RNModels.framework */,
+				FDB74B37222933E0000B068C /* RNConfiguration.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,8 +291,7 @@
 				FDECFC47221B530E00EA1E33 /* JSON.swift */,
 				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
 				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
-				FD55CC882200B4270044D1A7 /* ReactNativeConfigSwift.h */,
-				FD7F1D242215D390009A4F34 /* ReactNativeConfig_macOS.h */,
+				FD55CC882200B4270044D1A7 /* RNConfiguration.h */,
 				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
 			);
 			path = RNConfiguration;
@@ -304,21 +317,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FDAA4BD222257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests */ = {
+		FDAA4BD222257CA90091F9C3 /* RNConfiguration */ = {
 			isa = PBXGroup;
 			children = (
 				FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */,
 				FDAA4BD522257CA90091F9C3 /* Info.plist */,
 			);
-			path = "ReactNativeConfigSwift-iOS-Tests";
-			sourceTree = "<group>";
-		};
-		FDAA4BE722257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests */ = {
-			isa = PBXGroup;
-			children = (
-				FDAA4BEA22257F530091F9C3 /* Info.plist */,
-			);
-			path = "ReactNativeConfigSwift-macOS-Tests";
+			path = RNConfiguration;
 			sourceTree = "<group>";
 		};
 		FDB74B1722291E8F000B068C /* RNModels-macOS */ = {
@@ -333,8 +338,7 @@
 		FDB74B2B22292763000B068C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				FDAA4BD222257CA90091F9C3 /* ReactNativeConfigSwift-iOS-Tests */,
-				FDAA4BE722257F530091F9C3 /* ReactNativeConfigSwift-macOS-Tests */,
+				FDAA4BD222257CA90091F9C3 /* RNConfiguration */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -364,7 +368,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD55CC8A2200B4270044D1A7 /* ReactNativeConfigSwift.h in Headers */,
+				FD55CC8A2200B4270044D1A7 /* RNConfiguration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +376,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7F1D262215D390009A4F34 /* ReactNativeConfig_macOS.h in Headers */,
+				FDB74B3122293318000B068C /* RNConfiguration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +388,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FDB74B32222933E0000B068C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDB74B4722293418000B068C /* RNConfiguration.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -391,14 +403,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DF7F6B4203AA09B00D0EAB7 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-tvOS" */;
 			buildPhases = (
-				3DF7F6A8203AA09B00D0EAB7 /* Sources */,
 				3DF7F6A9203AA09B00D0EAB7 /* Frameworks */,
+				3DF7F6A8203AA09B00D0EAB7 /* Sources */,
 				3DF7F6AA203AA09B00D0EAB7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FDB74B2E22292890000B068C /* PBXTargetDependency */,
+				FDB74B49222934E0000B068C /* PBXTargetDependency */,
 			);
 			name = "RNConfigurationBridge-tvOS";
 			productName = "ReactNativeConfig-tvOS";
@@ -410,15 +422,15 @@
 			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-iOS" */;
 			buildPhases = (
 				FDFD28F72228A4FB00367617 /* ShellScript */,
+				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
 				FD55CB9622009A750044D1A7 /* Headers */,
 				EB2648DB1C7BE17A00B8F155 /* Sources */,
-				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
 				EB2648DD1C7BE17A00B8F155 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FD4867D22201BB080092A63E /* PBXTargetDependency */,
+				FDB74B302229313A000B068C /* PBXTargetDependency */,
 			);
 			name = "RNConfigurationBridge-iOS";
 			productName = ReactNativeConfig;
@@ -517,6 +529,24 @@
 			productReference = FDB74B1622291E8F000B068C /* RNModels.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		FDB74B36222933E0000B068C /* RNConfiguration-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDB74B3C222933E0000B068C /* Build configuration list for PBXNativeTarget "RNConfiguration-tvOS" */;
+			buildPhases = (
+				FDB74B32222933E0000B068C /* Headers */,
+				FDB74B33222933E0000B068C /* Sources */,
+				FDB74B34222933E0000B068C /* Frameworks */,
+				FDB74B35222933E0000B068C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNConfiguration-tvOS";
+			productName = "RNConfiguration-tvOS";
+			productReference = FDB74B37222933E0000B068C /* RNConfiguration.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -553,6 +583,10 @@
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 					};
+					FDB74B36222933E0000B068C = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = EB2648DA1C7BE17A00B8F155 /* Build configuration list for PBXProject "ReactNativeConfig" */;
@@ -572,6 +606,7 @@
 				3DF7F6AB203AA09B00D0EAB7 /* RNConfigurationBridge-tvOS */,
 				FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */,
 				FD7F1D212215D390009A4F34 /* RNConfiguration-macOS */,
+				FDB74B36222933E0000B068C /* RNConfiguration-tvOS */,
 				FDAA4BD022257CA90091F9C3 /* RNConfigurartionTests-iOS */,
 				FDAA4BE522257F530091F9C3 /* RNConfigurartionTests-macOS */,
 				FDB74B1522291E8F000B068C /* RNModels-macOS */,
@@ -609,6 +644,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FDB74B1422291E8F000B068C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB74B35222933E0000B068C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -743,14 +785,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FDB74B33222933E0000B068C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDB74B4322293409000B068C /* JSON.swift in Sources */,
+				FDB74B4122293409000B068C /* CurrentBuildConfiguration.swift in Sources */,
+				FDB74B4522293409000B068C /* JSONEntry.swift in Sources */,
+				FDB74B462229340D000B068C /* UrlEscaped.swift in Sources */,
+				FDB74B4422293409000B068C /* Configuration.swift in Sources */,
+				FDB74B4222293409000B068C /* CurrentBuildConfigurationWorker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FD4867D22201BB080092A63E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */;
-			targetProxy = FD4867D12201BB080092A63E /* PBXContainerItemProxy */;
-		};
 		FDAA4BD822257CA90091F9C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */;
@@ -761,10 +811,15 @@
 			target = FD7F1D212215D390009A4F34 /* RNConfiguration-macOS */;
 			targetProxy = FDAA4BEC22257F530091F9C3 /* PBXContainerItemProxy */;
 		};
-		FDB74B2E22292890000B068C /* PBXTargetDependency */ = {
+		FDB74B302229313A000B068C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */;
-			targetProxy = FDB74B2D22292890000B068C /* PBXContainerItemProxy */;
+			targetProxy = FDB74B2F2229313A000B068C /* PBXContainerItemProxy */;
+		};
+		FDB74B49222934E0000B068C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDB74B36222933E0000B068C /* RNConfiguration-tvOS */;
+			targetProxy = FDB74B48222934E0000B068C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1311,12 +1366,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WWFDRU947Q;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfigSwift-iOS-Tests/Info.plist";
+				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1338,11 +1393,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WWFDRU947Q;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfigSwift-iOS-Tests/Info.plist";
+				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
@@ -1363,11 +1418,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WWFDRU947Q;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfigSwift-iOS-Tests/Info.plist";
+				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
@@ -1388,11 +1443,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WWFDRU947Q;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfigSwift-iOS-Tests/Info.plist";
+				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
@@ -1412,12 +1467,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfigSwift-macOS-Tests/Info.plist";
+				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-macOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1438,11 +1493,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfigSwift-macOS-Tests/Info.plist";
+				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-macOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1462,11 +1517,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfigSwift-macOS-Tests/Info.plist";
+				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-macOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1486,11 +1541,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ReactNativeConfigSwift-macOS-Tests/Info.plist";
+				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "be.bolides.ReactNativeConfigSwift-macOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1635,6 +1690,144 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
+		};
+		FDB74B3D222933E0000B068C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FDB74B3E222933E0000B068C /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FDB74B3F222933E0000B068C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDB74B40222933E0000B068C /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1898,6 +2091,17 @@
 				FDB74B2122291E8F000B068C /* Local */,
 				FDB74B2222291E8F000B068C /* Release */,
 				FDB74B2322291E8F000B068C /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDB74B3C222933E0000B068C /* Build configuration list for PBXNativeTarget "RNConfiguration-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDB74B3D222933E0000B068C /* Debug */,
+				FDB74B3E222933E0000B068C /* Local */,
+				FDB74B3F222933E0000B068C /* Release */,
+				FDB74B40222933E0000B068C /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

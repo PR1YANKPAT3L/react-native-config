@@ -6,7 +6,14 @@
 //  Copyright © 2019 Pedro Belo. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 #import <UIKit/UIKit.h>
+
+
+//#if TARGET_OS_MAC
+//#import <Cocoa/Cocoa.h>
+//#endif
 
 //! Project version number for RNConfiguration.
 FOUNDATION_EXPORT double RNConfigurationVersionNumber;

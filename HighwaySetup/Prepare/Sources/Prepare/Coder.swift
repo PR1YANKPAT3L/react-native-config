@@ -125,12 +125,12 @@ public struct Coder {
                         var jsonTyped = "{"
             
                         jsonTyped.append(contentsOf: typed.compactMap {
-                        return \"\\"\\($0.key)\": \"\\($0.value.value)\\",\"
+                        return "\\"\\($0.key)\\": \\"\\($0.value.value)\\","
                         }.joined(separator: "\\n"))
             
                         if let jsonBooleans = (
                         json.booleans?
-                        .compactMap { return "\"\\($0.key)\": \"\\($0.value)\"," }
+                        .compactMap { return "\\"\\($0.key)\\": \\"\\($0.value)\\"," }
                         .joined(separator: "\\n")) {
             
                         jsonTyped.append(contentsOf: jsonBooleans)
@@ -141,7 +141,7 @@ public struct Coder {
             
                         jsonTyped.append(contentsOf: "}")
             
-                        return try JSONDecoder().decode(CurrentBuildConfiguration.self, from: data)
+                        return try JSONDecoder().decode(CurrentBuildConfiguration.self, from: jsonTyped.data(using: .utf8)!)
                     }
             
                     enum Error: Swift.Error {
@@ -253,7 +253,7 @@ public struct Coder {
         var lines = Coder.currentBuildConfigurationDefault_TOP + Coder.currentBuildConfigurationDefault_BOTTOM
         
         guard builds.plistVar.count > 0 else {
-            try disk.code.currentBuild.write(string: lines)
+            try disk.code.currentBuild.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: ""))
             return
         }
         

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Pedro Belo. All rights reserved.
 //
 
-import XCTest
 import Quick
 import Nimble
 import RNConfiguration
