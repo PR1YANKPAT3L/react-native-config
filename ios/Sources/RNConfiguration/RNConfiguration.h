@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef TARGET_MAC_OS
+#import <Cocoa/Cocoa.h>
+#else
 #import <UIKit/UIKit.h>
-
-
-//#if TARGET_OS_MAC
-//#import <Cocoa/Cocoa.h>
-//#endif
+#endif
 
 //! Project version number for RNConfiguration.
 FOUNDATION_EXPORT double RNConfigurationVersionNumber;

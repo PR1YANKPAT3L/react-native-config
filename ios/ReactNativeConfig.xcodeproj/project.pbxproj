@@ -11,18 +11,27 @@
 		3DF7F6B7203AA0D600D0EAB7 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		EB2648E31C7BE17A00B8F155 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
+		FD16745B2229B36B00A67996 /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD16745F2229B3E700A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; };
+		FD1674622229B3FC00A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B1622291E8F000B068C /* RNModels.framework */; };
+		FD1674662229B4A800A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
+		FD1674672229B4A800A67996 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
+		FD1674682229B4A800A67996 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
+		FD1674692229B4A800A67996 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
+		FD16748A2229B63500A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
+		FD16748B2229B63500A67996 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
+		FD16748C2229B63500A67996 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
+		FD16748D2229B63500A67996 /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD16748E2229B63500A67996 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
+		FD1674912229B66100A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674802229B5A700A67996 /* RNModels.framework */; };
 		FD4867CF2201BA850092A63E /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
 		FD4867D02201BA960092A63E /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
 		FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
-		FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
-		FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD55CC8A2200B4270044D1A7 /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
 		FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
-		FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FD7F1D332215D3F2009A4F34 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FDAA4BD422257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */; };
 		FDAA4BD622257CA90091F9C3 /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
 		FDAA4BDF22257CCD0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BDE22257CCD0091F9C3 /* Quick.framework */; };
@@ -31,9 +40,7 @@
 		FDAA4BF422257F5F0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF322257F5F0091F9C3 /* Quick.framework */; };
 		FDAA4BF622257F660091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF522257F660091F9C3 /* Nimble.framework */; };
 		FDAA4BF722257FB40091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */; };
-		FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
-		FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
-		FDB74B1A22291E8F000B068C /* RNModels_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FDB74B1A22291E8F000B068C /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDB74B2422291EA3000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FDB74B2522291EA6000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDB74B2622291EA9000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
@@ -41,16 +48,31 @@
 		FDB74B3122293318000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FDB74B4322293409000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
-		FDB74B4422293409000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
-		FDB74B4522293409000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
-		FDB74B462229340D000B068C /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FDB74B4722293418000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
-		FDECFC49221B536100EA1E33 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FD16745D2229B3DE00A67996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD16741F2229B2C300A67996;
+			remoteInfo = "RNModels-iOS";
+		};
+		FD1674602229B3F200A67996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDB74B1522291E8F000B068C;
+			remoteInfo = "RNModels-macOS";
+		};
+		FD16748F2229B65700A67996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD16747F2229B5A700A67996;
+			remoteInfo = "RNModels-tvOS";
+		};
 		FDAA4BD722257CA90091F9C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
@@ -109,6 +131,8 @@
 		EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig.h; sourceTree = "<group>"; };
 		EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeConfig.m; sourceTree = "<group>"; };
+		FD1674202229B2C300A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1674802229B5A700A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4867C82201B6C50092A63E /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		FD4867C92201B6D10092A63E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		FD4868762201D1810092A63E /* RNConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModel.swift; sourceTree = "<group>"; };
@@ -130,17 +154,6 @@
 		FDAA4BE622257F530091F9C3 /* RNConfigurartionTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurartionTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BF322257F5F0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BF522257F660091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4BFB222583130091F9C3 /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4BFE2225837C0091F9C3 /* Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C01222583B30091F9C3 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C04222584ED0091F9C3 /* XCBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C07222585380091F9C3 /* Errors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Errors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C0A2225854A0091F9C3 /* Arguments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Arguments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C0D2225856B0091F9C3 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C102225856B0091F9C3 /* POSIX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = POSIX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C132225856B0091F9C3 /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C162225856B0091F9C3 /* Url.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Url.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4C192225856B0091F9C3 /* SourceryWorker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryWorker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4C1E222596120091F9C3 /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4C202225961E0091F9C3 /* XCBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4C222225962D0091F9C3 /* Arguments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Arguments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,7 +162,7 @@
 		FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDB74B1622291E8F000B068C /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74B1822291E8F000B068C /* RNModels_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNModels_macOS.h; sourceTree = "<group>"; };
+		FDB74B1822291E8F000B068C /* RNModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNModels.h; sourceTree = "<group>"; };
 		FDB74B1922291E8F000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDB74B37222933E0000B068C /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,10 +187,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD16741D2229B2C300A67996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16747D2229B5A700A67996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD55CC832200B4270044D1A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD16745F2229B3E700A67996 /* RNModels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1674622229B3FC00A67996 /* RNModels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1674912229B66100A67996 /* RNModels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,17 +264,6 @@
 				FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */,
 				FDB74B2C2229276B000B068C /* Sources */,
 				FDB74B2B22292763000B068C /* Tests */,
-				FDAA4C192225856B0091F9C3 /* SourceryWorker.framework */,
-				FDAA4C162225856B0091F9C3 /* Url.framework */,
-				FDAA4C132225856B0091F9C3 /* SourceryAutoProtocols.framework */,
-				FDAA4C102225856B0091F9C3 /* POSIX.framework */,
-				FDAA4C0D2225856B0091F9C3 /* Result.framework */,
-				FDAA4C0A2225854A0091F9C3 /* Arguments.framework */,
-				FDAA4C07222585380091F9C3 /* Errors.framework */,
-				FDAA4C04222584ED0091F9C3 /* XCBuild.framework */,
-				FDAA4C01222583B30091F9C3 /* Result.framework */,
-				FDAA4BFE2225837C0091F9C3 /* Task.framework */,
-				FDAA4BFB222583130091F9C3 /* Terminal.framework */,
 				EB2648E01C7BE17A00B8F155 /* Products */,
 				FD55CC902200B4460044D1A7 /* Frameworks */,
 			);
@@ -261,6 +280,8 @@
 				FDAA4BE622257F530091F9C3 /* RNConfigurartionTests-macOS.xctest */,
 				FDB74B1622291E8F000B068C /* RNModels.framework */,
 				FDB74B37222933E0000B068C /* RNConfiguration.framework */,
+				FD1674202229B2C300A67996 /* RNModels.framework */,
+				FD1674802229B5A700A67996 /* RNModels.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,11 +309,7 @@
 			children = (
 				FD49389D221C380A00B6BBAE /* Info.plist */,
 				FD4868B52201EF0D0092A63E /* Generated */,
-				FDECFC47221B530E00EA1E33 /* JSON.swift */,
-				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
-				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
 				FD55CC882200B4270044D1A7 /* RNConfiguration.h */,
-				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
 			);
 			path = RNConfiguration;
 			sourceTree = "<group>";
@@ -326,13 +343,17 @@
 			path = RNConfiguration;
 			sourceTree = "<group>";
 		};
-		FDB74B1722291E8F000B068C /* RNModels-macOS */ = {
+		FDB74B1722291E8F000B068C /* RNModels */ = {
 			isa = PBXGroup;
 			children = (
-				FDB74B1822291E8F000B068C /* RNModels_macOS.h */,
+				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
 				FDB74B1922291E8F000B068C /* Info.plist */,
+				FDECFC47221B530E00EA1E33 /* JSON.swift */,
+				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
+				FDB74B1822291E8F000B068C /* RNModels.h */,
+				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
 			);
-			path = "RNModels-macOS";
+			path = RNModels;
 			sourceTree = "<group>";
 		};
 		FDB74B2B22292763000B068C /* Tests */ = {
@@ -346,9 +367,9 @@
 		FDB74B2C2229276B000B068C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FDB74B1722291E8F000B068C /* RNModels-macOS */,
-				EB2648E11C7BE17A00B8F155 /* RNConfigurationBridge */,
 				FD55CC872200B4270044D1A7 /* RNConfiguration */,
+				EB2648E11C7BE17A00B8F155 /* RNConfigurationBridge */,
+				FDB74B1722291E8F000B068C /* RNModels */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -356,6 +377,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		FD16741B2229B2C300A67996 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD16745B2229B36B00A67996 /* RNModels.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16747B2229B5A700A67996 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD16748D2229B63500A67996 /* RNModels.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD55CB9622009A750044D1A7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,7 +421,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB74B1A22291E8F000B068C /* RNModels_macOS.h in Headers */,
+				FDB74B1A22291E8F000B068C /* RNModels.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,19 +474,56 @@
 			productReference = EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		FD16741F2229B2C300A67996 /* RNModels-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD1674312229B2C400A67996 /* Build configuration list for PBXNativeTarget "RNModels-iOS" */;
+			buildPhases = (
+				FD16741B2229B2C300A67996 /* Headers */,
+				FD16741C2229B2C300A67996 /* Sources */,
+				FD16741D2229B2C300A67996 /* Frameworks */,
+				FD16741E2229B2C300A67996 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNModels-iOS";
+			productName = "RNModels-iOS";
+			productReference = FD1674202229B2C300A67996 /* RNModels.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FD16747F2229B5A700A67996 /* RNModels-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD1674852229B5A700A67996 /* Build configuration list for PBXNativeTarget "RNModels-tvOS" */;
+			buildPhases = (
+				FD16747B2229B5A700A67996 /* Headers */,
+				FD16747C2229B5A700A67996 /* Sources */,
+				FD16747D2229B5A700A67996 /* Frameworks */,
+				FD16747E2229B5A700A67996 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNModels-tvOS";
+			productName = "RNModels-tvOS";
+			productReference = FD1674802229B5A700A67996 /* RNModels.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD55CC8B2200B4270044D1A7 /* Build configuration list for PBXNativeTarget "RNConfiguration-iOS" */;
 			buildPhases = (
 				FD55CCA02200BC310044D1A7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */,
 				FD55CC812200B4270044D1A7 /* Headers */,
-				FD55CC822200B4270044D1A7 /* Sources */,
 				FD55CC832200B4270044D1A7 /* Frameworks */,
+				FD55CC822200B4270044D1A7 /* Sources */,
 				FD55CC842200B4270044D1A7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FD16745E2229B3DE00A67996 /* PBXTargetDependency */,
 			);
 			name = "RNConfiguration-iOS";
 			productName = ReactNativeConfigSwift;
@@ -469,6 +543,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FD1674612229B3F200A67996 /* PBXTargetDependency */,
 			);
 			name = "RNConfiguration-macOS";
 			productName = "ReactNativeConfig-macOS";
@@ -534,13 +609,14 @@
 			buildConfigurationList = FDB74B3C222933E0000B068C /* Build configuration list for PBXNativeTarget "RNConfiguration-tvOS" */;
 			buildPhases = (
 				FDB74B32222933E0000B068C /* Headers */,
-				FDB74B33222933E0000B068C /* Sources */,
 				FDB74B34222933E0000B068C /* Frameworks */,
+				FDB74B33222933E0000B068C /* Sources */,
 				FDB74B35222933E0000B068C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FD1674902229B65700A67996 /* PBXTargetDependency */,
 			);
 			name = "RNConfiguration-tvOS";
 			productName = "RNConfiguration-tvOS";
@@ -563,6 +639,14 @@
 					};
 					EB2648DE1C7BE17A00B8F155 = {
 						CreatedOnToolsVersion = 7.2.1;
+					};
+					FD16741F2229B2C300A67996 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+					FD16747F2229B5A700A67996 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 					};
 					FD55CC852200B4270044D1A7 = {
 						CreatedOnToolsVersion = 10.1;
@@ -608,11 +692,27 @@
 				FDAA4BD022257CA90091F9C3 /* RNConfigurartionTests-iOS */,
 				FDAA4BE522257F530091F9C3 /* RNConfigurartionTests-macOS */,
 				FDB74B1522291E8F000B068C /* RNModels-macOS */,
+				FD16741F2229B2C300A67996 /* RNModels-iOS */,
+				FD16747F2229B5A700A67996 /* RNModels-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FD16741E2229B2C300A67996 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16747E2229B5A700A67996 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD55CC842200B4270044D1A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -730,16 +830,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD16741C2229B2C300A67996 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1674662229B4A800A67996 /* Configuration.swift in Sources */,
+				FD1674682229B4A800A67996 /* JSONEntry.swift in Sources */,
+				FD1674672229B4A800A67996 /* JSON.swift in Sources */,
+				FD1674692229B4A800A67996 /* UrlEscaped.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16747C2229B5A700A67996 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD16748A2229B63500A67996 /* Configuration.swift in Sources */,
+				FD16748C2229B63500A67996 /* JSONEntry.swift in Sources */,
+				FD16748B2229B63500A67996 /* JSON.swift in Sources */,
+				FD16748E2229B63500A67996 /* UrlEscaped.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD55CC822200B4270044D1A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDAE42F6221DAE38002E34EE /* Configuration.swift in Sources */,
 				FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */,
-				FDECFC48221B530E00EA1E33 /* JSON.swift in Sources */,
-				FD4868AF2201E2D00092A63E /* JSONEntry.swift in Sources */,
 				FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */,
-				FD48698D220216DC0092A63E /* UrlEscaped.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,12 +865,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDAE42F5221DADB7002E34EE /* Configuration.swift in Sources */,
 				FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */,
-				FDECFC49221B536100EA1E33 /* JSON.swift in Sources */,
-				FD7F1D312215D3F2009A4F34 /* UrlEscaped.swift in Sources */,
 				FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */,
-				FD7F1D332215D3F2009A4F34 /* JSONEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,11 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB74B4322293409000B068C /* JSON.swift in Sources */,
 				FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */,
-				FDB74B4522293409000B068C /* JSONEntry.swift in Sources */,
-				FDB74B462229340D000B068C /* UrlEscaped.swift in Sources */,
-				FDB74B4422293409000B068C /* Configuration.swift in Sources */,
 				FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -799,6 +909,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FD16745E2229B3DE00A67996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD16741F2229B2C300A67996 /* RNModels-iOS */;
+			targetProxy = FD16745D2229B3DE00A67996 /* PBXContainerItemProxy */;
+		};
+		FD1674612229B3F200A67996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDB74B1522291E8F000B068C /* RNModels-macOS */;
+			targetProxy = FD1674602229B3F200A67996 /* PBXContainerItemProxy */;
+		};
+		FD1674902229B65700A67996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD16747F2229B5A700A67996 /* RNModels-tvOS */;
+			targetProxy = FD16748F2229B65700A67996 /* PBXContainerItemProxy */;
+		};
 		FDAA4BD822257CA90091F9C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */;
@@ -845,7 +970,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.2;
 			};
 			name = Debug;
 		};
@@ -872,7 +996,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.2;
 			};
 			name = Release;
 		};
@@ -931,7 +1054,6 @@
 					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
 					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -988,7 +1110,6 @@
 					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
 					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -1016,6 +1137,274 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		FD1674322229B2C400A67996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD1674332229B2C400A67996 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FD1674342229B2C400A67996 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD1674352229B2C400A67996 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
+		};
+		FD1674862229B5A700A67996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD1674872229B5A700A67996 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FD1674882229B5A700A67996 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD1674892229B5A700A67996 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
 		};
 		FD55CC8C2200B4270044D1A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1121,10 +1510,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
 				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
@@ -1157,10 +1550,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
 				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
 				PRODUCT_NAME = RNConfiguration;
@@ -1191,10 +1588,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
 				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
 				PRODUCT_NAME = RNConfiguration;
@@ -1262,7 +1659,6 @@
 					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
 					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1303,7 +1699,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.2;
 			};
 			name = Local;
 		};
@@ -1362,7 +1757,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1387,7 +1781,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
@@ -1410,7 +1803,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
@@ -1433,7 +1825,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
@@ -1459,7 +1850,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
@@ -1485,7 +1875,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1509,7 +1898,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1533,7 +1921,6 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1562,10 +1949,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Sources/RNModels-macOS/Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnmodels;
@@ -1599,10 +1990,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Sources/RNModels-macOS/Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnmodels;
 				PRODUCT_NAME = RNModels;
@@ -1634,10 +2029,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Sources/RNModels-macOS/Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnmodels;
 				PRODUCT_NAME = RNModels;
@@ -1669,10 +2064,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Sources/RNModels-macOS/Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
+				INFOPLIST_FILE = Sources/RNModels/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnmodels;
 				PRODUCT_NAME = RNModels;
@@ -1715,7 +2110,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1749,7 +2143,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1783,7 +2176,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1817,7 +2209,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1872,7 +2263,6 @@
 					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
 					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -1914,7 +2304,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.2;
 			};
 			name = BetaRelease;
 		};
@@ -1978,10 +2367,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
 				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
 				PRODUCT_NAME = RNConfiguration;
@@ -2026,6 +2415,28 @@
 				FD84BA0C2209C8BC000B86BC /* Local */,
 				EB2648EA1C7BE17A00B8F155 /* Release */,
 				FDECFC8F221B652300EA1E33 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD1674312229B2C400A67996 /* Build configuration list for PBXNativeTarget "RNModels-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD1674322229B2C400A67996 /* Debug */,
+				FD1674332229B2C400A67996 /* Local */,
+				FD1674342229B2C400A67996 /* Release */,
+				FD1674352229B2C400A67996 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD1674852229B5A700A67996 /* Build configuration list for PBXNativeTarget "RNModels-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD1674862229B5A700A67996 /* Debug */,
+				FD1674872229B5A700A67996 /* Local */,
+				FD1674882229B5A700A67996 /* Release */,
+				FD1674892229B5A700A67996 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -110,6 +110,8 @@
 		FD167406222981E600A67996 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1674102229843100A67996 /* SignPostMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPostMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1674122229843800A67996 /* ArgumentsMock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ArgumentsMock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1674752229B58900A67996 /* RNModels_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNModels_tvOS.h; sourceTree = "<group>"; };
+		FD1674762229B58900A67996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDB74AA5222918C8000B068C /* Prepare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prepare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74AC822291950000B068C /* TestRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunner.swift; sourceTree = "<group>"; };
 		FDB74ACA22291950000B068C /* Builds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builds.swift; sourceTree = "<group>"; };
@@ -212,11 +214,21 @@
 			path = "../../../../Carthage/Checkouts/react-native-config/HighwaySetup/Prepare";
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FD1674742229B58900A67996 /* RNModels-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				FD1674752229B58900A67996 /* RNModels_tvOS.h */,
+				FD1674762229B58900A67996 /* Info.plist */,
+			);
+			path = "RNModels-tvOS";
+			sourceTree = "<group>";
+		};
 		FDB74A9C222918C8000B068C = {
 			isa = PBXGroup;
 			children = (
 				FDB74AC422291908000B068C /* Sources */,
 				FDB74AC52229190F000B068C /* Tests */,
+				FD1674742229B58900A67996 /* RNModels-tvOS */,
 				FD1673E222297FF800A67996 /* Frameworks */,
 				FDB74AA6222918C8000B068C /* Products */,
 			);
@@ -583,6 +595,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"TARGET_MAC_OS=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -638,6 +651,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

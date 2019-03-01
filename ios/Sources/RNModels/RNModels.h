@@ -6,7 +6,12 @@
 //  Copyright © 2019 Pedro Belo. All rights reserved.
 //
 
+#ifdef TARGET_MAC_OS
 #import <Cocoa/Cocoa.h>
+#else
+#import <UIKit/UIKit.h>
+#endif
+
 
 //! Project version number for RNModels_macOS.
 FOUNDATION_EXPORT double RNModels_macOSVersionNumber;

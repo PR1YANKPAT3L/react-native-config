@@ -41,6 +41,7 @@ public struct Coder {
     
     public static let currentBuildConfigurationWorkerDefault = """
     import Foundation
+    import RNModels
     
     /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
     @objc public class RNConfigurationModelFactory: NSObject {
@@ -172,6 +173,7 @@ public struct Coder {
         
         lines = """
         import Foundation
+        import RNModels
 
         /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
         @objc public class RNConfigurationModelFactory: NSObject {

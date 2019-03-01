@@ -27,7 +27,7 @@ public struct Builds {
     // MARK: - INPUT
     
     public struct Input {
-        public let debug: JSON
+        public let debug: RNModels.JSON
         public let release: JSON
         public let local: JSON?
         public let betaRelease: JSON?
