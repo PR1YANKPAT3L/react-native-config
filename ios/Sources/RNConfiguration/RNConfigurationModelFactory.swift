@@ -1,4 +1,5 @@
 import Foundation
+import RNModels
 
 /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
 @objc public class RNConfigurationModelFactory: NSObject {
@@ -66,4 +67,6 @@ import Foundation
         return result
     }
     
+    
 }
+
