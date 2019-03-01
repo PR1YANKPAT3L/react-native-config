@@ -1,0 +1,4 @@
+framework module CupertinoJWT {
+  header "CupertinoJWT-Swift.h"
+  requires objc
+}

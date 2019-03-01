@@ -1,0 +1,11 @@
+framework module SignPost {
+  umbrella header "SignPost.h"
+
+  export *
+  module * { export * }
+}
+
+module SignPost.Swift {
+    header "SignPost-Swift.h"
+    requires objc
+}

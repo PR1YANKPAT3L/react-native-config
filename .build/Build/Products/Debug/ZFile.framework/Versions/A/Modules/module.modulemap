@@ -1,0 +1,4 @@
+framework module ZFile {
+  header "ZFile-Swift.h"
+  requires objc
+}
