@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Prepare/Prepare.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Checkouts/SwiftFormat/SwiftFormat.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Checkouts/Quick/Quick.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Checkouts/CupertinoJWT/CupertinoJWT.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../Result/Result.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../ZFile/Sources/ZFile/ZFile.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../highway/Sources/highway/Highway.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../ios/ReactNativeConfig.xcodeproj">
+   </FileRef>
+</Workspace>

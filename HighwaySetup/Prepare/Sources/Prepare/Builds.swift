@@ -7,15 +7,15 @@
 //
 
 import Foundation
-import ReactNativeConfigSwift
+import RNModels
 
+/// Will load input and decode input JSON -> Use CurrentBuildConfiguration.create from this JSON
 public struct Builds {
     
     private typealias MappingKeys = [(case: String, plistVar: String, plistVarString: String, xmlEntry: String, decoderInit: String)]
 
     
     public let input: Input
-    public let output: Output
     
     public let casesForEnum: String
 
@@ -24,14 +24,7 @@ public struct Builds {
     public let plistLinesXmlText: String
     public let decoderInit: String
     
-    // MARK: - Structs
-    
-    public struct Output {
-        public let debug: CurrentBuildConfiguration
-        public let release: CurrentBuildConfiguration
-        public let local: CurrentBuildConfiguration?
-        public let betaRelease: CurrentBuildConfiguration?
-    }
+    // MARK: - INPUT
     
     public struct Input {
         public let debug: JSON
@@ -158,39 +151,6 @@ public struct Builds {
             .map {"         \($0)"}
             .joined(separator: "\n")
         
-        output = Output(
-            debug: try Builds.config(for: input.debug, decoder),
-            release: try Builds.config(for: input.release, decoder),
-            local:  local != nil ? try Builds.config(for: local!, decoder) : nil,
-            betaRelease: betaRelease != nil ? try Builds.config(for: betaRelease!, decoder) : nil
-        )
-        
-    }
-    
-    private static func config(for json: JSON, _ decoder: JSONDecoder) throws -> CurrentBuildConfiguration {
-
-        let typed = json.typed ?? [String: JSONEntry]()
-        
-        var jsonTyped = "{"
-        
-        jsonTyped.append(contentsOf: typed.compactMap {
-            return "\"\($0.key)\": \"\($0.value.value)\","
-            }.joined(separator: "\n"))
-        
-        if let jsonBooleans = (
-            json.booleans?
-            .compactMap { return "\"\($0.key)\": \"\($0.value)\"," }
-            .joined(separator: "\n")) {
-            
-            jsonTyped.append(contentsOf: jsonBooleans)
-
-        }
-        
-        if jsonTyped.count > 1 { jsonTyped.removeLast() }
-        
-        jsonTyped.append(contentsOf: "}")
-        
-        return try decoder.decode(CurrentBuildConfiguration.self, from: jsonTyped.data(using: .utf8)!)
     }
     
 }

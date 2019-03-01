@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB2648DE1C7BE17A00B8F155"
-               BuildableName = "libReactNativeConfig.a"
-               BlueprintName = "ReactNativeConfig"
-               ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
+               BlueprintIdentifier = "FDB74AA4222918C8000B068C"
+               BuildableName = "Prepare.app"
+               BlueprintName = "Prepare"
+               ReferencedContainer = "container:Prepare.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FDB74AB4222918C9000B068C"
+               BuildableName = "PrepareTests.xctest"
+               BlueprintName = "PrepareTests"
+               ReferencedContainer = "container:Prepare.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FDB74AA4222918C8000B068C"
+            BuildableName = "Prepare.app"
+            BlueprintName = "Prepare"
+            ReferencedContainer = "container:Prepare.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +61,22 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB2648DE1C7BE17A00B8F155"
-            BuildableName = "libReactNativeConfig.a"
-            BlueprintName = "ReactNativeConfig"
-            ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
+            BlueprintIdentifier = "FDB74AA4222918C8000B068C"
+            BuildableName = "Prepare.app"
+            BlueprintName = "Prepare"
+            ReferencedContainer = "container:Prepare.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-srcRoot /../../../../../"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +86,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB2648DE1C7BE17A00B8F155"
-            BuildableName = "libReactNativeConfig.a"
-            BlueprintName = "ReactNativeConfig"
-            ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
+            BlueprintIdentifier = "FDB74AA4222918C8000B068C"
+            BuildableName = "Prepare.app"
+            BlueprintName = "Prepare"
+            ReferencedContainer = "container:Prepare.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
