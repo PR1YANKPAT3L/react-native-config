@@ -7,8 +7,6 @@ xcuserdata
 /android/.gradle
 /android/.gradle/4.10.1
 /android/.idea
-/ios/.build
 /.gitmodules
 /.build/Build/Intermediates.noindex
 /.build/ModuleCache.noindex
-/.build
