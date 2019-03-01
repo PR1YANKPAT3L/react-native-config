@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FD16747F2229B5A700A67996"
-               BuildableName = "RNModels_tvOS.framework"
+               BuildableName = "RNModels.framework"
                BlueprintName = "RNModels-tvOS"
                ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FD16747F2229B5A700A67996"
-            BuildableName = "RNModels_tvOS.framework"
+            BuildableName = "RNModels.framework"
             BlueprintName = "RNModels-tvOS"
             ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FD16747F2229B5A700A67996"
-            BuildableName = "RNModels_tvOS.framework"
+            BuildableName = "RNModels.framework"
             BlueprintName = "RNModels-tvOS"
             ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
          </BuildableReference>
