@@ -18,10 +18,12 @@ let signPost = SignPost.shared
 enum TestableSchemes: String, CaseIterable {
     case iOS = "RNConfigurationBridge-iOS"
 }
+
+let xcbuild = XCBuild()
+
 do {
     let disk = try Disk()
     let reactNativeFolder = disk.srcRoot
-    let xcbuild = XCBuild(system: try LocalSystem())
     let prepareCode = try PrepareCode(reactNativeFolder: reactNativeFolder)
     let reactNativeConfigworkspace = try? reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
     
@@ -88,16 +90,4 @@ do {
         """
     )
     exit(EXIT_FAILURE)
-} catch {
-    SignPost.shared.error("""
-        ❌ PREPARE **RNConfiguration**
-        
-        \(error)
-        
-        ❌
-        ♥️ Fix it by adding environment files
-        \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)"}.joined(separator: "\n"))
-        """
-    )
-    exit(EXIT_FAILURE)
-}
+} 
