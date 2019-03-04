@@ -17,7 +17,6 @@
 		FD1673EB2229810900A67996 /* Errors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673EA2229810900A67996 /* Errors.framework */; };
 		FD1673ED2229810900A67996 /* FoundationGenericHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673EC2229810900A67996 /* FoundationGenericHelper.framework */; };
 		FD1673EF2229810900A67996 /* Git.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673EE2229810900A67996 /* Git.framework */; };
-		FD1673F12229810900A67996 /* Keychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F02229810900A67996 /* Keychain.framework */; };
 		FD1673F32229810900A67996 /* POSIX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F22229810900A67996 /* POSIX.framework */; };
 		FD1673F52229810900A67996 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F42229810900A67996 /* Result.framework */; };
 		FD1673F72229810900A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1673F62229810900A67996 /* RNModels.framework */; };
@@ -96,7 +95,6 @@
 		FD1673EA2229810900A67996 /* Errors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Errors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1673EC2229810900A67996 /* FoundationGenericHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FoundationGenericHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1673EE2229810900A67996 /* Git.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Git.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD1673F02229810900A67996 /* Keychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Keychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1673F22229810900A67996 /* POSIX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = POSIX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1673F42229810900A67996 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1673F62229810900A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +127,6 @@
 				FD1673EB2229810900A67996 /* Errors.framework in Frameworks */,
 				FD1673ED2229810900A67996 /* FoundationGenericHelper.framework in Frameworks */,
 				FD1673EF2229810900A67996 /* Git.framework in Frameworks */,
-				FD1673F12229810900A67996 /* Keychain.framework in Frameworks */,
 				FD1673F32229810900A67996 /* POSIX.framework in Frameworks */,
 				FD1673F52229810900A67996 /* Result.framework in Frameworks */,
 				FD1673F72229810900A67996 /* RNModels.framework in Frameworks */,
@@ -197,7 +194,6 @@
 				FD1673EA2229810900A67996 /* Errors.framework */,
 				FD1673EC2229810900A67996 /* FoundationGenericHelper.framework */,
 				FD1673EE2229810900A67996 /* Git.framework */,
-				FD1673F02229810900A67996 /* Keychain.framework */,
 				FD1673F22229810900A67996 /* POSIX.framework */,
 				FD1673F42229810900A67996 /* Result.framework */,
 				FD1673F62229810900A67996 /* RNModels.framework */,
