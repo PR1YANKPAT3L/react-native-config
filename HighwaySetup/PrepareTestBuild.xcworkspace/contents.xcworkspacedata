@@ -23,12 +23,12 @@
       location = "group:../Carthage/Checkouts/CupertinoJWT/CupertinoJWT.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../Result/Result.xcodeproj">
+      location = "group:../Carthage/Checkouts/Result/Result.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../ZFile/Sources/ZFile/ZFile.xcodeproj">
+      location = "group:../Carthage/Checkouts/ZFile/Sources/ZFile/ZFile.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../highway/Sources/highway/Highway.xcodeproj">
+      location = "group:../Carthage/Checkouts/highway/Sources/highway/Highway.xcodeproj">
    </FileRef>
 </Workspace>

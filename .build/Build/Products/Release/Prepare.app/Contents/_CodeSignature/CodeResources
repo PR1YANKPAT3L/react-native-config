@@ -15,10 +15,10 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			XtpeFFkkwvqsvdY8hgaJKAGRT8w=
+			HeScqT0jGe8b5Zf5iBpDPQMUyxo=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"5eda5e145924c2faacbdd63c8606892801914fcc"</string>
+			<string>cdhash H"1de49ca93d2319ef1be597f9881a433d0314cb1a"</string>
 		</dict>
 		<key>Frameworks/libswiftAppKit.dylib</key>
 		<dict>
