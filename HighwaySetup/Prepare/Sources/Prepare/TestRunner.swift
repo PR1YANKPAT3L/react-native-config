@@ -19,7 +19,7 @@ public protocol TestRunnerProtocol: AutoMockable {
     // sourcery:end
 }
 
-public struct  TestRunner: TestRunnerProtocol, AutoGenerateProtocol {
+public struct TestRunner: TestRunnerProtocol, AutoGenerateProtocol {
     
     private let xcbuild: XCBuildProtocol
     private let testOptions: MinimalTestOptionsProtocol
@@ -33,8 +33,13 @@ public struct  TestRunner: TestRunnerProtocol, AutoGenerateProtocol {
     }
     
     public func attempt() throws {
-        let result = try xcbuild.buildAndTest(using: testOptions)
-        signPost.verbose("\(result)")
+        do {
+            let result = try xcbuild.buildAndTest(using: testOptions)
+            signPost.verbose("\(result)")
+        } catch {
+            throw "\(TestRunner.self) \(#function) \n\(error)\n"
+        }
+      
     }
     
 }
