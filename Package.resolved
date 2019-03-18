@@ -192,11 +192,11 @@
       },
       {
         "package": "ZFile",
-        "repositoryURL": "https://www.github.com/Bolides/ZFile",
+        "repositoryURL": "https://www.github.com/dooZdev/ZFile",
         "state": {
           "branch": null,
-          "revision": "af5d584e8ac370ab23df91a772a53fca074d3d73",
-          "version": "2.2.5"
+          "revision": "111c4b4bfa4c39f8cc79d9d9855354c6a1ff6935",
+          "version": "2.2.4"
         }
       }
     ]

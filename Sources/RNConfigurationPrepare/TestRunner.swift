@@ -16,6 +16,8 @@ import SignPost
 
 public protocol TestRunnerProtocol: AutoMockable {
     // sourcery:inline:TestRunner.AutoGenerateProtocol
+
+    func attempt() throws 
     // sourcery:end
 }
 

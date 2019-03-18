@@ -20,7 +20,7 @@ class CoderSpec: QuickSpec {
     
     override func spec() {
         
-        describe("Testing c") {
+        describe("Testing presense of configuaration after prepare") {
             
             var sut: PrepareCode?
             

@@ -48,6 +48,34 @@
                ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNModelsMock"
+               BuildableName = "RNModelsMock.framework"
+               BlueprintName = "RNModelsMock"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationPrepareMock"
+               BuildableName = "RNConfigurationPrepareMock.framework"
+               BlueprintName = "RNConfigurationPrepareMock"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
