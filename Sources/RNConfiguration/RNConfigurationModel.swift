@@ -2,7 +2,24 @@
     import RNModels
 
     //⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
-    public struct RNConfigurationModel: Codable {
+    public struct RNConfigurationModel: Codable, CustomStringConvertible {
+
+
+    // MARK: - Custom plist properties are added here
+
+    public let exampleBool: Bool
+    public let url: URLEscaped
+
+    public init(from decoder: Decoder) throws {
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+         
+        guard let exampleBool = Bool(try container.decode(String.self, forKey: .exampleBool)) else { throw Error.invalidBool(forKey: "exampleBool")}
+
+        self.exampleBool = exampleBool
+         url = try container.decode(URLEscaped.self, forKey: .url)
+    }
      
     public static func create(from json: JSON) throws -> RNConfigurationModel {
             let typed = json.typed ?? [String: JSONEntry]()
@@ -31,5 +48,16 @@
         
     public enum Error: Swift.Error {
         case invalidBool(forKey: String)
+    }
+
+    public var description: String {
+        return """
+        Configuration.swift read from Info.plist of RNConfiguration framework
+
+        // Custom environment dependend constants from .env.<CONFIGURATION>.json
+
+                    * exampleBool: \(exampleBool)
+            * url: \(url)
+        """
     }
 }

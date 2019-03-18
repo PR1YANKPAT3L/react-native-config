@@ -24,15 +24,5 @@ import SourceryAutoProtocols
 
 
 
-// MARK: - RNConfigurationModelFactoryProtocolMock
-
-open class RNConfigurationModelFactoryProtocolMock: RNConfigurationModelFactoryProtocol {
-
-    public init() {}
-
-
-}
-
-
 // MARK: - OBJECTIVE-C
 

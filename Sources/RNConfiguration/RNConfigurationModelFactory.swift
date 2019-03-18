@@ -2,14 +2,6 @@ import Foundation
 import RNModels
 
 /// ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
-
-// sourcery:AutoMockable
-public protocol RNConfigurationModelFactoryProtocol {
-    // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
-    // sourcery:end
-}
-
-// sourcery:AutoGenerateProtocol
 @objc public class RNConfigurationModelFactory: NSObject {
     
     public enum Error: Swift.Error {
@@ -35,7 +27,8 @@ public protocol RNConfigurationModelFactoryProtocol {
     /// Keys used in the plist of RNConfiguration module when building for the selected configuration (Debug or Release)
     public enum Case: String, CaseIterable {
         
-      case _noCases
+      case exampleBool
+      case url
         
     }
     
@@ -75,4 +68,6 @@ public protocol RNConfigurationModelFactoryProtocol {
         return result
     }
     
+    
 }
+

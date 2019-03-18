@@ -19,11 +19,6 @@ import Foundation
 
 
 
-// Generated protocol inline for TestRunner -> See code in the file of that type
-    // sourcery:inline:TestRunner.AutoGenerateProtocol
-
-    func attempt() throws 
-    // sourcery:end
 // Generated protocol inline for  -> See code in the file of that type
 
 // Generated protocol inline for  -> See code in the file of that type
