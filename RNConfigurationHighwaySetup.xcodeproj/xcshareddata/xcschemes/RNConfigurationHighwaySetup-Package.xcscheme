@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "9999"
+   version = "1.3">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationHighwaySetup"
+               BuildableName = "RNConfigurationHighwaySetup"
+               BlueprintName = "RNConfigurationHighwaySetup"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationMock"
+               BuildableName = "RNConfigurationMock.framework"
+               BlueprintName = "RNConfigurationMock"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfiguration"
+               BuildableName = "RNConfiguration.framework"
+               BlueprintName = "RNConfiguration"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationPrepare"
+               BuildableName = "RNConfigurationPrepare.framework"
+               BlueprintName = "RNConfigurationPrepare"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationPrepareMock"
+               BuildableName = "RNConfigurationPrepareMock.framework"
+               BlueprintName = "RNConfigurationPrepareMock"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNModelsMock"
+               BuildableName = "RNModelsMock.framework"
+               BlueprintName = "RNModelsMock"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNModels"
+               BuildableName = "RNModels.framework"
+               BlueprintName = "RNModels"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationHighwaySetupTests"
+               BuildableName = "RNConfigurationHighwaySetupTests.xctest"
+               BlueprintName = "RNConfigurationHighwaySetupTests"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationTests"
+               BuildableName = "RNConfigurationTests.xctest"
+               BlueprintName = "RNConfigurationTests"
+               ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationHighwaySetup"
+            BuildableName = "RNConfigurationHighwaySetup"
+            BlueprintName = "RNConfigurationHighwaySetup"
+            ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

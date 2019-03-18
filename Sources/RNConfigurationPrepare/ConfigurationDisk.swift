@@ -178,7 +178,7 @@ public struct ConfigurationDisk {
         
         code = Output.Code(
             rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModelFactory.swift"),
-            infoPlist: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "Info.plist"),
+            infoPlist: try reactNativeFolder.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist"),
             rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift")
         )
         

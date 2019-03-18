@@ -117,7 +117,6 @@
 		FD4868762201D1810092A63E /* RNConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModel.swift; sourceTree = "<group>"; };
 		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
-		FD49389D221C380A00B6BBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BetaRelease.xcconfig; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CC862200B4270044D1A7 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,7 +259,6 @@
 		FD55CC872200B4270044D1A7 /* RNConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				FD49389D221C380A00B6BBAE /* Info.plist */,
 				FD4868B52201EF0D0092A63E /* Generated */,
 				FD55CC882200B4270044D1A7 /* RNConfiguration.h */,
 			);
@@ -1281,7 +1279,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1325,7 +1323,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1579,7 +1577,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -2002,7 +2000,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;

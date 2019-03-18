@@ -27,19 +27,25 @@ class CoderSpec: QuickSpec {
             
             var signPost: SignPostProtocolMock!
             
-            var srcRoot: FolderProtocol!
+            var srcRoot: FolderProtocol?
             
             beforeEach {
                 signPost = SignPostProtocolMock()
                 
                 expect {
                     
-                    guard let folder = CommandLineArguments()?.environmentJsonFilesFolder else {
-                        throw HighwayError.highwayError(atLocation: pretty_function(), error: "missing folder argument")
+                    if let folder = CommandLineArguments()?.environmentJsonFilesFolder {
+                        srcRoot = folder
+                    } else {
+                        
+                        srcRoot = FileSystem.shared.currentFolder
                     }
                     
-                    srcRoot = folder
+                    guard let srcRoot = srcRoot else {
+                        throw HighwayError.highwayError(atLocation: pretty_function(), error: "failed srcRoot")
+                    }
                     
+                    print("🚀 \(srcRoot)")
                    
                     sut = try PrepareCode(reactNativeFolder: srcRoot, signPost: signPost)
                     
@@ -47,6 +53,10 @@ class CoderSpec: QuickSpec {
                 }.toNot(throwError())
                 
 
+            }
+            
+            it("has a folder for env. files") {
+                expect(srcRoot).toNot(beNil())
             }
             
             it("should have sut") {
@@ -63,7 +73,11 @@ class CoderSpec: QuickSpec {
                     beforeEach {
                         
                         expect {
-                            sut = try PrepareCode(reactNativeFolder: srcRoot, signPost: signPost)
+                            guard let folder = srcRoot else {
+                                throw HighwayError.highwayError(atLocation: pretty_function(), error: "missing folder argument")
+                            }
+                            
+                            sut = try PrepareCode(reactNativeFolder: folder, signPost: signPost)
                             try sut?.attempt()
                         
                             return sut
@@ -93,6 +107,10 @@ class CoderSpec: QuickSpec {
                             
                             beforeEach {
                                 expect {
+                                    guard let srcRoot = srcRoot else {
+                                        throw HighwayError.highwayError(atLocation: pretty_function(), error: "missing folder argument")
+                                    }
+                                    
                                     let rnConfigurationFolder = try srcRoot.subfolder(named: "Sources/RNConfiguration")
                                     
                                     rnConfigurationModelFile = try rnConfigurationFolder.file(named: "RNConfigurationModel.swift").readAsString()

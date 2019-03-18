@@ -98,7 +98,6 @@ public struct Builds {
             let key = $0.element.key
             let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
             let swiftTypeString = typedValue.typeSwiftString
-            let xmlType = typedValue.typePlistString
             
             return (
                 case: "case \(key)",
@@ -106,7 +105,7 @@ public struct Builds {
                 configurationModelVarDescription: "\(key): \\(\(key))",
                 xmlEntry: """
                 <key>\(key)</key>
-                <\(xmlType)>$(\(key))</\(xmlType)>
+                <string>$(\(key))</string>
                 """,
                 decoderInit:"""
                 
