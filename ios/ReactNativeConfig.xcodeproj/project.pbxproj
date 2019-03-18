@@ -353,7 +353,8 @@
 				FDB74B1822291E8F000B068C /* RNModels.h */,
 				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
 			);
-			path = RNModels;
+			name = RNModels;
+			path = ../../Sources/RNModels;
 			sourceTree = "<group>";
 		};
 		FDB74B2B22292763000B068C /* Tests */ = {

@@ -54,8 +54,7 @@ let package = Package(
         ),
         .target(
             name: "RNModels",
-            dependencies: [],
-            path: "ios/Sources/RNModels"
+            dependencies: []
         ),
         
         // MARK: - Test

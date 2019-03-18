@@ -29,7 +29,7 @@ public struct ConfigurationDisk {
     
     // MARK: - Enum
 
-    enum JSONFileName: String, CaseIterable {
+    public enum JSONFileName: String, CaseIterable {
         case debug = "env.debug.json"
         case release = "env.release.json"
         case local = "env.local.json"

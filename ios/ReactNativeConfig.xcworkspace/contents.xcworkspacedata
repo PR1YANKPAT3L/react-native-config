@@ -8,12 +8,6 @@
       location = "group:../package.json">
    </FileRef>
    <FileRef
-      location = "group:../Cartfile">
-   </FileRef>
-   <FileRef
-      location = "group:../Cartfile.private">
-   </FileRef>
-   <FileRef
       location = "group:../env.betaRelease.json">
    </FileRef>
    <FileRef
@@ -26,24 +20,9 @@
       location = "group:../env.release.json">
    </FileRef>
    <FileRef
+      location = "group:../RNConfigurationHighwaySetup.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ReactNativeConfig.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Carthage/Checkouts/highway/Sources/highway/Highway.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Carthage/Checkouts/Result/Result.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Carthage/Checkouts/react-native/React/React.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../ZFile/Sources/ZFile/ZFile.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Carthage/Checkouts/Nimble/Nimble.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Carthage/Checkouts/Quick/Quick.xcodeproj">
    </FileRef>
 </Workspace>

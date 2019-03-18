@@ -15,3 +15,7 @@ xcuserdata
 /.build
 /HighwaySetup/.build
 /ios/.build
+/.swiftformat.md
+/Sources/.sourcery-RNConfigurationHighwaySetup.yml
+/Sources/.sourcery-RNConfigurationPrepare.yml
+/Sources/.sourcery-RNModels.yml
