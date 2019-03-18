@@ -68,7 +68,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/stijnwillems/Documents/dev.nosync/Bolides/react-native-config/"
+            argument = "../../../../../"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

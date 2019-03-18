@@ -52,9 +52,6 @@ do {
             highwayRunner.runTests(handleTestOutput)
             dispatchGroup.wait()
             
-            highwayRunner.runSwiftPackageGenerateXcodeProject(handleSwiftPackageGenerateXcodeProject)
-            dispatchGroup.wait()
-            
             guard highwayRunner.errors?.count ?? 0 <= 0 else {
                 SignPost.shared.error("""
                     ❌ PREPARE **RNConfiguration**

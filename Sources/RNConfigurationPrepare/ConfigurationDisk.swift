@@ -53,7 +53,8 @@ public struct ConfigurationDisk {
         
         public struct Code {
             public let rnConfigurationModelFactorySwiftFile: FileProtocol
-            public let infoPlist: FileProtocol
+            public let infoPlistRNConfiguration: FileProtocol
+            public let infoPlistRNConfigurationTests: FileProtocol
             public let rnConfigurationModelSwiftFile: FileProtocol
             
             public func clearContentAllFiles() throws {
@@ -65,7 +66,7 @@ public struct ConfigurationDisk {
                     }
                 """
                 )
-                try infoPlist.write(string: """
+                try infoPlistRNConfiguration.write(string: """
                     <?xml version="1.0" encoding="UTF-8"?>
                     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
                     <plist version="1.0">
@@ -178,7 +179,8 @@ public struct ConfigurationDisk {
         
         code = Output.Code(
             rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModelFactory.swift"),
-            infoPlist: try reactNativeFolder.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist"),
+            infoPlistRNConfiguration: try reactNativeFolder.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist"),
+            infoPlistRNConfigurationTests: try reactNativeFolder.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfigurationTests_Info.plist"),
             rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift")
         )
         

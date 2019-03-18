@@ -31,7 +31,7 @@ class CurrentBuildConfigurationWorkerSpec: QuickSpec {
                 var currentBuildConfiguration: RNConfigurationModel?
                 
                 beforeEach {
-                    expect { currentBuildConfiguration = try RNConfigurationModelFactory.readCurrentBuildConfiguration() }.toNot(throwError())
+                    expect { currentBuildConfiguration = try RNConfigurationModelFactory.readCurrentBuildConfiguration(infoDict: ["exampleBool": "true", "url": "http://www.dooz.be"]) }.toNot(throwError())
                 }
                 
                 it("has cases") {

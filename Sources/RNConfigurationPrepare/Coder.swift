@@ -82,9 +82,9 @@ public struct Coder {
         }
         
         /// Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-        public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModel {
+        public static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws ->  RNConfigurationModel {
             
-            guard let infoDict = Bundle(for: RNConfigurationModelFactory.self).infoDictionary else {
+            guard let infoDict = infoDict else {
                 throw Error.noInfoDictonary
             }
             
@@ -96,10 +96,10 @@ public struct Coder {
         /// If using swift use plist()
         /// In Objective-C you can access this dictionary containing all custom environment dependend keys.
         /// They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-        public static func  allConstants() throws ->  [RNConfigurationModelFactory.Case: String] {
+        public static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> [RNConfigurationModelFactory.Case: String] {
             var result = [Case: String]()
             
-            let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
+            let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration(infoDict: infoDict)
             let data = try JSONEncoder().encode(plist)
             
             guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {
@@ -214,9 +214,9 @@ public struct Coder {
             }
             
             /// Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-            public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModel {
+            public static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws ->  RNConfigurationModel {
                 
-                guard let infoDict = Bundle(for: RNConfigurationModelFactory.self).infoDictionary else {
+                guard let infoDict = infoDict else {
                     throw Error.noInfoDictonary
                 }
                 
@@ -228,10 +228,10 @@ public struct Coder {
             /// If using swift use plist()
             /// In Objective-C you can access this dictionary containing all custom environment dependend keys.
             /// They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
-            public static func  allConstants() throws ->  [RNConfigurationModelFactory.Case: String] {
+            public static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> [RNConfigurationModelFactory.Case: String] {
                 var result = [Case: String]()
                 
-                let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
+        let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration(infoDict: infoDict)
                 let data = try JSONEncoder().encode(plist)
                 
                 guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {
@@ -302,7 +302,8 @@ public struct Coder {
         var plistLinesXml = Coder.plistLinesXmlDefault
         
         guard builds.plistLinesXmlText.count > 0 else {
-            try disk.code.infoPlist.write(string: plistLinesXml)
+            try disk.code.infoPlistRNConfiguration.write(string: plistLinesXml)
+            try disk.code.infoPlistRNConfigurationTests.write(string: plistLinesXml)
             return
         }
         
@@ -332,7 +333,8 @@ public struct Coder {
         </plist>
         """
         
-        try disk.code.infoPlist.write(string: plistLinesXml)
+        try disk.code.infoPlistRNConfiguration.write(string: plistLinesXml)
+        try disk.code.infoPlistRNConfigurationTests.write(string: plistLinesXml)
     }
     
 }
