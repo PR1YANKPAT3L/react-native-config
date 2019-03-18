@@ -15,6 +15,7 @@ import Highway
 import Terminal
 import RNConfigurationPrepare
 import SourceryWorker
+import Errors
 
 let signPost = SignPost.shared
 
@@ -24,7 +25,12 @@ let highwayRunner: HighwayRunner!
 let dispatchGroup = DispatchGroup()
 
 do {
-    let srcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
+    
+    guard let folder = CommandLineArguments()?.environmentJsonFilesFolder else {
+        throw HighwayError.highwayError(atLocation: pretty_function(), error: "missing folder argument")
+    }
+    
+    let srcRoot = folder
     let dependecyService = DependencyService(in: srcRoot)
     let package = try Highway.package(for: srcRoot, dependencyService: dependecyService)
     highWay = try Highway(package:  (package: package, executable: "RNConfigurationHighwaySetup"), dependencyService: dependecyService, swiftPackageWithSourceryFolder: srcRoot)

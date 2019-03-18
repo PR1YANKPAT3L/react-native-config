@@ -34,7 +34,11 @@ class CoderSpec: QuickSpec {
                 
                 expect {
                     
-                    srcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
+                    guard let folder = CommandLineArguments()?.environmentJsonFilesFolder else {
+                        throw HighwayError.highwayError(atLocation: pretty_function(), error: "missing folder argument")
+                    }
+                    
+                    srcRoot = folder
                     
                    
                     sut = try PrepareCode(reactNativeFolder: srcRoot, signPost: signPost)

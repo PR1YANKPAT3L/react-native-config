@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3DF7F6B6203AA0C200D0EAB7 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
 		3DF7F6B7203AA0D600D0EAB7 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
+		C04D507D2240145A005BECCD /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB2648E31C7BE17A00B8F155 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
 		FD16745B2229B36B00A67996 /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,12 +33,6 @@
 		FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
 		FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FDAA4BD622257CA90091F9C3 /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
-		FDAA4BDF22257CCD0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BDE22257CCD0091F9C3 /* Quick.framework */; };
-		FDAA4BE122257CD60091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BE022257CD60091F9C3 /* Nimble.framework */; };
-		FDAA4BEB22257F530091F9C3 /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* RNConfiguration.framework */; };
-		FDAA4BF422257F5F0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF322257F5F0091F9C3 /* Quick.framework */; };
-		FDAA4BF622257F660091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF522257F660091F9C3 /* Nimble.framework */; };
 		FDB74B1A22291E8F000B068C /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDB74B2422291EA3000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FDB74B2522291EA6000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
@@ -70,20 +65,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FD16747F2229B5A700A67996;
 			remoteInfo = "RNModels-tvOS";
-		};
-		FDAA4BD722257CA90091F9C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD55CC852200B4270044D1A7;
-			remoteInfo = "ReactNativeConfigSwift-iOS";
-		};
-		FDAA4BEC22257F530091F9C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD7F1D212215D390009A4F34;
-			remoteInfo = "ReactNativeConfigSwift-macOS";
 		};
 		FDB74B2F2229313A000B068C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -144,10 +125,8 @@
 		FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModelFactory.swift; sourceTree = "<group>"; };
 		FD7F1D222215D390009A4F34 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
-		FDAA4BD122257CA90091F9C3 /* RNConfigurartionTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurartionTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BDE22257CCD0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BE022257CD60091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4BE622257F530091F9C3 /* RNConfigurartionTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurartionTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BF322257F5F0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BF522257F660091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4C1E222596120091F9C3 /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,26 +192,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDAA4BCE22257CA90091F9C3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDAA4BE122257CD60091F9C3 /* Nimble.framework in Frameworks */,
-				FDAA4BDF22257CCD0091F9C3 /* Quick.framework in Frameworks */,
-				FDAA4BD622257CA90091F9C3 /* RNConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDAA4BE322257F530091F9C3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDAA4BF622257F660091F9C3 /* Nimble.framework in Frameworks */,
-				FDAA4BF422257F5F0091F9C3 /* Quick.framework in Frameworks */,
-				FDAA4BEB22257F530091F9C3 /* RNConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FDB74B1322291E8F000B068C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,8 +230,6 @@
 				3DF7F6AC203AA09B00D0EAB7 /* libRNConfigurationBridge.a */,
 				FD55CC862200B4270044D1A7 /* RNConfiguration.framework */,
 				FD7F1D222215D390009A4F34 /* RNConfiguration.framework */,
-				FDAA4BD122257CA90091F9C3 /* RNConfigurartionTests-iOS.xctest */,
-				FDAA4BE622257F530091F9C3 /* RNConfigurartionTests-macOS.xctest */,
 				FDB74B1622291E8F000B068C /* RNModels.framework */,
 				FDB74B37222933E0000B068C /* RNConfiguration.framework */,
 				FD1674202229B2C300A67996 /* RNModels.framework */,
@@ -357,6 +314,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		C04D507C22401455005BECCD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C04D507D2240145A005BECCD /* ReactNativeConfig.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD16741B2229B2C300A67996 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +386,7 @@
 			buildConfigurationList = 3DF7F6B4203AA09B00D0EAB7 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-tvOS" */;
 			buildPhases = (
 				3DF7F6A9203AA09B00D0EAB7 /* Frameworks */,
+				C04D507C22401455005BECCD /* Headers */,
 				3DF7F6A8203AA09B00D0EAB7 /* Sources */,
 				3DF7F6AA203AA09B00D0EAB7 /* CopyFiles */,
 			);
@@ -530,42 +496,6 @@
 			productReference = FD7F1D222215D390009A4F34 /* RNConfiguration.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FDAA4BD022257CA90091F9C3 /* RNConfigurartionTests-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FDAA4BD922257CA90091F9C3 /* Build configuration list for PBXNativeTarget "RNConfigurartionTests-iOS" */;
-			buildPhases = (
-				FDAA4BCD22257CA90091F9C3 /* Sources */,
-				FDAA4BCE22257CA90091F9C3 /* Frameworks */,
-				FDAA4BCF22257CA90091F9C3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FDAA4BD822257CA90091F9C3 /* PBXTargetDependency */,
-			);
-			name = "RNConfigurartionTests-iOS";
-			productName = "ReactNativeConfigSwift-iOS-Tests";
-			productReference = FDAA4BD122257CA90091F9C3 /* RNConfigurartionTests-iOS.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FDAA4BE522257F530091F9C3 /* RNConfigurartionTests-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FDAA4BEE22257F530091F9C3 /* Build configuration list for PBXNativeTarget "RNConfigurartionTests-macOS" */;
-			buildPhases = (
-				FDAA4BE222257F530091F9C3 /* Sources */,
-				FDAA4BE322257F530091F9C3 /* Frameworks */,
-				FDAA4BE422257F530091F9C3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FDAA4BED22257F530091F9C3 /* PBXTargetDependency */,
-			);
-			name = "RNConfigurartionTests-macOS";
-			productName = "ReactNativeConfigSwift-macOS-Tests";
-			productReference = FDAA4BE622257F530091F9C3 /* RNConfigurartionTests-macOS.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		FDB74B1522291E8F000B068C /* RNModels-macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB74B1F22291E8F000B068C /* Build configuration list for PBXNativeTarget "RNModels-macOS" */;
@@ -635,12 +565,6 @@
 					FD7F1D212215D390009A4F34 = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					FDAA4BD022257CA90091F9C3 = {
-						CreatedOnToolsVersion = 10.1;
-					};
-					FDAA4BE522257F530091F9C3 = {
-						CreatedOnToolsVersion = 10.1;
-					};
 					FDB74B1522291E8F000B068C = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
@@ -669,8 +593,6 @@
 				FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */,
 				FD7F1D212215D390009A4F34 /* RNConfiguration-macOS */,
 				FDB74B36222933E0000B068C /* RNConfiguration-tvOS */,
-				FDAA4BD022257CA90091F9C3 /* RNConfigurartionTests-iOS */,
-				FDAA4BE522257F530091F9C3 /* RNConfigurartionTests-macOS */,
 				FDB74B1522291E8F000B068C /* RNModels-macOS */,
 				FD16741F2229B2C300A67996 /* RNModels-iOS */,
 				FD16747F2229B5A700A67996 /* RNModels-tvOS */,
@@ -701,20 +623,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FD7F1D202215D390009A4F34 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDAA4BCF22257CA90091F9C3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDAA4BE422257F530091F9C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -851,20 +759,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDAA4BCD22257CA90091F9C3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDAA4BE222257F530091F9C3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FDB74B1222291E8F000B068C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -902,16 +796,6 @@
 			isa = PBXTargetDependency;
 			target = FD16747F2229B5A700A67996 /* RNModels-tvOS */;
 			targetProxy = FD16748F2229B65700A67996 /* PBXContainerItemProxy */;
-		};
-		FDAA4BD822257CA90091F9C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */;
-			targetProxy = FDAA4BD722257CA90091F9C3 /* PBXContainerItemProxy */;
-		};
-		FDAA4BED22257F530091F9C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD7F1D212215D390009A4F34 /* RNConfiguration-macOS */;
-			targetProxy = FDAA4BEC22257F530091F9C3 /* PBXContainerItemProxy */;
 		};
 		FDB74B302229313A000B068C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1731,202 +1615,6 @@
 			};
 			name = Local;
 		};
-		FDAA4BDA22257CA90091F9C3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FDAA4BDB22257CA90091F9C3 /* Local */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Local;
-		};
-		FDAA4BDC22257CA90091F9C3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		FDAA4BDD22257CA90091F9C3 /* BetaRelease */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = BetaRelease;
-		};
-		FDAA4BEF22257F530091F9C3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"TARGET_MAC_OS=1",
-				);
-				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		FDAA4BF022257F530091F9C3 /* Local */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"TARGET_MAC_OS=1",
-				);
-				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Local;
-		};
-		FDAA4BF122257F530091F9C3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
-		FDAA4BF222257F530091F9C3 /* BetaRelease */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Tests/RNConfiguration/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfigurationtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
-			};
-			name = BetaRelease;
-		};
 		FDB74B2022291E8F000B068C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2458,28 +2146,6 @@
 				FD7F1D2D2215D390009A4F34 /* Local */,
 				FD7F1D2E2215D390009A4F34 /* Release */,
 				FDECFC94221B652300EA1E33 /* BetaRelease */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FDAA4BD922257CA90091F9C3 /* Build configuration list for PBXNativeTarget "RNConfigurartionTests-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FDAA4BDA22257CA90091F9C3 /* Debug */,
-				FDAA4BDB22257CA90091F9C3 /* Local */,
-				FDAA4BDC22257CA90091F9C3 /* Release */,
-				FDAA4BDD22257CA90091F9C3 /* BetaRelease */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FDAA4BEE22257F530091F9C3 /* Build configuration list for PBXNativeTarget "RNConfigurartionTests-macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FDAA4BEF22257F530091F9C3 /* Debug */,
-				FDAA4BF022257F530091F9C3 /* Local */,
-				FDAA4BF122257F530091F9C3 /* Release */,
-				FDAA4BF222257F530091F9C3 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
