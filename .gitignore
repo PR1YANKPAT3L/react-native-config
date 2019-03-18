@@ -12,3 +12,6 @@ xcuserdata
 /.build/ModuleCache.noindex
 /.build/PrepareTestBuild
 /.build/Build/Products/Debug
+/.build
+/HighwaySetup/.build
+/ios/.build
