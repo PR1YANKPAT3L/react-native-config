@@ -42,7 +42,8 @@ do {
         SignPost.shared.message("🏗 PREPARE **RNConfiguration** ...")
 
         try prepareCode.attempt()
-        try highwayRunner.addGithooksPrePush()
+        // enable and have a look at the file to make it work if you want.
+//        try highwayRunner.addGithooksPrePush()
 
         highwayRunner.runSourcery(handleSourceryOutput)
         

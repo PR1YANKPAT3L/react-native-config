@@ -404,7 +404,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-iOS" */;
 			buildPhases = (
-				FDFD28F72228A4FB00367617 /* RNConfig PREPARE */,
 				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
 				FD55CB9622009A750044D1A7 /* Headers */,
 				EB2648DB1C7BE17A00B8F155 /* Sources */,
@@ -681,24 +680,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n\n";
-		};
-		FDFD28F72228A4FB00367617 /* RNConfig PREPARE */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "RNConfig PREPARE";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "cd ${SRCROOT}/../\n# Build setup executable\nif [ ! -f ./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup ]; then\necho \"RNConfigurationHighwaySetup, not found - building for source\"\nswift build --product RNConfigurationHighwaySetup -c release --static-swift-stdlib\nfi\n\n# Execute the script\n./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup\n# Allow push on success\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

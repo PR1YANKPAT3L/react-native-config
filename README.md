@@ -68,6 +68,21 @@ npm install
 
 > ⚠️ Only works for project that use expokit and ejected the project
 
+Before building you should always run
+
+```bash 
+cd ${SRCROOT}/../
+# Build setup executable
+if [ ! -f ./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup ]; then
+echo "RNConfigurationHighwaySetup, not found - building for source"
+swift build --product RNConfigurationHighwaySetup -c release --static-swift-stdlib
+fi
+
+# Execute the script
+./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup environmentJsonFilesFolder <#folder containing env. files#>
+# Allow push on success
+```
+
 # iOS
 
 In xcode project
