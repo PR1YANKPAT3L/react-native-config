@@ -2,20 +2,15 @@
 
 xcuserdata
 *.xcuserdatad
-/Carthage
+
 /android/build
 /android/.gradle
 /android/.gradle/4.10.1
 /android/.idea
-/.gitmodules
-/.build/Build/Intermediates.noindex
-/.build/ModuleCache.noindex
-/.build/PrepareTestBuild
-/.build/Build/Products/Debug
-/.build
-/HighwaySetup/.build
-/ios/.build
+.build
+
 /.swiftformat.md
+
 /Sources/.sourcery-RNConfigurationHighwaySetup.yml
 /Sources/.sourcery-RNConfigurationPrepare.yml
 /Sources/.sourcery-RNModels.yml

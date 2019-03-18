@@ -1,4 +1,0 @@
-framework module FoundationGenericHelper {
-  header "FoundationGenericHelper-Swift.h"
-  requires objc
-}

@@ -23,9 +23,6 @@ let highWay: Highway!
 let highwayRunner: HighwayRunner!
 let dispatchGroup = DispatchGroup()
 
-func handleSourceryOutput(_ sourceryOutput: @escaping SourceryWorker.SyncOutput) { do { signPost.verbose("\(try sourceryOutput())") } catch { signPost.error("\(error)") } }
-func handleTestOutput(_ testOutput: @escaping HighwayRunner.SyncTestOutput) { do { signPost.verbose("\(try testOutput())") } catch { signPost.error("\(error)") } }
-
 do {
     let srcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
     let dependecyService = DependencyService(in: srcRoot)
@@ -46,6 +43,9 @@ do {
         dispatchGroup.notify(queue: DispatchQueue.main) {
            
             highwayRunner.runTests(handleTestOutput)
+            dispatchGroup.wait()
+            
+            highwayRunner.runSwiftPackageGenerateXcodeProject(handleSwiftPackageGenerateXcodeProject)
             dispatchGroup.wait()
             
             guard highwayRunner.errors?.count ?? 0 <= 0 else {
