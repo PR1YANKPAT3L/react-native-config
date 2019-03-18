@@ -60,7 +60,7 @@ public struct ConfigurationDisk {
                 try rnConfigurationModelFactorySwiftFile.write(string: """
                     import Foundation
 
-                    /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
+                    /// ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
                     @objc public class RNConfigurationModelFactory: NSObject {
                     }
                 """
@@ -91,7 +91,7 @@ public struct ConfigurationDisk {
 
                 """)
                 try rnConfigurationModelSwiftFile.write(string: """
-                    //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
+                    //⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
 
                     public struct RNConfigurationModel: Codable {
                     }
@@ -128,7 +128,7 @@ public struct ConfigurationDisk {
         
         androidFolder = try reactNativeFolder.subfolder(named: "android")
         
-        rnConfigurationSourcesFolder = try iosFolder.subfolder(named: "Sources/RNConfiguration")
+        rnConfigurationSourcesFolder = try reactNativeFolder.subfolder(named: "Sources/RNConfiguration")
         
         self.inputJSON = Input(
             debug: debugJSON,

@@ -43,7 +43,15 @@ public struct Coder {
     import Foundation
     import RNModels
     
-    /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
+    /// ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
+    
+    // sourcery:AutoMockable
+    public protocol RNConfigurationModelFactoryProtocol {
+        // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
+        // sourcery:end
+    }
+    
+    // sourcery:AutoGenerateProtocol
     @objc public class RNConfigurationModelFactory: NSObject {
         
         public enum Error: Swift.Error {
@@ -116,7 +124,7 @@ public struct Coder {
         import Foundation
         import RNModels
 
-        //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
+        //⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
         public struct RNConfigurationModel: Codable, CustomStringConvertible {
 
     """
@@ -175,7 +183,7 @@ public struct Coder {
         import Foundation
         import RNModels
 
-        /// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
+        /// ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
         @objc public class RNConfigurationModelFactory: NSObject {
             
             public enum Error: Swift.Error {

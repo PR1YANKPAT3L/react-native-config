@@ -1,7 +1,7 @@
     import Foundation
     import RNModels
 
-    //⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
+    //⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeconfig/main.swift
     public struct RNConfigurationModel: Codable {
      
     public static func create(from json: JSON) throws -> RNConfigurationModel {

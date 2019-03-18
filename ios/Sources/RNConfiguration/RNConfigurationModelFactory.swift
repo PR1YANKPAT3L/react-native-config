@@ -1,10 +1,9 @@
 import Foundation
 import RNModels
 
-/// ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
+/// ⚠️ File is generated and ignored in git. To change it change /PrepareReactNativeConfig/main.swift
 
-// sourcery:AutoMockable
-public protocol RNConfigurationModelFactoryProtocol {
+public protocol RNConfigurationModelFactoryProtocol: AutoMockable {
     // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
     // sourcery:end
 }

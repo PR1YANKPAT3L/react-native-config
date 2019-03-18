@@ -5,11 +5,12 @@ Module to expose config variables to your javascript code in React Native, suppo
 Bring some [12 factor](http://12factor.net/config) love to your mobile apps!
 
 Run this before building
+
 ``` bash
-cartage checkout
-xcodebuild --scheme React
+ swift build --product RNConfigurationHighwaySetup -c release --static-swift-stdlib
+./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup
+npm install
 ```
-Then you should be able to build every target. If not build react for the platform you try to build.
 
 ## Basic Usage
 
@@ -201,17 +202,6 @@ apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.grad
 #### iOS
 If you use `debug`, `local` and `release` configurations there is nothing more to do. If you do you need to for this repo and add your config.
 
-## Prepare excutable
-
-The files needed are generated using an executable app that is pre build `./.build/PrepareReactNativeConfig.app/Contents/MacOS/PrepareReactNativeConfig`
-
-If you need to rebuild this file you can do so but first resolve the dependencies using [carthage](https://github.com/Carthage/Carthage)
-
-``` bash
-carthage update --no-build
-```
-Then add a scheme to the excoe project to build the target `PrepareReactNativeConfig`.
-Adjust the code in the `main.swift`
 
 ## Troubleshooting
 

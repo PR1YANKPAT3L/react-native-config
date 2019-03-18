@@ -83,7 +83,7 @@ let package = Package(
         ),
         .target(
             name: "RNConfigurationPrepare",
-            dependencies: ["RNModels", "ZFile", "Terminal", "XCBuild"]
+            dependencies: ["RNModels", "ZFile", "Terminal", "XCBuild", "SignPost"]
         ),
         .target(
             name: "RNModels",
@@ -91,8 +91,8 @@ let package = Package(
         ),
         .target(
             name: "RNConfiguration",
-            dependencies: []
-        )
+            dependencies: ["RNModels"]
+        ),
         
         // MARK: - Test
         
@@ -116,6 +116,11 @@ let package = Package(
             name: "RNModelsMock",
             dependencies: ["RNModels", "SignPost", "SourceryAutoProtocols"],
             path: "Sources/Generated/RNModels"
+        ),
+        .target(
+            name: "RNConfigurationMock",
+            dependencies: ["RNConfiguration", "SignPost", "SourceryAutoProtocols"],
+            path: "Sources/Generated/RNConfiguration"
         ),
         
     ]
