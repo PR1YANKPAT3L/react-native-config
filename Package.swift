@@ -69,7 +69,8 @@ let package = Package(
                 "Highway",
                 "SourceryAutoProtocols",
                 "RNConfigurationPrepare",
-                "SourceryWorker"
+                "SourceryWorker",
+                "ZFile"
             ]
         ),
         .target(
