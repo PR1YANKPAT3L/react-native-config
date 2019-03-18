@@ -20,9 +20,6 @@
       location = "group:../env.release.json">
    </FileRef>
    <FileRef
-      location = "group:../RNConfigurationHighwaySetup.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:ReactNativeConfig.xcodeproj">
    </FileRef>
 </Workspace>

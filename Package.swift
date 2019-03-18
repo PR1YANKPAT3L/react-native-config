@@ -23,6 +23,10 @@ let package = Package(
             name: "RNModels",
             targets: ["RNModels"]
         ),
+        .library(
+            name: "RNConfiguration",
+            targets: ["RNConfiguration"]
+        ),
         
         // MARK: - Mocks
         .library(
@@ -32,7 +36,11 @@ let package = Package(
         .library(
             name: "RNModelsMock",
             targets: ["RNModelsMock"]
-        )
+        ),
+        .library(
+            name: "RNConfigurationMock",
+            targets: ["RNConfigurationMock"]
+        ),
         
     ],
     dependencies: [
@@ -81,12 +89,20 @@ let package = Package(
             name: "RNModels",
             dependencies: []
         ),
+        .target(
+            name: "RNConfiguration",
+            dependencies: []
+        )
         
         // MARK: - Test
         
         .testTarget(
             name: "RNConfigurationHighwaySetupTests",
             dependencies: ["RNConfigurationHighwaySetup", "Quick", "Nimble", "SignPostMock", "ZFileMock"]
+        ),
+        .testTarget(
+            name: "RNConfigurationTests",
+            dependencies: ["RNConfiguration", "Quick", "Nimble"]
         ),
         
         // MARK: - Mock target

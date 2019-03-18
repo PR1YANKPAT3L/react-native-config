@@ -32,14 +32,12 @@
 		FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
 		FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FDAA4BD422257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */; };
 		FDAA4BD622257CA90091F9C3 /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
 		FDAA4BDF22257CCD0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BDE22257CCD0091F9C3 /* Quick.framework */; };
 		FDAA4BE122257CD60091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BE022257CD60091F9C3 /* Nimble.framework */; };
 		FDAA4BEB22257F530091F9C3 /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F1D222215D390009A4F34 /* RNConfiguration.framework */; };
 		FDAA4BF422257F5F0091F9C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF322257F5F0091F9C3 /* Quick.framework */; };
 		FDAA4BF622257F660091F9C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDAA4BF522257F660091F9C3 /* Nimble.framework */; };
-		FDAA4BF722257FB40091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */; };
 		FDB74B1A22291E8F000B068C /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDB74B2422291EA3000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FDB74B2522291EA6000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
@@ -147,8 +145,6 @@
 		FD7F1D222215D390009A4F34 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 		FDAA4BD122257CA90091F9C3 /* RNConfigurartionTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurartionTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBuildConfigurationWorkerSpec.swift; sourceTree = "<group>"; };
-		FDAA4BD522257CA90091F9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDAA4BDE22257CCD0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BE022257CD60091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BE622257F530091F9C3 /* RNConfigurartionTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurartionTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,8 +158,8 @@
 		FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDB74B1622291E8F000B068C /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDB74B1822291E8F000B068C /* RNModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNModels.h; sourceTree = "<group>"; };
-		FDB74B1922291E8F000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDB74B1822291E8F000B068C /* RNModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNModels.h; path = ../../ios/Sources/RNModels/RNModels.h; sourceTree = "<group>"; };
+		FDB74B1922291E8F000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../ios/Sources/RNModels/Info.plist; sourceTree = "<group>"; };
 		FDB74B37222933E0000B068C /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +259,6 @@
 				FD4867C92201B6D10092A63E /* Release.xcconfig */,
 				FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */,
 				FDB74B2C2229276B000B068C /* Sources */,
-				FDB74B2B22292763000B068C /* Tests */,
 				EB2648E01C7BE17A00B8F155 /* Products */,
 				FD55CC902200B4460044D1A7 /* Frameworks */,
 			);
@@ -302,6 +297,7 @@
 				FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */,
 			);
 			name = Generated;
+			path = ../../../Sources/RNConfiguration;
 			sourceTree = "<group>";
 		};
 		FD55CC872200B4270044D1A7 /* RNConfiguration */ = {
@@ -334,15 +330,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FDAA4BD222257CA90091F9C3 /* RNConfiguration */ = {
-			isa = PBXGroup;
-			children = (
-				FDAA4BD322257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift */,
-				FDAA4BD522257CA90091F9C3 /* Info.plist */,
-			);
-			path = RNConfiguration;
-			sourceTree = "<group>";
-		};
 		FDB74B1722291E8F000B068C /* RNModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,14 +342,6 @@
 			);
 			name = RNModels;
 			path = ../../Sources/RNModels;
-			sourceTree = "<group>";
-		};
-		FDB74B2B22292763000B068C /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				FDAA4BD222257CA90091F9C3 /* RNConfiguration */,
-			);
-			path = Tests;
 			sourceTree = "<group>";
 		};
 		FDB74B2C2229276B000B068C /* Sources */ = {
@@ -811,7 +790,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/.build/Build/Products/Release/PrepareReactNativeConfig.app/Contents/MacOS/PrepareReactNativeConfig -srcRoot /../../../../../../../../ ${CONFIGURATION}\n";
+			shellScript = "cd ${SRCROOT}/../\n# Build setup executable\nif [ ! -f ./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup ]; then\necho \"RNConfigurationHighwaySetup, not found - building for source\"\nswift build --product RNConfigurationHighwaySetup -c release --static-swift-stdlib\nfi\n\n# Execute the script\n./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup\n# Allow push on success\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -876,7 +855,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDAA4BD422257CA90091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,7 +862,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDAA4BF722257FB40091F9C3 /* CurrentBuildConfigurationWorkerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
