@@ -33,15 +33,14 @@ do {
     highWay = try Highway(package:  (package: package, executable: "RNConfigurationHighwaySetup"), dependencyService: dependecyService, swiftPackageWithSourceryFolder: srcRoot)
     highwayRunner = HighwayRunner(highway: highWay, dispatchGroup: dispatchGroup)
     
-    let reactNativeFolder = srcRoot
-    let prepareCode = try PrepareCode(reactNativeFolder: reactNativeFolder)
-    let reactNativeConfigworkspace = try? reactNativeFolder.subfolder(named: "/ios/ReactNativeConfig.xcworkspace")
+    let prepareCode = try PrepareCode(reactNativeFolder: srcRoot)
     
     do {
         SignPost.shared.message("🏗 PREPARE **RNConfiguration** ...")
 
         try prepareCode.attempt()
-        
+        try highwayRunner.addGithooksPrePush()
+
         highwayRunner.runSourcery(handleSourceryOutput)
         
         dispatchGroup.notify(queue: DispatchQueue.main) {
