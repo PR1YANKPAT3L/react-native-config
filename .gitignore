@@ -7,7 +7,7 @@ xcuserdata
 /android/.gradle
 /android/.gradle/4.10.1
 /android/.idea
-.build
+*.build*
 
 /.swiftformat.md
 
