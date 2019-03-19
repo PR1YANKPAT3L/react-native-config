@@ -30,11 +30,11 @@
       },
       {
         "package": "Highway",
-        "repositoryURL": "https://www.github.com/Bolides/Highway",
+        "repositoryURL": "https://www.github.com/dooZdev/Highway",
         "state": {
           "branch": null,
-          "revision": "ff7bd2a1e2b550f9c5ef93244008b915c1a21fd5",
-          "version": "2.5.4"
+          "revision": "46d98dd02c28eb9c4cfc06b4715d960630794f78",
+          "version": "2.5.5"
         }
       },
       {

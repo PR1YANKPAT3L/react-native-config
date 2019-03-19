@@ -49,8 +49,8 @@ let package = Package(
         
         // MARK: - Highway
         
-        .package(url: "https://www.github.com/Bolides/Highway", "2.5.4" ..< "3.0.0"),
-        .package(url: "https://www.github.com/Bolides/ZFile", "2.2.4" ..< "3.0.0"),
+        .package(url: "https://www.github.com/dooZdev/Highway", "2.5.4" ..< "3.0.0"),
+        .package(url: "https://www.github.com/dooZdev/ZFile", "2.2.4" ..< "3.0.0"),
 
         // MARK: - Quick & Nimble
         
