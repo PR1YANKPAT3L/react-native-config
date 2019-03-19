@@ -1,8 +1,0 @@
-sources:
-- "/Users/stijnwillems/Documents/dev.nosync/Bolides/react-native-config/Sources/RNConfiguration/"
-- "/Users/stijnwillems/Documents/dev.nosync/Bolides/react-native-config/.build/checkouts/template-sourcery--2319728235120868912/Sources/SourceryAutoProtocols/SourceryAutoProtocols.swift"
-
-templates:
-- "/Users/stijnwillems/Documents/dev.nosync/Bolides/react-native-config/.build/checkouts/template-sourcery--2319728235120868912/"
-output:
- "/Users/stijnwillems/Documents/dev.nosync/Bolides/react-native-config/Sources/Generated/RNConfiguration/"
