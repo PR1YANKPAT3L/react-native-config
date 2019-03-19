@@ -1,4 +1,5 @@
-# Config variables for React Native apps [![Build Status](https://app.bitrise.io/app/238dadb7a4dc2be7/status.svg?token=KT-GNKvst7k7TaqHzCWX-g)](https://app.bitrise.io/app/238dadb7a4dc2be7)
+# Config variables for React Native apps 
+>Test - Integrate - Build status: [@dooZ ![Build Status](https://app.bitrise.io/app/238dadb7a4dc2be7/status.svg?token=KT-GNKvst7k7TaqHzCWX-g)](https://app.bitrise.io/app/238dadb7a4dc2be7) [@Bolides ![Build Status](https://app.bitrise.io/app/4eb10fc93f53e066/status.svg?token=8p8AGiR7wGvwyO6Y-HGStw)](https://app.bitrise.io/app/4eb10fc93f53e066)
 
 Module to expose config variables to your javascript code in React Native, supporting both iOS (Objective-C & Swift) and Android.
 
