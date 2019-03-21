@@ -36,7 +36,7 @@ do {
     let package = try Highway.package(for: srcRoot, dependencyService: dependecyService, dumpService: dumpService)
     let sourceryBuilder = SourceryBuilder(dependencyService: dependecyService)
     
-    highWay = try Highway(package:  (package: package, executable: "RNConfigurationHighwaySetup"), dependencyService: dependecyService, sourceryBuilder: sourceryBuilder)
+    highWay = try Highway(package: package, dependencyService: dependecyService, sourceryBuilder: sourceryBuilder)
     highwayRunner = HighwayRunner(highway: highWay, dispatchGroup: dispatchGroup)
     
     let prepareCode = try PrepareCode(reactNativeFolder: srcRoot)

@@ -50,7 +50,7 @@ let package = Package(
         // MARK: - Highway
         
         .package(url: "https://www.github.com/Bolides/ZFile", "2.3.3" ..< "3.0.0"),
-        .package(url: "https://www.github.com/Bolides/Highway", "2.6.12" ..< "3.0.0"),
+        .package(url: "https://www.github.com/Bolides/Highway", "2.6.13" ..< "3.0.0"),
 
         // MARK: - Quick & Nimble
         
