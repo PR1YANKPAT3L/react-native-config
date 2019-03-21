@@ -24,7 +24,7 @@ public enum CommandLineArguments: RawRepresentable {
         }
         
         do {
-            let path = arguments[option.offset + 1]
+            let path = arguments[option.offset - 1]
             self = .environmentJsonFilesFolder(try Folder(path: path))
             return
         } catch {
