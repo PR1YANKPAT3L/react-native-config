@@ -68,7 +68,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "$PWD"
+            argument = "../../../../../"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

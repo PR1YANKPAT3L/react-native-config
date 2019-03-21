@@ -24,8 +24,12 @@ public enum CommandLineArguments: RawRepresentable {
         }
         
         do {
-            let path = arguments[option.offset - 1]
-            self = .environmentJsonFilesFolder(try Folder(path: path))
+            let path = arguments[option.offset + 1 ]
+            do {
+                self = .environmentJsonFilesFolder(try Folder(path: path)) }
+            catch {
+                self = .environmentJsonFilesFolder(try Folder(relativePath: path))
+            }
             return
         } catch {
             SignPost.shared.error("\(HighwayError.highwayError(atLocation: pretty_function(), error: error) )")
