@@ -16,15 +16,21 @@ public struct PrepareCode {
     public let disk: ConfigurationDisk
     public let builds: Builds
     
-    private let reactNativeFolder: FolderProtocol
+    public let rnConfigurationSrcRoot: FolderProtocol
+    public let environmentJsonFilesFolder: FolderProtocol
+    
+    // MARK: - Private
+    
     private let signPost: SignPostProtocol
 
-    public init(reactNativeFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared) throws {
-        self.reactNativeFolder = reactNativeFolder
+    public init(rnConfigurationSrcRoot: FolderProtocol, environmentJsonFilesFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared, decoder: JSONDecoder = JSONDecoder()) throws {
+        self.rnConfigurationSrcRoot = rnConfigurationSrcRoot
+        self.environmentJsonFilesFolder = environmentJsonFilesFolder
+        
         self.signPost = signPost
         
-        disk = try ConfigurationDisk(reactNativeFolder: reactNativeFolder)
-        builds = try Builds(from: disk)
+        disk = try ConfigurationDisk(rnConfigurationSrcRoot: rnConfigurationSrcRoot, environmentJsonFilesFolder: environmentJsonFilesFolder, signPost: signPost)
+        builds = try Builds(from: disk, decoder: decoder)
         coder = Coder(disk: disk, builds: builds, signPost: signPost)
 
     }

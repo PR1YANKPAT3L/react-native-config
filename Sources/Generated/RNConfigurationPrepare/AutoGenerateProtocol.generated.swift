@@ -14,31 +14,12 @@ import Foundation
 //: - of the above it does not add it if  // sourcery:skipProtocol
 //: ---
 
+// version 5.5
 /*
 
 
 
 
-// Generated protocol inline for  -> See code in the file of that type
 
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
 
 */
