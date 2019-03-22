@@ -49,8 +49,8 @@ let package = Package(
         
         // MARK: - Highway
         
-        .package(url: "https://www.github.com/Bolides/ZFile", "2.3.3" ..< "3.0.0"),
-        .package(url: "https://www.github.com/Bolides/Highway", "2.6.13" ..< "3.0.0"),
+        .package(url: "https://www.github.com/Bolides/ZFile", "2.4.1" ..< "3.0.0"),
+        .package(url: "https://www.github.com/Bolides/Highway", "2.6.19" ..< "3.0.0"),
 
         // MARK: - Quick & Nimble
         
@@ -60,7 +60,7 @@ let package = Package(
         // MARK: - Sourcery
         
         .package(url: "https://www.github.com/doozMen/Sourcery", "0.16.3" ..< "1.0.0"),
-        .package(url: "https://www.github.com/dooZdev/template-sourcery", "1.3.7" ..< "2.0.0"),
+        .package(url: "https://www.github.com/dooZdev/template-sourcery", "1.4.3" ..< "2.0.0"),
         
         // MARK: - Logging
         

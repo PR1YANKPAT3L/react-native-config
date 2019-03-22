@@ -386,7 +386,7 @@
       };
       "OBJ_100" = {
          isa = "PBXFileReference";
-         path = "DestinationFactory.swift";
+         path = "SourceryWorkerProtocol.swift";
          sourceTree = "<group>";
       };
       "OBJ_1000" = {
@@ -435,14 +435,8 @@
          defaultConfigurationName = "Release";
       };
       "OBJ_101" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_102",
-            "OBJ_103",
-            "OBJ_104"
-         );
-         name = "Export";
-         path = "Export";
+         isa = "PBXFileReference";
+         path = "TemplatePrepend.swift";
          sourceTree = "<group>";
       };
       "OBJ_1010" = {
@@ -561,9 +555,12 @@
          fileRef = "OBJ_187";
       };
       "OBJ_102" = {
-         isa = "PBXFileReference";
-         path = "Export.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "SourceryWorkerMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/SourceryWorker";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_1020" = {
          isa = "PBXBuildFile";
@@ -683,9 +680,12 @@
          fileRef = "ZFile::ZFile::Product";
       };
       "OBJ_103" = {
-         isa = "PBXFileReference";
-         path = "ExportArchiveOptions.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "Git";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Git";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_1030" = {
          isa = "PBXTargetDependency";
@@ -774,9 +774,12 @@
          name = "Debug";
       };
       "OBJ_104" = {
-         isa = "PBXFileReference";
-         path = "ExportOptions.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "HWSetup";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/HWSetup";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_1040" = {
          isa = "XCBuildConfiguration";
@@ -809,161 +812,167 @@
       "OBJ_105" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_106",
-            "OBJ_107",
-            "OBJ_108"
          );
-         name = "Test";
-         path = "Test";
-         sourceTree = "<group>";
+         name = "TerminalMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/Terminal";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_106" = {
-         isa = "PBXFileReference";
-         path = "MinimalTestOptions.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_107"
+         );
+         name = "HighwayDispatch";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/HighwayDispatch";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_107" = {
          isa = "PBXFileReference";
-         path = "TestOptions.swift";
+         path = "HWDispatchQueue.swift";
          sourceTree = "<group>";
       };
       "OBJ_108" = {
-         isa = "PBXFileReference";
-         path = "TestReport.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_109",
+            "OBJ_113",
+            "OBJ_114",
+            "OBJ_115",
+            "OBJ_119",
+            "OBJ_123",
+            "OBJ_124"
+         );
+         name = "XCBuild";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/XCBuild";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_109" = {
-         isa = "PBXFileReference";
-         path = "XCBuild.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_110",
+            "OBJ_111",
+            "OBJ_112"
+         );
+         name = "Archive";
+         path = "Archive";
          sourceTree = "<group>";
       };
       "OBJ_11" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_12"
+            "OBJ_12",
+            "OBJ_13"
          );
-         name = "RNConfigurationHighwaySetup";
-         path = "Sources/RNConfigurationHighwaySetup";
+         name = "RNConfiguration";
+         path = "Sources/RNConfiguration";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_110" = {
          isa = "PBXFileReference";
-         path = "XCBuildDestinations.swift";
+         path = "Archive.swift";
          sourceTree = "<group>";
       };
       "OBJ_111" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_112",
-            "OBJ_113",
-            "OBJ_114",
-            "OBJ_115",
-            "OBJ_116"
-         );
-         name = "SourceryWorker";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/SourceryWorker";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "ArchiveOptions.swift";
+         sourceTree = "<group>";
       };
       "OBJ_112" = {
          isa = "PBXFileReference";
-         path = "Sourcery.swift";
+         path = "ArchivePlist.swift";
          sourceTree = "<group>";
       };
       "OBJ_113" = {
          isa = "PBXFileReference";
-         path = "SourceryBuilder.swift";
+         path = "Destination.swift";
          sourceTree = "<group>";
       };
       "OBJ_114" = {
          isa = "PBXFileReference";
-         path = "SourceryWorker.swift";
+         path = "DestinationFactory.swift";
          sourceTree = "<group>";
       };
       "OBJ_115" = {
-         isa = "PBXFileReference";
-         path = "SourceryWorkerProtocol.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_116",
+            "OBJ_117",
+            "OBJ_118"
+         );
+         name = "Export";
+         path = "Export";
          sourceTree = "<group>";
       };
       "OBJ_116" = {
          isa = "PBXFileReference";
-         path = "TemplatePrepend.swift";
+         path = "Export.swift";
          sourceTree = "<group>";
       };
       "OBJ_117" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "Git";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Git";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "ExportArchiveOptions.swift";
+         sourceTree = "<group>";
       };
       "OBJ_118" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_119",
-            "OBJ_120"
-         );
-         name = "Errors";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Errors";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "ExportOptions.swift";
+         sourceTree = "<group>";
       };
       "OBJ_119" = {
-         isa = "PBXFileReference";
-         path = "HighwayError.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_120",
+            "OBJ_121",
+            "OBJ_122"
+         );
+         name = "Test";
+         path = "Test";
          sourceTree = "<group>";
       };
       "OBJ_12" = {
          isa = "PBXFileReference";
-         path = "main.swift";
+         path = "RNConfigurationModel.swift";
          sourceTree = "<group>";
       };
       "OBJ_120" = {
          isa = "PBXFileReference";
-         path = "String+Error.swift";
+         path = "MinimalTestOptions.swift";
          sourceTree = "<group>";
       };
       "OBJ_121" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "ArgumentsMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/Arguments";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "TestOptions.swift";
+         sourceTree = "<group>";
       };
       "OBJ_122" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "Stub";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Stub";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "TestReport.swift";
+         sourceTree = "<group>";
       };
       "OBJ_123" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_124",
-            "OBJ_125"
-         );
-         name = "Url";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Url";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "XCBuild.swift";
+         sourceTree = "<group>";
       };
       "OBJ_124" = {
          isa = "PBXFileReference";
-         path = "Absolute.swift";
+         path = "XCBuildDestinations.swift";
          sourceTree = "<group>";
       };
       "OBJ_125" = {
-         isa = "PBXFileReference";
-         path = "Relative.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "HighwayDispatchMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/HighwayDispatch";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_126" = {
          isa = "PBXGroup";
          children = (
          );
-         name = "HWCarthage";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/HWCarthage";
+         name = "HighwayMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/Highway";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_127" = {
@@ -995,16 +1004,9 @@
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_13" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_14",
-            "OBJ_15",
-            "OBJ_16",
-            "OBJ_17"
-         );
-         name = "RNModels";
-         path = "Sources/RNModels";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "RNConfigurationModelFactory.swift";
+         sourceTree = "<group>";
       };
       "OBJ_130" = {
          isa = "PBXFileReference";
@@ -1073,9 +1075,16 @@
          sourceTree = "<group>";
       };
       "OBJ_14" = {
-         isa = "PBXFileReference";
-         path = "Configuration.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_15",
+            "OBJ_16",
+            "OBJ_17",
+            "OBJ_18"
+         );
+         name = "RNModels";
+         path = "Sources/RNModels";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_140" = {
          isa = "PBXFileReference";
@@ -1152,7 +1161,7 @@
       };
       "OBJ_15" = {
          isa = "PBXFileReference";
-         path = "JSON.swift";
+         path = "Configuration.swift";
          sourceTree = "<group>";
       };
       "OBJ_150" = {
@@ -1207,7 +1216,7 @@
       };
       "OBJ_16" = {
          isa = "PBXFileReference";
-         path = "JSONEntry.swift";
+         path = "JSON.swift";
          sourceTree = "<group>";
       };
       "OBJ_160" = {
@@ -1238,7 +1247,7 @@
             "OBJ_166",
             "OBJ_168"
          );
-         name = "template-sourcery 1.4.1";
+         name = "template-sourcery 1.4.3";
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
@@ -1246,16 +1255,16 @@
          isa = "PBXGroup";
          children = (
          );
-         name = "Foo";
-         path = ".build/checkouts/template-sourcery--1493253816987348176/Sources/Foo";
+         name = "FooMock";
+         path = ".build/checkouts/template-sourcery--1493253816987348176/Sources/Generated/Foo";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_165" = {
          isa = "PBXGroup";
          children = (
          );
-         name = "FooMock";
-         path = ".build/checkouts/template-sourcery--1493253816987348176/Sources/Generated/Foo";
+         name = "Foo";
+         path = ".build/checkouts/template-sourcery--1493253816987348176/Sources/Foo";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_166" = {
@@ -1291,7 +1300,7 @@
       };
       "OBJ_17" = {
          isa = "PBXFileReference";
-         path = "UrlEscaped.swift";
+         path = "JSONEntry.swift";
          sourceTree = "<group>";
       };
       "OBJ_170" = {
@@ -1340,7 +1349,7 @@
             "OBJ_180",
             "OBJ_189"
          );
-         name = "ZFile 2.3.3";
+         name = "ZFile 2.4.1";
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
@@ -1365,14 +1374,9 @@
          sourceTree = "<group>";
       };
       "OBJ_18" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_19",
-            "OBJ_20"
-         );
-         name = "RNConfiguration";
-         path = "Sources/RNConfiguration";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "UrlEscaped.swift";
+         sourceTree = "<group>";
       };
       "OBJ_180" = {
          isa = "PBXGroup";
@@ -1438,15 +1442,19 @@
          sourceTree = "<group>";
       };
       "OBJ_19" = {
-         isa = "PBXFileReference";
-         path = "RNConfigurationModel.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_20"
+         );
+         name = "RNConfigurationHighwaySetup";
+         path = "Sources/RNConfigurationHighwaySetup";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_190" = {
          isa = "PBXGroup";
          children = (
             "OBJ_191",
-            "OBJ_218",
+            "OBJ_195",
             "OBJ_222"
          );
          name = "Quick 1.3.4";
@@ -1457,76 +1465,80 @@
          isa = "PBXGroup";
          children = (
             "OBJ_192",
-            "OBJ_193",
-            "OBJ_194",
+            "OBJ_193"
+         );
+         name = "QuickSpecBase";
+         path = ".build/checkouts/Quick-1203877175555048859/Sources/QuickSpecBase";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_192" = {
+         isa = "PBXFileReference";
+         path = "QuickSpecBase.m";
+         sourceTree = "<group>";
+      };
+      "OBJ_193" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_194"
+         );
+         name = "include";
+         path = "include";
+         sourceTree = "<group>";
+      };
+      "OBJ_194" = {
+         isa = "PBXFileReference";
+         path = "QuickSpecBase.h";
+         sourceTree = "<group>";
+      };
+      "OBJ_195" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_196",
             "OBJ_197",
-            "OBJ_200",
+            "OBJ_198",
             "OBJ_201",
-            "OBJ_202",
-            "OBJ_203",
             "OBJ_204",
             "OBJ_205",
-            "OBJ_210",
-            "OBJ_211",
-            "OBJ_212",
-            "OBJ_213",
+            "OBJ_206",
+            "OBJ_207",
+            "OBJ_208",
+            "OBJ_209",
             "OBJ_214",
             "OBJ_215",
             "OBJ_216",
-            "OBJ_217"
+            "OBJ_217",
+            "OBJ_218",
+            "OBJ_219",
+            "OBJ_220",
+            "OBJ_221"
          );
          name = "Quick";
          path = ".build/checkouts/Quick-1203877175555048859/Sources/Quick";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_192" = {
+      "OBJ_196" = {
          isa = "PBXFileReference";
          path = "Behavior.swift";
          sourceTree = "<group>";
       };
-      "OBJ_193" = {
+      "OBJ_197" = {
          isa = "PBXFileReference";
          path = "Callsite.swift";
          sourceTree = "<group>";
       };
-      "OBJ_194" = {
+      "OBJ_198" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_195",
-            "OBJ_196"
+            "OBJ_199",
+            "OBJ_200"
          );
          name = "Configuration";
          path = "Configuration";
          sourceTree = "<group>";
       };
-      "OBJ_195" = {
-         isa = "PBXFileReference";
-         path = "Configuration.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_196" = {
-         isa = "PBXFileReference";
-         path = "QuickConfiguration.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_197" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_198",
-            "OBJ_199"
-         );
-         name = "DSL";
-         path = "DSL";
-         sourceTree = "<group>";
-      };
-      "OBJ_198" = {
-         isa = "PBXFileReference";
-         path = "DSL.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_199" = {
          isa = "PBXFileReference";
-         path = "World+DSL.swift";
+         path = "Configuration.swift";
          sourceTree = "<group>";
       };
       "OBJ_2" = {
@@ -1540,148 +1552,147 @@
       };
       "OBJ_20" = {
          isa = "PBXFileReference";
-         path = "RNConfigurationModelFactory.swift";
+         path = "main.swift";
          sourceTree = "<group>";
       };
       "OBJ_200" = {
          isa = "PBXFileReference";
-         path = "ErrorUtility.swift";
+         path = "QuickConfiguration.swift";
          sourceTree = "<group>";
       };
       "OBJ_201" = {
-         isa = "PBXFileReference";
-         path = "Example.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_202",
+            "OBJ_203"
+         );
+         name = "DSL";
+         path = "DSL";
          sourceTree = "<group>";
       };
       "OBJ_202" = {
          isa = "PBXFileReference";
-         path = "ExampleGroup.swift";
+         path = "DSL.swift";
          sourceTree = "<group>";
       };
       "OBJ_203" = {
          isa = "PBXFileReference";
-         path = "ExampleMetadata.swift";
+         path = "World+DSL.swift";
          sourceTree = "<group>";
       };
       "OBJ_204" = {
          isa = "PBXFileReference";
-         path = "Filter.swift";
+         path = "ErrorUtility.swift";
          sourceTree = "<group>";
       };
       "OBJ_205" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_206",
-            "OBJ_207",
-            "OBJ_208",
-            "OBJ_209"
-         );
-         name = "Hooks";
-         path = "Hooks";
+         isa = "PBXFileReference";
+         path = "Example.swift";
          sourceTree = "<group>";
       };
       "OBJ_206" = {
          isa = "PBXFileReference";
-         path = "Closures.swift";
+         path = "ExampleGroup.swift";
          sourceTree = "<group>";
       };
       "OBJ_207" = {
          isa = "PBXFileReference";
-         path = "ExampleHooks.swift";
+         path = "ExampleMetadata.swift";
          sourceTree = "<group>";
       };
       "OBJ_208" = {
          isa = "PBXFileReference";
-         path = "HooksPhase.swift";
+         path = "Filter.swift";
          sourceTree = "<group>";
       };
       "OBJ_209" = {
-         isa = "PBXFileReference";
-         path = "SuiteHooks.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_210",
+            "OBJ_211",
+            "OBJ_212",
+            "OBJ_213"
+         );
+         name = "Hooks";
+         path = "Hooks";
          sourceTree = "<group>";
       };
       "OBJ_21" = {
          isa = "PBXGroup";
          children = (
             "OBJ_22",
-            "OBJ_23"
+            "OBJ_23",
+            "OBJ_24",
+            "OBJ_25",
+            "OBJ_26"
          );
-         name = "RNModelsMock";
-         path = "Sources/Generated/RNModels";
+         name = "RNConfigurationPrepare";
+         path = "Sources/RNConfigurationPrepare";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_210" = {
          isa = "PBXFileReference";
-         path = "NSBundle+CurrentTestBundle.swift";
+         path = "Closures.swift";
          sourceTree = "<group>";
       };
       "OBJ_211" = {
          isa = "PBXFileReference";
-         path = "NSString+C99ExtendedIdentifier.swift";
+         path = "ExampleHooks.swift";
          sourceTree = "<group>";
       };
       "OBJ_212" = {
          isa = "PBXFileReference";
-         path = "QuickMain.swift";
+         path = "HooksPhase.swift";
          sourceTree = "<group>";
       };
       "OBJ_213" = {
          isa = "PBXFileReference";
-         path = "QuickSelectedTestSuiteBuilder.swift";
+         path = "SuiteHooks.swift";
          sourceTree = "<group>";
       };
       "OBJ_214" = {
          isa = "PBXFileReference";
-         path = "QuickSpec.swift";
+         path = "NSBundle+CurrentTestBundle.swift";
          sourceTree = "<group>";
       };
       "OBJ_215" = {
          isa = "PBXFileReference";
-         path = "QuickTestSuite.swift";
+         path = "NSString+C99ExtendedIdentifier.swift";
          sourceTree = "<group>";
       };
       "OBJ_216" = {
          isa = "PBXFileReference";
-         path = "URL+FileName.swift";
+         path = "QuickMain.swift";
          sourceTree = "<group>";
       };
       "OBJ_217" = {
          isa = "PBXFileReference";
-         path = "World.swift";
+         path = "QuickSelectedTestSuiteBuilder.swift";
          sourceTree = "<group>";
       };
       "OBJ_218" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_219",
-            "OBJ_220"
-         );
-         name = "QuickSpecBase";
-         path = ".build/checkouts/Quick-1203877175555048859/Sources/QuickSpecBase";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "QuickSpec.swift";
+         sourceTree = "<group>";
       };
       "OBJ_219" = {
          isa = "PBXFileReference";
-         path = "QuickSpecBase.m";
+         path = "QuickTestSuite.swift";
          sourceTree = "<group>";
       };
       "OBJ_22" = {
          isa = "PBXFileReference";
-         path = "AutoGenerateProtocol.generated.swift";
+         path = "Builds.swift";
          sourceTree = "<group>";
       };
       "OBJ_220" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_221"
-         );
-         name = "include";
-         path = "include";
+         isa = "PBXFileReference";
+         path = "URL+FileName.swift";
          sourceTree = "<group>";
       };
       "OBJ_221" = {
          isa = "PBXFileReference";
-         path = "QuickSpecBase.h";
+         path = "World.swift";
          sourceTree = "<group>";
       };
       "OBJ_222" = {
@@ -1756,7 +1767,7 @@
       };
       "OBJ_23" = {
          isa = "PBXFileReference";
-         path = "AutoMockable.generated.swift";
+         path = "Coder.swift";
          sourceTree = "<group>";
       };
       "OBJ_230" = {
@@ -1814,14 +1825,9 @@
          sourceTree = "<group>";
       };
       "OBJ_24" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_25",
-            "OBJ_26"
-         );
-         name = "RNConfigurationMock";
-         path = "Sources/Generated/RNConfiguration";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "CommandLineArguments.swift";
+         sourceTree = "<group>";
       };
       "OBJ_240" = {
          isa = "PBXFileReference";
@@ -1910,7 +1916,7 @@
       };
       "OBJ_25" = {
          isa = "PBXFileReference";
-         path = "AutoGenerateProtocol.generated.swift";
+         path = "ConfigurationDisk.swift";
          sourceTree = "<group>";
       };
       "OBJ_250" = {
@@ -1965,7 +1971,7 @@
       };
       "OBJ_26" = {
          isa = "PBXFileReference";
-         path = "AutoMockable.generated.swift";
+         path = "PrepareCode.swift";
          sourceTree = "<group>";
       };
       "OBJ_260" = {
@@ -2022,13 +2028,10 @@
          isa = "PBXGroup";
          children = (
             "OBJ_28",
-            "OBJ_29",
-            "OBJ_30",
-            "OBJ_31",
-            "OBJ_32"
+            "OBJ_29"
          );
-         name = "RNConfigurationPrepare";
-         path = "Sources/RNConfigurationPrepare";
+         name = "RNConfigurationPrepareMock";
+         path = "Sources/Generated/RNConfigurationPrepare";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_270" = {
@@ -2091,7 +2094,7 @@
       };
       "OBJ_28" = {
          isa = "PBXFileReference";
-         path = "Builds.swift";
+         path = "AutoGenerateProtocol.generated.swift";
          sourceTree = "<group>";
       };
       "OBJ_280" = {
@@ -2104,36 +2107,36 @@
       "OBJ_281" = {
          isa = "PBXGroup";
          children = (
-            "RNConfigurationHighwaySetup::RNConfiguration::Product",
-            "Highway::Errors::Product",
-            "Highway::HWPOSIX::Product",
-            "RNConfigurationHighwaySetup::RNModelsMock::Product",
-            "Highway::GitHooks::Product",
-            "RNConfigurationHighwaySetup::RNConfigurationPrepareMock::Product",
-            "Highway::Highway::Product",
-            "RNConfigurationHighwaySetup::RNConfigurationHighwaySetupTests::Product",
-            "SignPost::SignPost::Product",
-            "Highway::SwiftFormatWorker::Product",
             "Highway::SourceryWorker::Product",
-            "SwiftFormat::SwiftFormat::Product",
-            "RNConfigurationHighwaySetup::RNModels::Product",
-            "Quick::Quick::Product",
-            "RNConfigurationHighwaySetup::RNConfigurationTests::Product",
-            "Highway::HighwayDispatch::Product",
-            "Highway::XCBuild::Product",
-            "Result::Result::Product",
-            "Highway::Arguments::Product",
-            "SignPost::SignPostMock::Product",
-            "RNConfigurationHighwaySetup::RNConfigurationHighwaySetup::Product",
-            "Nimble::Nimble::Product",
-            "Highway::Terminal::Product",
-            "RNConfigurationHighwaySetup::RNConfigurationPrepare::Product",
             "RNConfigurationHighwaySetup::RNConfigurationMock::Product",
-            "template-sourcery::SourceryAutoProtocols::Product",
-            "ZFile::ZFile::Product",
+            "RNConfigurationHighwaySetup::RNConfigurationHighwaySetupTests::Product",
             "ZFile::ZFileMock::Product",
+            "RNConfigurationHighwaySetup::RNConfigurationPrepareMock::Product",
+            "Highway::GitHooks::Product",
+            "Highway::Errors::Product",
+            "Highway::HighwayDispatch::Product",
+            "RNConfigurationHighwaySetup::RNConfiguration::Product",
+            "Highway::Highway::Product",
+            "ZFile::ZFile::Product",
+            "RNConfigurationHighwaySetup::RNModelsMock::Product",
             "Highway::Url::Product",
-            "Quick::QuickSpecBase::Product"
+            "Highway::XCBuild::Product",
+            "RNConfigurationHighwaySetup::RNModels::Product",
+            "RNConfigurationHighwaySetup::RNConfigurationHighwaySetup::Product",
+            "SignPost::SignPostMock::Product",
+            "SwiftFormat::SwiftFormat::Product",
+            "Quick::Quick::Product",
+            "Result::Result::Product",
+            "Nimble::Nimble::Product",
+            "template-sourcery::SourceryAutoProtocols::Product",
+            "RNConfigurationHighwaySetup::RNConfigurationTests::Product",
+            "Highway::SwiftFormatWorker::Product",
+            "SignPost::SignPost::Product",
+            "Highway::Terminal::Product",
+            "Highway::HWPOSIX::Product",
+            "Highway::Arguments::Product",
+            "Quick::QuickSpecBase::Product",
+            "RNConfigurationHighwaySetup::RNConfigurationPrepare::Product"
          );
          name = "Products";
          path = "";
@@ -2141,7 +2144,7 @@
       };
       "OBJ_29" = {
          isa = "PBXFileReference";
-         path = "Coder.swift";
+         path = "AutoMockable.generated.swift";
          sourceTree = "<group>";
       };
       "OBJ_3" = {
@@ -2184,13 +2187,18 @@
          name = "Debug";
       };
       "OBJ_30" = {
-         isa = "PBXFileReference";
-         path = "CommandLineArguments.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_31",
+            "OBJ_32"
+         );
+         name = "RNConfigurationMock";
+         path = "Sources/Generated/RNConfiguration";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_31" = {
          isa = "PBXFileReference";
-         path = "ConfigurationDisk.swift";
+         path = "AutoGenerateProtocol.generated.swift";
          sourceTree = "<group>";
       };
       "OBJ_313" = {
@@ -2290,36 +2298,36 @@
       };
       "OBJ_317" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_54";
+         fileRef = "OBJ_86";
       };
       "OBJ_318" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_55";
+         fileRef = "OBJ_87";
       };
       "OBJ_319" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_56";
+         fileRef = "OBJ_88";
       };
       "OBJ_32" = {
          isa = "PBXFileReference";
-         path = "PrepareCode.swift";
+         path = "AutoMockable.generated.swift";
          sourceTree = "<group>";
       };
       "OBJ_320" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_57";
+         fileRef = "OBJ_89";
       };
       "OBJ_321" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_58";
+         fileRef = "OBJ_90";
       };
       "OBJ_322" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_59";
+         fileRef = "OBJ_91";
       };
       "OBJ_323" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_60";
+         fileRef = "OBJ_92";
       };
       "OBJ_324" = {
          isa = "PBXFrameworksBuildPhase";
@@ -2473,11 +2481,11 @@
       };
       "OBJ_341" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_119";
+         fileRef = "OBJ_44";
       };
       "OBJ_342" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_120";
+         fileRef = "OBJ_45";
       };
       "OBJ_343" = {
          isa = "PBXFrameworksBuildPhase";
@@ -2598,7 +2606,7 @@
       };
       "OBJ_353" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_66";
+         fileRef = "OBJ_82";
       };
       "OBJ_354" = {
          isa = "PBXFrameworksBuildPhase";
@@ -2782,7 +2790,7 @@
       };
       "OBJ_378" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_48";
+         fileRef = "OBJ_84";
       };
       "OBJ_379" = {
          isa = "PBXFrameworksBuildPhase";
@@ -2896,15 +2904,15 @@
       };
       "OBJ_387" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_69";
+         fileRef = "OBJ_48";
       };
       "OBJ_388" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_70";
+         fileRef = "OBJ_49";
       };
       "OBJ_389" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_71";
+         fileRef = "OBJ_50";
       };
       "OBJ_39" = {
          isa = "PBXFileReference";
@@ -3080,34 +3088,34 @@
          isa = "PBXGroup";
          children = (
             "OBJ_43",
-            "OBJ_44",
             "OBJ_46",
             "OBJ_47",
-            "OBJ_49",
-            "OBJ_50",
+            "OBJ_51",
             "OBJ_52",
             "OBJ_53",
-            "OBJ_61",
-            "OBJ_62",
-            "OBJ_63",
-            "OBJ_64",
-            "OBJ_65",
-            "OBJ_67",
-            "OBJ_68",
-            "OBJ_72",
-            "OBJ_92",
+            "OBJ_73",
+            "OBJ_74",
+            "OBJ_75",
+            "OBJ_76",
+            "OBJ_79",
+            "OBJ_80",
+            "OBJ_81",
+            "OBJ_83",
+            "OBJ_85",
             "OBJ_93",
             "OBJ_94",
-            "OBJ_111",
-            "OBJ_117",
-            "OBJ_118",
-            "OBJ_121",
-            "OBJ_122",
-            "OBJ_123",
+            "OBJ_96",
+            "OBJ_102",
+            "OBJ_103",
+            "OBJ_104",
+            "OBJ_105",
+            "OBJ_106",
+            "OBJ_108",
+            "OBJ_125",
             "OBJ_126",
             "OBJ_127"
          );
-         name = "Highway 2.6.13";
+         name = "Highway 2.6.19";
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
@@ -3225,9 +3233,11 @@
       "OBJ_43" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_44",
+            "OBJ_45"
          );
-         name = "HWSetup";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/HWSetup";
+         name = "Errors";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Errors";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_430" = {
@@ -3238,7 +3248,7 @@
       };
       "OBJ_431" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_45";
+         fileRef = "OBJ_107";
       };
       "OBJ_432" = {
          isa = "PBXFrameworksBuildPhase";
@@ -3278,13 +3288,9 @@
          target = "ZFile::ZFile";
       };
       "OBJ_44" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_45"
-         );
-         name = "HighwayDispatch";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/HighwayDispatch";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "HighwayError.swift";
+         sourceTree = "<group>";
       };
       "OBJ_440" = {
          isa = "PBXTargetDependency";
@@ -3393,7 +3399,7 @@
       };
       "OBJ_45" = {
          isa = "PBXFileReference";
-         path = "HWDispatchQueue.swift";
+         path = "String+Error.swift";
          sourceTree = "<group>";
       };
       "OBJ_450" = {
@@ -3525,8 +3531,8 @@
          isa = "PBXGroup";
          children = (
          );
-         name = "HWCarthageMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/HWCarthage";
+         name = "GitHooksMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/GitHooks";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_460" = {
@@ -3572,10 +3578,12 @@
       "OBJ_47" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_48"
+            "OBJ_48",
+            "OBJ_49",
+            "OBJ_50"
          );
-         name = "HWPOSIX";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/HWPOSIX";
+         name = "Highway";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Highway";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_470" = {
@@ -3620,7 +3628,7 @@
       };
       "OBJ_48" = {
          isa = "PBXFileReference";
-         path = "abscwd.swift";
+         path = "HandeErrorsFunctions.swift";
          sourceTree = "<group>";
       };
       "OBJ_480" = {
@@ -3664,12 +3672,9 @@
          fileRef = "OBJ_265";
       };
       "OBJ_49" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "HWPodMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/HWPod";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Highway.swift";
+         sourceTree = "<group>";
       };
       "OBJ_490" = {
          isa = "PBXBuildFile";
@@ -3727,13 +3732,9 @@
          sourceTree = "<group>";
       };
       "OBJ_50" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_51"
-         );
-         name = "SwiftFormatWorker";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/SwiftFormatWorker";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "HighwayRunner.swift";
+         sourceTree = "<group>";
       };
       "OBJ_500" = {
          isa = "PBXBuildFile";
@@ -3808,9 +3809,12 @@
          fileRef = "OBJ_280";
       };
       "OBJ_51" = {
-         isa = "PBXFileReference";
-         path = "SwiftFormatWorker.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "HWPodMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/HWPod";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_511" = {
          isa = "XCConfigurationList";
@@ -3927,71 +3931,71 @@
       };
       "OBJ_515" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_192";
+         fileRef = "OBJ_196";
       };
       "OBJ_516" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_193";
+         fileRef = "OBJ_197";
       };
       "OBJ_517" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_195";
+         fileRef = "OBJ_199";
       };
       "OBJ_518" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_196";
+         fileRef = "OBJ_200";
       };
       "OBJ_519" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_198";
+         fileRef = "OBJ_202";
       };
       "OBJ_52" = {
          isa = "PBXGroup";
          children = (
          );
-         name = "SourceryWorkerMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/SourceryWorker";
+         name = "Stub";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Stub";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_520" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_199";
+         fileRef = "OBJ_203";
       };
       "OBJ_521" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_200";
+         fileRef = "OBJ_204";
       };
       "OBJ_522" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_201";
+         fileRef = "OBJ_205";
       };
       "OBJ_523" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_202";
+         fileRef = "OBJ_206";
       };
       "OBJ_524" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_203";
+         fileRef = "OBJ_207";
       };
       "OBJ_525" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_204";
+         fileRef = "OBJ_208";
       };
       "OBJ_526" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_206";
+         fileRef = "OBJ_210";
       };
       "OBJ_527" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_207";
+         fileRef = "OBJ_211";
       };
       "OBJ_528" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_208";
+         fileRef = "OBJ_212";
       };
       "OBJ_529" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_209";
+         fileRef = "OBJ_213";
       };
       "OBJ_53" = {
          isa = "PBXGroup";
@@ -4002,43 +4006,55 @@
             "OBJ_57",
             "OBJ_58",
             "OBJ_59",
-            "OBJ_60"
+            "OBJ_60",
+            "OBJ_61",
+            "OBJ_62",
+            "OBJ_63",
+            "OBJ_64",
+            "OBJ_65",
+            "OBJ_66",
+            "OBJ_67",
+            "OBJ_68",
+            "OBJ_69",
+            "OBJ_70",
+            "OBJ_71",
+            "OBJ_72"
          );
-         name = "Arguments";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Arguments";
+         name = "Terminal";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Terminal";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_530" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_210";
+         fileRef = "OBJ_214";
       };
       "OBJ_531" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_211";
+         fileRef = "OBJ_215";
       };
       "OBJ_532" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_212";
+         fileRef = "OBJ_216";
       };
       "OBJ_533" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_213";
+         fileRef = "OBJ_217";
       };
       "OBJ_534" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_214";
+         fileRef = "OBJ_218";
       };
       "OBJ_535" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_215";
+         fileRef = "OBJ_219";
       };
       "OBJ_536" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_216";
+         fileRef = "OBJ_220";
       };
       "OBJ_537" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_217";
+         fileRef = "OBJ_221";
       };
       "OBJ_538" = {
          isa = "PBXFrameworksBuildPhase";
@@ -4052,7 +4068,7 @@
       };
       "OBJ_54" = {
          isa = "PBXFileReference";
-         path = "Arguments.swift";
+         path = "CDToFolderExecutable.swift";
          sourceTree = "<group>";
       };
       "OBJ_540" = {
@@ -4164,7 +4180,7 @@
       };
       "OBJ_55" = {
          isa = "PBXFileReference";
-         path = "Dependency.swift";
+         path = "CatExecutable.swift";
          sourceTree = "<group>";
       };
       "OBJ_550" = {
@@ -4214,7 +4230,7 @@
       };
       "OBJ_552" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_219";
+         fileRef = "OBJ_192";
       };
       "OBJ_553" = {
          isa = "PBXHeadersBuildPhase";
@@ -4224,7 +4240,7 @@
       };
       "OBJ_554" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_221";
+         fileRef = "OBJ_194";
          settings = {
             ATTRIBUTES = (
                "Public"
@@ -4321,7 +4337,7 @@
       };
       "OBJ_56" = {
          isa = "PBXFileReference";
-         path = "Dump.swift";
+         path = "Channel+Reader.swift";
          sourceTree = "<group>";
       };
       "OBJ_560" = {
@@ -4333,11 +4349,11 @@
       };
       "OBJ_561" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
+         fileRef = "OBJ_12";
       };
       "OBJ_562" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_20";
+         fileRef = "OBJ_13";
       };
       "OBJ_563" = {
          isa = "PBXFrameworksBuildPhase";
@@ -4399,7 +4415,7 @@
       };
       "OBJ_57" = {
          isa = "PBXFileReference";
-         path = "HighwayCommandLineOption.swift";
+         path = "Channel+Writer.swift";
          sourceTree = "<group>";
       };
       "OBJ_570" = {
@@ -4445,7 +4461,7 @@
       };
       "OBJ_572" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
+         fileRef = "OBJ_20";
       };
       "OBJ_573" = {
          isa = "PBXFrameworksBuildPhase";
@@ -4496,7 +4512,7 @@
       };
       "OBJ_58" = {
          isa = "PBXFileReference";
-         path = "SwiftProduct.swift";
+         path = "Channel.swift";
          sourceTree = "<group>";
       };
       "OBJ_580" = {
@@ -4541,7 +4557,7 @@
       };
       "OBJ_59" = {
          isa = "PBXFileReference";
-         path = "SwiftTarget.swift";
+         path = "DependencyService.swift";
          sourceTree = "<group>";
       };
       "OBJ_590" = {
@@ -4588,7 +4604,7 @@
       };
       "OBJ_60" = {
          isa = "PBXFileReference";
-         path = "Worker.swift";
+         path = "DumpService.swift";
          sourceTree = "<group>";
       };
       "OBJ_600" = {
@@ -4632,12 +4648,9 @@
          target = "ZFile::ZFile";
       };
       "OBJ_61" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "HighwayDispatchMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/HighwayDispatch";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "ExcecutableProtocol.swift";
+         sourceTree = "<group>";
       };
       "OBJ_610" = {
          isa = "PBXTargetDependency";
@@ -4714,12 +4727,9 @@
          name = "Debug";
       };
       "OBJ_62" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "HWPod";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/HWPod";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "GitExecutables.swift";
+         sourceTree = "<group>";
       };
       "OBJ_620" = {
          isa = "XCBuildConfiguration";
@@ -4827,12 +4837,9 @@
          fileRef = "OBJ_37";
       };
       "OBJ_63" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "HighwayMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/Highway";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "IO.swift";
+         sourceTree = "<group>";
       };
       "OBJ_630" = {
          isa = "PBXFrameworksBuildPhase";
@@ -4899,12 +4906,9 @@
          fileRef = "Highway::GitHooks::Product";
       };
       "OBJ_64" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "XCBuildMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/XCBuild";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "PathEnvironmentParser.swift";
+         sourceTree = "<group>";
       };
       "OBJ_640" = {
          isa = "PBXBuildFile";
@@ -4947,13 +4951,9 @@
          fileRef = "template-sourcery::SourceryAutoProtocols::Product";
       };
       "OBJ_65" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_66"
-         );
-         name = "GitHooks";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/GitHooks";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "PodExecutable.swift";
+         sourceTree = "<group>";
       };
       "OBJ_650" = {
          isa = "PBXBuildFile";
@@ -4989,7 +4989,7 @@
       };
       "OBJ_66" = {
          isa = "PBXFileReference";
-         path = "GitHooksWorker.swift";
+         path = "State.swift";
          sourceTree = "<group>";
       };
       "OBJ_660" = {
@@ -5033,12 +5033,9 @@
          target = "Highway::XCBuild";
       };
       "OBJ_67" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "TerminalMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/Terminal";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "System.swift";
+         sourceTree = "<group>";
       };
       "OBJ_670" = {
          isa = "PBXTargetDependency";
@@ -5081,15 +5078,9 @@
          target = "RNConfigurationHighwaySetup::RNModels";
       };
       "OBJ_68" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_69",
-            "OBJ_70",
-            "OBJ_71"
-         );
-         name = "Highway";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Highway";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Task.swift";
+         sourceTree = "<group>";
       };
       "OBJ_681" = {
          isa = "XCConfigurationList";
@@ -5183,11 +5174,11 @@
       };
       "OBJ_685" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_25";
+         fileRef = "OBJ_31";
       };
       "OBJ_686" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_26";
+         fileRef = "OBJ_32";
       };
       "OBJ_687" = {
          isa = "PBXFrameworksBuildPhase";
@@ -5208,7 +5199,7 @@
       };
       "OBJ_69" = {
          isa = "PBXFileReference";
-         path = "HandeErrorsFunctions.swift";
+         path = "Terminal.swift";
          sourceTree = "<group>";
       };
       "OBJ_690" = {
@@ -5333,11 +5324,11 @@
          children = (
             "OBJ_8",
             "OBJ_11",
-            "OBJ_13",
-            "OBJ_18",
+            "OBJ_14",
+            "OBJ_19",
             "OBJ_21",
-            "OBJ_24",
-            "OBJ_27"
+            "OBJ_27",
+            "OBJ_30"
          );
          name = "Sources";
          path = "";
@@ -5345,28 +5336,28 @@
       };
       "OBJ_70" = {
          isa = "PBXFileReference";
-         path = "Highway.swift";
+         path = "TerminalSysExitCode.swift";
          sourceTree = "<group>";
       };
       "OBJ_700" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_28";
+         fileRef = "OBJ_22";
       };
       "OBJ_701" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_29";
+         fileRef = "OBJ_23";
       };
       "OBJ_702" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_30";
+         fileRef = "OBJ_24";
       };
       "OBJ_703" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_31";
+         fileRef = "OBJ_25";
       };
       "OBJ_704" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_32";
+         fileRef = "OBJ_26";
       };
       "OBJ_705" = {
          isa = "PBXFrameworksBuildPhase";
@@ -5402,7 +5393,7 @@
       };
       "OBJ_71" = {
          isa = "PBXFileReference";
-         path = "HighwayRunner.swift";
+         path = "TerminalTasks.swift";
          sourceTree = "<group>";
       };
       "OBJ_710" = {
@@ -5446,31 +5437,9 @@
          target = "Highway::Terminal";
       };
       "OBJ_72" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_73",
-            "OBJ_74",
-            "OBJ_75",
-            "OBJ_76",
-            "OBJ_77",
-            "OBJ_78",
-            "OBJ_79",
-            "OBJ_80",
-            "OBJ_81",
-            "OBJ_82",
-            "OBJ_83",
-            "OBJ_84",
-            "OBJ_85",
-            "OBJ_86",
-            "OBJ_87",
-            "OBJ_88",
-            "OBJ_89",
-            "OBJ_90",
-            "OBJ_91"
-         );
-         name = "Terminal";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Terminal";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Termination.swift";
+         sourceTree = "<group>";
       };
       "OBJ_720" = {
          isa = "PBXTargetDependency";
@@ -5514,9 +5483,12 @@
          defaultConfigurationName = "Release";
       };
       "OBJ_73" = {
-         isa = "PBXFileReference";
-         path = "CDToFolderExecutable.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "HWCarthage";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/HWCarthage";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_730" = {
          isa = "XCBuildConfiguration";
@@ -5601,11 +5573,11 @@
       };
       "OBJ_733" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
+         fileRef = "OBJ_28";
       };
       "OBJ_734" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_10";
+         fileRef = "OBJ_29";
       };
       "OBJ_735" = {
          isa = "PBXFrameworksBuildPhase";
@@ -5641,9 +5613,12 @@
          fileRef = "Highway::Terminal::Product";
       };
       "OBJ_74" = {
-         isa = "PBXFileReference";
-         path = "CatExecutable.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "ArgumentsMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/Arguments";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_740" = {
          isa = "PBXBuildFile";
@@ -5686,9 +5661,12 @@
          target = "Highway::XCBuild";
       };
       "OBJ_75" = {
-         isa = "PBXFileReference";
-         path = "Channel+Reader.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "HWPod";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/HWPod";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_750" = {
          isa = "PBXTargetDependency";
@@ -5731,9 +5709,14 @@
          target = "RNConfigurationHighwaySetup::RNModels";
       };
       "OBJ_76" = {
-         isa = "PBXFileReference";
-         path = "Channel+Writer.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_77",
+            "OBJ_78"
+         );
+         name = "Url";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Url";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_760" = {
          isa = "XCConfigurationList";
@@ -5854,7 +5837,7 @@
       };
       "OBJ_77" = {
          isa = "PBXFileReference";
-         path = "Channel.swift";
+         path = "Absolute.swift";
          sourceTree = "<group>";
       };
       "OBJ_770" = {
@@ -5975,24 +5958,24 @@
       };
       "OBJ_78" = {
          isa = "PBXFileReference";
-         path = "DependencyService.swift";
+         path = "Relative.swift";
          sourceTree = "<group>";
       };
       "OBJ_780" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_14";
+         fileRef = "OBJ_15";
       };
       "OBJ_781" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_15";
+         fileRef = "OBJ_16";
       };
       "OBJ_782" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
+         fileRef = "OBJ_17";
       };
       "OBJ_783" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
+         fileRef = "OBJ_18";
       };
       "OBJ_784" = {
          isa = "PBXFrameworksBuildPhase";
@@ -6090,17 +6073,20 @@
          );
       };
       "OBJ_79" = {
-         isa = "PBXFileReference";
-         path = "DumpService.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "HWCarthageMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/HWCarthage";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_790" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_22";
+         fileRef = "OBJ_9";
       };
       "OBJ_791" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_23";
+         fileRef = "OBJ_10";
       };
       "OBJ_792" = {
          isa = "PBXFrameworksBuildPhase";
@@ -6149,14 +6135,17 @@
             "OBJ_9",
             "OBJ_10"
          );
-         name = "RNConfigurationPrepareMock";
-         path = "Sources/Generated/RNConfigurationPrepare";
+         name = "RNModelsMock";
+         path = "Sources/Generated/RNModels";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_80" = {
-         isa = "PBXFileReference";
-         path = "ExcecutableProtocol.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "SwiftFormatWorkerMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/SwiftFormatWorker";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_800" = {
          isa = "XCBuildConfiguration";
@@ -6272,9 +6261,13 @@
          defaultConfigurationName = "Release";
       };
       "OBJ_81" = {
-         isa = "PBXFileReference";
-         path = "GitExecutables.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_82"
+         );
+         name = "GitHooks";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/GitHooks";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_810" = {
          isa = "XCBuildConfiguration";
@@ -6433,7 +6426,7 @@
       };
       "OBJ_82" = {
          isa = "PBXFileReference";
-         path = "IO.swift";
+         path = "GitHooksWorker.swift";
          sourceTree = "<group>";
       };
       "OBJ_820" = {
@@ -6477,9 +6470,13 @@
          fileRef = "OBJ_144";
       };
       "OBJ_83" = {
-         isa = "PBXFileReference";
-         path = "PathEnvironmentParser.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_84"
+         );
+         name = "HWPOSIX";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/HWPOSIX";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_830" = {
          isa = "PBXBuildFile";
@@ -6599,7 +6596,7 @@
       };
       "OBJ_84" = {
          isa = "PBXFileReference";
-         path = "PodExecutable.swift";
+         path = "abscwd.swift";
          sourceTree = "<group>";
       };
       "OBJ_840" = {
@@ -6677,9 +6674,19 @@
          );
       };
       "OBJ_85" = {
-         isa = "PBXFileReference";
-         path = "State.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_86",
+            "OBJ_87",
+            "OBJ_88",
+            "OBJ_89",
+            "OBJ_90",
+            "OBJ_91",
+            "OBJ_92"
+         );
+         name = "Arguments";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Arguments";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_850" = {
          isa = "PBXBuildFile";
@@ -6868,7 +6875,7 @@
       };
       "OBJ_86" = {
          isa = "PBXFileReference";
-         path = "System.swift";
+         path = "Arguments.swift";
          sourceTree = "<group>";
       };
       "OBJ_860" = {
@@ -6883,23 +6890,23 @@
       };
       "OBJ_861" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_112";
+         fileRef = "OBJ_97";
       };
       "OBJ_862" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_113";
+         fileRef = "OBJ_98";
       };
       "OBJ_863" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_114";
+         fileRef = "OBJ_99";
       };
       "OBJ_864" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_115";
+         fileRef = "OBJ_100";
       };
       "OBJ_865" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_116";
+         fileRef = "OBJ_101";
       };
       "OBJ_866" = {
          isa = "PBXFrameworksBuildPhase";
@@ -6929,7 +6936,7 @@
       };
       "OBJ_87" = {
          isa = "PBXFileReference";
-         path = "Task.swift";
+         path = "Dependency.swift";
          sourceTree = "<group>";
       };
       "OBJ_870" = {
@@ -6974,7 +6981,7 @@
       };
       "OBJ_88" = {
          isa = "PBXFileReference";
-         path = "Terminal.swift";
+         path = "Dump.swift";
          sourceTree = "<group>";
       };
       "OBJ_880" = {
@@ -7103,7 +7110,7 @@
       };
       "OBJ_89" = {
          isa = "PBXFileReference";
-         path = "TerminalSysExitCode.swift";
+         path = "HighwayCommandLineOption.swift";
          sourceTree = "<group>";
       };
       "OBJ_890" = {
@@ -7153,7 +7160,7 @@
       };
       "OBJ_90" = {
          isa = "PBXFileReference";
-         path = "TerminalTasks.swift";
+         path = "SwiftProduct.swift";
          sourceTree = "<group>";
       };
       "OBJ_900" = {
@@ -7268,7 +7275,7 @@
       };
       "OBJ_91" = {
          isa = "PBXFileReference";
-         path = "Termination.swift";
+         path = "SwiftTarget.swift";
          sourceTree = "<group>";
       };
       "OBJ_910" = {
@@ -7316,7 +7323,7 @@
       };
       "OBJ_912" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_51";
+         fileRef = "OBJ_95";
       };
       "OBJ_913" = {
          isa = "PBXFrameworksBuildPhase";
@@ -7355,12 +7362,9 @@
          fileRef = "ZFile::ZFile::Product";
       };
       "OBJ_92" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "SwiftFormatWorkerMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/SwiftFormatWorker";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "Worker.swift";
+         sourceTree = "<group>";
       };
       "OBJ_920" = {
          isa = "PBXBuildFile";
@@ -7444,8 +7448,8 @@
          isa = "PBXGroup";
          children = (
          );
-         name = "GitHooksMock";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/GitHooks";
+         name = "XCBuildMock";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/Generated/XCBuild";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_930" = {
@@ -7511,105 +7515,93 @@
       };
       "OBJ_932" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_73";
+         fileRef = "OBJ_54";
       };
       "OBJ_933" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_74";
+         fileRef = "OBJ_55";
       };
       "OBJ_934" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_75";
+         fileRef = "OBJ_56";
       };
       "OBJ_935" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_76";
+         fileRef = "OBJ_57";
       };
       "OBJ_936" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_77";
+         fileRef = "OBJ_58";
       };
       "OBJ_937" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_78";
+         fileRef = "OBJ_59";
       };
       "OBJ_938" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_79";
+         fileRef = "OBJ_60";
       };
       "OBJ_939" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_80";
+         fileRef = "OBJ_61";
       };
       "OBJ_94" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_95",
-            "OBJ_99",
-            "OBJ_100",
-            "OBJ_101",
-            "OBJ_105",
-            "OBJ_109",
-            "OBJ_110"
+            "OBJ_95"
          );
-         name = "XCBuild";
-         path = ".build/checkouts/Highway-3987313536586432777/Sources/XCBuild";
+         name = "SwiftFormatWorker";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/SwiftFormatWorker";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_940" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_81";
+         fileRef = "OBJ_62";
       };
       "OBJ_941" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_82";
+         fileRef = "OBJ_63";
       };
       "OBJ_942" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_83";
+         fileRef = "OBJ_64";
       };
       "OBJ_943" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_84";
+         fileRef = "OBJ_65";
       };
       "OBJ_944" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_85";
+         fileRef = "OBJ_66";
       };
       "OBJ_945" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_86";
+         fileRef = "OBJ_67";
       };
       "OBJ_946" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_87";
+         fileRef = "OBJ_68";
       };
       "OBJ_947" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_88";
+         fileRef = "OBJ_69";
       };
       "OBJ_948" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_89";
+         fileRef = "OBJ_70";
       };
       "OBJ_949" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_90";
+         fileRef = "OBJ_71";
       };
       "OBJ_95" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_96",
-            "OBJ_97",
-            "OBJ_98"
-         );
-         name = "Archive";
-         path = "Archive";
+         isa = "PBXFileReference";
+         path = "SwiftFormatWorker.swift";
          sourceTree = "<group>";
       };
       "OBJ_950" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_91";
+         fileRef = "OBJ_72";
       };
       "OBJ_951" = {
          isa = "PBXFrameworksBuildPhase";
@@ -7656,9 +7648,17 @@
          target = "Highway::Arguments";
       };
       "OBJ_96" = {
-         isa = "PBXFileReference";
-         path = "Archive.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_97",
+            "OBJ_98",
+            "OBJ_99",
+            "OBJ_100",
+            "OBJ_101"
+         );
+         name = "SourceryWorker";
+         path = ".build/checkouts/Highway-3987313536586432777/Sources/SourceryWorker";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_960" = {
          isa = "PBXTargetDependency";
@@ -7776,16 +7776,16 @@
       };
       "OBJ_97" = {
          isa = "PBXFileReference";
-         path = "ArchiveOptions.swift";
+         path = "Sourcery.swift";
          sourceTree = "<group>";
       };
       "OBJ_970" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_124";
+         fileRef = "OBJ_77";
       };
       "OBJ_971" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_125";
+         fileRef = "OBJ_78";
       };
       "OBJ_972" = {
          isa = "PBXFrameworksBuildPhase";
@@ -7895,64 +7895,64 @@
       };
       "OBJ_977" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_96";
+         fileRef = "OBJ_110";
       };
       "OBJ_978" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_97";
+         fileRef = "OBJ_111";
       };
       "OBJ_979" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_98";
+         fileRef = "OBJ_112";
       };
       "OBJ_98" = {
          isa = "PBXFileReference";
-         path = "ArchivePlist.swift";
+         path = "SourceryBuilder.swift";
          sourceTree = "<group>";
       };
       "OBJ_980" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_99";
+         fileRef = "OBJ_113";
       };
       "OBJ_981" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_100";
+         fileRef = "OBJ_114";
       };
       "OBJ_982" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_102";
+         fileRef = "OBJ_116";
       };
       "OBJ_983" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_103";
+         fileRef = "OBJ_117";
       };
       "OBJ_984" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_104";
+         fileRef = "OBJ_118";
       };
       "OBJ_985" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_106";
+         fileRef = "OBJ_120";
       };
       "OBJ_986" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_107";
+         fileRef = "OBJ_121";
       };
       "OBJ_987" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_108";
+         fileRef = "OBJ_122";
       };
       "OBJ_988" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_109";
+         fileRef = "OBJ_123";
       };
       "OBJ_989" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_110";
+         fileRef = "OBJ_124";
       };
       "OBJ_99" = {
          isa = "PBXFileReference";
-         path = "Destination.swift";
+         path = "SourceryWorker.swift";
          sourceTree = "<group>";
       };
       "OBJ_990" = {
