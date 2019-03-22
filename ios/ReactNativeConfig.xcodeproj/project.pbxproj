@@ -1001,7 +1001,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1035,7 +1035,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1067,7 +1067,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1099,7 +1099,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1131,7 +1131,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1167,7 +1167,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1201,7 +1201,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1235,7 +1235,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1279,7 +1279,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1323,7 +1323,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1361,7 +1361,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1401,7 +1401,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1435,7 +1435,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1577,7 +1577,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1618,7 +1618,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1659,7 +1659,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1694,7 +1694,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1729,7 +1729,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1761,7 +1761,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1796,7 +1796,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1829,7 +1829,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1862,7 +1862,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -2000,7 +2000,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -2034,7 +2034,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;

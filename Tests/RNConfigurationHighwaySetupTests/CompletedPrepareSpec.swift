@@ -27,27 +27,22 @@ class CoderSpec: QuickSpec {
             
             var signPost: SignPostProtocolMock!
             
-            var srcRoot: FolderProtocol?
+            var srcRoot: FolderProtocol!
+            var environmentJsonFilesFolder: FolderProtocol!
             
             beforeEach {
                 signPost = SignPostProtocolMock()
                 
                 expect {
+                    // /react-native-config/Tests/RNConfigurationHighwaySetupTests/env.debug.json
+                    srcRoot = try File(path: #file).parentFolder().subfolder(named: "/../../../")
+                    environmentJsonFilesFolder = srcRoot
                     
-                    if let folder = CommandLineArguments()?.environmentJsonFilesFolder {
-                        srcRoot = folder
-                    } else {
-                        
-                        srcRoot = FileSystem.shared.currentFolder
-                    }
-                    
-                    guard let srcRoot = srcRoot else {
-                        throw HighwayError.highwayError(atLocation: pretty_function(), error: "failed srcRoot")
-                    }
-                    
-                    print("🚀 \(srcRoot)")
-                   
-                    sut = try PrepareCode(reactNativeFolder: srcRoot, signPost: signPost)
+                    sut = try PrepareCode(
+                        rnConfigurationSrcRoot: srcRoot,
+                        environmentJsonFilesFolder: environmentJsonFilesFolder,
+                        signPost: signPost
+                    )
                     
                     return sut
                 }.toNot(throwError())
@@ -73,11 +68,11 @@ class CoderSpec: QuickSpec {
                     beforeEach {
                         
                         expect {
-                            guard let folder = srcRoot else {
-                                throw HighwayError.highwayError(atLocation: pretty_function(), error: "missing folder argument")
-                            }
                             
-                            sut = try PrepareCode(reactNativeFolder: folder, signPost: signPost)
+                            sut = try PrepareCode(
+                                rnConfigurationSrcRoot: srcRoot,
+                                environmentJsonFilesFolder: environmentJsonFilesFolder,
+                                signPost: signPost)
                             try sut?.attempt()
                         
                             return sut
