@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		3DF7F6B6203AA0C200D0EAB7 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
 		3DF7F6B7203AA0D600D0EAB7 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
-		C04D507D2240145A005BECCD /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0169ECB2246E670007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ECD2246E68B007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ECF2246E6A5007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ED12246E6BB007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
+		C0169ED42246E6DB007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
+		C0169ED62246E6F4007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
 		EB2648E31C7BE17A00B8F155 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
-		FD16745B2229B36B00A67996 /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD16745F2229B3E700A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; };
 		FD1674622229B3FC00A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B1622291E8F000B068C /* RNModels.framework */; };
 		FD1674662229B4A800A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
@@ -28,20 +32,15 @@
 		FD4867CF2201BA850092A63E /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
 		FD4867D02201BA960092A63E /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
 		FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
-		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD55CC8A2200B4270044D1A7 /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
 		FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FDB74B1A22291E8F000B068C /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDB74B2422291EA3000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FDB74B2522291EA6000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDB74B2622291EA9000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
-		FDB74B3122293318000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FDB74B4722293418000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +89,66 @@
 			dstSubfolderSpec = 16;
 			files = (
 				3DF7F6B7203AA0D600D0EAB7 /* ReactNativeConfig.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECA2246E65F007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECB2246E670007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECC2246E678007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECD2246E68B007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECE2246E698007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECF2246E6A5007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED02246E6B0007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED12246E6BB007679CF /* RNModels.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED32246E6CF007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED42246E6DB007679CF /* RNModels.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED52246E6EA007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED62246E6F4007679CF /* RNModels.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,67 +371,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		C04D507C22401455005BECCD /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C04D507D2240145A005BECCD /* ReactNativeConfig.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD16741B2229B2C300A67996 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD16745B2229B36B00A67996 /* RNModels.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FD16747B2229B5A700A67996 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FD16748D2229B63500A67996 /* RNModels.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD55CB9622009A750044D1A7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD55CC812200B4270044D1A7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD55CC8A2200B4270044D1A7 /* RNConfiguration.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD7F1D1D2215D390009A4F34 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDB74B3122293318000B068C /* RNConfiguration.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDB74B1122291E8F000B068C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDB74B1A22291E8F000B068C /* RNModels.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDB74B32222933E0000B068C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDB74B4722293418000B068C /* RNConfiguration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +387,6 @@
 			buildConfigurationList = 3DF7F6B4203AA09B00D0EAB7 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-tvOS" */;
 			buildPhases = (
 				3DF7F6A9203AA09B00D0EAB7 /* Frameworks */,
-				C04D507C22401455005BECCD /* Headers */,
 				3DF7F6A8203AA09B00D0EAB7 /* Sources */,
 				3DF7F6AA203AA09B00D0EAB7 /* CopyFiles */,
 			);
@@ -403,7 +405,6 @@
 			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-iOS" */;
 			buildPhases = (
 				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
-				FD55CB9622009A750044D1A7 /* Headers */,
 				EB2648DB1C7BE17A00B8F155 /* Sources */,
 				EB2648DD1C7BE17A00B8F155 /* CopyFiles */,
 			);
@@ -421,10 +422,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD1674312229B2C400A67996 /* Build configuration list for PBXNativeTarget "RNModels-iOS" */;
 			buildPhases = (
-				FD16741B2229B2C300A67996 /* Headers */,
 				FD16741C2229B2C300A67996 /* Sources */,
 				FD16741D2229B2C300A67996 /* Frameworks */,
 				FD16741E2229B2C300A67996 /* Resources */,
+				C0169ED32246E6CF007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -443,6 +444,7 @@
 				FD16747C2229B5A700A67996 /* Sources */,
 				FD16747D2229B5A700A67996 /* Frameworks */,
 				FD16747E2229B5A700A67996 /* Resources */,
+				C0169ED52246E6EA007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -458,10 +460,10 @@
 			buildConfigurationList = FD55CC8B2200B4270044D1A7 /* Build configuration list for PBXNativeTarget "RNConfiguration-iOS" */;
 			buildPhases = (
 				FD55CCA02200BC310044D1A7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */,
-				FD55CC812200B4270044D1A7 /* Headers */,
 				FD55CC832200B4270044D1A7 /* Frameworks */,
 				FD55CC822200B4270044D1A7 /* Sources */,
 				FD55CC842200B4270044D1A7 /* Resources */,
+				C0169ECA2246E65F007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -478,10 +480,10 @@
 			buildConfigurationList = FD7F1D2B2215D390009A4F34 /* Build configuration list for PBXNativeTarget "RNConfiguration-macOS" */;
 			buildPhases = (
 				FD7F1D2F2215D3AF009A4F34 /* Prepare configuration files - Swift and Objective-C (For React-Native) */,
-				FD7F1D1D2215D390009A4F34 /* Headers */,
 				FD7F1D1E2215D390009A4F34 /* Sources */,
 				FD7F1D1F2215D390009A4F34 /* Frameworks */,
 				FD7F1D202215D390009A4F34 /* Resources */,
+				C0169ECC2246E678007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -497,10 +499,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB74B1F22291E8F000B068C /* Build configuration list for PBXNativeTarget "RNModels-macOS" */;
 			buildPhases = (
-				FDB74B1122291E8F000B068C /* Headers */,
 				FDB74B1222291E8F000B068C /* Sources */,
 				FDB74B1322291E8F000B068C /* Frameworks */,
 				FDB74B1422291E8F000B068C /* Resources */,
+				C0169ED02246E6B0007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -515,10 +517,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB74B3C222933E0000B068C /* Build configuration list for PBXNativeTarget "RNConfiguration-tvOS" */;
 			buildPhases = (
-				FDB74B32222933E0000B068C /* Headers */,
 				FDB74B34222933E0000B068C /* Frameworks */,
 				FDB74B33222933E0000B068C /* Sources */,
 				FDB74B35222933E0000B068C /* Resources */,
+				C0169ECE2246E698007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
