@@ -12,7 +12,7 @@ struct Mock {
 }
 
 let package = Package(
-    name: "RNConfigurationHighwaySetup",
+    name: "react-native-config",
     products: [
         
         // MARK: - Executable
