@@ -34,7 +34,7 @@ do {
         let relativePath = "../../../../"
         environmentJsonFilesFolder = try environmentJsonFilesFolder.subfolder(named: relativePath)
         signPost.message("⚠️ building from xcode detected, moving \(relativePath) up")
-        signPost.message("⚠️ .env.<#configuraion#>.json are expected to be in \n\(environmentJsonFilesFolder)")
+        signPost.message("ℹ️ .env.<#configuration#>.json are expected to be in \n\(environmentJsonFilesFolder)")
     }
     
     let rnConfigurationSrcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
@@ -53,7 +53,7 @@ do {
 
         try prepareCode.attempt()
         // enable and have a look at the file to make it work if you want.
-//        try highwayRunner.addGithooksPrePush()
+        try highwayRunner.addGithooksPrePush()
 
         highwayRunner.runSourcery(handleSourceryOutput)
         
