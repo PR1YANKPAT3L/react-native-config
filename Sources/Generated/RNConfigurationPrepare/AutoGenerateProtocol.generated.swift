@@ -22,4 +22,34 @@ import Foundation
 
 
 
+// type.annotations.AutoGenerateProtocol for Coder -> See code in the file of that type
+
+    // sourcery:inline:Coder.AutoGenerateProtocol
+    var disk: ConfigurationDisk { get }
+    var builds: Builds { get }
+    var signPost: SignPostProtocol { get }
+    static var rnConfigurationModelDefault_TOP: String { get }
+    static var rnConfigurationModelDefault_BOTTOM: String { get }
+    static var rnConfigurationModelFactoryProtocolDefault: String { get }
+    static var plistLinesXmlDefault: String { get }
+
+    func writeRNConfigurationBridge() throws 
+    func writeRNConfigurationModel() throws 
+    func writeRNConfigurationModelFactory() throws 
+    func writeRNConfigurationPlist() throws 
+    // sourcery:end
+// type.annotations.AutoGenerateProtocol for Coder end
+// type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge -> See code in the file of that type
+
+    // sourcery:inline:Coder.RNConfigurationBridge.AutoGenerateProtocol
+    var envLocal: [String] { get }
+    var envDebug: [String] { get }
+    var envRelease: [String] { get }
+    var envBetaRelease: [String] { get }
+    static var top: String { get }
+    var env: String { mutating get }
+    static var bottom: String { get }
+
+    // sourcery:end
+// type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge end
 */
