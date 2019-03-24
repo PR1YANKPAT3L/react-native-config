@@ -9,29 +9,33 @@ Run this before building
 
 ``` bash
  swift build --product RNConfigurationHighwaySetup -c release --static-swift-stdlib
-./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup
-npm install
+./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup -path $PATH noGithooksPrePush
 ```
+Run tests
+
+``` bash
+cd <#react native root folder#>
+# run test so you are sure all file changed to the expected value for the configuration you set next
+./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup -path $PATH noGithooksPrePush <#configuration#>
+swift test
+```
+more info about the misterious `<#configuration#> below.
 
 ## Basic Usage
 
-Create a new file `.env.debug.json` & `.env.release.json`in the root of your React Native app:
+Create a new file `.env.<#configuration#>.json` (release and debug are required) in the root of your React Native app:
 
 ```
 {
-"env":
-  {
-    "<#key#>":
-        {
-            "value": "https://<#your domain#>",
+    "typed": {
+        "url": {
+            "value": "https://debug",
             "valueType": "Url"
-        },
-    "<#second key#>":
-        {
-        "value": "<#string value#>",
-        "valueType": "String"
         }
-  }
+    },
+    "booleans": {
+        "exampleBool": true
+    }
 }
 ```
 
@@ -50,50 +54,52 @@ It's [basically impossible to prevent users from reverse engineering mobile app 
 
 // TODO: add secret keys in both android and iOS that are stored using git_secret and secure storage for both Android and iOS to solve issue above [github issue #1](https://github.com/doozMen/react-native-config/issues/1)
 
-## Setup
+## Integrate in React Native
 
 Install the package:
 
-add  dependency to package.json
-
-``` json
-"dependencies": {
-    "doozMen/react-native-config": "^1.0.0"
-    }
-```
+Unfortunatly I did not get anything to work with npm install package.json. Tips are welcome. The known workaround is
 
 ```
 cd <#project root#>
 npm install
+touch Cartfile
+# add github "Bolide/react-native-config" ~> <#version#> # anything up from 1.5 should work
+carthage update --
+
+# If you need to prepare more like the Expo staging and production environment you can use RNModels, RNConfiguration and RNConfigurationPrepare in a swift executable
+swift package init
+# add to Package.swift .package(url: "https://www.github.com/Bolides/react-native-config", "1.5.0" ..< "2.0.0")
+swift package update
+swift package generate-xcodeproj
+# the project step is optional and you do not need the xcode project so can ignore it in git if you want
 ```
+
+> Find info about Carhage on github `Carthage/Carthage`
 
 > ⚠️ Only works for project that use expokit and ejected the project
 
-Before building you should always run
-
-```bash 
-cd ${SRCROOT}/../
-# Build setup executable
-if [ ! -f ./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup ]; then
-echo "RNConfigurationHighwaySetup, not found - building for source"
-swift build --product RNConfigurationHighwaySetup -c release --static-swift-stdlib
-fi
-
-# Execute the script
-./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup environmentJsonFilesFolder <#folder containing env. files#>
-# Allow push on success
-```
 
 # iOS
 
 In xcode project
 
-1. Add project as a sub project and add product `ReactiveConfigSwift` to embed frameworks
+1. Add project as a sub project and add product `RNModels` & `RNConfiguarion` to embed frameworks
+2. Add `RNConfigurationBridge.a` static library link to project target
 2. Point framework search path to `$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)`
 3. Point header search path to `$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include` and set it to **recursive**
 4. Point library search path to `$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)`
-5. Add `ReactiveConfig` as a target dependency
-6. Link product `ReactiveConfig.a`
+
+Before you build you should run 
+
+```bash 
+# go to folder where env.<#configuration#>.json files are
+cd <#react native root folder#>
+./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup -path $PATH noGithooksPrePush <#configuration#>
+```
+**configuration** is the thing you use in xcode scheme to build. Make sure you run the script before building for the first time in that configuration.
+
+> ⚠️ For every configuration change or `env.<#configuration#>.json`  files change run script again for the changed <#configuration#>
 
 ### Extra step for Android
 
@@ -229,15 +235,16 @@ When Proguard is enabled (which it is by default for Android release builds), it
     
 `mypackage` should match the `package` value in your `app/src/main/AndroidManifest.xml` file.
 
-## Testing
+---
+---
 
-### Jest
+---
+# Background
+---
 
-For mocking the `Config.FOO_BAR` usage, create a mock at `__mocks__/react-native-config.js`:
+What does it do
 
-```
-// __mocks__/react-native-config.js
-export default {
-  FOO_BAR: 'baz',
-};
-```
+1. It reads the `env.<#configuration#>.json` files and creates config files for ios and android
+2. xconfig file used by `RNConfiguration.framework` and env.<#configuration#> files used by android
+2. Puts generated swift code in `RNConfiguration` framework in `RNConfigurationModel.swift` and `RNConfigurationModelFactory.swift`. These files get overriden so do not change them
+3. Puts c-code in `RNConfigurationBride` to be able to use the keys and values in Javascript
