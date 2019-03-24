@@ -211,6 +211,11 @@ open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol {
 
     public init() {}
 
+  public static var projectNameWithPrepareScript: String {
+      get { return underlyingProjectNameWithPrepareScript }
+      set(value) { underlyingProjectNameWithPrepareScript = value }
+  }
+  public static var underlyingProjectNameWithPrepareScript: String = "AutoMockable filled value"
   public  var environmentJsonFilesFolder: FolderProtocol {
       get { return underlyingEnvironmentJsonFilesFolder }
       set(value) { underlyingEnvironmentJsonFilesFolder = value }

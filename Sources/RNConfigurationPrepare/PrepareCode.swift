@@ -34,7 +34,7 @@ public struct PrepareCode {
         decoder: JSONDecoder = JSONDecoder(),
         terminal: TerminalProtocol = Terminal.shared,
         system: SystemProtocol = System.shared
-    ) throws {
+        ) throws {
         self.rnConfigurationSrcRoot = rnConfigurationSrcRoot
         self.environmentJsonFilesFolder = environmentJsonFilesFolder
         
@@ -48,63 +48,57 @@ public struct PrepareCode {
     }
     
     public func attempt() throws {
-        
         do {
-            signPost.message("🏗 generating react-native-config.xcodeproj ...")
-            let process = try self.system.process("swift")
-            process.currentDirectoryPath = rnConfigurationSrcRoot.path
-            process.arguments = ["package", "generate-xcodeproj"]
             
-            try terminal.runProcess(process)
-            signPost.message("🏗 generating react-native-config.xcodeproj ✅")
+            
+            
+            try disk.code.clearContentAllFiles()
+            
+            signPost.verbose("""
+                🚀 Env read from
+                \(disk.inputJSON.debug)
+                \(disk.inputJSON.release)
+                \(String(describing: disk.inputJSON.local))
+                \(String(describing: disk.inputJSON.betaRelease))
+                ...
+                """
+            )
+            
+            signPost.verbose("""
+                🚀 Written to config files
+                
+                # ios
+                
+                * \(disk.iOS.debug)
+                * \(disk.iOS.release)
+                * \(String(describing: disk.iOS.local))
+                * \(String(describing: disk.iOS.betaRelease))
+                
+                # android
+                
+                * \(disk.android.debug)
+                * \(disk.android.release)
+                * \(String(describing: disk.android.local))
+                * \(String(describing: disk.android.betaRelease))
+                
+                """
+            )
+            
+            signPost.message("🏗🧙‍♂️ Generating SWIFT code RNConfigurationModel.swift & RNConfigurationModelFactory.swift ...")
+            try coder.writeRNConfigurationModelFactory()
+            try coder.writeRNConfigurationModel()
+            signPost.message("🏗🧙‍♂️ Generating SWIFT code RNConfigurationModel.swift & RNConfigurationModelFactory.swift ✅")
+            
+            signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ...")
+            try coder.writeRNConfigurationPlist()
+            signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ...")
+            
+            signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ...")
+            try coder.writeRNConfigurationBridge()
+            signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ✅")
         } catch {
             throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
         }
         
-        try disk.code.clearContentAllFiles()
-        
-        signPost.verbose("""
-            🚀 Env read from
-            \(disk.inputJSON.debug)
-            \(disk.inputJSON.release)
-            \(String(describing: disk.inputJSON.local))
-            \(String(describing: disk.inputJSON.betaRelease))
-            ...
-            """
-        )
-        
-        signPost.verbose("""
-            🚀 Written to config files
-            
-            # ios
-            
-            * \(disk.iOS.debug)
-            * \(disk.iOS.release)
-            * \(String(describing: disk.iOS.local))
-            * \(String(describing: disk.iOS.betaRelease))
-            
-            # android
-            
-            * \(disk.android.debug)
-            * \(disk.android.release)
-            * \(String(describing: disk.android.local))
-            * \(String(describing: disk.android.betaRelease))
-            
-            """
-        )
-        
-        signPost.message("🏗🧙‍♂️ Generating SWIFT code")
-        
-        
-        try coder.writeRNConfigurationModelFactory()
-        try coder.writeRNConfigurationModel()
-        try coder.writeRNConfigurationPlist()
-        
-        signPost.message("🏗🧙‍♂️ Generating SWIFT code ✅")
-        
-        signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ...")
-        try coder.writeRNConfigurationBridge()
-        signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ✅")
-
     }
 }

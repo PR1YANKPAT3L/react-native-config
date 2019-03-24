@@ -10,10 +10,12 @@ import Foundation
 import SignPost
 import ZFile
 import Errors
+import Terminal
 
 // sourcery:AutoMockable
 public protocol ConfigurationDiskProtocol {
     // sourcery:inline:ConfigurationDisk.AutoGenerateProtocol
+    static var projectNameWithPrepareScript: String { get }
     var environmentJsonFilesFolder: FolderProtocol { get }
     var rnConfigurationSourcesFolder: FolderProtocol { get }
     var rnConfigurationBridgeSourcesFolder: FolderProtocol { get }
@@ -29,6 +31,8 @@ public protocol ConfigurationDiskProtocol {
 
 // sourcery:AutoGenerateProtocol
 public struct ConfigurationDisk {
+    
+    public static let projectNameWithPrepareScript: String = "react-native-config.xcodeproj"
     
     // MARK: - react-native-config : folders of this module
     
@@ -51,6 +55,8 @@ public struct ConfigurationDisk {
     // MARK: - Private
     
     private let signPost: SignPostProtocol
+    private let terminal: TerminalProtocol
+    private let system: SystemProtocol
     
     // MARK: - Init
     
@@ -58,8 +64,12 @@ public struct ConfigurationDisk {
         rnConfigurationSrcRoot: FolderProtocol,
         environmentJsonFilesFolder: FolderProtocol,
         fileSystem: FileSystemProtocol = FileSystem.shared,
-        signPost: SignPostProtocol = SignPost.shared
+        signPost: SignPostProtocol = SignPost.shared,
+        terminal: TerminalProtocol = Terminal.shared,
+        system: SystemProtocol = System.shared
     ) throws {
+        self.terminal = terminal
+        self.system = system
         
         do {
             self.signPost = signPost
@@ -123,12 +133,26 @@ public struct ConfigurationDisk {
                 betaRelease: betaReleaseAndroidConfigurationFile
             )
             
+            if !rnConfigurationSrcRoot.containsSubfolder(named: ConfigurationDisk.projectNameWithPrepareScript) {
+                do {
+                    signPost.message("🏗 generating react-native-config.xcodeproj ...")
+                    let process = try self.system.process("swift")
+                    process.currentDirectoryPath = rnConfigurationSrcRoot.path
+                    process.arguments = ["package", "generate-xcodeproj"]
+                    
+                    try terminal.runProcess(process)
+                    signPost.message("🏗 generating react-native-config.xcodeproj ✅")
+                } catch {
+                    throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
+                }
+            }
+            
             code = Output.Code(
-                rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModelFactory.swift"),
-                infoPlistRNConfiguration: try rnConfigurationSrcRoot.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist"),
-                infoPlistRNConfigurationTests: try rnConfigurationSrcRoot.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfigurationTests_Info.plist"),
-                rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift"),
-                rnConfigurationBridgeObjectiveCMFile: try rnConfigurationBridgeSourcesFolder.createFileIfNeeded(named: "ReactNativeConfig.m")
+                rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
+                infoPlistRNConfiguration: try rnConfigurationSrcRoot.file(named: "\(ConfigurationDisk.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
+                infoPlistRNConfigurationTests: try rnConfigurationSrcRoot.file(named: "\(ConfigurationDisk.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
+                rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModel.swift"),
+                rnConfigurationBridgeObjectiveCMFile: try rnConfigurationBridgeSourcesFolder.file(named: "ReactNativeConfig.m")
             )
             
         } catch {
