@@ -27,8 +27,11 @@ import RNModels
     /// Keys used in the plist of RNConfiguration module when building for the selected configuration (Debug or Release)
     public enum Case: String, CaseIterable {
         
-      case exampleBool
-      case url
+      case BE_BOLIDES_BASE_URL
+      case BE_BOLIDES_EXPO_RELEASE_CHANNEL
+      case BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL
+      case BE_BOLIDES_ITSME_SECURE_KEY
+      case ONESIGNAL_APP_ID
         
     }
     
