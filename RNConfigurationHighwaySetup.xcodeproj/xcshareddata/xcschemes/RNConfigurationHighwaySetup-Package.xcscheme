@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNModels"
-               BuildableName = "RNModels.framework"
-               BlueprintName = "RNModels"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationMock"
+               BuildableName = "RNConfigurationMock.framework"
+               BlueprintName = "RNConfigurationMock"
                ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationMock"
-               BuildableName = "RNConfigurationMock.framework"
-               BlueprintName = "RNConfigurationMock"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNModelsMock"
+               BuildableName = "RNModelsMock.framework"
+               BlueprintName = "RNModelsMock"
                ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -84,9 +84,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNModelsMock"
-               BuildableName = "RNModelsMock.framework"
-               BlueprintName = "RNModelsMock"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNModels"
+               BuildableName = "RNModels.framework"
+               BlueprintName = "RNModels"
                ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -116,9 +116,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationHighwaySetupTests"
-               BuildableName = "RNConfigurationHighwaySetupTests.xctest"
-               BlueprintName = "RNConfigurationHighwaySetupTests"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationTests"
+               BuildableName = "RNConfigurationTests.xctest"
+               BlueprintName = "RNConfigurationTests"
                ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -126,9 +126,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationTests"
-               BuildableName = "RNConfigurationTests.xctest"
-               BlueprintName = "RNConfigurationTests"
+               BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationHighwaySetupTests"
+               BuildableName = "RNConfigurationHighwaySetupTests.xctest"
+               BlueprintName = "RNConfigurationHighwaySetupTests"
                ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -149,9 +149,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "RNConfigurationHighwaySetup::RNModels"
-            BuildableName = "RNModels.framework"
-            BlueprintName = "RNModels"
+            BlueprintIdentifier = "RNConfigurationHighwaySetup::RNConfigurationMock"
+            BuildableName = "RNConfigurationMock.framework"
+            BlueprintName = "RNConfigurationMock"
             ReferencedContainer = "container:RNConfigurationHighwaySetup.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
