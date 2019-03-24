@@ -55,6 +55,7 @@ import Foundation
 // type.annotations.AutoGenerateProtocol for ConfigurationDisk -> See code in the file of that type
 
     // sourcery:inline:ConfigurationDisk.AutoGenerateProtocol
+    static var projectNameWithPrepareScript: String { get }
     var environmentJsonFilesFolder: FolderProtocol { get }
     var rnConfigurationSourcesFolder: FolderProtocol { get }
     var rnConfigurationBridgeSourcesFolder: FolderProtocol { get }
