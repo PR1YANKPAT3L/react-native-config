@@ -52,4 +52,19 @@ import Foundation
 
     // sourcery:end
 // type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge end
+// type.annotations.AutoGenerateProtocol for ConfigurationDisk -> See code in the file of that type
+
+    // sourcery:inline:ConfigurationDisk.AutoGenerateProtocol
+    var environmentJsonFilesFolder: FolderProtocol { get }
+    var rnConfigurationSourcesFolder: FolderProtocol { get }
+    var rnConfigurationBridgeSourcesFolder: FolderProtocol { get }
+    var inputJSON: ConfigurationDisk.Input { get }
+    var androidFolder: FolderProtocol { get }
+    var iosFolder: FolderProtocol { get }
+    var iOS: ConfigurationDisk.Output { get }
+    var android: ConfigurationDisk.Output { get }
+    var code: ConfigurationDisk.Output.Code { get }
+
+    // sourcery:end
+// type.annotations.AutoGenerateProtocol for ConfigurationDisk end
 */

@@ -1,7 +1,11 @@
+import Errors
 import Foundation
 import RNConfigurationPrepare
+import RNModels
 import SignPost
-import SourceryAutoProtocols
+import Terminal
+import XCBuild
+import ZFile
 
 
 // Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
@@ -197,6 +201,61 @@ open class CoderProtocolMock: CoderProtocol {
         try writeRNConfigurationPlistClosure?()
 
   }
+}
+
+
+// MARK: - ConfigurationDiskProtocolMock
+
+open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol {
+
+    public init() {}
+
+  public  var environmentJsonFilesFolder: FolderProtocol {
+      get { return underlyingEnvironmentJsonFilesFolder }
+      set(value) { underlyingEnvironmentJsonFilesFolder = value }
+  }
+  public  var underlyingEnvironmentJsonFilesFolder: FolderProtocol!
+  public  var rnConfigurationSourcesFolder: FolderProtocol {
+      get { return underlyingRnConfigurationSourcesFolder }
+      set(value) { underlyingRnConfigurationSourcesFolder = value }
+  }
+  public  var underlyingRnConfigurationSourcesFolder: FolderProtocol!
+  public  var rnConfigurationBridgeSourcesFolder: FolderProtocol {
+      get { return underlyingRnConfigurationBridgeSourcesFolder }
+      set(value) { underlyingRnConfigurationBridgeSourcesFolder = value }
+  }
+  public  var underlyingRnConfigurationBridgeSourcesFolder: FolderProtocol!
+  public  var inputJSON: ConfigurationDisk.Input {
+      get { return underlyingInputJSON }
+      set(value) { underlyingInputJSON = value }
+  }
+  public  var underlyingInputJSON: ConfigurationDisk.Input!
+  public  var androidFolder: FolderProtocol {
+      get { return underlyingAndroidFolder }
+      set(value) { underlyingAndroidFolder = value }
+  }
+  public  var underlyingAndroidFolder: FolderProtocol!
+  public  var iosFolder: FolderProtocol {
+      get { return underlyingIosFolder }
+      set(value) { underlyingIosFolder = value }
+  }
+  public  var underlyingIosFolder: FolderProtocol!
+  public  var iOS: ConfigurationDisk.Output {
+      get { return underlyingIOS }
+      set(value) { underlyingIOS = value }
+  }
+  public  var underlyingIOS: ConfigurationDisk.Output!
+  public  var android: ConfigurationDisk.Output {
+      get { return underlyingAndroid }
+      set(value) { underlyingAndroid = value }
+  }
+  public  var underlyingAndroid: ConfigurationDisk.Output!
+  public  var code: ConfigurationDisk.Output.Code {
+      get { return underlyingCode }
+      set(value) { underlyingCode = value }
+  }
+  public  var underlyingCode: ConfigurationDisk.Output.Code!
+
 }
 
 

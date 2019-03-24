@@ -104,20 +104,20 @@ extension Coder {
         #ifdef DEBUG
         #ifdef LOCAL
         return @{
-        \(self.envLocal.joined(separator: "\n"))
+        \(self.envLocal.joined(separator: ",\n"))
         };
         #else
         return @{
-        \(self.envDebug.joined(separator: "\n"))
+        \(self.envDebug.joined(separator: ",\n"))
         };
         #endif
         #elif RELEASE
         return @{
-        \(self.envRelease.joined(separator: "\n"))
+        \(self.envRelease.joined(separator: ",\n"))
         };
         #elif BETARELEASE
         return @{
-        \(self.envBetaRelease.joined(separator: "\n"))
+        \(self.envBetaRelease.joined(separator: ",\n"))
         };
         #else
         NSLog(@"⚠️ (react-native-config) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
@@ -142,7 +142,20 @@ extension Coder {
     
     public func writeRNConfigurationBridge() throws {
         
-    
+        var bridgeCode = RNConfigurationBridge(
+            envLocal: builds.bridgeEnv.local,
+            envDebug: builds.bridgeEnv.debug,
+            envRelease: builds.bridgeEnv.release,
+            envBetaRelease: builds.bridgeEnv.betaRelease,
+            env: nil
+        )
+        
+        try disk.code.rnConfigurationBridgeObjectiveCMFile.write(data: """
+            \(RNConfigurationBridge.top)
+            \(bridgeCode.env)
+            \(RNConfigurationBridge.bottom)
+            """.data(using: .utf8)!
+        )
         
     }
 }

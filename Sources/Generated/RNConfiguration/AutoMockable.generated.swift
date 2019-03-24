@@ -1,7 +1,6 @@
 import Foundation
 import RNConfiguration
-import SignPost
-import SourceryAutoProtocols
+import RNModels
 
 
 // Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
