@@ -1,5 +1,4 @@
 #import "ReactNativeConfig.h"
-#import <RNConfiguration/RNConfiguration-Swift.h>
 
 @implementation ReactNativeConfig
 
@@ -11,7 +10,10 @@ RCT_EXPORT_MODULE()
 }
 
 + (NSDictionary *)env {
-    return [RNConfigurationModelFactory allValuesDictionaryAndReturnError:nil];
+    // TODO add variables via script with debug flag
+    
+   // return [RNConfigurationModelFactory allValuesDictionaryAndReturnError:nil];
+    return nil;
 }
 
 + (NSString *)envFor: (NSString *)key {
@@ -20,7 +22,7 @@ RCT_EXPORT_MODULE()
 }
 
 - (NSDictionary *)constantsToExport {
-    return [RNConfigurationModelFactory allValuesDictionaryAndReturnError:nil];
+    return [ReactNativeConfig env];
 }
 
 @end

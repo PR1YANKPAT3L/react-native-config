@@ -248,3 +248,4 @@ What does it do
 2. xconfig file used by `RNConfiguration.framework` and env.<#configuration#> files used by android
 2. Puts generated swift code in `RNConfiguration` framework in `RNConfigurationModel.swift` and `RNConfigurationModelFactory.swift`. These files get overriden so do not change them
 3. Puts c-code in `RNConfigurationBride` to be able to use the keys and values in Javascript
+4. Uses the react native bridge imports of your project. So to be able to build it you need to integrate and build your react native project first so it find sthe `"RCTBridgeModule.h"`

@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDAA4BD022257CA90091F9C3"
-               BuildableName = "RNConfigurartionTests-iOS.xctest"
-               BlueprintName = "RNConfigurartionTests-iOS"
+               BlueprintIdentifier = "C04F63692247910700AED2F5"
+               BuildableName = "RNConfigurationBridgeTests-iOS.xctest"
+               BlueprintName = "RNConfigurationBridgeTests-iOS"
                ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDAA4BD022257CA90091F9C3"
-               BuildableName = "RNConfigurartionTests-iOS.xctest"
-               BlueprintName = "RNConfigurartionTests-iOS"
+               BlueprintIdentifier = "C04F63692247910700AED2F5"
+               BuildableName = "RNConfigurationBridgeTests-iOS.xctest"
+               BlueprintName = "RNConfigurationBridgeTests-iOS"
                ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
             </BuildableReference>
          </TestableReference>
