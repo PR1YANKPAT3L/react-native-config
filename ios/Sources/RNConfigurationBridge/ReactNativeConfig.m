@@ -13,20 +13,31 @@ RCT_EXPORT_MODULE()
 + (NSDictionary *)env {
 #ifdef DEBUG
 #ifdef LOCAL
-    return @{@"BE_BOLIDES_BASE_URL" : @"https://local.armada.bolides.be"};
+return @{
+    @"url" : @"https://debug",
+    @"exampleBool" : @YES
+};
 #else
-    return @{@"BE_BOLIDES_BASE_URL" : @"https://staging.armada.bolides.be"};
+return @{
+    @"url" : @"https://debug",
+    @"exampleBool" : @YES
+};
 #endif
 #elif RELEASE
-    return @{@"BE_BOLIDES_BASE_URL" : @"https://production.armada.bolides.be"};
+return @{
+    @"url" : @"https://debug",
+    @"exampleBool" : @YES
+};
 #elif BETARELEASE
-   return @{@"BE_BOLIDES_BASE_URL" : @"https://staging.armada.bolides.be"};
+return @{
+    @"url" : @"https://betaRelease",
+    @"exampleBool" : @YES
+};
 #else
-    NSLog(@"⚠️ (react-native-config) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
-    return nil;
+NSLog(@"⚠️ (react-native-config) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
+return nil;
 #endif
 }
-
 + (NSString *)envFor: (NSString *)key {
     NSString *value = (NSString *)[self.env objectForKey:key];
     return value;

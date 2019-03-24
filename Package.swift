@@ -3,6 +3,14 @@
 
 import PackageDescription
 
+struct Target {
+    static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = ["RNModels", "ZFile", "Terminal", "XCBuild", "SignPost", "Errors"]
+}
+
+struct Mock {
+    static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = Target.rnConfigurationPrepare + ["RNConfigurationPrepare"]
+}
+
 let package = Package(
     name: "RNConfigurationHighwaySetup",
     products: [
@@ -83,7 +91,7 @@ let package = Package(
         ),
         .target(
             name: "RNConfigurationPrepare",
-            dependencies: ["RNModels", "ZFile", "Terminal", "XCBuild", "SignPost", "Errors"]
+            dependencies: Target.rnConfigurationPrepare
         ),
         .target(
             name: "RNModels",
@@ -109,17 +117,17 @@ let package = Package(
         
         .target(
             name: "RNConfigurationPrepareMock",
-            dependencies: ["RNConfigurationPrepare", "SignPost", "SourceryAutoProtocols"],
+            dependencies: Mock.rnConfigurationPrepare,
             path: "Sources/Generated/RNConfigurationPrepare"
         ),
         .target(
             name: "RNModelsMock",
-            dependencies: ["RNModels", "SignPost", "SourceryAutoProtocols"],
+            dependencies: ["RNModels"],
             path: "Sources/Generated/RNModels"
         ),
         .target(
             name: "RNConfigurationMock",
-            dependencies: ["RNConfiguration", "SignPost", "SourceryAutoProtocols"],
+            dependencies: ["RNConfiguration", "RNModels"],
             path: "Sources/Generated/RNConfiguration"
         ),
         

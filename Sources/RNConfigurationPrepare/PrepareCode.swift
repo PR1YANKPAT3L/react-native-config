@@ -77,6 +77,10 @@ public struct PrepareCode {
         try coder.writeRNConfigurationPlist()
         
         signPost.message("🏗🧙‍♂️ Generating SWIFT code ✅")
+        
+        signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ...")
+        try coder.writeRNConfigurationBridge()
+        signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ✅")
 
     }
 }

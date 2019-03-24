@@ -14,7 +14,6 @@ public struct Builds {
     
     private typealias MappingKeys = [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]
 
-    
     public let input: Input
     
     public let casesForEnum: String
@@ -23,6 +22,14 @@ public struct Builds {
     public let configurationModelVarDescription: String
     public let plistLinesXmlText: String
     public let decoderInit: String
+    public let bridgeEnv: Builds.BridgeEnv
+    
+    public struct BridgeEnv {
+        public let local: [String]
+        public let debug: [String]
+        public let release: [String]
+        public let betaRelease: [String]
+    }
     
     // MARK: - INPUT
     
@@ -92,7 +99,7 @@ public struct Builds {
                 """,
                 decoderInit: "\(key) = try container.decode(\(swiftTypeString).self, forKey: .\(key))"
             )
-        } ?? [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]()
+            } ?? [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]()
         
         if let booleanKeys: MappingKeys = (debug.booleans?.enumerated().compactMap {
             let key = $0.element.key
@@ -150,6 +157,26 @@ public struct Builds {
             .map {"         \($0)"}
             .joined(separator: "\n")
         
+        bridgeEnv = BridgeEnv (
+            local: (input.local?.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.local?.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
+            debug: (input.debug.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.debug.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
+            release: (input.release.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.release.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
+            betaRelease: (input.betaRelease?.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.betaRelease?.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? [])
+        )
+        
+        
     }
     
+}
+
+extension Bool {
+    
+    func toObjectiveC() -> String {
+        switch self {
+        case true:
+            return "@YES"
+        case false:
+            return "@NO"
+        }
+    }
 }
