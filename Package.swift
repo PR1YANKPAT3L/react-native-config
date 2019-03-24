@@ -83,7 +83,7 @@ let package = Package(
         ),
         .target(
             name: "RNConfigurationPrepare",
-            dependencies: ["RNModels", "ZFile", "Terminal", "XCBuild", "SignPost"]
+            dependencies: ["RNModels", "ZFile", "Terminal", "XCBuild", "SignPost", "Errors"]
         ),
         .target(
             name: "RNModels",

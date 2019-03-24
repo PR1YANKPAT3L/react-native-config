@@ -9,6 +9,7 @@
 import Foundation
 import SignPost
 import ZFile
+import Errors
 
 public struct ConfigurationDisk {
     
@@ -105,72 +106,77 @@ public struct ConfigurationDisk {
     
     public init(rnConfigurationSrcRoot: FolderProtocol, environmentJsonFilesFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared) throws {
         
-        self.signPost = signPost
-                
-        var debugJSON: FileProtocol!
-        var releaseJSON: FileProtocol!
-        var localJSON: FileProtocol?
-        var betaReleaseJSON: FileProtocol?
-        
-        debugJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.debug.rawValue)
-        releaseJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.release.rawValue)
-        do { localJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.local.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationDisk.JSONFileName.local.rawValue) to have a local config. Ignoring for now") }
-        do { betaReleaseJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.betaRelease.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationDisk.JSONFileName.betaRelease.rawValue) to have a BetaRelease config. Ignoring for now") }
-        
-        rnConfigurationSourcesFolder = try rnConfigurationSrcRoot.subfolder(named: "Sources/RNConfiguration")
-        
-        self.inputJSON = Input(
-            debug: debugJSON,
-            release: releaseJSON,
-            local: localJSON,
-            betaRelease: betaReleaseJSON
-        )
-        
-        self.androidFolder = try rnConfigurationSrcRoot.subfolder(named: "android")
-        self.iosFolder = try rnConfigurationSrcRoot.subfolder(named: "ios")
-        self.environmentJsonFilesFolder = rnConfigurationSrcRoot
-        
-        var localXconfigFile: FileProtocol?
-        var localAndroidConfigurationFile: FileProtocol?
-        var betaReleaseXconfigFile: FileProtocol?
-        var betaReleaseAndroidConfigurationFile: FileProtocol?
-        
-        if localJSON != nil {
-            localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
-            localAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.local")
-        } else {
-            localXconfigFile = nil
-            localAndroidConfigurationFile = nil
+        do {
+            self.signPost = signPost
+            
+            var debugJSON: FileProtocol!
+            var releaseJSON: FileProtocol!
+            var localJSON: FileProtocol?
+            var betaReleaseJSON: FileProtocol?
+            
+            debugJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.debug.rawValue)
+            releaseJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.release.rawValue)
+            do { localJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.local.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationDisk.JSONFileName.local.rawValue) to have a local config. Ignoring for now") }
+            do { betaReleaseJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.betaRelease.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationDisk.JSONFileName.betaRelease.rawValue) to have a BetaRelease config. Ignoring for now") }
+            
+            rnConfigurationSourcesFolder = try rnConfigurationSrcRoot.subfolder(named: "Sources/RNConfiguration")
+            
+            self.inputJSON = Input(
+                debug: debugJSON,
+                release: releaseJSON,
+                local: localJSON,
+                betaRelease: betaReleaseJSON
+            )
+            
+            self.androidFolder = try rnConfigurationSrcRoot.subfolder(named: "android")
+            self.iosFolder = try rnConfigurationSrcRoot.subfolder(named: "ios")
+            self.environmentJsonFilesFolder = rnConfigurationSrcRoot
+            
+            var localXconfigFile: FileProtocol?
+            var localAndroidConfigurationFile: FileProtocol?
+            var betaReleaseXconfigFile: FileProtocol?
+            var betaReleaseAndroidConfigurationFile: FileProtocol?
+            
+            if localJSON != nil {
+                localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
+                localAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.local")
+            } else {
+                localXconfigFile = nil
+                localAndroidConfigurationFile = nil
+            }
+            
+            if betaReleaseJSON != nil {
+                betaReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
+                betaReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
+            } else {
+                betaReleaseXconfigFile = nil
+                betaReleaseAndroidConfigurationFile = nil
+            }
+            
+            iOS = Output(
+                debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
+                release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
+                local: localXconfigFile,
+                betaRelease: betaReleaseXconfigFile
+            )
+            
+            android = Output(
+                debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
+                release: try androidFolder.createFileIfNeeded(named: ".env.release"),
+                local: localAndroidConfigurationFile,
+                betaRelease: betaReleaseAndroidConfigurationFile
+            )
+            
+            code = Output.Code(
+                rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModelFactory.swift"),
+                infoPlistRNConfiguration: try rnConfigurationSrcRoot.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist"),
+                infoPlistRNConfigurationTests: try rnConfigurationSrcRoot.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfigurationTests_Info.plist"),
+                rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift")
+            )
+            
+        } catch {
+            throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
         }
-        
-        if betaReleaseJSON != nil {
-            betaReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
-            betaReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
-        } else {
-            betaReleaseXconfigFile = nil
-            betaReleaseAndroidConfigurationFile = nil
-        }
-        
-        iOS = Output(
-            debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
-            release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
-            local: localXconfigFile,
-            betaRelease: betaReleaseXconfigFile
-        )
-        
-        android = Output(
-            debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
-            release: try androidFolder.createFileIfNeeded(named: ".env.release"),
-            local: localAndroidConfigurationFile,
-            betaRelease: betaReleaseAndroidConfigurationFile
-        )
-        
-        code = Output.Code(
-            rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModelFactory.swift"),
-            infoPlistRNConfiguration: try rnConfigurationSrcRoot.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist"),
-            infoPlistRNConfigurationTests: try rnConfigurationSrcRoot.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfigurationTests_Info.plist"),
-            rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift")
-        )
         
     }
     

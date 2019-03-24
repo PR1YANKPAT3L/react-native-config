@@ -26,14 +26,15 @@ let dispatchGroup = DispatchGroup()
 
 do {
     
-    var environmentJsonFilesFolder: FolderProtocol = CommandLineArguments()?.environmentJsonFilesFolder ?? FileSystem.shared.currentFolder
+    var environmentJsonFilesFolder: FolderProtocol = FileSystem.shared.currentFolder
     
     if try environmentJsonFilesFolder.parentFolder().name == "Products" {
         // Case where we are building from xcode
         // .build/RNConfigurationHighwaySetup/Build/Products/Debug/env.debug.json
-        let relativePath = "../../../../../"
+        let relativePath = "../../../../"
         environmentJsonFilesFolder = try environmentJsonFilesFolder.subfolder(named: relativePath)
         signPost.message("⚠️ building from xcode detected, moving \(relativePath) up")
+        signPost.message("⚠️ .env.<#configuraion#>.json are expected to be in \n\(environmentJsonFilesFolder)")
     }
     
     let rnConfigurationSrcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
