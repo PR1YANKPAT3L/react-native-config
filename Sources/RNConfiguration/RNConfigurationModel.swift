@@ -5,24 +5,21 @@
     public struct RNConfigurationModel: Codable, CustomStringConvertible {
 
 
-    // MARK: - Custom plist properties are added here
+// MARK: - Custom plist properties are added here
 
-    public let BE_BOLIDES_BASE_URL: URLEscaped
-    public let BE_BOLIDES_EXPO_RELEASE_CHANNEL: String
-    public let BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL: URLEscaped
-    public let BE_BOLIDES_ITSME_SECURE_KEY: String
-    public let ONESIGNAL_APP_ID: String
+    public let exampleBool: Bool
+    public let url: URLEscaped
 
-    public init(from decoder: Decoder) throws {
+public init(from decoder: Decoder) throws {
 
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+let container = try decoder.container(keyedBy: CodingKeys.self)
 
-         BE_BOLIDES_BASE_URL = try container.decode(URLEscaped.self, forKey: .BE_BOLIDES_BASE_URL)
-         BE_BOLIDES_EXPO_RELEASE_CHANNEL = try container.decode(String.self, forKey: .BE_BOLIDES_EXPO_RELEASE_CHANNEL)
-         BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL = try container.decode(URLEscaped.self, forKey: .BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL)
-         BE_BOLIDES_ITSME_SECURE_KEY = try container.decode(String.self, forKey: .BE_BOLIDES_ITSME_SECURE_KEY)
-         ONESIGNAL_APP_ID = try container.decode(String.self, forKey: .ONESIGNAL_APP_ID)
-    }
+         
+        guard let exampleBool = Bool(try container.decode(String.self, forKey: .exampleBool)) else { throw Error.invalidBool(forKey: "exampleBool")}
+
+        self.exampleBool = exampleBool
+         url = try container.decode(URLEscaped.self, forKey: .url)
+}
      
     public static func create(from json: JSON) throws -> RNConfigurationModel {
             let typed = json.typed ?? [String: JSONEntry]()
@@ -53,17 +50,14 @@
         case invalidBool(forKey: String)
     }
 
-    public var description: String {
-        return """
-        Configuration.swift read from Info.plist of RNConfiguration framework
+public var description: String {
+return """
+Configuration.swift read from Info.plist of RNConfiguration framework
 
-        // Custom environment dependend constants from .env.<CONFIGURATION>.json
+// Custom environment dependend constants from .env.<CONFIGURATION>.json
 
-                    * BE_BOLIDES_BASE_URL: \(BE_BOLIDES_BASE_URL)
-            * BE_BOLIDES_EXPO_RELEASE_CHANNEL: \(BE_BOLIDES_EXPO_RELEASE_CHANNEL)
-            * BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL: \(BE_BOLIDES_EXPO_RELEASE_MANIFEST_URL)
-            * BE_BOLIDES_ITSME_SECURE_KEY: \(BE_BOLIDES_ITSME_SECURE_KEY)
-            * ONESIGNAL_APP_ID: \(ONESIGNAL_APP_ID)
-        """
-    }
+            * exampleBool: \(exampleBool)
+            * url: \(url)
+"""
+}
 }
