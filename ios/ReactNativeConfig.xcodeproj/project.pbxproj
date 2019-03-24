@@ -191,7 +191,6 @@
 		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDB74B1622291E8F000B068C /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74B1822291E8F000B068C /* RNModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNModels.h; path = ../../ios/Sources/RNModels/RNModels.h; sourceTree = "<group>"; };
-		FDB74B1922291E8F000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../ios/Sources/RNModels/Info.plist; sourceTree = "<group>"; };
 		FDB74B37222933E0000B068C /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -360,7 +359,6 @@
 			isa = PBXGroup;
 			children = (
 				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
-				FDB74B1922291E8F000B068C /* Info.plist */,
 				FDECFC47221B530E00EA1E33 /* JSON.swift */,
 				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
 				FDB74B1822291E8F000B068C /* RNModels.h */,
@@ -1107,7 +1105,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1140,7 +1138,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1171,7 +1169,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1202,7 +1200,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1234,7 +1232,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1270,7 +1268,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1304,7 +1302,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1338,7 +1336,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1382,7 +1380,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1426,7 +1424,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1464,7 +1462,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1504,7 +1502,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1538,7 +1536,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1681,7 +1679,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1722,7 +1720,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1763,7 +1761,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1798,7 +1796,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1833,7 +1831,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNModels_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1865,7 +1863,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1900,7 +1898,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1933,7 +1931,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1966,7 +1964,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -2105,7 +2103,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -2139,7 +2137,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = ../RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;

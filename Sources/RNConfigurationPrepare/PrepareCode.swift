@@ -9,6 +9,8 @@
 import Foundation
 import ZFile
 import SignPost
+import Terminal
+import Errors
 
 public struct PrepareCode {
     
@@ -22,8 +24,17 @@ public struct PrepareCode {
     // MARK: - Private
     
     private let signPost: SignPostProtocol
-
-    public init(rnConfigurationSrcRoot: FolderProtocol, environmentJsonFilesFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared, decoder: JSONDecoder = JSONDecoder()) throws {
+    private let terminal: TerminalProtocol
+    private let system: SystemProtocol
+    
+    public init(
+        rnConfigurationSrcRoot: FolderProtocol,
+        environmentJsonFilesFolder: FolderProtocol,
+        signPost: SignPostProtocol = SignPost.shared,
+        decoder: JSONDecoder = JSONDecoder(),
+        terminal: TerminalProtocol = Terminal.shared,
+        system: SystemProtocol = System.shared
+    ) throws {
         self.rnConfigurationSrcRoot = rnConfigurationSrcRoot
         self.environmentJsonFilesFolder = environmentJsonFilesFolder
         
@@ -32,10 +43,23 @@ public struct PrepareCode {
         disk = try ConfigurationDisk(rnConfigurationSrcRoot: rnConfigurationSrcRoot, environmentJsonFilesFolder: environmentJsonFilesFolder, signPost: signPost)
         builds = try Builds(from: disk, decoder: decoder)
         coder = Coder(disk: disk, builds: builds, signPost: signPost)
-
+        self.terminal = terminal
+        self.system = system
     }
     
     public func attempt() throws {
+        
+        do {
+            signPost.message("🏗 generating react-native-config.xcodeproj ...")
+            let process = try self.system.process("swift")
+            process.currentDirectoryPath = rnConfigurationSrcRoot.path
+            process.arguments = ["package", "generate-xcodeproj"]
+            
+            try terminal.runProcess(process)
+            signPost.message("🏗 generating react-native-config.xcodeproj ✅")
+        } catch {
+            throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
+        }
         
         try disk.code.clearContentAllFiles()
         
