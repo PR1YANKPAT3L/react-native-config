@@ -91,7 +91,7 @@ public struct PrepareCode {
             
             signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ...")
             try coder.writeRNConfigurationPlist()
-            signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ...")
+            signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ✅")
             
             signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ...")
             try coder.writeRNConfigurationBridge()
