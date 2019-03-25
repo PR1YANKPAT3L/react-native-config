@@ -1,0 +1,38 @@
+---
+format_version: '7'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: macos
+trigger_map:
+- push_branch: "*"
+  workflow: PR
+- pull_request_source_branch: "*"
+  workflow: PR
+workflows:
+  PR:
+    steps:
+    - activate-ssh-key@4.0.3:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@4.0.14: {}
+    - cache-pull@2.0.1: {}
+    - script@1.1.5:
+        title: "\U0001F680 Highway Setup"
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\n# Build setup executable\nif [ ! -f ./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup
+            ]; then\n    echo \"\U0001F680 RNConfigurationHighwaySetup, not found
+            - building ...\"\n    swift build --product RNConfigurationHighwaySetup
+            -c release --static-swift-stdlib\n    echo \"\U0001F680 RNConfigurationHighwaySetup,
+            not found - building ✅\"\nfi\n\n# Start HighwaySetup\n./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup
+            -path $PATH Debug"
+    - cache-push@2.0.5: {}
+app:
+  envs:
+  - opts:
+      is_expand: false
+    BITRISE_PROJECT_PATH: RNConfigurationHighwaySetup
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: RNConfigurationHighwaySetup
+  - opts:
+      is_expand: false
+    BITRISE_EXPORT_METHOD: app-store

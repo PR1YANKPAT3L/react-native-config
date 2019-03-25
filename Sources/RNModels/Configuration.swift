@@ -13,4 +13,15 @@ public enum Configuration: String, CaseIterable {
     case Debug
     case Release
     case BetaRelease
+    
+    public func fileName() -> String{
+        return self.rawValue.lowerCaseFirstLetter()
+    }
+}
+
+extension String {
+    func lowerCaseFirstLetter() -> String {
+         return prefix(1).lowercased() + self.dropFirst()
+    }
+    
 }

@@ -106,7 +106,16 @@ let package = Package(
         
         .testTarget(
             name: "RNConfigurationHighwaySetupTests",
-            dependencies: ["RNConfigurationHighwaySetup", "Quick", "Nimble", "SignPostMock", "ZFileMock"]
+            dependencies: ["RNConfigurationHighwaySetup",
+                           "Quick",
+                           "Nimble",
+                           "SignPostMock",
+                           "ZFileMock",
+                           "RNModels",
+                           "Arguments",
+                           "ZFile",
+                           "Errors"
+            ]
         ),
         .testTarget(
             name: "RNConfigurationTests",
