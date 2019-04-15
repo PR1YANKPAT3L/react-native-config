@@ -14,31 +14,58 @@ import Foundation
 //: - of the above it does not add it if  // sourcery:skipProtocol
 //: ---
 
+// version 5.5
 /*
 
 
 
 
-// Generated protocol inline for  -> See code in the file of that type
 
-// Generated protocol inline for  -> See code in the file of that type
 
-// Generated protocol inline for  -> See code in the file of that type
+// type.annotations.AutoGenerateProtocol for Coder -> See code in the file of that type
 
-// Generated protocol inline for  -> See code in the file of that type
+    // sourcery:inline:Coder.AutoGenerateProtocol
+    var disk: ConfigurationDisk { get }
+    var builds: Builds { get }
+    var signPost: SignPostProtocol { get }
+    static var rnConfigurationModelDefault_TOP: String { get }
+    static var rnConfigurationModelDefault_BOTTOM: String { get }
+    static var rnConfigurationModelFactoryProtocolDefault: String { get }
+    static var plistLinesXmlDefault: String { get }
 
-// Generated protocol inline for  -> See code in the file of that type
+    func writeRNConfigurationBridge() throws 
+    func writeRNConfigurationModel() throws 
+    func writeRNConfigurationModelFactory() throws 
+    func writeRNConfigurationPlist() throws 
+    // sourcery:end
+// type.annotations.AutoGenerateProtocol for Coder end
+// type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge -> See code in the file of that type
 
-// Generated protocol inline for  -> See code in the file of that type
+    // sourcery:inline:Coder.RNConfigurationBridge.AutoGenerateProtocol
+    var envLocal: [String] { get }
+    var envDebug: [String] { get }
+    var envRelease: [String] { get }
+    var envBetaRelease: [String] { get }
+    static var top: String { get }
+    var env: String { mutating get }
+    static var bottom: String { get }
 
-// Generated protocol inline for  -> See code in the file of that type
+    // sourcery:end
+// type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge end
+// type.annotations.AutoGenerateProtocol for ConfigurationDisk -> See code in the file of that type
 
-// Generated protocol inline for  -> See code in the file of that type
+    // sourcery:inline:ConfigurationDisk.AutoGenerateProtocol
+    static var projectNameWithPrepareScript: String { get }
+    var environmentJsonFilesFolder: FolderProtocol { get }
+    var rnConfigurationSourcesFolder: FolderProtocol { get }
+    var rnConfigurationBridgeSourcesFolder: FolderProtocol { get }
+    var inputJSON: ConfigurationDisk.Input { get }
+    var androidFolder: FolderProtocol { get }
+    var iosFolder: FolderProtocol { get }
+    var iOS: ConfigurationDisk.Output { get }
+    var android: ConfigurationDisk.Output { get }
+    var code: ConfigurationDisk.Output.Code { get }
 
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
-// Generated protocol inline for  -> See code in the file of that type
-
+    // sourcery:end
+// type.annotations.AutoGenerateProtocol for ConfigurationDisk end
 */

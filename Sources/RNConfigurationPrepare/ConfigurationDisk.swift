@@ -9,26 +9,164 @@
 import Foundation
 import SignPost
 import ZFile
+import Errors
+import Terminal
 
+// sourcery:AutoMockable
+public protocol ConfigurationDiskProtocol {
+    // sourcery:inline:ConfigurationDisk.AutoGenerateProtocol
+    static var projectNameWithPrepareScript: String { get }
+    var environmentJsonFilesFolder: FolderProtocol { get }
+    var rnConfigurationSourcesFolder: FolderProtocol { get }
+    var rnConfigurationBridgeSourcesFolder: FolderProtocol { get }
+    var inputJSON: ConfigurationDisk.Input { get }
+    var androidFolder: FolderProtocol { get }
+    var iosFolder: FolderProtocol { get }
+    var iOS: ConfigurationDisk.Output { get }
+    var android: ConfigurationDisk.Output { get }
+    var code: ConfigurationDisk.Output.Code { get }
+   
+    // sourcery:end
+}
+
+// sourcery:AutoGenerateProtocol
 public struct ConfigurationDisk {
     
-    // MARK: - Variables
+    public static let projectNameWithPrepareScript: String = "react-native-config.xcodeproj"
     
-    public let inputJSON: Input
-    public let reactNativeFolder: FolderProtocol
+    // MARK: - react-native-config : folders of this module
+    
+    public let environmentJsonFilesFolder: FolderProtocol
     public let rnConfigurationSourcesFolder: FolderProtocol
+    public let rnConfigurationBridgeSourcesFolder: FolderProtocol
+    
+    // MARK: - destination project
+    
+    public let inputJSON: ConfigurationDisk.Input
+    
     public let androidFolder: FolderProtocol
     public let iosFolder: FolderProtocol
     
-    public let iOS: Output
-    public let android: Output
+    public let iOS: ConfigurationDisk.Output
+    public let android: ConfigurationDisk.Output
     
-    public let code: Output.Code
+    public let code: ConfigurationDisk.Output.Code
     
-    public let signPost: SignPostProtocol
+    // MARK: - Private
     
-    // MARK: - Enum
+    private let signPost: SignPostProtocol
+    private let terminal: TerminalProtocol
+    private let system: SystemProtocol
+    
+    // MARK: - Init
+    
+    public init(
+        rnConfigurationSrcRoot: FolderProtocol,
+        environmentJsonFilesFolder: FolderProtocol,
+        fileSystem: FileSystemProtocol = FileSystem.shared,
+        signPost: SignPostProtocol = SignPost.shared,
+        terminal: TerminalProtocol = Terminal.shared,
+        system: SystemProtocol = System.shared
+    ) throws {
+        self.terminal = terminal
+        self.system = system
+        
+        do {
+            self.signPost = signPost
+            
+            var debugJSON: FileProtocol!
+            var releaseJSON: FileProtocol!
+            var localJSON: FileProtocol?
+            var betaReleaseJSON: FileProtocol?
+            
+            debugJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.debug.rawValue)
+            releaseJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.release.rawValue)
+            do { localJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.local.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationDisk.JSONFileName.local.rawValue) to have a local config. Ignoring for now") }
+            do { betaReleaseJSON = try environmentJsonFilesFolder.file(named: ConfigurationDisk.JSONFileName.betaRelease.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationDisk.JSONFileName.betaRelease.rawValue) to have a BetaRelease config. Ignoring for now") }
+            
+            rnConfigurationSourcesFolder = try rnConfigurationSrcRoot.subfolder(named: "Sources/RNConfiguration")
+            rnConfigurationBridgeSourcesFolder = try rnConfigurationSrcRoot.subfolder(named: "ios/Sources/RNConfigurationBridge")
+            
+            self.inputJSON = Input(
+                debug: debugJSON,
+                release: releaseJSON,
+                local: localJSON,
+                betaRelease: betaReleaseJSON
+            )
+            
+            self.androidFolder = try rnConfigurationSrcRoot.subfolder(named: "android")
+            self.iosFolder = try rnConfigurationSrcRoot.subfolder(named: "ios")
+            self.environmentJsonFilesFolder = rnConfigurationSrcRoot
+            
+            var localXconfigFile: FileProtocol?
+            var localAndroidConfigurationFile: FileProtocol?
+            var betaReleaseXconfigFile: FileProtocol?
+            var betaReleaseAndroidConfigurationFile: FileProtocol?
+            
+            if localJSON != nil {
+                localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
+                localAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.local")
+            } else {
+                localXconfigFile = nil
+                localAndroidConfigurationFile = nil
+            }
+            
+            if betaReleaseJSON != nil {
+                betaReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
+                betaReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
+            } else {
+                betaReleaseXconfigFile = nil
+                betaReleaseAndroidConfigurationFile = nil
+            }
+            
+            iOS = Output(
+                debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
+                release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
+                local: localXconfigFile,
+                betaRelease: betaReleaseXconfigFile
+            )
+            
+            android = Output(
+                debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
+                release: try androidFolder.createFileIfNeeded(named: ".env.release"),
+                local: localAndroidConfigurationFile,
+                betaRelease: betaReleaseAndroidConfigurationFile
+            )
+            
+            if !rnConfigurationSrcRoot.containsSubfolder(named: ConfigurationDisk.projectNameWithPrepareScript) {
+                do {
+                    signPost.message("🏗 generating react-native-config.xcodeproj ...")
+                    let process = try self.system.process("swift")
+                    process.currentDirectoryPath = rnConfigurationSrcRoot.path
+                    process.arguments = ["package", "generate-xcodeproj"]
+                    
+                    try terminal.runProcess(process)
+                    signPost.message("🏗 generating react-native-config.xcodeproj ✅")
+                } catch {
+                    throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
+                }
+            }
+            
+            code = Output.Code(
+                rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
+                infoPlistRNConfiguration: try rnConfigurationSrcRoot.file(named: "\(ConfigurationDisk.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
+                infoPlistRNConfigurationTests: try rnConfigurationSrcRoot.file(named: "\(ConfigurationDisk.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
+                rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModel.swift"),
+                rnConfigurationBridgeObjectiveCMFile: try rnConfigurationBridgeSourcesFolder.file(named: "ReactNativeConfig.m")
+            )
+            
+        } catch {
+            throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
+        }
+        
+    }
+    
+}
 
+// MARK: - Inclosed  Enum & structs
+
+extension ConfigurationDisk {
+    
     public enum JSONFileName: String, CaseIterable {
         case debug = "env.debug.json"
         case release = "env.release.json"
@@ -36,8 +174,6 @@ public struct ConfigurationDisk {
         case betaRelease = "env.betaRelease.json"
     }
     
-    // MARK: - Structs
-
     public struct Input {
         public let debug: FileProtocol
         public let release: FileProtocol
@@ -56,6 +192,7 @@ public struct ConfigurationDisk {
             public let infoPlistRNConfiguration: FileProtocol
             public let infoPlistRNConfigurationTests: FileProtocol
             public let rnConfigurationModelSwiftFile: FileProtocol
+            public let rnConfigurationBridgeObjectiveCMFile: FileProtocol
             
             public func clearContentAllFiles() throws {
                 try rnConfigurationModelFactorySwiftFile.write(string: """
@@ -99,91 +236,6 @@ public struct ConfigurationDisk {
                 """)
             }
         }
-    }
-    
-    // MARK: - Init
-    
-    public init(reactNativeFolder: FolderProtocol, signPost: SignPostProtocol = SignPost.shared, currentFolder: FolderProtocol = FileSystem.shared.currentFolder) throws {
-        
-        self.signPost = signPost
-                
-        var debugJSON: FileProtocol!
-        var releaseJSON: FileProtocol!
-        var localJSON: FileProtocol?
-        var betaReleaseJSON: FileProtocol?
-        
-        var androidFolder: FolderProtocol!
-        var iosFolder: FolderProtocol!
-        
-        debugJSON = try reactNativeFolder.file(named: ConfigurationDisk.JSONFileName.debug.rawValue)
-        releaseJSON = try reactNativeFolder.file(named: ConfigurationDisk.JSONFileName.release.rawValue)
-        do { localJSON = try reactNativeFolder.file(named: ConfigurationDisk.JSONFileName.local.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationDisk.JSONFileName.local.rawValue) to have a local config. Ignoring for now") }
-        do { betaReleaseJSON = try reactNativeFolder.file(named: ConfigurationDisk.JSONFileName.betaRelease.rawValue) } catch { signPost.message("💁🏻‍♂️ If you would like you can add \(ConfigurationDisk.JSONFileName.betaRelease.rawValue) to have a BetaRelease config. Ignoring for now") }
-
-        do {
-            iosFolder = try reactNativeFolder.subfolder(named: "/Carthage/Checkouts/react-native-config/ios")
-        } catch {
-            signPost.message("PREPARE CONFIGURATION run in its own project space")
-            iosFolder = try reactNativeFolder.subfolder(named: "/ios")
-        }
-        
-        androidFolder = try reactNativeFolder.subfolder(named: "android")
-        
-        rnConfigurationSourcesFolder = try reactNativeFolder.subfolder(named: "Sources/RNConfiguration")
-        
-        self.inputJSON = Input(
-            debug: debugJSON,
-            release: releaseJSON,
-            local: localJSON,
-            betaRelease: betaReleaseJSON
-        )
-        
-        self.androidFolder = androidFolder
-        self.iosFolder = iosFolder
-        self.reactNativeFolder = reactNativeFolder
-        
-        var localXconfigFile: FileProtocol?
-        var localAndroidConfigurationFile: FileProtocol?
-        var betaReleaseXconfigFile: FileProtocol?
-        var betaReleaseAndroidConfigurationFile: FileProtocol?
-        
-        if localJSON != nil {
-            localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
-            localAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.local")
-        } else {
-            localXconfigFile = nil
-            localAndroidConfigurationFile = nil
-        }
-        
-        if betaReleaseJSON != nil {
-            betaReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
-            betaReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
-        } else {
-            betaReleaseXconfigFile = nil
-            betaReleaseAndroidConfigurationFile = nil
-        }
-        
-        iOS = Output(
-            debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
-            release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
-            local: localXconfigFile,
-            betaRelease: betaReleaseXconfigFile
-        )
-        
-        android = Output(
-            debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
-            release: try androidFolder.createFileIfNeeded(named: ".env.release"),
-            local: localAndroidConfigurationFile,
-            betaRelease: betaReleaseAndroidConfigurationFile
-        )
-        
-        code = Output.Code(
-            rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModelFactory.swift"),
-            infoPlistRNConfiguration: try reactNativeFolder.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist"),
-            infoPlistRNConfigurationTests: try reactNativeFolder.createFileIfNeeded(named: "RNConfigurationHighwaySetup.xcodeproj/RNConfigurationTests_Info.plist"),
-            rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift")
-        )
         
     }
-    
 }

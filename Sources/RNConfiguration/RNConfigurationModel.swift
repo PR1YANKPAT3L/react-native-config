@@ -5,21 +5,21 @@
     public struct RNConfigurationModel: Codable, CustomStringConvertible {
 
 
-    // MARK: - Custom plist properties are added here
+// MARK: - Custom plist properties are added here
 
     public let exampleBool: Bool
     public let url: URLEscaped
 
-    public init(from decoder: Decoder) throws {
+public init(from decoder: Decoder) throws {
 
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+let container = try decoder.container(keyedBy: CodingKeys.self)
 
          
         guard let exampleBool = Bool(try container.decode(String.self, forKey: .exampleBool)) else { throw Error.invalidBool(forKey: "exampleBool")}
 
         self.exampleBool = exampleBool
          url = try container.decode(URLEscaped.self, forKey: .url)
-    }
+}
      
     public static func create(from json: JSON) throws -> RNConfigurationModel {
             let typed = json.typed ?? [String: JSONEntry]()
@@ -50,14 +50,14 @@
         case invalidBool(forKey: String)
     }
 
-    public var description: String {
-        return """
-        Configuration.swift read from Info.plist of RNConfiguration framework
+public var description: String {
+return """
+Configuration.swift read from Info.plist of RNConfiguration framework
 
-        // Custom environment dependend constants from .env.<CONFIGURATION>.json
+// Custom environment dependend constants from .env.<CONFIGURATION>.json
 
-                    * exampleBool: \(exampleBool)
+            * exampleBool: \(exampleBool)
             * url: \(url)
-        """
-    }
+"""
+}
 }

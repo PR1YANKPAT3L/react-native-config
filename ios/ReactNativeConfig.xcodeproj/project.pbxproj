@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		3DF7F6B6203AA0C200D0EAB7 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
 		3DF7F6B7203AA0D600D0EAB7 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
-		C04D507D2240145A005BECCD /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0169ECB2246E670007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ECD2246E68B007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ECF2246E6A5007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ED12246E6BB007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
+		C0169ED42246E6DB007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
+		C0169ED62246E6F4007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
+		C04F636D2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */; };
+		C04F636F2247910700AED2F5 /* libRNConfigurationBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */; };
 		EB2648E31C7BE17A00B8F155 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
-		FD16745B2229B36B00A67996 /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD16745F2229B3E700A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; };
 		FD1674622229B3FC00A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B1622291E8F000B068C /* RNModels.framework */; };
 		FD1674662229B4A800A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
@@ -22,29 +28,28 @@
 		FD16748A2229B63500A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FD16748B2229B63500A67996 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FD16748C2229B63500A67996 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
-		FD16748D2229B63500A67996 /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD16748E2229B63500A67996 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD1674912229B66100A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674802229B5A700A67996 /* RNModels.framework */; };
-		FD4867CF2201BA850092A63E /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
-		FD4867D02201BA960092A63E /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
 		FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
-		FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD55CC8A2200B4270044D1A7 /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
 		FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FDB74B1A22291E8F000B068C /* RNModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDB74B2422291EA3000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FDB74B2522291EA6000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
 		FDB74B2622291EA9000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
-		FDB74B3122293318000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FDB74B4722293418000B068C /* RNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C04F63702247910700AED2F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB2648DE1C7BE17A00B8F155;
+			remoteInfo = "RNConfigurationBridge-iOS";
+		};
 		FD16745D2229B3DE00A67996 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
@@ -66,20 +71,6 @@
 			remoteGlobalIDString = FD16747F2229B5A700A67996;
 			remoteInfo = "RNModels-tvOS";
 		};
-		FDB74B2F2229313A000B068C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD55CC852200B4270044D1A7;
-			remoteInfo = "RNConfiguration-iOS";
-		};
-		FDB74B48222934E0000B068C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FDB74B36222933E0000B068C;
-			remoteInfo = "RNConfiguration-tvOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +81,66 @@
 			dstSubfolderSpec = 16;
 			files = (
 				3DF7F6B7203AA0D600D0EAB7 /* ReactNativeConfig.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECA2246E65F007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECB2246E670007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECC2246E678007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECD2246E68B007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECE2246E698007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECF2246E6A5007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED02246E6B0007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED12246E6BB007679CF /* RNModels.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED32246E6CF007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED42246E6DB007679CF /* RNModels.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED52246E6EA007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED62246E6F4007679CF /* RNModels.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +158,9 @@
 
 /* Begin PBXFileReference section */
 		3DF7F6AC203AA09B00D0EAB7 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurationBridgeTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNConfigurationBridgeTests_iOS.m; sourceTree = "<group>"; };
+		C04F636E2247910700AED2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig.h; sourceTree = "<group>"; };
 		EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeConfig.m; sourceTree = "<group>"; };
@@ -137,7 +191,6 @@
 		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		FDB74B1622291E8F000B068C /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB74B1822291E8F000B068C /* RNModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNModels.h; path = ../../ios/Sources/RNModels/RNModels.h; sourceTree = "<group>"; };
-		FDB74B1922291E8F000B068C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../ios/Sources/RNModels/Info.plist; sourceTree = "<group>"; };
 		FDB74B37222933E0000B068C /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,7 +202,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4867CF2201BA850092A63E /* RNConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C04F63672247910700AED2F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C04F636F2247910700AED2F5 /* libRNConfigurationBridge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +217,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4867D02201BA960092A63E /* RNConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +268,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C04F636B2247910700AED2F5 /* RNConfigurationBridgeTests-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */,
+				C04F636E2247910700AED2F5 /* Info.plist */,
+			);
+			path = "RNConfigurationBridgeTests-iOS";
+			sourceTree = "<group>";
+		};
 		EB2648D61C7BE17A00B8F155 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +285,7 @@
 				FD4867C92201B6D10092A63E /* Release.xcconfig */,
 				FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */,
 				FDB74B2C2229276B000B068C /* Sources */,
+				C04F636B2247910700AED2F5 /* RNConfigurationBridgeTests-iOS */,
 				EB2648E01C7BE17A00B8F155 /* Products */,
 				FD55CC902200B4460044D1A7 /* Frameworks */,
 			);
@@ -233,6 +302,7 @@
 				FDB74B37222933E0000B068C /* RNConfiguration.framework */,
 				FD1674202229B2C300A67996 /* RNModels.framework */,
 				FD1674802229B5A700A67996 /* RNModels.framework */,
+				C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -289,7 +359,6 @@
 			isa = PBXGroup;
 			children = (
 				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
-				FDB74B1922291E8F000B068C /* Info.plist */,
 				FDECFC47221B530E00EA1E33 /* JSON.swift */,
 				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
 				FDB74B1822291E8F000B068C /* RNModels.h */,
@@ -311,106 +380,54 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		C04D507C22401455005BECCD /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C04D507D2240145A005BECCD /* ReactNativeConfig.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD16741B2229B2C300A67996 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD16745B2229B36B00A67996 /* RNModels.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD16747B2229B5A700A67996 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD16748D2229B63500A67996 /* RNModels.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD55CB9622009A750044D1A7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD55CB9722009A800044D1A7 /* ReactNativeConfig.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD55CC812200B4270044D1A7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD55CC8A2200B4270044D1A7 /* RNConfiguration.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD7F1D1D2215D390009A4F34 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDB74B3122293318000B068C /* RNConfiguration.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDB74B1122291E8F000B068C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDB74B1A22291E8F000B068C /* RNModels.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDB74B32222933E0000B068C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDB74B4722293418000B068C /* RNConfiguration.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		3DF7F6AB203AA09B00D0EAB7 /* RNConfigurationBridge-tvOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DF7F6B4203AA09B00D0EAB7 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-tvOS" */;
 			buildPhases = (
 				3DF7F6A9203AA09B00D0EAB7 /* Frameworks */,
-				C04D507C22401455005BECCD /* Headers */,
 				3DF7F6A8203AA09B00D0EAB7 /* Sources */,
 				3DF7F6AA203AA09B00D0EAB7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FDB74B49222934E0000B068C /* PBXTargetDependency */,
 			);
 			name = "RNConfigurationBridge-tvOS";
 			productName = "ReactNativeConfig-tvOS";
 			productReference = 3DF7F6AC203AA09B00D0EAB7 /* libRNConfigurationBridge.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		EB2648DE1C7BE17A00B8F155 /* RNConfigurationBridge-iOS */ = {
+		C04F63692247910700AED2F5 /* RNConfigurationBridgeTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-iOS" */;
+			buildConfigurationList = C04F63722247910700AED2F5 /* Build configuration list for PBXNativeTarget "RNConfigurationBridgeTests-iOS" */;
 			buildPhases = (
-				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
-				FD55CB9622009A750044D1A7 /* Headers */,
-				EB2648DB1C7BE17A00B8F155 /* Sources */,
-				EB2648DD1C7BE17A00B8F155 /* CopyFiles */,
+				C04F63672247910700AED2F5 /* Frameworks */,
+				C04F63662247910700AED2F5 /* Sources */,
+				C04F63682247910700AED2F5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FDB74B302229313A000B068C /* PBXTargetDependency */,
+				C04F63712247910700AED2F5 /* PBXTargetDependency */,
+			);
+			name = "RNConfigurationBridgeTests-iOS";
+			productName = "RNConfigurationBridgeTests-iOS";
+			productReference = C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EB2648DE1C7BE17A00B8F155 /* RNConfigurationBridge-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-iOS" */;
+			buildPhases = (
+				C04F637D224795C100AED2F5 /* ShellScript */,
+				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
+				EB2648DD1C7BE17A00B8F155 /* CopyFiles */,
+				EB2648DB1C7BE17A00B8F155 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
 			);
 			name = "RNConfigurationBridge-iOS";
 			productName = ReactNativeConfig;
@@ -421,10 +438,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD1674312229B2C400A67996 /* Build configuration list for PBXNativeTarget "RNModels-iOS" */;
 			buildPhases = (
-				FD16741B2229B2C300A67996 /* Headers */,
 				FD16741C2229B2C300A67996 /* Sources */,
 				FD16741D2229B2C300A67996 /* Frameworks */,
 				FD16741E2229B2C300A67996 /* Resources */,
+				C0169ED32246E6CF007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -439,10 +456,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD1674852229B5A700A67996 /* Build configuration list for PBXNativeTarget "RNModels-tvOS" */;
 			buildPhases = (
-				FD16747B2229B5A700A67996 /* Headers */,
 				FD16747C2229B5A700A67996 /* Sources */,
 				FD16747D2229B5A700A67996 /* Frameworks */,
 				FD16747E2229B5A700A67996 /* Resources */,
+				C0169ED52246E6EA007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -457,11 +474,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD55CC8B2200B4270044D1A7 /* Build configuration list for PBXNativeTarget "RNConfiguration-iOS" */;
 			buildPhases = (
-				FD55CCA02200BC310044D1A7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */,
-				FD55CC812200B4270044D1A7 /* Headers */,
 				FD55CC832200B4270044D1A7 /* Frameworks */,
 				FD55CC822200B4270044D1A7 /* Sources */,
 				FD55CC842200B4270044D1A7 /* Resources */,
+				C0169ECA2246E65F007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -477,11 +493,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD7F1D2B2215D390009A4F34 /* Build configuration list for PBXNativeTarget "RNConfiguration-macOS" */;
 			buildPhases = (
-				FD7F1D2F2215D3AF009A4F34 /* Prepare configuration files - Swift and Objective-C (For React-Native) */,
-				FD7F1D1D2215D390009A4F34 /* Headers */,
 				FD7F1D1E2215D390009A4F34 /* Sources */,
 				FD7F1D1F2215D390009A4F34 /* Frameworks */,
 				FD7F1D202215D390009A4F34 /* Resources */,
+				C0169ECC2246E678007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -497,10 +512,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB74B1F22291E8F000B068C /* Build configuration list for PBXNativeTarget "RNModels-macOS" */;
 			buildPhases = (
-				FDB74B1122291E8F000B068C /* Headers */,
 				FDB74B1222291E8F000B068C /* Sources */,
 				FDB74B1322291E8F000B068C /* Frameworks */,
 				FDB74B1422291E8F000B068C /* Resources */,
+				C0169ED02246E6B0007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -515,10 +530,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB74B3C222933E0000B068C /* Build configuration list for PBXNativeTarget "RNConfiguration-tvOS" */;
 			buildPhases = (
-				FDB74B32222933E0000B068C /* Headers */,
 				FDB74B34222933E0000B068C /* Frameworks */,
 				FDB74B33222933E0000B068C /* Sources */,
 				FDB74B35222933E0000B068C /* Resources */,
+				C0169ECE2246E698007679CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -544,12 +559,16 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					C04F63692247910700AED2F5 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = PD7TVTH6DN;
+						ProvisioningStyle = Automatic;
+					};
 					EB2648DE1C7BE17A00B8F155 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 					FD16741F2229B2C300A67996 = {
 						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
 					};
 					FD16747F2229B5A700A67996 = {
 						CreatedOnToolsVersion = 10.1;
@@ -593,11 +612,19 @@
 				FDB74B1522291E8F000B068C /* RNModels-macOS */,
 				FD16741F2229B2C300A67996 /* RNModels-iOS */,
 				FD16747F2229B5A700A67996 /* RNModels-tvOS */,
+				C04F63692247910700AED2F5 /* RNConfigurationBridgeTests-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C04F63682247910700AED2F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD16741E2229B2C300A67996 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,7 +670,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FD55CCA02200BC310044D1A7 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
+		C04F637D224795C100AED2F5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -652,32 +679,13 @@
 			);
 			inputPaths = (
 			);
-			name = "Prepare configuration files - Swift and Objective-C (For React-Native)";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n";
-		};
-		FD7F1D2F2215D3AF009A4F34 /* Prepare configuration files - Swift and Objective-C (For React-Native) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Prepare configuration files - Swift and Objective-C (For React-Native)";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "touch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfigurationWorker.swift\ntouch ${SRCROOT}/ReactNativeConfigSwift/CurrentBuildConfiguration.swift\ntouch ${SRCROOT}/Debug.xcconfig\ntouch ${SRCROOT}/Release.xcconfig\ntouch ${SRCROOT}/Local.xcconfig\n\n";
+			shellScript = "echo \"ℹ️ header search paths: \"  ${HEADER_SEARCH_PATHS}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -687,6 +695,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF7F6B6203AA0C200D0EAB7 /* ReactNativeConfig.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C04F63662247910700AED2F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C04F636D2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,6 +777,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C04F63712247910700AED2F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB2648DE1C7BE17A00B8F155 /* RNConfigurationBridge-iOS */;
+			targetProxy = C04F63702247910700AED2F5 /* PBXContainerItemProxy */;
+		};
 		FD16745E2229B3DE00A67996 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FD16741F2229B2C300A67996 /* RNModels-iOS */;
@@ -775,16 +796,6 @@
 			isa = PBXTargetDependency;
 			target = FD16747F2229B5A700A67996 /* RNModels-tvOS */;
 			targetProxy = FD16748F2229B65700A67996 /* PBXContainerItemProxy */;
-		};
-		FDB74B302229313A000B068C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */;
-			targetProxy = FDB74B2F2229313A000B068C /* PBXContainerItemProxy */;
-		};
-		FDB74B49222934E0000B068C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FDB74B36222933E0000B068C /* RNConfiguration-tvOS */;
-			targetProxy = FDB74B48222934E0000B068C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -840,6 +851,99 @@
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
+		};
+		C04F63732247910700AED2F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PD7TVTH6DN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "RNConfigurationBridgeTests-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sourcery.RNConfigurationBridgeTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C04F63742247910700AED2F5 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PD7TVTH6DN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "RNConfigurationBridgeTests-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sourcery.RNConfigurationBridgeTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Local;
+		};
+		C04F63752247910700AED2F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PD7TVTH6DN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "RNConfigurationBridgeTests-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sourcery.RNConfigurationBridgeTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C04F63762247910700AED2F5 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PD7TVTH6DN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "RNConfigurationBridgeTests-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sourcery.RNConfigurationBridgeTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = BetaRelease;
 		};
 		EB2648E61C7BE17A00B8F155 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -941,6 +1045,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -993,15 +1098,14 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1027,15 +1131,14 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1059,15 +1162,14 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1091,15 +1193,14 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1131,7 +1232,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1167,7 +1268,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1201,7 +1302,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1235,7 +1336,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1279,7 +1380,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1323,7 +1424,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1361,7 +1462,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1401,7 +1502,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1435,7 +1536,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1491,6 +1592,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"LOCAL=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1577,7 +1679,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1618,7 +1720,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1659,7 +1761,7 @@
 					"$(inherited)",
 					"TARGET_MAC_OS=1",
 				);
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1694,7 +1796,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1729,7 +1831,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Sources/RNModels/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNModels_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1761,7 +1863,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1796,7 +1898,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1829,7 +1931,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1862,7 +1964,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1914,6 +2016,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "BETARELEASE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2000,7 +2103,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = RNConfigurationHighwaySetup.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -2034,7 +2137,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
-				INFOPLIST_FILE = Sources/RNConfiguration/Info.plist;
+				INFOPLIST_FILE = "../react-native-config.xcodeproj/RNConfiguration_Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -2059,6 +2162,17 @@
 				FD84BA0D2209C8BC000B86BC /* Local */,
 				3DF7F6B3203AA09B00D0EAB7 /* Release */,
 				FDECFC90221B652300EA1E33 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C04F63722247910700AED2F5 /* Build configuration list for PBXNativeTarget "RNConfigurationBridgeTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C04F63732247910700AED2F5 /* Debug */,
+				C04F63742247910700AED2F5 /* Local */,
+				C04F63752247910700AED2F5 /* Release */,
+				C04F63762247910700AED2F5 /* BetaRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -15,3 +15,5 @@ xcuserdata
 /Sources/.sourcery-RNConfigurationPrepare.yml
 /Sources/.sourcery-RNModels.yml
 /Sources/.sourcery-RNConfiguration.yml
+/RNConfigurationHighwaySetup.xcodeproj
+/react-native-config.xcodeproj

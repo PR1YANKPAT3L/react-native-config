@@ -26,24 +26,34 @@ let dispatchGroup = DispatchGroup()
 
 do {
     
-    guard let folder = CommandLineArguments()?.environmentJsonFilesFolder else {
-        throw HighwayError.highwayError(atLocation: pretty_function(), error: "missing folder argument")
+    var environmentJsonFilesFolder: FolderProtocol = FileSystem.shared.currentFolder
+    
+    if try environmentJsonFilesFolder.parentFolder().name == "Products" {
+        // Case where we are building from xcode
+        // .build/RNConfigurationHighwaySetup/Build/Products/Debug/env.debug.json
+        let relativePath = "../../../../"
+        environmentJsonFilesFolder = try environmentJsonFilesFolder.subfolder(named: relativePath)
+        signPost.message("⚠️ building from xcode detected, moving \(relativePath) up")
+        signPost.message("ℹ️ .env.<#configuration#>.json are expected to be in \n\(environmentJsonFilesFolder)")
     }
     
-    let srcRoot = folder
-    let dependecyService = DependencyService(in: srcRoot)
-    let package = try Highway.package(for: srcRoot, dependencyService: dependecyService)
-    highWay = try Highway(package:  (package: package, executable: "RNConfigurationHighwaySetup"), dependencyService: dependecyService, swiftPackageWithSourceryFolder: srcRoot)
+    let rnConfigurationSrcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
+    let dependecyService = DependencyService(in: rnConfigurationSrcRoot)
+    let dumpService = DumpService(swiftPackageFolder: rnConfigurationSrcRoot)
+    let package = try Highway.package(for: rnConfigurationSrcRoot, dependencyService: dependecyService, dumpService: dumpService)
+    let sourceryBuilder = SourceryBuilder(dependencyService: dependecyService)
+    
+    highWay = try Highway(package: package, dependencyService: dependecyService, sourceryBuilder: sourceryBuilder)
     highwayRunner = HighwayRunner(highway: highWay, dispatchGroup: dispatchGroup)
     
-    let prepareCode = try PrepareCode(reactNativeFolder: srcRoot)
+    let prepareCode = try PrepareCode(rnConfigurationSrcRoot: rnConfigurationSrcRoot, environmentJsonFilesFolder: environmentJsonFilesFolder, signPost: signPost)
     
     do {
         SignPost.shared.message("🏗 PREPARE **RNConfiguration** ...")
 
         try prepareCode.attempt()
         // enable and have a look at the file to make it work if you want.
-//        try highwayRunner.addGithooksPrePush()
+        try highwayRunner.addGithooksPrePush()
 
         highwayRunner.runSourcery(handleSourceryOutput)
         

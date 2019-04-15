@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB2648DE1C7BE17A00B8F155"
-               BuildableName = "libRNConfigurationBridge.a"
-               BlueprintName = "RNConfigurationBridge-iOS"
-               ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C04F63692247910700AED2F5"
-               BuildableName = "RNConfigurationBridgeTests-iOS.xctest"
-               BlueprintName = "RNConfigurationBridgeTests-iOS"
+               BlueprintIdentifier = "FDB74B1522291E8F000B068C"
+               BuildableName = "RNModels.framework"
+               BlueprintName = "RNModels-macOS"
                ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C04F63692247910700AED2F5"
-               BuildableName = "RNConfigurationBridgeTests-iOS.xctest"
-               BlueprintName = "RNConfigurationBridgeTests-iOS"
-               ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB2648DE1C7BE17A00B8F155"
-            BuildableName = "libRNConfigurationBridge.a"
-            BlueprintName = "RNConfigurationBridge-iOS"
-            ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -78,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB2648DE1C7BE17A00B8F155"
-            BuildableName = "libRNConfigurationBridge.a"
-            BlueprintName = "RNConfigurationBridge-iOS"
+            BlueprintIdentifier = "FDB74B1522291E8F000B068C"
+            BuildableName = "RNModels.framework"
+            BlueprintName = "RNModels-macOS"
             ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -96,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB2648DE1C7BE17A00B8F155"
-            BuildableName = "libRNConfigurationBridge.a"
-            BlueprintName = "RNConfigurationBridge-iOS"
+            BlueprintIdentifier = "FDB74B1522291E8F000B068C"
+            BuildableName = "RNModels.framework"
+            BlueprintName = "RNModels-macOS"
             ReferencedContainer = "container:ReactNativeConfig.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
