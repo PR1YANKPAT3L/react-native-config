@@ -33,8 +33,8 @@
         "repositoryURL": "https://www.github.com/dooZdev/Highway",
         "state": {
           "branch": null,
-          "revision": "169d92dfc2714a40d26858d103f4418663cc384f",
-          "version": "2.7.4"
+          "revision": "b2980088292ea2afecf7907667e993ca4dc0c1c1",
+          "version": "2.8.0"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://www.github.com/doozMen/SignPost",
         "state": {
           "branch": null,
-          "revision": "7ee6f3b6fd6e1588395983f255810112b0529b5e",
-          "version": "1.0.1"
+          "revision": "8ce1e41a9e1244cac9b545211ad8cef45e32bb77",
+          "version": "1.0.2"
         }
       },
       {
@@ -159,8 +159,8 @@
         "repositoryURL": "https://www.github.com/dooZdev/template-sourcery",
         "state": {
           "branch": null,
-          "revision": "96ee5b3e9536f70f6c9dd1dcf1353f2a9c95c109",
-          "version": "1.4.4"
+          "revision": "c465f837f135cda0829a1e058196d12d87a41f54",
+          "version": "1.4.5"
         }
       },
       {
@@ -186,8 +186,8 @@
         "repositoryURL": "https://www.github.com/dooZdev/ZFile",
         "state": {
           "branch": null,
-          "revision": "a4c4c7f2ccba84c5920c7ebbf571859a3346ee7c",
-          "version": "2.4.3"
+          "revision": "1389a9fd0e50868f2e4f10424c075582472d838b",
+          "version": "2.4.5"
         }
       }
     ]

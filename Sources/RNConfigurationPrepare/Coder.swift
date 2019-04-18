@@ -8,6 +8,7 @@
 
 import Foundation
 import SignPost
+import Errors
 
 // sourcery:AutoMockable
 public protocol CoderProtocol {
@@ -150,12 +151,16 @@ extension Coder {
             env: nil
         )
         
-        try disk.code.rnConfigurationBridgeObjectiveCMFile.write(data: """
-            \(RNConfigurationBridge.top)
-            \(bridgeCode.env)
-            \(RNConfigurationBridge.bottom)
-            """.data(using: .utf8)!
-        )
+        do {
+            try disk.code.rnConfigurationBridgeObjectiveCMFile.write(data: """
+                \(RNConfigurationBridge.top)
+                \(bridgeCode.env)
+                \(RNConfigurationBridge.bottom)
+                """.data(using: .utf8)!
+            )
+        } catch {
+            throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
+        }
         
     }
 }

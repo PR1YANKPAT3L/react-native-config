@@ -11,6 +11,7 @@ import SignPost
 import ZFile
 import Errors
 import Terminal
+import Errors
 
 // sourcery:AutoMockable
 public protocol ConfigurationDiskProtocol {

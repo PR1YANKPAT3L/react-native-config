@@ -4,7 +4,7 @@
 import PackageDescription
 
 struct Target {
-    static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = ["RNModels", "ZFile", "Terminal", "XCBuild", "SignPost", "Errors", "Terminal", "Arguments"]
+    static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = ["RNModels", "ZFile", "Terminal", "XCBuild", "SignPost", "Errors", "Terminal", "Arguments", "Errors"]
 }
 
 struct Mock {
