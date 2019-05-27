@@ -30,11 +30,11 @@
       },
       {
         "package": "Highway",
-        "repositoryURL": "https://www.github.com/doozDev/Highway",
+        "repositoryURL": "https://www.github.com/Bolides/Highway",
         "state": {
           "branch": null,
-          "revision": "e69046117c109719a3c7580f0a690dea8fda39f7",
-          "version": "2.11.4"
+          "revision": "971cb1fa80a6d17c868007aac8d2d193d87bf1b6",
+          "version": "2.11.5"
         }
       },
       {
@@ -183,10 +183,10 @@
       },
       {
         "package": "ZFile",
-        "repositoryURL": "https://www.github.com/doozDev/ZFile",
+        "repositoryURL": "https://www.github.com/Bolides/ZFile",
         "state": {
           "branch": null,
-          "revision": "1389a9fd0e50868f2e4f10424c075582472d838b",
+          "revision": "9b30de0a154ee1685078546574154e30ca3133f8",
           "version": "2.4.5"
         }
       }
