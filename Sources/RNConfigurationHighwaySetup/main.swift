@@ -9,9 +9,7 @@
 import Foundation
 import ZFile
 import SignPost
-import XCBuild
-import Arguments
-import Highway
+import HighwayLibrary
 import Terminal
 import RNConfigurationPrepare
 import SourceryWorker

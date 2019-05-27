@@ -8,7 +8,6 @@
 
 import Quick
 import Nimble
-import Arguments
 import SignPostMock
 import ZFile
 import ZFileMock

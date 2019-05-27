@@ -15,9 +15,9 @@ public init(from decoder: Decoder) throws {
 let container = try decoder.container(keyedBy: CodingKeys.self)
 
          
-guard let exampleBool = Bool(try container.decode(String.self, forKey: .exampleBool)) else { throw Error.invalidBool(forKey: "exampleBool")}
+        guard let exampleBool = Bool(try container.decode(String.self, forKey: .exampleBool)) else { throw Error.invalidBool(forKey: "exampleBool")}
 
-self.exampleBool = exampleBool
+        self.exampleBool = exampleBool
          url = try container.decode(URLEscaped.self, forKey: .url)
 }
      

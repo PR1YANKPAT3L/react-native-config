@@ -4,7 +4,7 @@
 import PackageDescription
 
 struct Target {
-    static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = ["RNModels", "ZFile", "Terminal", "XCBuild", "SignPost", "Errors", "Terminal", "Arguments"]
+    static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = ["RNModels", "ZFile", "Terminal", "SignPost", "Errors", "Terminal"]
 }
 
 struct Mock {
@@ -57,8 +57,8 @@ let package = Package(
         
         // MARK: - Highway
         
-        .package(url: "https://www.github.com/Bolides/ZFile", "2.4.2" ..< "3.0.0"),
-        .package(url: "https://www.github.com/Bolides/Highway", "2.7.2" ..< "3.0.0"),
+        .package(url: "https://www.github.com/doozDev/ZFile", "2.4.2" ..< "3.0.0"),
+        .package(url: "https://www.github.com/doozDev/Highway", "2.11.4" ..< "3.0.0"),
 
         // MARK: - Quick & Nimble
         
@@ -82,7 +82,7 @@ let package = Package(
             name: "RNConfigurationHighwaySetup",
             dependencies: [
                 "SignPost",
-                "Highway",
+                "HighwayLibrary",
                 "SourceryAutoProtocols",
                 "RNConfigurationPrepare",
                 "SourceryWorker",
@@ -112,14 +112,13 @@ let package = Package(
                            "SignPostMock",
                            "ZFileMock",
                            "RNModels",
-                           "Arguments",
                            "ZFile",
                            "Errors"
             ]
         ),
         .testTarget(
             name: "RNConfigurationTests",
-            dependencies: ["RNConfiguration", "Quick", "Nimble"]
+            dependencies: ["RNConfiguration", "ZFile", "ZFileMock", "ZFileMock", "SignPostMock", "Quick", "Nimble"]
         ),
         
         // MARK: - Mock target
