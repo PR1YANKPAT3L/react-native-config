@@ -8,7 +8,6 @@
 
 import Foundation
 import RNModels
-import Errors
 
 /// Will load input and decode input JSON -> Use RNConfigurationModel.create from this JSON
 public struct Builds {
@@ -50,125 +49,121 @@ public struct Builds {
     
     public init(from disk: ConfigurationDisk, decoder: JSONDecoder = JSONDecoder()) throws {
 
-        do {
-            self.decoder = decoder
-            let debug = try decoder.decode(JSON.self, from:  try disk.inputJSON.debug.read())
-            let release = try decoder.decode(JSON.self, from:  try disk.inputJSON.release.read())
+        self.decoder = decoder
+        let debug = try decoder.decode(JSON.self, from:  try disk.inputJSON.debug.read())
+        let release = try decoder.decode(JSON.self, from:  try disk.inputJSON.release.read())
+        
+        try disk.android.debug.write(string: try debug.androidEnvEntry())
+        let entry = try debug.xcconfigEntry()
+        try disk.iOS.debug.write(string: entry )
+        
+        try disk.android.release.write(string: try release.androidEnvEntry())
+        try disk.iOS.release.write(string: try release.xcconfigEntry())
+        
+        var local: JSON?
+        var betaRelease: JSON?
+        
+        if  let localJSONfile = disk.inputJSON.local {
+            local = try decoder.decode(JSON.self, from: try localJSONfile.read())
+            try disk.android.local?.write(string: try local!.androidEnvEntry())
+            try disk.iOS.local?.write(string: try local!.xcconfigEntry())
+        } else {
+            local = nil
+        }
+        
+        if  let betaReleaseJSONfile = disk.inputJSON.betaRelease{
             
-            try disk.android.debug.write(string: try debug.androidEnvEntry())
-            let entry = try debug.xcconfigEntry()
-            try disk.iOS.debug.write(string: entry )
+            betaRelease = try decoder.decode(JSON.self, from: try betaReleaseJSONfile.read())
             
-            try disk.android.release.write(string: try release.androidEnvEntry())
-            try disk.iOS.release.write(string: try release.xcconfigEntry())
+            try disk.android.betaRelease?.write(string: try betaRelease!.androidEnvEntry())
+            try disk.iOS.betaRelease?.write(string: try betaRelease!.xcconfigEntry())
+        } else {
+            betaRelease = nil
+        }
+        
+        input = Input(debug: debug, release: release, local: local, betaRelease: betaRelease)
+
+        var allKeys: MappingKeys = debug.typed?.enumerated().compactMap {
+            let key = $0.element.key
+            let typedValue = $0.element.value.typedValue
+            let swiftTypeString = typedValue.typeSwiftString
+            let xmlType = typedValue.typePlistString
             
-            var local: JSON?
-            var betaRelease: JSON?
+            return (
+                case: "case \(key)",
+                configurationModelVar: "public let \(key): \(swiftTypeString)",
+                configurationModelVarDescription: "\(key): \\(\(key))",
+                xmlEntry: """
+                <key>\(key)</key>
+                <\(xmlType)>$(\(key))</\(xmlType)>
+                """,
+                decoderInit: "\(key) = try container.decode(\(swiftTypeString).self, forKey: .\(key))"
+            )
+            } ?? [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]()
+        
+        if let booleanKeys: MappingKeys = (debug.booleans?.enumerated().compactMap {
+            let key = $0.element.key
+            let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
+            let swiftTypeString = typedValue.typeSwiftString
             
-            if  let localJSONfile = disk.inputJSON.local {
-                local = try decoder.decode(JSON.self, from: try localJSONfile.read())
-                try disk.android.local?.write(string: try local!.androidEnvEntry())
-                try disk.iOS.local?.write(string: try local!.xcconfigEntry())
-            } else {
-                local = nil
-            }
-            
-            if  let betaReleaseJSONfile = disk.inputJSON.betaRelease{
+            return (
+                case: "case \(key)",
+                configurationModelVar: "public let \(key): \(swiftTypeString)",
+                configurationModelVarDescription: "\(key): \\(\(key))",
+                xmlEntry: """
+                <key>\(key)</key>
+                <string>$(\(key))</string>
+                """,
+                decoderInit:"""
                 
-                betaRelease = try decoder.decode(JSON.self, from: try betaReleaseJSONfile.read())
+                        guard let \(key) = Bool(try container.decode(String.self, forKey: .\(key))) else { throw Error.invalidBool(forKey: \"\(key)\")}
                 
-                try disk.android.betaRelease?.write(string: try betaRelease!.androidEnvEntry())
-                try disk.iOS.betaRelease?.write(string: try betaRelease!.xcconfigEntry())
-            } else {
-                betaRelease = nil
-            }
-            
-            input = Input(debug: debug, release: release, local: local, betaRelease: betaRelease)
-            
-            var allKeys: MappingKeys = debug.typed?.enumerated().compactMap {
-                let key = $0.element.key
-                let typedValue = $0.element.value.typedValue
-                let swiftTypeString = typedValue.typeSwiftString
-                let xmlType = typedValue.typePlistString
-                
-                return (
-                    case: "case \(key)",
-                    configurationModelVar: "public let \(key): \(swiftTypeString)",
-                    configurationModelVarDescription: "\(key): \\(\(key))",
-                    xmlEntry: """
-                    <key>\(key)</key>
-                    <\(xmlType)>$(\(key))</\(xmlType)>
-                    """,
-                    decoderInit: "\(key) = try container.decode(\(swiftTypeString).self, forKey: .\(key))"
-                )
-                } ?? [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]()
-            
-            if let booleanKeys: MappingKeys = (debug.booleans?.enumerated().compactMap {
-                let key = $0.element.key
-                let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
-                let swiftTypeString = typedValue.typeSwiftString
-                
-                return (
-                    case: "case \(key)",
-                    configurationModelVar: "public let \(key): \(swiftTypeString)",
-                    configurationModelVarDescription: "\(key): \\(\(key))",
-                    xmlEntry: """
-                    <key>\(key)</key>
-                    <string>$(\(key))</string>
-                    """,
-                    decoderInit:"""
-                    
-                    guard let \(key) = Bool(try container.decode(String.self, forKey: .\(key))) else { throw Error.invalidBool(forKey: \"\(key)\")}
-                    
-                    self.\(key) = \(key)
-                    """
-                )
-                }) {
-                allKeys.append(contentsOf: booleanKeys)
-            }
-            
-            self.allKeys = allKeys
-            
-            casesForEnum = allKeys
+                        self.\(key) = \(key)
+                """
+            )
+        }) {
+            allKeys.append(contentsOf: booleanKeys)
+        }
+        
+        self.allKeys = allKeys
+        
+        casesForEnum = allKeys
                 .map { $0.case }
                 .map {"      \($0)"}
                 .sorted()
                 .joined(separator: "\n")
-            
-            configurationModelVar = allKeys
+        
+        configurationModelVar = allKeys
                 .map { $0.configurationModelVar }
                 .map {"    \($0)"}
                 .sorted()
                 .joined(separator: "\n")
-            
-            configurationModelVarDescription = allKeys
+        
+        configurationModelVarDescription = allKeys
                 .map { $0.configurationModelVarDescription }
                 .map { "            * \($0)" }
                 .sorted()
                 .joined(separator: "\n")
-            
-            plistLinesXmlText  = allKeys
+        
+        plistLinesXmlText  = allKeys
                 .map { $0.xmlEntry }
                 .map {"      \($0)"}
                 .sorted()
                 .joined(separator: "\n")
-            
-            decoderInit  = allKeys
-                .map { $0.decoderInit }
-                .sorted()
-                .map {"         \($0)"}
-                .joined(separator: "\n")
-            
-            bridgeEnv = BridgeEnv (
-                local: (input.local?.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.local?.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
-                debug: (input.debug.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.debug.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
-                release: (input.release.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.release.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
-                betaRelease: (input.betaRelease?.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.betaRelease?.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? [])
-            )
-            
-        } catch {
-            throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
-        }
+        
+        decoderInit  = allKeys
+            .map { $0.decoderInit }
+            .sorted()
+            .map {"         \($0)"}
+            .joined(separator: "\n")
+        
+        bridgeEnv = BridgeEnv (
+            local: (input.local?.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.local?.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
+            debug: (input.debug.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.debug.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
+            release: (input.release.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.release.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? []),
+            betaRelease: (input.betaRelease?.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\""} ?? []) + (input.betaRelease?.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())"} ?? [])
+        )
+        
         
     }
     
