@@ -8,28 +8,31 @@
 
 import Foundation
 
-public struct URLEscaped: Codable {
-    
+public struct URLEscaped: Codable
+{
     public let url: URL
-    
-    public enum Error: Swift.Error {
+
+    public enum Error: Swift.Error
+    {
         case invalidUrlString(String)
     }
-    
-    public init(from decoder: Decoder) throws {
+
+    public init(from decoder: Decoder) throws
+    {
         let container = try decoder.singleValueContainer()
         let urlString = try container.decode(String.self).replacingOccurrences(of: "\\", with: "")
-    
-        guard let url = URL(string: urlString) else {
+
+        guard let url = URL(string: urlString) else
+        {
             throw Error.invalidUrlString(urlString)
         }
-        
+
         self.url = url
     }
-    
-    public func encode(to encoder: Encoder) throws {
+
+    public func encode(to encoder: Encoder) throws
+    {
         var container = encoder.singleValueContainer()
         try container.encode(url.absoluteString)
     }
-    
 }

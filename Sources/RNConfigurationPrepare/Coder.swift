@@ -101,28 +101,28 @@ extension Coder {
         
         public private(set) lazy var env: String = """
         + (NSDictionary *)env {
-        #ifdef DEBUG
-        #ifdef LOCAL
-        return @{
-        \(self.envLocal.joined(separator: ",\n"))
-        };
-        #else
-        return @{
-        \(self.envDebug.joined(separator: ",\n"))
-        };
-        #endif
-        #elif RELEASE
-        return @{
-        \(self.envRelease.joined(separator: ",\n"))
-        };
-        #elif BETARELEASE
-        return @{
-        \(self.envBetaRelease.joined(separator: ",\n"))
-        };
-        #else
-        NSLog(@"⚠️ (react-native-config) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
-        return nil;
-        #endif
+            #ifdef DEBUG
+            #ifdef LOCAL
+            return @{
+                \(self.envLocal.joined(separator: ",\n"))
+            };
+            #else
+            return @{
+                \(self.envDebug.joined(separator: ",\n"))
+            };
+            #endif
+            #elif RELEASE
+            return @{
+                \(self.envRelease.joined(separator: ",\n"))
+            };
+            #elif BETARELEASE
+            return @{
+                \(self.envBetaRelease.joined(separator: ",\n"))
+            };
+            #else
+                NSLog(@"⚠️ (react-native-config) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
+            return nil;
+            #endif
         }
         """
         
@@ -203,14 +203,25 @@ extension Coder {
         try disk.code.rnConfigurationModelSwiftFile.write(string: lines)
     }
     
+    
+    
     public static let rnConfigurationModelDefault_TOP = """
         import Foundation
         import RNModels
+        import SourceryAutoprotocols
 
-        //⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
-        public struct RNConfigurationModel: Codable, CustomStringConvertible {
+            /**
+                ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
+            */
 
-    """
+            public protocol RNConfigurationModelProtocol: AutoMockable {
+                // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
+                // sourcery:end
+            }
+            
+            public struct RNConfigurationModel: Codable, CustomStringConvertible, AutoGenerateProtocol {
+
+        """
     public static let rnConfigurationModelDefault_BOTTOM = """
          
         public static func create(from json: JSON) throws -> RNConfigurationModel {

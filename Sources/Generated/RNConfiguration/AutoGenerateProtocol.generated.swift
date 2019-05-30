@@ -20,6 +20,15 @@ import Foundation
 
 
 
+// types.implementing.AutoGenerateProtocol inline for RNConfigurationModel ..
+    // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
+    var exampleBool: Bool { get }
+    var url: URLEscaped { get }
+    var description: String { get }
+
+    static func create(from json: JSON) throws  -> RNConfigurationModel
+    // sourcery:end
+// types.implementing.AutoGenerateProtocol inline for RNConfigurationModel ✅
 
 
 */

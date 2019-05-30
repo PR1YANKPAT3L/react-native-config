@@ -6,27 +6,27 @@
 //  Copyright © 2019 Pedro Belo. All rights reserved.
 //
 
+import Errors
 import Foundation
-import ZFile
 import SignPost
 import Terminal
-import Errors
+import ZFile
 
-public struct PrepareCode {
-    
+public struct PrepareCode
+{
     public let coder: Coder
     public let disk: ConfigurationDisk
     public let builds: Builds
-    
+
     public let rnConfigurationSrcRoot: FolderProtocol
     public let environmentJsonFilesFolder: FolderProtocol
-    
+
     // MARK: - Private
-    
+
     private let signPost: SignPostProtocol
     private let terminal: TerminalProtocol
     private let system: SystemProtocol
-    
+
     public init(
         rnConfigurationSrcRoot: FolderProtocol,
         environmentJsonFilesFolder: FolderProtocol,
@@ -34,27 +34,28 @@ public struct PrepareCode {
         decoder: JSONDecoder = JSONDecoder(),
         terminal: TerminalProtocol = Terminal.shared,
         system: SystemProtocol = System.shared
-        ) throws {
+    ) throws
+    {
         self.rnConfigurationSrcRoot = rnConfigurationSrcRoot
         self.environmentJsonFilesFolder = environmentJsonFilesFolder
-        
+
         self.signPost = signPost
-        
+
         disk = try ConfigurationDisk(rnConfigurationSrcRoot: rnConfigurationSrcRoot, environmentJsonFilesFolder: environmentJsonFilesFolder, signPost: signPost)
         builds = try Builds(from: disk, decoder: decoder)
         coder = Coder(disk: disk, builds: builds, signPost: signPost)
         self.terminal = terminal
         self.system = system
     }
-    
-    public func attempt() throws {
-        do {
-            
-            
-            
+
+    public func attempt() throws
+    {
+        do
+        {
             try disk.code.clearContentAllFiles()
-            
-            signPost.verbose("""
+
+            signPost.verbose(
+                """
                 🚀 Env read from
                 \(disk.inputJSON.debug)
                 \(disk.inputJSON.release)
@@ -63,8 +64,9 @@ public struct PrepareCode {
                 ...
                 """
             )
-            
-            signPost.verbose("""
+
+            signPost.verbose(
+                """
                 🚀 Written to config files
                 
                 # ios
@@ -83,22 +85,23 @@ public struct PrepareCode {
                 
                 """
             )
-            
+
             signPost.message("🏗🧙‍♂️ Generating SWIFT code RNConfigurationModel.swift & RNConfigurationModelFactory.swift ...")
             try coder.writeRNConfigurationModelFactory()
             try coder.writeRNConfigurationModel()
             signPost.message("🏗🧙‍♂️ Generating SWIFT code RNConfigurationModel.swift & RNConfigurationModelFactory.swift ✅")
-            
+
             signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ...")
             try coder.writeRNConfigurationPlist()
             signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ✅")
-            
+
             signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ...")
             try coder.writeRNConfigurationBridge()
             signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ✅")
-        } catch {
+        }
+        catch
+        {
             throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
         }
-        
     }
 }

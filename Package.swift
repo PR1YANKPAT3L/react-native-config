@@ -3,26 +3,28 @@
 
 import PackageDescription
 
-struct Target {
+struct Target
+{
     static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = ["RNModels", "ZFile", "Terminal", "SignPost", "Errors", "Terminal"]
 }
 
-struct Mock {
+struct Mock
+{
     static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = Target.rnConfigurationPrepare + ["RNConfigurationPrepare"]
 }
 
 let package = Package(
     name: "react-native-config",
     products: [
-        
         // MARK: - Executable
-        
+
         .executable(
             name: "RNConfigurationHighwaySetup",
-            targets: ["RNConfigurationHighwaySetup"]),
-        
+            targets: ["RNConfigurationHighwaySetup"]
+        ),
+
         // MARK: - Library
-        
+
         .library(
             name: "RNConfigurationPrepare",
             targets: ["RNConfigurationPrepare"]
@@ -35,11 +37,12 @@ let package = Package(
             name: "RNConfiguration",
             targets: ["RNConfiguration"]
         ),
-        
+
         // MARK: - Mocks
+
         .library(
-                name: "RNConfigurationPrepareMock",
-                targets: ["RNConfigurationPrepareMock"]
+            name: "RNConfigurationPrepareMock",
+            targets: ["RNConfigurationPrepareMock"]
         ),
         .library(
             name: "RNModelsMock",
@@ -49,35 +52,33 @@ let package = Package(
             name: "RNConfigurationMock",
             targets: ["RNConfigurationMock"]
         ),
-        
+
     ],
     dependencies: [
-        
         // MARK: - External Dependencies
-        
+
         // MARK: - Highway
-        
+
         .package(url: "https://www.github.com/Bolides/ZFile", "2.4.2" ..< "3.0.0"),
         .package(url: "https://www.github.com/Bolides/Highway", "2.11.4" ..< "3.0.0"),
 
         // MARK: - Quick & Nimble
-        
+
         .package(url: "https://www.github.com/Quick/Quick", "1.3.4" ..< "2.1.0"),
         .package(url: "https://www.github.com/Quick/Nimble", "7.3.4" ..< "8.1.0"),
-        
+
         // MARK: - Sourcery
-        
+
         .package(url: "https://www.github.com/doozMen/Sourcery", "0.16.3" ..< "1.0.0"),
         .package(url: "https://www.github.com/dooZdev/template-sourcery", "1.4.3" ..< "2.0.0"),
-        
+
         // MARK: - Logging
-        
+
         .package(url: "https://www.github.com/doozMen/SignPost", "1.0.0" ..< "2.0.0"),
     ],
     targets: [
-
         // MARK: - Target
-        
+
         .target(
             name: "RNConfigurationHighwaySetup",
             dependencies: [
@@ -86,7 +87,7 @@ let package = Package(
                 "SourceryAutoProtocols",
                 "RNConfigurationPrepare",
                 "SourceryWorker",
-                "ZFile"
+                "ZFile",
             ]
         ),
         .target(
@@ -99,30 +100,32 @@ let package = Package(
         ),
         .target(
             name: "RNConfiguration",
-            dependencies: ["RNModels"]
+            dependencies: ["RNModels", "SourceryAutoProtocols"]
         ),
-        
+
         // MARK: - Test
-        
+
         .testTarget(
             name: "RNConfigurationHighwaySetupTests",
-            dependencies: ["RNConfigurationHighwaySetup",
-                           "Quick",
-                           "Nimble",
-                           "SignPostMock",
-                           "ZFileMock",
-                           "RNModels",
-                           "ZFile",
-                           "Errors"
+            dependencies: [
+                "RNConfigurationHighwaySetup",
+                "Quick",
+                "Nimble",
+                "SignPostMock",
+                "ZFileMock",
+                "RNModels",
+                "ZFile",
+                "Errors",
+                "SourceryAutoProtocols",
             ]
         ),
         .testTarget(
             name: "RNConfigurationTests",
-            dependencies: ["RNConfiguration", "ZFile", "ZFileMock", "ZFileMock", "SignPostMock", "Quick", "Nimble"]
+            dependencies: ["RNConfiguration", "ZFile", "ZFileMock", "ZFileMock", "SignPostMock", "SourceryAutoProtocols", "Quick", "Nimble"]
         ),
-        
+
         // MARK: - Mock target
-        
+
         .target(
             name: "RNConfigurationPrepareMock",
             dependencies: Mock.rnConfigurationPrepare,
@@ -138,6 +141,5 @@ let package = Package(
             dependencies: ["RNConfiguration", "RNModels"],
             path: "Sources/Generated/RNConfiguration"
         ),
-        
     ]
 )
