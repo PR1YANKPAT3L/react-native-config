@@ -260,21 +260,26 @@ extension Coder {
     
     public static let factoryTop = """
     import Foundation
-    import RNModels
     import SourceryAutoProtocols
-
+    import RNModels
+    
     /**
      ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
      */
 
-    public @objc protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable {
+    public protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
+    {
         // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
+
+        static func allValuesDictionary() throws -> [String: String]
+        func allCustomKeys() -> [String]
+        
         // sourcery:end
     }
 
-
-    // sourcery: AutoGenerateProtocol
-    @objc public class RNConfigurationModelFactory: NSObject, AutoGenerateProtocol {
+    @objc public class RNConfigurationModelFactory: NSObject, RNConfigurationModelFactoryProtocol, AutoGenerateProtocol
+    {
+        public static var infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary
     """
 
     public func writeRNConfigurationModelFactory() throws {
@@ -323,9 +328,9 @@ extension Coder {
             /**
                 Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
             */
-            public static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws ->  RNConfigurationModel {
+            public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModel {
         
-                guard let infoDict = infoDict else {
+                guard let infoDict = RNConfigurationModelFactory.infoDict else {
                     throw Error.noInfoDictonary
                 }
         
@@ -339,10 +344,11 @@ extension Coder {
                 In Objective-C you can access this dictionary containing all custom environment dependend keys.
                 They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
             */
-            public static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> [RNConfigurationModelFactory.Case: String] {
+            public static func allConstants() throws -> [RNConfigurationModelFactory.Case: String] {
+        
                 var result = [Case: String]()
         
-                let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration(infoDict: infoDict)
+                let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
                 let data = try JSONEncoder().encode(plist)
         
                 guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {
@@ -405,9 +411,9 @@ extension Coder {
         /**
             Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
         */
-        public static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws ->  RNConfigurationModel {
+        public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModel {
             
-            guard let infoDict = infoDict else {
+            guard let infoDict = RNConfigurationModelFactory.infoDict else {
                 throw Error.noInfoDictonary
             }
             
@@ -421,7 +427,12 @@ extension Coder {
             In Objective-C you can access this dictionary containing all custom environment dependend keys.
             They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
         */
-        public static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> [RNConfigurationModelFactory.Case: String] {
+        public static func allConstants() throws -> [RNConfigurationModelFactory.Case: String] {
+    
+            guard let infoDict = RNConfigurationModelFactory.infoDict else
+            {
+                throw Error.noInfoDictonary
+            }
             var result = [Case: String]()
             
             let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration(infoDict: infoDict)

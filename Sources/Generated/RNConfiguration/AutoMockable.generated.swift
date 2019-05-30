@@ -104,6 +104,7 @@ open class RNConfigurationModelFactoryProtocolMock: NSObject, RNConfigurationMod
 
 override public init() { super.init() }
 
+  public static var infoDict: [String: Any]?
 
 
   // MARK: - <allValuesDictionary> - parameters
@@ -157,23 +158,17 @@ override public init() { super.init() }
   public var allCustomKeysCalled: Bool {
     return allCustomKeysCallsCount > 0
   }
-  public var allCustomKeysReturnValue: [String]
-    static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> RNConfigurationModel
-    static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> [RNConfigurationModelFactory.Case: String]?
+  public var allCustomKeysReturnValue: [String]?
 
   // MARK: - <allCustomKeys> - closure mocks
 
-  public var allCustomKeysClosure: (()  -> [String]
-    static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> RNConfigurationModel
-    static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> [RNConfigurationModelFactory.Case: String])? = nil
+  public var allCustomKeysClosure: (()  -> [String])? = nil
 
 
 
   // MARK: - <allCustomKeys> - method mocked
 
-  open func allCustomKeys() -> [String]
-    static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> RNConfigurationModel
-    static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> [RNConfigurationModelFactory.Case: String] {
+  open func allCustomKeys() -> [String] {
 
       allCustomKeysCallsCount += 1
 
@@ -185,8 +180,6 @@ override public init() { super.init() }
               let error = SourceryMockError.implementErrorCaseFor(message)
 
               // You should implement [String]
-    static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> RNConfigurationModel
-    static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> [RNConfigurationModelFactory.Case: String]
 
               print("❌ \(error)")
 
@@ -196,6 +189,96 @@ override public init() { super.init() }
       }
 
       return closureReturn()
+  }
+
+  // MARK: - <readCurrentBuildConfiguration> - parameters
+
+  public static var readCurrentBuildConfigurationThrowableError: Error?
+  public static var readCurrentBuildConfigurationCallsCount = 0
+  public static var readCurrentBuildConfigurationCalled: Bool {
+    return readCurrentBuildConfigurationCallsCount > 0
+  }
+  public static var readCurrentBuildConfigurationReturnValue: RNConfigurationModel?
+
+  // MARK: - <readCurrentBuildConfiguration> - closure mocks
+
+  public static var readCurrentBuildConfigurationClosure: (() throws  -> RNConfigurationModel)? = nil
+
+
+
+  // MARK: - <readCurrentBuildConfiguration> - method mocked
+
+  public static  func readCurrentBuildConfiguration() throws -> RNConfigurationModel {
+
+
+      // <readCurrentBuildConfiguration> - Throwable method implementation
+
+    if let error = readCurrentBuildConfigurationThrowableError {
+        throw error
+    }
+
+      readCurrentBuildConfigurationCallsCount += 1
+
+      // <readCurrentBuildConfiguration> - Return Value mock implementation
+
+      guard let closureReturn = readCurrentBuildConfigurationClosure else {
+          guard let returnValue = readCurrentBuildConfigurationReturnValue else {
+              let message = "No returnValue implemented for readCurrentBuildConfigurationClosure"
+              let error = SourceryMockError.implementErrorCaseFor(message)
+
+              // You should implement RNConfigurationModel
+
+              throw error
+          }
+          return returnValue
+      }
+
+      return try closureReturn()
+  }
+
+  // MARK: - <allConstants> - parameters
+
+  public static var allConstantsThrowableError: Error?
+  public static var allConstantsCallsCount = 0
+  public static var allConstantsCalled: Bool {
+    return allConstantsCallsCount > 0
+  }
+  public static var allConstantsReturnValue: [RNConfigurationModelFactory.Case: String]?
+
+  // MARK: - <allConstants> - closure mocks
+
+  public static var allConstantsClosure: (() throws  -> [RNConfigurationModelFactory.Case: String])? = nil
+
+
+
+  // MARK: - <allConstants> - method mocked
+
+  public static  func allConstants() throws -> [RNConfigurationModelFactory.Case: String] {
+
+
+      // <allConstants> - Throwable method implementation
+
+    if let error = allConstantsThrowableError {
+        throw error
+    }
+
+      allConstantsCallsCount += 1
+
+      // <allConstants> - Return Value mock implementation
+
+      guard let closureReturn = allConstantsClosure else {
+          guard let returnValue = allConstantsReturnValue else {
+              let message = "No returnValue implemented for allConstantsClosure"
+              let error = SourceryMockError.implementErrorCaseFor(message)
+
+              // You should implement [RNConfigurationModelFactory.Case: String]
+
+              throw error
+          }
+          return returnValue
+      }
+
+      return try closureReturn()
   }
 }
 

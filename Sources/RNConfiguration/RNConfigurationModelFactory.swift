@@ -6,20 +6,23 @@ import SourceryAutoProtocols
  ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
  */
 
-public @objc protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
+public protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
 {
     // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
+    static var infoDict: [String: Any]? { get set }
 
     static func allValuesDictionary() throws -> [String: String]
     func allCustomKeys() -> [String]
-    static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> RNConfigurationModel
-    static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> [RNConfigurationModelFactory.Case: String]
+    static func readCurrentBuildConfiguration() throws -> RNConfigurationModel
+    static func allConstants() throws -> [RNConfigurationModelFactory.Case: String]
+
     // sourcery:end
 }
 
-// sourcery: AutoGenerateProtocol
-@objc public class RNConfigurationModelFactory: NSObject, AutoGenerateProtocol
+@objc public class RNConfigurationModelFactory: NSObject, RNConfigurationModelFactoryProtocol, AutoGenerateProtocol
 {
+    public static var infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary
+
     public enum Error: Swift.Error
     {
         case noInfoDictonary
@@ -57,9 +60,9 @@ public @objc protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
     /**
      Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
      */
-    public static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> RNConfigurationModel
+    public static func readCurrentBuildConfiguration() throws -> RNConfigurationModel
     {
-        guard let infoDict = infoDict else
+        guard let infoDict = RNConfigurationModelFactory.infoDict else
         {
             throw Error.noInfoDictonary
         }
@@ -74,11 +77,11 @@ public @objc protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
      In Objective-C you can access this dictionary containing all custom environment dependend keys.
      They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
      */
-    public static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> [RNConfigurationModelFactory.Case: String]
+    public static func allConstants() throws -> [RNConfigurationModelFactory.Case: String]
     {
         var result = [Case: String]()
 
-        let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration(infoDict: infoDict)
+        let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
         let data = try JSONEncoder().encode(plist)
 
         guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: String] else
