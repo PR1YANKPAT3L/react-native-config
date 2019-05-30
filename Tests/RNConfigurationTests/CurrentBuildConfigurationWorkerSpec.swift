@@ -9,6 +9,7 @@
 import Nimble
 import Quick
 import RNConfiguration
+import RNConfigurationMock
 
 class CurrentBuildConfigurationWorkerSpec: QuickSpec
 {
@@ -34,7 +35,8 @@ class CurrentBuildConfigurationWorkerSpec: QuickSpec
 
                 beforeEach
                 {
-                    expect { currentBuildConfiguration = try RNConfigurationModelFactory.readCurrentBuildConfiguration(infoDict: ["exampleBool": "true", "url": "http://www.dooz.be"]) }.toNot(throwError())
+                    RNConfigurationModelFactory.infoDict = ["exampleBool": "true", "url": "http://www.dooz.be"]
+                    expect { currentBuildConfiguration = try RNConfigurationModelFactory.readCurrentBuildConfiguration() }.toNot(throwError())
                 }
 
                 it("has cases")

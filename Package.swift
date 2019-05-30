@@ -30,7 +30,10 @@ public struct RNConfiguration
     public static let tests = Target.testTarget(
         name: name + "Tests",
         dependencies:
-        [Target.Dependency(stringLiteral: name)]
+        [
+            Target.Dependency(stringLiteral: name),
+            Target.Dependency(stringLiteral: RNConfiguration.Mock.name),
+        ]
             + quickNimble
     )
 
@@ -95,7 +98,10 @@ public struct PrepareForConfiguration
             dependencies:
             ["SignPostMock", "ZFileMock"]
                 + ["ZFile"]
-                + [Target.Dependency(stringLiteral: name)]
+                + [
+                    Target.Dependency(stringLiteral: name),
+                    Target.Dependency(stringLiteral: RNConfiguration.Mock.name),
+                ]
                 + quickNimble
         )
 
