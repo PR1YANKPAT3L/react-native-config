@@ -14,7 +14,7 @@ import SignPostMock
 import ZFile
 import ZFileMock
 
-import RNConfigurationPrepare
+import PrepareForConfigurationLibrary
 
 /// Test run a real filesystem
 class CoderSpec: QuickSpec
@@ -29,11 +29,9 @@ class CoderSpec: QuickSpec
 
             var srcRoot: FolderProtocol!
             var environmentJsonFilesFolder: FolderProtocol!
-            var fileSystem: FileSystemProtocol!
 
             beforeEach
             {
-                fileSystem = FileSystem.shared
                 signPost = SignPostProtocolMock()
 
                 expect

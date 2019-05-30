@@ -3,55 +3,172 @@
 
 import PackageDescription
 
-struct Target
+// MARK: - Exteranal
+
+let quickNimble: [Target.Dependency] = ["Quick", "Nimble"]
+
+// MARK: - Libraries and executables
+
+/**
+ This is the code generated for you by running RNConfigurationPrepare <#config#>
+ This is the dependency you want to add to your project.
+ */
+public struct RNConfiguration
 {
-    static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = ["RNModels", "ZFile", "Terminal", "SignPost", "Errors", "Terminal"]
+    public static let name = "\(RNConfiguration.self)"
+
+    public static let library = Product.library(
+        name: name,
+        targets: [name]
+    )
+
+    public static let target = Target.target(
+        name: name,
+        dependencies: ["RNModels", "SourceryAutoProtocols"]
+    )
+
+    public static let tests = Target.testTarget(
+        name: name + "Tests",
+        dependencies:
+        [Target.Dependency(stringLiteral: name)]
+            + quickNimble
+    )
+
+    public struct Mock
+    {
+        public static let name = library.name + "Mock"
+
+        public static let product = Product.library(
+            name: name,
+            targets: [name]
+        )
+
+        public static let target = Target.target(
+            name: name,
+            dependencies:
+            RNConfiguration.target.dependencies
+                + [Target.Dependency(stringLiteral: library.name)],
+            path: "Sources/Generated/\(library.name)"
+        )
+    }
 }
 
-struct Mock
+public struct PrepareForConfiguration
 {
-    static let rnConfigurationPrepare: [PackageDescription.Target.Dependency] = Target.rnConfigurationPrepare + ["RNConfigurationPrepare"]
+    public static let name = "\(PrepareForConfiguration.self)"
+
+    public static let executable = Product.executable(
+        name: name,
+        targets: [name]
+    )
+
+    public static let target = Target.target(
+        name: name,
+        dependencies: [
+            "SignPost",
+            "HighwayLibrary",
+            "SourceryAutoProtocols",
+            "SourceryWorker",
+            "ZFile",
+        ]
+            + [Target.Dependency(stringLiteral: Library.library.name)]
+    )
+
+    public struct Library
+    {
+        public static let name = executable.name + "Library"
+
+        public static let library = Product.library(
+            name: name,
+            targets: [name]
+        )
+
+        public static let target = Target.target(
+            name: name,
+            dependencies:
+            ["SignPost", "Terminal"]
+                + [Target.Dependency(stringLiteral: RNModels.library.name)]
+        )
+
+        public static let tests = Target.testTarget(
+            name: name + "Tests",
+            dependencies:
+            ["SignPostMock", "ZFileMock"]
+                + ["ZFile"]
+                + [Target.Dependency(stringLiteral: name)]
+                + quickNimble
+        )
+
+        public struct Mock
+        {
+            public static let name = Library.name + "Mock"
+
+            public static let product = Product.library(
+                name: name,
+                targets: [name]
+            )
+
+            public static let target = Target.target(
+                name: name,
+                dependencies: [],
+                path: "Sources/Generated/\(library.name)"
+            )
+        }
+    }
 }
+
+public struct RNModels
+{
+    public static let name = "\(RNModels.self)"
+
+    public static let library = Product.library(
+        name: name,
+        targets: [name]
+    )
+
+    public static let target = Target.target(
+        name: name,
+        dependencies: ["SourceryAutoProtocols"]
+    )
+
+    public struct Mock
+    {
+        public static let name = library.name + "Mock"
+
+        public static let product = Product.library(
+            name: name,
+            targets: [name]
+        )
+
+        public static let target = Target.target(
+            name: name,
+            dependencies:
+            RNModels.target.dependencies
+                + [Target.Dependency(stringLiteral: library.name)],
+            path: "Sources/Generated/\(library.name)"
+        )
+    }
+}
+
+// MARK: - Package
 
 let package = Package(
     name: "react-native-config",
     products: [
         // MARK: - Executable
 
-        .executable(
-            name: "RNConfigurationHighwaySetup",
-            targets: ["RNConfigurationHighwaySetup"]
-        ),
+        PrepareForConfiguration.executable,
 
         // MARK: - Library
 
-        .library(
-            name: "RNConfigurationPrepare",
-            targets: ["RNConfigurationPrepare"]
-        ),
-        .library(
-            name: "RNModels",
-            targets: ["RNModels"]
-        ),
-        .library(
-            name: "RNConfiguration",
-            targets: ["RNConfiguration"]
-        ),
+        RNModels.library,
+        RNConfiguration.library,
+        PrepareForConfiguration.Library.library,
 
         // MARK: - Mocks
 
-        .library(
-            name: "RNConfigurationPrepareMock",
-            targets: ["RNConfigurationPrepareMock"]
-        ),
-        .library(
-            name: "RNModelsMock",
-            targets: ["RNModelsMock"]
-        ),
-        .library(
-            name: "RNConfigurationMock",
-            targets: ["RNConfigurationMock"]
-        ),
+        RNModels.Mock.product,
+        RNConfiguration.Mock.product,
 
     ],
     dependencies: [
@@ -59,8 +176,8 @@ let package = Package(
 
         // MARK: - Highway
 
-        .package(url: "https://www.github.com/Bolides/ZFile", "2.4.2" ..< "3.0.0"),
-        .package(url: "https://www.github.com/Bolides/Highway", "2.11.4" ..< "3.0.0"),
+        .package(url: "https://www.github.com/dooZdev/ZFile", "2.4.2" ..< "3.0.0"),
+        .package(url: "https://www.github.com/Bolides/Highway", "2.11.11" ..< "3.0.0"),
 
         // MARK: - Quick & Nimble
 
@@ -77,69 +194,24 @@ let package = Package(
         .package(url: "https://www.github.com/doozMen/SignPost", "1.0.0" ..< "2.0.0"),
     ],
     targets: [
-        // MARK: - Target
+        // MARK: - executable
 
-        .target(
-            name: "RNConfigurationHighwaySetup",
-            dependencies: [
-                "SignPost",
-                "HighwayLibrary",
-                "SourceryAutoProtocols",
-                "RNConfigurationPrepare",
-                "SourceryWorker",
-                "ZFile",
-            ]
-        ),
-        .target(
-            name: "RNConfigurationPrepare",
-            dependencies: Target.rnConfigurationPrepare
-        ),
-        .target(
-            name: "RNModels",
-            dependencies: []
-        ),
-        .target(
-            name: "RNConfiguration",
-            dependencies: ["RNModels", "SourceryAutoProtocols"]
-        ),
+        PrepareForConfiguration.target,
+
+        // MARK: - Library
+
+        PrepareForConfiguration.Library.target,
+        RNModels.target,
+        RNConfiguration.target,
 
         // MARK: - Test
 
-        .testTarget(
-            name: "RNConfigurationHighwaySetupTests",
-            dependencies: [
-                "RNConfigurationHighwaySetup",
-                "Quick",
-                "Nimble",
-                "SignPostMock",
-                "ZFileMock",
-                "RNModels",
-                "ZFile",
-                "Errors",
-                "SourceryAutoProtocols",
-            ]
-        ),
-        .testTarget(
-            name: "RNConfigurationTests",
-            dependencies: ["RNConfiguration", "ZFile", "ZFileMock", "ZFileMock", "SignPostMock", "SourceryAutoProtocols", "Quick", "Nimble"]
-        ),
+        PrepareForConfiguration.Library.tests,
+        RNConfiguration.tests,
 
         // MARK: - Mock target
 
-        .target(
-            name: "RNConfigurationPrepareMock",
-            dependencies: Mock.rnConfigurationPrepare,
-            path: "Sources/Generated/RNConfigurationPrepare"
-        ),
-        .target(
-            name: "RNModelsMock",
-            dependencies: ["RNModels"],
-            path: "Sources/Generated/RNModels"
-        ),
-        .target(
-            name: "RNConfigurationMock",
-            dependencies: ["RNConfiguration", "RNModels"],
-            path: "Sources/Generated/RNConfiguration"
-        ),
+        RNModels.Mock.target,
+        RNConfiguration.Mock.target,
     ]
 )

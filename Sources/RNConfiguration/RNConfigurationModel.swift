@@ -1,6 +1,6 @@
 import Foundation
 import RNModels
-import SourceryAutoprotocols
+import SourceryAutoProtocols
 
 /**
  ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift

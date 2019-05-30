@@ -1,8 +1,24 @@
 import Foundation
 import RNModels
+import SourceryAutoProtocols
 
-/// ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
-@objc public class RNConfigurationModelFactory: NSObject
+/**
+ ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
+ */
+
+public @objc protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
+{
+    // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
+
+    static func allValuesDictionary() throws -> [String: String]
+    func allCustomKeys() -> [String]
+    static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> RNConfigurationModel
+    static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> [RNConfigurationModelFactory.Case: String]
+    // sourcery:end
+}
+
+// sourcery: AutoGenerateProtocol
+@objc public class RNConfigurationModelFactory: NSObject, AutoGenerateProtocol
 {
     public enum Error: Swift.Error
     {
@@ -21,20 +37,26 @@ import RNModels
         return dict
     }
 
-    /// All custom environment dependend keys that are added to the plist and in the dictionary
+    /**
+     All custom environment dependend keys that are added to the plist and in the dictionary
+     */
     @objc public func allCustomKeys() -> [String]
     {
         return Case.allCases.map { $0.rawValue }
     }
 
-    /// Keys used in the plist of RNConfiguration module when building for the selected configuration (Debug or Release)
+    /**
+     Keys used in the plist of RNConfiguration module when building for the selected configuration (Debug or Release)
+     */
     public enum Case: String, CaseIterable
     {
         case exampleBool
         case url
     }
 
-    /// Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
+    /**
+     Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
+     */
     public static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> RNConfigurationModel
     {
         guard let infoDict = infoDict else
@@ -47,9 +69,11 @@ import RNModels
         return try JSONDecoder().decode(RNConfigurationModel.self, from: data)
     }
 
-    /// If using swift use plist()
-    /// In Objective-C you can access this dictionary containing all custom environment dependend keys.
-    /// They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
+    /**
+     If using swift use plist()
+     In Objective-C you can access this dictionary containing all custom environment dependend keys.
+     They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
+     */
     public static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws -> [RNConfigurationModelFactory.Case: String]
     {
         var result = [Case: String]()

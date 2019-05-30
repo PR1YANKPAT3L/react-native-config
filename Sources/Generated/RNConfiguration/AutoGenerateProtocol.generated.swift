@@ -29,6 +29,19 @@ import Foundation
     static func create(from json: JSON) throws  -> RNConfigurationModel
     // sourcery:end
 // types.implementing.AutoGenerateProtocol inline for RNConfigurationModel ✅
+// types.implementing.AutoGenerateProtocol inline for RNConfigurationModelFactory ..
+
+// types.implementing.AutoGenerateProtocol inline for RNConfigurationModelFactory ✅
 
 
+// type.annotations.AutoGenerateProtocol for RNConfigurationModelFactory -> See code in the file of that type
+
+    // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
+
+    static func allValuesDictionary() throws  -> [String : String]
+    func allCustomKeys() -> [String]
+    static func readCurrentBuildConfiguration(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> RNConfigurationModel
+    static func allConstants(infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary) throws  -> [RNConfigurationModelFactory.Case: String]
+    // sourcery:end
+// type.annotations.AutoGenerateProtocol for RNConfigurationModelFactory end
 */

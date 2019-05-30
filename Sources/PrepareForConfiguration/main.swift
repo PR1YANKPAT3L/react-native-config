@@ -9,7 +9,7 @@
 import Errors
 import Foundation
 import HighwayLibrary
-import RNConfigurationPrepare
+import PrepareForConfigurationLibrary
 import SignPost
 import SourceryWorker
 import Terminal
@@ -60,7 +60,6 @@ do
         dispatchGroup.notify(queue: DispatchQueue.main)
         {
             highwayRunner.runSwiftformat(handleSwiftformat)
-            highwayRunner.runTests(handleTestOutput)
             dispatchGroup.wait()
 
             guard highwayRunner.errors?.count ?? 0 <= 0 else
