@@ -13,11 +13,14 @@ import RNModels
 import SignPostMock
 import ZFile
 import ZFileMock
+import RNConfiguration
 import RNConfigurationMock
 import TerminalMock
 
 import CoderLibrary
 import CoderLibraryMock
+import Foundation
+import RNModels
 
 class CoderSpec: QuickSpec
 {
@@ -98,124 +101,98 @@ class CoderSpec: QuickSpec
 
             context("correct Coder")
             {
-                context("env contains some keys and values")
-                {
-
-                    var modelFile: FileProtocolMock!
-                    var factoryFile: FileProtocolMock!
-                    var plistCode: FileProtocolMock!
-                    var plistTests: FileProtocolMock!
-                    
-//                    let bridg
-                    beforeEach
+                var modelFile: FileProtocolMock!
+                var factoryFile: FileProtocolMock!
+                var plistCode: FileProtocolMock!
+                var plistTests: FileProtocolMock!
+                var objectiveC: FileProtocolMock!
+                
+                var bridge: BridgeEnvProtocolMock!
+                
+                beforeEach
                     {
                         expect
-                        {
-                            factoryFile = try FileProtocolMock()
-                            modelFile = try FileProtocolMock()
-                            plistCode = try FileProtocolMock()
-                            plistTests = try FileProtocolMock()
-                            
-                            sut = Coder(
-                                disk: configDisk,
-                                builds: sampler,
-                                signPost: signPost,
-                                terminal: terminal,
-                                system: system
-                            )
-                            generatedCode.underlyingRnConfigurationModelSwiftFile = modelFile
-                            generatedCode.underlyingRnConfigurationModelFactorySwiftFile = factoryFile
-                            generatedCode.infoPlistRNConfiguration = plistCode
-                            generatedCode.infoPlistRNConfigurationTests = plistTests
-                            
-                            return try sut?.attempt()
-                        }.toNot(throwError())
-                    }
+                            {
+                                factoryFile = try FileProtocolMock()
+                                modelFile = try FileProtocolMock()
+                                plistCode = try FileProtocolMock()
+                                plistTests = try FileProtocolMock()
+                                bridge = BridgeEnvProtocolMock()
+                                objectiveC = try FileProtocolMock()
+                                
+                                sut = Coder(
+                                    disk: configDisk,
+                                    builds: sampler,
+                                    signPost: signPost,
+                                    terminal: terminal,
+                                    system: system
+                                )
+                                generatedCode.underlyingRnConfigurationModelSwiftFile = modelFile
+                                generatedCode.underlyingRnConfigurationModelFactorySwiftFile = factoryFile
+                                generatedCode.infoPlistRNConfiguration = plistCode
+                                generatedCode.infoPlistRNConfigurationTests = plistTests
+                                generatedCode.underlyingRnConfigurationBridgeObjectiveCMFile = objectiveC
+                                
+                                sampler.underlyingBridgeEnv = bridge
+                                sampler.plistLinesXmlText = """
+                                <key>exampleBool</key>
+                                <string>false</string>
+                                <key>example_url</key>
+                                <string>http://www.mockedURL.safe</string>
+                                """
+                                
+                                return try sut?.attempt()
+                            }.toNot(throwError())
+                }
+                
+                context("env contains some keys and values")
+                {
 
                     it("can code")
                     {
                         expect(sut).toNot(beNil())
                     }
 
-                    context("writes ios code")
+                    context("writes default ios code")
                     {
                         it("to model") {
-                            expect(modelFile.writeStringReceivedString) == ""
+                            expect(modelFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_TOP))
+                            expect(modelFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_BOTTOM))
                         }
                         
                         it("to factory") {
-                             expect(factoryFile.writeStringReceivedString) == ""
+                             expect(factoryFile.writeStringReceivedString).to(contain(Coder.factoryTop))
                         }
                         
                         it("plist") {
-                            expect(plistCode.writeStringReceivedString) == ""
-                            expect(plistTests.writeStringReceivedString) == ""
+                            expect {
+                                let result: RNConfigurationModel = try PropertyListDecoder().decode(RNConfigurationModel.self, from: plistCode.writeStringReceivedString!.data(using: .utf8)!)
+                                
+                                expect(result.example_url.url.absoluteString) == "http://www.mockedURL.safe"
+                                expect(result.exampleBool) == false
+                                
+                                return true
+                            }.toNot(throwError())
+                          
+                        }
+                        
+                        it("objectiveC") {
+                             expect(objectiveC.writeStringReceivedString).to(contain(Coder.RNConfigurationBridge.top))
                         }
                     }
                         context("android")
                         {
-//                            var androidFolder: FolderProtocol!
-//
-//                            beforeEach
-//                            {
-//                                expect { androidFolder = try srcRoot.subfolder(named: "android") }.toNot(throwError())
-//                            }
-//
-//                            it("build has keys and values")
-//                            {
-//                                if let booleans = sut?.codeSampler.input.debug.booleans?.keys,
-//                                    let typedVariabels = sut?.codeSampler.input.debug.typed?.keys
-//                                {
-//                                    expect
-//                                    {
-//                                        for _xconfigEntry in booleans
-//                                        {
-//                                            expect { androidConfigFile }.to(contain(_xconfigEntry))
-//                                        }
-//
-//                                        for _xconfigEntry in typedVariabels
-//                                        {
-//                                            expect { androidConfigFile }.to(contain(_xconfigEntry))
-//                                        }
-//
-//                                        return rnConfigurationModelFile
-//                                    }.toNot(throwError())
-//                                }
-//                                else
-//                                {
-//                                    fail("wrong input")
-//                                }
-//                            }
-//
-//                            it("created .env files")
-//                            {
-//                                expect
-//                                {
-//                                    RNModels.Configuration.allCases.forEach
-//                                    { configuration in
-//                                        expect(androidFolder.containsFile(named: ".env.\(configuration)")) == true
-//                                    }
-//                                    return androidFolder
-//                                }.toNot(throwError())
-//                            }
-//
-//                            it(".env.<configuration> contain expected keys")
-//                            {
-//                                expect
-//                                {
-//                                    try RNModels.Configuration.allCases.forEach
-//                                    { configuration in
-//                                        let content = try androidFolder.file(named: ".env.\(configuration)").readAsString()
-//
-//                                        expect(content) == """
-//                                        url = https://\(configuration.fileName())
-//                                        exampleBool = true
-//                                        """
-//                                    }
-//                                    return androidFolder
-//                                }.toNot(throwError())
-//                            }
-//                        }
+        
+
+                            it("writes all env.* files")
+                            {
+                                RNModels.Configuration.allCases.forEach
+                                    { configuration in
+                                        expect(androidFolder.containsFile(named: ".env.\(configuration)")) == true
+                                }
+                            }
+
+                        }
                     }
                 }
             }

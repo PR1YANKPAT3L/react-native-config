@@ -636,8 +636,3 @@ extension Coder {
         try file.write(string: plistLinesXml)
     }
 }
-
-extension Coder {
-    
-   
-}
