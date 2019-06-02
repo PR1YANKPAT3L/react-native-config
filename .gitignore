@@ -25,3 +25,5 @@ xcuserdata
 /Sources/.sourcery-PrepareForConfiguration.yml
 /Sources/.sourcery-PrepareForConfigurationLibrary.yml
 /Sources/.swiftformat.md
+/Sources/.sourcery-Coder.yml
+/Sources/.sourcery-CoderLibrary.yml
