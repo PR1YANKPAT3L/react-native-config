@@ -22,3 +22,6 @@ xcuserdata
 /env.debug.json
 /env.local.json
 /env.release.json
+/Sources/.sourcery-PrepareForConfiguration.yml
+/Sources/.sourcery-PrepareForConfigurationLibrary.yml
+/Sources/.swiftformat.md

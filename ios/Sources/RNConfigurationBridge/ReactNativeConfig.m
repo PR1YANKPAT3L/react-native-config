@@ -14,23 +14,23 @@ RCT_EXPORT_MODULE()
     #ifdef DEBUG
     #ifdef LOCAL
     return @{
-            @"url" : @"https://local",
+            @"example_url" : @"https://local",
     @"exampleBool" : @YES
     };
     #else
     return @{
-            @"url" : @"https://debug",
+            @"example_url" : @"https://debug",
     @"exampleBool" : @YES
     };
     #endif
     #elif RELEASE
     return @{
-            @"url" : @"https://release",
+            @"example_url" : @"https://release",
     @"exampleBool" : @YES
     };
     #elif BETARELEASE
     return @{
-            @"url" : @"https://betaRelease",
+            @"example_url" : @"https://betaRelease",
     @"exampleBool" : @YES
     };
     #else

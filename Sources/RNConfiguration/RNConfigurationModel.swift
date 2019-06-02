@@ -10,19 +10,19 @@ public protocol RNConfigurationModelProtocol: AutoMockable
 {
     // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
     var exampleBool: Bool { get }
-    var url: URLEscaped { get }
+    var example_url: URLEscaped { get }
     var description: String { get }
 
-    static func create(from json: JSON) throws -> RNConfigurationModel
+    static func create(from json: JSON) throws -> RNConfigurationModelProtocol
     // sourcery:end
 }
 
-public struct RNConfigurationModel: Codable, CustomStringConvertible, AutoGenerateProtocol
+public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol, AutoGenerateProtocol
 {
     // MARK: - Custom plist properties are added here
 
     public let exampleBool: Bool
-    public let url: URLEscaped
+    public let example_url: URLEscaped
 
     public init(from decoder: Decoder) throws
     {
@@ -31,10 +31,10 @@ public struct RNConfigurationModel: Codable, CustomStringConvertible, AutoGenera
         guard let exampleBool = Bool(try container.decode(String.self, forKey: .exampleBool)) else { throw Error.invalidBool(forKey: "exampleBool") }
 
         self.exampleBool = exampleBool
-        url = try container.decode(URLEscaped.self, forKey: .url)
+        example_url = try container.decode(URLEscaped.self, forKey: .example_url)
     }
 
-    public static func create(from json: JSON) throws -> RNConfigurationModel
+    public static func create(from json: JSON) throws -> RNConfigurationModelProtocol
     {
         let typed = json.typed ?? [String: JSONEntry]()
 
@@ -76,7 +76,7 @@ public struct RNConfigurationModel: Codable, CustomStringConvertible, AutoGenera
         // Custom environment dependend constants from .env.<CONFIGURATION>.json
 
                     * exampleBool: \(exampleBool)
-                    * url: \(url)
+            * example_url: \(example_url)
         """
     }
 }

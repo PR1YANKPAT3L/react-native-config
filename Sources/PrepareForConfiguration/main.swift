@@ -15,39 +15,19 @@ import SourceryWorker
 import Terminal
 import ZFile
 
-let signPost = SignPost.shared
-
 let xcbuild = XCBuild()
-let highWay: Highway!
-let highwayRunner: HighwayRunner!
-let dispatchGroup = DispatchGroup()
 
 do
 {
-    signPost.message("🏗\(pretty_function()) ...")
+    srcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
 
-    var environmentJsonFilesFolder: FolderProtocol = FileSystem.shared.currentFolder
+    try setupHighwayRunner(folder: srcRoot)
 
-    if try environmentJsonFilesFolder.parentFolder().name == "Products"
-    {
-        // Case where we are building from xcode
-        // .build/RNConfigurationHighwaySetup/Build/Products/Debug/env.debug.json
-        let relativePath = "../../../../"
-        environmentJsonFilesFolder = try environmentJsonFilesFolder.subfolder(named: relativePath)
-        signPost.message("⚠️ building from xcode detected, moving \(relativePath) up")
-        signPost.message("ℹ️ .env.<#configuration#>.json are expected to be in \n\(environmentJsonFilesFolder)")
-    }
-
-    let rnConfigurationSrcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
-    let dependecyService = DependencyService(in: rnConfigurationSrcRoot)
-    let dumpService = DumpService(swiftPackageFolder: rnConfigurationSrcRoot)
-    let package = try Highway.package(for: rnConfigurationSrcRoot, dependencyService: dependecyService, dumpService: dumpService)
-    let sourceryBuilder = SourceryBuilder(dependencyService: dependecyService)
-
-    highWay = try Highway(package: package, dependencyService: dependecyService, sourceryBuilder: sourceryBuilder)
-    highwayRunner = HighwayRunner(highway: highWay, dispatchGroup: dispatchGroup)
-
-    let prepareCode = try PrepareCode(rnConfigurationSrcRoot: rnConfigurationSrcRoot, environmentJsonFilesFolder: environmentJsonFilesFolder, signPost: signPost)
+    let prepareCode = try PrepareCode(
+        rnConfigurationSrcRoot: srcRoot,
+        environmentJsonFilesFolder: srcRoot,
+        signPost: signPost
+    )
 
     do
     {
@@ -57,29 +37,32 @@ do
 
         highwayRunner.runSourcery(handleSourceryOutput)
 
-        dispatchGroup.notify(queue: DispatchQueue.main)
+        dispatchGroup.notifyMain
         {
             highwayRunner.runSwiftformat(handleSwiftformat)
-            dispatchGroup.wait()
+            highwayRunner.runTests(handleTestOutput)
 
-            guard highwayRunner.errors?.count ?? 0 <= 0 else
+            dispatchGroup.notifyMain
             {
-                SignPost.shared.error(
-                    """
-                    ❌ PREPARE **RNConfiguration**
-                    
-                    \(highwayRunner.errors!)
-                    
-                    ❌
-                    ♥️ Fix it by adding environment files
-                    \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)" }.joined(separator: "\n"))
-                    """
-                )
-                exit(EXIT_FAILURE)
-            }
-            signPost.message("🏗\(pretty_function()) ✅")
+                guard highwayRunner.errors?.count ?? 0 <= 0 else
+                {
+                    SignPost.shared.error(
+                        """
+                        ❌ PREPARE **RNConfiguration**
+                        
+                        \(highwayRunner.errors!)
+                        
+                        ❌
+                        ♥️ Fix it by adding environment files
+                        \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)" }.joined(separator: "\n"))
+                        """
+                    )
+                    exit(EXIT_FAILURE)
+                }
+                signPost.message("🏗\(pretty_function()) ✅")
 
-            exit(EXIT_SUCCESS)
+                exit(EXIT_SUCCESS)
+            }
         }
 
         dispatchMain()

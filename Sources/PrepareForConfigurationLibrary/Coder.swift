@@ -172,30 +172,30 @@ extension Coder {
         }
         
         lines = """
-        \(Coder.rnConfigurationModelDefault_TOP)
+            \(Coder.rnConfigurationModelDefault_TOP)
         
-        // MARK: - Custom plist properties are added here
+            // MARK: - Custom plist properties are added here
         
-        \(builds.configurationModelVar)
+            \(builds.configurationModelVar)
         
-        public init(from decoder: Decoder) throws {
+            public init(from decoder: Decoder) throws {
         
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+                let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        \(builds.decoderInit)
-        }
-        \(Coder.rnConfigurationModelDefault_BOTTOM)
+                \(builds.decoderInit)
+                }
+                \(Coder.rnConfigurationModelDefault_BOTTOM)
         
-        public var description: String {
-        return \"""
-        Configuration.swift read from Info.plist of RNConfiguration framework
+                public var description: String {
+                return \"""
+                Configuration.swift read from Info.plist of RNConfiguration framework
         
-        // Custom environment dependend constants from .env.<CONFIGURATION>.json
+                // Custom environment dependend constants from .env.<CONFIGURATION>.json
         
-        \(builds.configurationModelVarDescription)
-        \"""
-        }
-        }
+                \(builds.configurationModelVarDescription)
+                \"""
+                }
+            }
         
         """
         try disk.code.rnConfigurationModelSwiftFile.write(string: lines)
@@ -204,25 +204,25 @@ extension Coder {
     
     
     public static let rnConfigurationModelDefault_TOP = """
-        import Foundation
-        import RNModels
-        import SourceryAutoProtocols
+    import Foundation
+    import RNModels
+    import SourceryAutoProtocols
 
-            /**
-                ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
-            */
+    /**
+        ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
+    */
 
-            public protocol RNConfigurationModelProtocol: AutoMockable {
-                // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
-                // sourcery:end
-            }
-            
-            public struct RNConfigurationModel: Codable, CustomStringConvertible, AutoGenerateProtocol {
+    public protocol RNConfigurationModelProtocol: AutoMockable {
+        // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
+        // sourcery:end
+    }
+    
+    public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol, AutoGenerateProtocol {
 
-        """
+    """
     public static let rnConfigurationModelDefault_BOTTOM = """
          
-        public static func create(from json: JSON) throws -> RNConfigurationModel {
+        public static func create(from json: JSON) throws -> RNConfigurationModelProtocol {
                 let typed = json.typed ?? [String: JSONEntry]()
     
                 var jsonTyped = "{"
@@ -328,7 +328,7 @@ extension Coder {
             /**
                 Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
             */
-            public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModel {
+            public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModelProtocol {
         
                 guard let infoDict = RNConfigurationModelFactory.infoDict else {
                     throw Error.noInfoDictonary
@@ -348,7 +348,7 @@ extension Coder {
         
                 var result = [Case: String]()
         
-                let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
+                let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration() as! RNConfigurationModel
                 let data = try JSONEncoder().encode(plist)
         
                 guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {

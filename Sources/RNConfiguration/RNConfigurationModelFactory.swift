@@ -13,7 +13,7 @@ public protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
 
     static func allValuesDictionary() throws -> [String: String]
     func allCustomKeys() -> [String]
-    static func readCurrentBuildConfiguration() throws -> RNConfigurationModel
+    static func readCurrentBuildConfiguration() throws -> RNConfigurationModelProtocol
     static func allConstants() throws -> [RNConfigurationModelFactory.Case: String]
 
     // sourcery:end
@@ -54,13 +54,13 @@ public protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
     public enum Case: String, CaseIterable
     {
         case exampleBool
-        case url
+        case example_url
     }
 
     /**
      Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
      */
-    public static func readCurrentBuildConfiguration() throws -> RNConfigurationModel
+    public static func readCurrentBuildConfiguration() throws -> RNConfigurationModelProtocol
     {
         guard let infoDict = RNConfigurationModelFactory.infoDict else
         {
@@ -81,7 +81,7 @@ public protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
     {
         var result = [Case: String]()
 
-        let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
+        let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration() as! RNConfigurationModel
         let data = try JSONEncoder().encode(plist)
 
         guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: String] else
