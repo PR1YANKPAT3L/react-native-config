@@ -92,7 +92,7 @@ public struct Coder
         public static let target = Target.target(
             name: name,
             dependencies:
-            ["SignPost", "Terminal"]
+            ["SignPost", "Terminal", "ZFile"]
                 + [Target.Dependency(stringLiteral: RNModels.library.name)]
         )
 
@@ -119,7 +119,9 @@ public struct Coder
 
             public static let target = Target.target(
                 name: name,
-                dependencies: [],
+                dependencies:
+                Library.target.dependencies
+                + [Target.Dependency(stringLiteral: Library.name)],
                 path: "Sources/Generated/\(library.name)"
             )
         }

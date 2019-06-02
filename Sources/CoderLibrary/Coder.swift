@@ -16,7 +16,7 @@ import Errors
 public protocol CoderProtocol {
     // sourcery:inline:Coder.AutoGenerateProtocol
     var configurationDisk: ConfigurationDiskProtocol { get }
-    var codeSampler: JSONToCodeSampler { get }
+    var codeSampler: JSONToCodeSamplerProtocol { get }
     var signPost: SignPostProtocol { get }
     static var rnConfigurationModelDefault_TOP: String { get }
     static var rnConfigurationModelDefault_BOTTOM: String { get }
@@ -59,7 +59,7 @@ public struct Coder: CoderProtocol {
     // MARK: - Private
     
     public let configurationDisk: ConfigurationDiskProtocol
-    public let codeSampler: JSONToCodeSampler
+    public let codeSampler: JSONToCodeSamplerProtocol
     public let signPost: SignPostProtocol
     private let terminal: TerminalProtocol
     private let system: SystemProtocol
@@ -67,8 +67,8 @@ public struct Coder: CoderProtocol {
     // MARK: - Init
     
     public init(
-        disk: ConfigurationDisk,
-        builds: JSONToCodeSampler,
+        disk: ConfigurationDiskProtocol,
+        builds: JSONToCodeSamplerProtocol,
         signPost: SignPostProtocol = SignPost.shared,
         decoder: JSONDecoder = JSONDecoder(),
         terminal: TerminalProtocol = Terminal.shared,
@@ -83,8 +83,8 @@ public struct Coder: CoderProtocol {
     
     public struct Config
     {
-        let plist: FileProtocol
-        let xcconfig: FileProtocol
+        public let plist: FileProtocol
+        public let xcconfig: FileProtocol
     }
     
 }

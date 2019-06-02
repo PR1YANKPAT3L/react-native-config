@@ -1,5 +1,9 @@
 import CoderLibrary
 import Foundation
+import RNModels
+import SignPost
+import Terminal
+import ZFile
 
 // Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
@@ -17,13 +21,13 @@ open class CoderProtocolMock: CoderProtocol
     }
 
     public var underlyingConfigurationDisk: ConfigurationDiskProtocol!
-    public var codeSampler: JSONToCodeSampler
+    public var codeSampler: JSONToCodeSamplerProtocol
     {
         get { return underlyingCodeSampler }
         set(value) { underlyingCodeSampler = value }
     }
 
-    public var underlyingCodeSampler: JSONToCodeSampler!
+    public var underlyingCodeSampler: JSONToCodeSamplerProtocol!
     public var signPost: SignPostProtocol
     {
         get { return underlyingSignPost }

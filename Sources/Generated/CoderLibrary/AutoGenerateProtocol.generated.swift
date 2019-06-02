@@ -34,7 +34,7 @@ import Foundation
 
  // sourcery:inline:Coder.AutoGenerateProtocol
  var configurationDisk: ConfigurationDiskProtocol { get }
- var codeSampler: JSONToCodeSampler { get }
+ var codeSampler: JSONToCodeSamplerProtocol { get }
  var signPost: SignPostProtocol { get }
  static var rnConfigurationModelDefault_TOP: String { get }
  static var rnConfigurationModelDefault_BOTTOM: String { get }
