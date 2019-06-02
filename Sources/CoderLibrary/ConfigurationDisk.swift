@@ -25,8 +25,8 @@ public protocol ConfigurationDiskProtocol
     var inputJSON: JSONFileProtocol { get }
     var androidFolder: FolderProtocol { get }
     var iosFolder: FolderProtocol { get }
-    var iOS: OutputFileProtocol { get }
-    var android: OutputFileProtocol { get }
+    var iOS: OutputFilesProtocol { get }
+    var android: OutputFilesProtocol { get }
     var code: GeneratedCodeProtocol { get }
 
     // sourcery:end
@@ -44,7 +44,7 @@ public protocol JSONFileProtocol
 }
 
 // sourcery:AutoMockable
-public protocol OutputFileProtocol
+public protocol OutputFilesProtocol
 {
     // sourcery:inline:ConfigurationDisk.OutputFile.AutoGenerateProtocol
     var debug: FileProtocol { get }
@@ -88,8 +88,8 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
     public let androidFolder: FolderProtocol
     public let iosFolder: FolderProtocol
 
-    public let iOS: OutputFileProtocol
-    public let android: OutputFileProtocol
+    public let iOS: OutputFilesProtocol
+    public let android: OutputFilesProtocol
 
     public let code: GeneratedCodeProtocol
 
@@ -168,14 +168,14 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
                 betaReleaseAndroidConfigurationFile = nil
             }
 
-            iOS = OutputFile(
+            iOS = OutputFiles(
                 debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
                 release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
                 local: localXconfigFile,
                 betaRelease: betaReleaseXconfigFile
             )
 
-            android = OutputFile(
+            android = OutputFiles(
                 debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
                 release: try androidFolder.createFileIfNeeded(named: ".env.release"),
                 local: localAndroidConfigurationFile,
@@ -200,7 +200,7 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
                 }
             }
 
-            code = OutputFile.GeneratedCode(
+            code = OutputFiles.GeneratedCode(
                 rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
                 infoPlistRNConfiguration: try rnConfigurationSrcRoot.file(named: "\(ConfigurationDisk.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
                 infoPlistRNConfigurationTests: try rnConfigurationSrcRoot.file(named: "\(ConfigurationDisk.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
@@ -237,7 +237,7 @@ extension ConfigurationDisk
     }
 
     // sourcery:AutoGenerateProtocol
-    public struct OutputFile: OutputFileProtocol
+    public struct OutputFiles: OutputFilesProtocol
     {
         public let debug: FileProtocol
         public let release: FileProtocol

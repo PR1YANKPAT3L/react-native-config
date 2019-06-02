@@ -93,8 +93,8 @@ import Foundation
  var inputJSON: JSONFileProtocol { get }
  var androidFolder: FolderProtocol { get }
  var iosFolder: FolderProtocol { get }
- var iOS: OutputFileProtocol { get }
- var android: OutputFileProtocol { get }
+ var iOS: OutputFilesProtocol { get }
+ var android: OutputFilesProtocol { get }
  var code: GeneratedCodeProtocol { get }
 
  // sourcery:end
@@ -109,19 +109,19 @@ import Foundation
 
  // sourcery:end
  // type.annotations.AutoGenerateProtocol for ConfigurationDisk.JSONFile end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFile -> See code in the file of that type
+ // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFiles -> See code in the file of that type
 
- // sourcery:inline:ConfigurationDisk.OutputFile.AutoGenerateProtocol
+ // sourcery:inline:ConfigurationDisk.OutputFiles.AutoGenerateProtocol
  var debug: FileProtocol { get }
  var release: FileProtocol { get }
  var local: FileProtocol? { get }
  var betaRelease: FileProtocol? { get }
 
  // sourcery:end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFile end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFile.GeneratedCode -> See code in the file of that type
+ // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFiles end
+ // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFiles.GeneratedCode -> See code in the file of that type
 
- // sourcery:inline:ConfigurationDisk.OutputFile.GeneratedCode.AutoGenerateProtocol
+ // sourcery:inline:ConfigurationDisk.OutputFiles.GeneratedCode.AutoGenerateProtocol
  var rnConfigurationModelFactorySwiftFile: FileProtocol { get }
  var infoPlistRNConfiguration: FileProtocol { get }
  var infoPlistRNConfigurationTests: FileProtocol { get }
@@ -130,5 +130,5 @@ import Foundation
 
  func writeDefaultsToFiles() throws
  // sourcery:end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFile.GeneratedCode end
+ // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFiles.GeneratedCode end
  */

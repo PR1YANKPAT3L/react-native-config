@@ -378,20 +378,20 @@ open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol
     }
 
     public var underlyingIosFolder: FolderProtocol!
-    public var iOS: OutputFileProtocol
+    public var iOS: OutputFilesProtocol
     {
         get { return underlyingIOS }
         set(value) { underlyingIOS = value }
     }
 
-    public var underlyingIOS: OutputFileProtocol!
-    public var android: OutputFileProtocol
+    public var underlyingIOS: OutputFilesProtocol!
+    public var android: OutputFilesProtocol
     {
         get { return underlyingAndroid }
         set(value) { underlyingAndroid = value }
     }
 
-    public var underlyingAndroid: OutputFileProtocol!
+    public var underlyingAndroid: OutputFilesProtocol!
     public var code: GeneratedCodeProtocol
     {
         get { return underlyingCode }
@@ -556,9 +556,9 @@ open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
     public var underlyingBridgeEnv: BridgeEnvProtocol!
 }
 
-// MARK: - OutputFileProtocolMock
+// MARK: - OutputFilesProtocolMock
 
-open class OutputFileProtocolMock: OutputFileProtocol
+open class OutputFilesProtocolMock: OutputFilesProtocol
 {
     public init() {}
 

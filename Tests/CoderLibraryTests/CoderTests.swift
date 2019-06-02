@@ -39,7 +39,7 @@ class CoderSpec: QuickSpec
             var system: SystemProtocolMock!
             var generatedCode = GeneratedCodeProtocolMock()
             
-            var outputIOS: OutputProtocolMock!
+            var outputIOS: OutputFileProtocolMock!
             var outputAndroid: OutputProtocolMock!
             
             beforeEach

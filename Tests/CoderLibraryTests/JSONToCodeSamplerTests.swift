@@ -32,7 +32,7 @@ class JSONToCodeSamplerTests: QuickSpec
             var configDisk: ConfigurationDiskProtocolMock!
             
             var textFileWriter: TextFileWriterProtocolMock!
-            var inputJSON: InputJSONProtocolMock!
+            var inputJSON: EnvJSONsProtocolMock!
             
             beforeEach
             {
@@ -60,9 +60,9 @@ class JSONToCodeSamplerTests: QuickSpec
                     
                     configDisk.underlyingInputJSON = jsonFiles
                     
-                    inputJSON = EnvJSONProtocolMock()
-                    inputJSON.underlyingDebug = mockFile
-                    inputJSON.underlyingRelease = mockFile
+                    inputJSON = EnvJSONsProtocolMock()
+                    inputJSON.underlyingDebug = JSONProtocolMock()
+                    inputJSON.underlyingRelease = JSONProtocolMock()
                     
                     textFileWriter = TextFileWriterProtocolMock()
                     textFileWriter.writeIOSAndAndroidConfigFilesFromReturnValue = inputJSON
