@@ -52,6 +52,10 @@ public protocol RNConfigurationBridgeProtocol {
 
 /**
  Generates code or plist content and write to corresponding file
+ 
+ As only iOS has code that is shared to React native and that code is used in Android this only writes to iOS files.
+ 
+ But maybe in the future it can write Android too. The TextFileWriter now writes to needed config files for Android.
  */
 // sourcery:AutoGenerateProtocol
 public struct Coder: CoderProtocol {

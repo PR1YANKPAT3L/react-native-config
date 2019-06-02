@@ -66,6 +66,7 @@ class JSONToCodeSamplerTests: QuickSpec
                     
                     textFileWriter = TextFileWriterProtocolMock()
                     textFileWriter.writeIOSAndAndroidConfigFilesFromReturnValue = inputJSON
+                    textFileWriter.setupCodeSamplesJsonReturnValue = TextFileWriter.Sample(arrayLiteral: (case: "mock", configurationModelVar: "mock", configurationModelVarDescription: "mock", xmlEntry: "mock", decoderInit: "mock"))
                     
                     sut = try JSONToCodeSampler(from: configDisk, textFileWriter: textFileWriter)
 
@@ -78,11 +79,17 @@ class JSONToCodeSamplerTests: QuickSpec
                 expect(sut).toNot(beNil())
             }
 
+            it("setup samples") {
+                expect(textFileWriter.setupCodeSamplesJsonCalled) == true
+            }
+            
             context("writes to text files")
             {
                 it("ios and android") {
-                    expect(textFileWriter.writeConfigIfNeededFromAndroidIosCalled) == true
+                    expect(textFileWriter.writeIOSAndAndroidConfigFilesFromCalled) == true
                 }
+                
+                
                 
             }
         }

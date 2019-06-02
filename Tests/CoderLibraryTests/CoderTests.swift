@@ -39,8 +39,8 @@ class CoderSpec: QuickSpec
             var system: SystemProtocolMock!
             var generatedCode = GeneratedCodeProtocolMock()
             
-            var outputIOS: OutputFileProtocolMock!
-            var outputAndroid: OutputProtocolMock!
+            var outputIOS: OutputFilesProtocolMock!
+            var outputAndroid: OutputFilesProtocolMock!
             
             beforeEach
             {
@@ -75,11 +75,11 @@ class CoderSpec: QuickSpec
                     configDisk.underlyingInputJSON = input
                     configDisk.underlyingCode = generatedCode
             
-                    outputIOS = OutputProtocolMock()
+                    outputIOS = OutputFilesProtocolMock()
                     outputIOS.debug = try FileProtocolMock()
                     outputIOS.release = try FileProtocolMock()
                     
-                    outputAndroid = OutputProtocolMock()
+                    outputAndroid = OutputFilesProtocolMock()
                     outputAndroid.debug = try FileProtocolMock()
                     outputAndroid.release = try FileProtocolMock()
                     
@@ -188,18 +188,6 @@ class CoderSpec: QuickSpec
                         }
                     }
                     
-                    context("android")
-                    {
-                        
-                        
-                        it("writes all env.* files")
-                        {
-                            RNModels.Configuration.allCases.forEach { configuration in
-                                    expect((outputAndroid.debug as! FileProtocolMock).writeStringReceivedString ) == ""
-                            }
-                        }
-                        
-                    }
                 }
             }
         }
