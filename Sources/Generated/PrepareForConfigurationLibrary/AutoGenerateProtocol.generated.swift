@@ -32,6 +32,7 @@ import Foundation
  func writeRNConfigurationModel() throws
  func writeRNConfigurationModelFactory() throws
  func writeRNConfigurationPlist() throws
+ func writeRNConfigurationPlist(to file: FileProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for Coder ✅
  // types.implementing.AutoGenerateProtocol inline for Coder.RNConfigurationBridge ..
@@ -46,6 +47,18 @@ import Foundation
 
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for Coder.RNConfigurationBridge ✅
+ // types.implementing.AutoGenerateProtocol inline for PrepareCode ..
+ // sourcery:inline:PrepareCode.AutoGenerateProtocol
+ var coder: Coder { get }
+ var disk: ConfigurationDisk { get }
+ var builds: Builds { get }
+ var rnConfigurationSrcRoot: FolderProtocol { get }
+ var environmentJsonFilesFolder: FolderProtocol { get }
+
+ func attempt() throws  -> PrepareCode.Config
+ func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for PrepareCode ✅
 
  // type.annotations.AutoGenerateProtocol for ConfigurationDisk -> See code in the file of that type
 

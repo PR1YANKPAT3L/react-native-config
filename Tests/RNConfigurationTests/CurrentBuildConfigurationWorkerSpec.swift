@@ -31,11 +31,11 @@ class CurrentBuildConfigurationWorkerSpec: QuickSpec
 
             context("can read current build configuration ")
             {
-                var currentBuildConfiguration: RNConfigurationModel?
+                var currentBuildConfiguration: RNConfigurationModelProtocol?
 
                 beforeEach
                 {
-                    RNConfigurationModelFactory.infoDict = ["exampleBool": "true", "url": "http://www.dooz.be"]
+                    RNConfigurationModelFactory.infoDict = ["exampleBool": "true", "example_url": "http://www.dooz.be"]
                     expect { currentBuildConfiguration = try RNConfigurationModelFactory.readCurrentBuildConfiguration() }.toNot(throwError())
                 }
 

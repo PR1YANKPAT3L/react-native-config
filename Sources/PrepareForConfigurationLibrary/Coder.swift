@@ -9,6 +9,7 @@
 import Foundation
 import SignPost
 import SourceryAutoProtocols
+import ZFile
 
 public protocol CoderProtocol: AutoMockable {
     // sourcery:inline:Coder.AutoGenerateProtocol
@@ -25,6 +26,7 @@ public protocol CoderProtocol: AutoMockable {
     func writeRNConfigurationModel() throws 
     func writeRNConfigurationModelFactory() throws 
     func writeRNConfigurationPlist() throws 
+    func writeRNConfigurationPlist(to file: FileProtocol) throws 
     // sourcery:end
 }
 
@@ -489,11 +491,16 @@ extension Coder {
     
     public func writeRNConfigurationPlist() throws {
         
+        try writeRNConfigurationPlist(to: disk.code.infoPlistRNConfiguration)
+        try writeRNConfigurationPlist(to: disk.code.infoPlistRNConfigurationTests)
+    }
+    
+    public func writeRNConfigurationPlist(to file: FileProtocol) throws {
+        
         var plistLinesXml = Coder.plistLinesXmlDefault
         
         guard builds.plistLinesXmlText.count > 0 else {
-            try disk.code.infoPlistRNConfiguration.write(string: plistLinesXml)
-            try disk.code.infoPlistRNConfigurationTests.write(string: plistLinesXml)
+            try  file.write(string: plistLinesXml)
             return
         }
         
@@ -523,8 +530,7 @@ extension Coder {
         </plist>
         """
         
-        try disk.code.infoPlistRNConfiguration.write(string: plistLinesXml)
-        try disk.code.infoPlistRNConfigurationTests.write(string: plistLinesXml)
+        try file.write(string: plistLinesXml)
     }
 }
 

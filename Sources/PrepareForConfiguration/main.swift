@@ -15,14 +15,12 @@ import SourceryWorker
 import Terminal
 import ZFile
 
-let xcbuild = XCBuild()
-
 do
 {
     srcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
 
     try setupHighwayRunner(folder: srcRoot)
-
+    signPost.message("\(pretty_function()) ...")
     let prepareCode = try PrepareCode(
         rnConfigurationSrcRoot: srcRoot,
         environmentJsonFilesFolder: srcRoot,
@@ -31,7 +29,10 @@ do
 
     do
     {
-        try prepareCode.attempt()
+        let config = try prepareCode.attempt()
+        let xcode = try srcRoot.subfolder(named: "react-native-config")
+        try prepareCode.attemptWriteInfoPlistToAllPlists(in: xcode)
+        
         // enable and have a look at the file to make it work if you want.
         try highwayRunner.addGithooksPrePush()
 
@@ -46,20 +47,14 @@ do
             {
                 guard highwayRunner.errors?.count ?? 0 <= 0 else
                 {
-                    SignPost.shared.error(
-                        """
-                        ❌ PREPARE **RNConfiguration**
-                        
-                        \(highwayRunner.errors!)
-                        
-                        ❌
-                        ♥️ Fix it by adding environment files
-                        \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)" }.joined(separator: "\n"))
-                        """
-                    )
+                    for error in highwayRunner.errors!
+                    {
+                        signPost.error("\(error)")
+                    }
+                    signPost.error("\(pretty_function()) ❌")
                     exit(EXIT_FAILURE)
                 }
-                signPost.message("🏗\(pretty_function()) ✅")
+                signPost.message("\(pretty_function()) ✅")
 
                 exit(EXIT_SUCCESS)
             }
@@ -81,5 +76,6 @@ catch
         \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)" }.joined(separator: "\n"))
         """
     )
+    signPost.error("\(pretty_function()) ❌")
     exit(EXIT_FAILURE)
 }

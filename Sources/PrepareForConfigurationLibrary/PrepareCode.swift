@@ -9,10 +9,25 @@
 import Errors
 import Foundation
 import SignPost
+import SourceryAutoProtocols
 import Terminal
 import ZFile
 
-public struct PrepareCode
+public protocol PrepareCodeProtocol: AutoMockable
+{
+    // sourcery:inline:PrepareCode.AutoGenerateProtocol
+    var coder: Coder { get }
+    var disk: ConfigurationDisk { get }
+    var builds: Builds { get }
+    var rnConfigurationSrcRoot: FolderProtocol { get }
+    var environmentJsonFilesFolder: FolderProtocol { get }
+
+    func attempt() throws -> PrepareCode.Config
+    func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
+    // sourcery:end
+}
+
+public struct PrepareCode: PrepareCodeProtocol, AutoGenerateProtocol
 {
     public let coder: Coder
     public let disk: ConfigurationDisk
@@ -20,6 +35,12 @@ public struct PrepareCode
 
     public let rnConfigurationSrcRoot: FolderProtocol
     public let environmentJsonFilesFolder: FolderProtocol
+
+    public struct Config
+    {
+        let plist: FileProtocol
+        let xcconfig: FileProtocol
+    }
 
     // MARK: - Private
 
@@ -48,7 +69,7 @@ public struct PrepareCode
         self.system = system
     }
 
-    public func attempt() throws
+    public func attempt() throws -> PrepareCode.Config
     {
         do
         {
@@ -98,10 +119,21 @@ public struct PrepareCode
             signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ...")
             try coder.writeRNConfigurationBridge()
             signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ✅")
+
+            // TODO: this should only be one
+            return Config(plist: disk.code.infoPlistRNConfiguration, xcconfig: disk.iOS.debug)
         }
         catch
         {
             throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
+        }
+    }
+
+    public func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
+    {
+        try folder.makeFileSequence().forEach
+        { file in
+            try coder.writeRNConfigurationPlist(to: file)
         }
     }
 }

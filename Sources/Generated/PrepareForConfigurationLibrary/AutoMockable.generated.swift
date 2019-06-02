@@ -189,6 +189,40 @@ open class CoderProtocolMock: CoderProtocol
 
         try writeRNConfigurationPlistClosure?()
     }
+
+    // MARK: - <writeRNConfigurationPlist> - parameters
+
+    public var writeRNConfigurationPlistToThrowableError: Error?
+    public var writeRNConfigurationPlistToCallsCount = 0
+    public var writeRNConfigurationPlistToCalled: Bool
+    {
+        return writeRNConfigurationPlistToCallsCount > 0
+    }
+
+    public var writeRNConfigurationPlistToReceivedFile: FileProtocol?
+
+    // MARK: - <writeRNConfigurationPlist> - closure mocks
+
+    public var writeRNConfigurationPlistToClosure: ((FileProtocol) throws -> Void)?
+
+    // MARK: - <writeRNConfigurationPlist> - method mocked
+
+    open func writeRNConfigurationPlist(to file: FileProtocol) throws
+    {
+        // <writeRNConfigurationPlist> - Throwable method implementation
+
+        if let error = writeRNConfigurationPlistToThrowableError
+        {
+            throw error
+        }
+
+        writeRNConfigurationPlistToCallsCount += 1
+        writeRNConfigurationPlistToReceivedFile = file
+
+        // <writeRNConfigurationPlist> - Void return mock implementation
+
+        try writeRNConfigurationPlistToClosure?(file)
+    }
 }
 
 // MARK: - ConfigurationDiskProtocolMock
@@ -267,6 +301,130 @@ open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol
     }
 
     public var underlyingCode: ConfigurationDisk.Output.Code!
+}
+
+// MARK: - PrepareCodeProtocolMock
+
+open class PrepareCodeProtocolMock: PrepareCodeProtocol
+{
+    public init() {}
+
+    public var coder: Coder
+    {
+        get { return underlyingCoder }
+        set(value) { underlyingCoder = value }
+    }
+
+    public var underlyingCoder: Coder!
+    public var disk: ConfigurationDisk
+    {
+        get { return underlyingDisk }
+        set(value) { underlyingDisk = value }
+    }
+
+    public var underlyingDisk: ConfigurationDisk!
+    public var builds: Builds
+    {
+        get { return underlyingBuilds }
+        set(value) { underlyingBuilds = value }
+    }
+
+    public var underlyingBuilds: Builds!
+    public var rnConfigurationSrcRoot: FolderProtocol
+    {
+        get { return underlyingRnConfigurationSrcRoot }
+        set(value) { underlyingRnConfigurationSrcRoot = value }
+    }
+
+    public var underlyingRnConfigurationSrcRoot: FolderProtocol!
+    public var environmentJsonFilesFolder: FolderProtocol
+    {
+        get { return underlyingEnvironmentJsonFilesFolder }
+        set(value) { underlyingEnvironmentJsonFilesFolder = value }
+    }
+
+    public var underlyingEnvironmentJsonFilesFolder: FolderProtocol!
+
+    // MARK: - <attempt> - parameters
+
+    public var attemptThrowableError: Error?
+    public var attemptCallsCount = 0
+    public var attemptCalled: Bool
+    {
+        return attemptCallsCount > 0
+    }
+
+    public var attemptReturnValue: PrepareCode.Config?
+
+    // MARK: - <attempt> - closure mocks
+
+    public var attemptClosure: (() throws -> PrepareCode.Config)?
+
+    // MARK: - <attempt> - method mocked
+
+    open func attempt() throws -> PrepareCode.Config
+    {
+        // <attempt> - Throwable method implementation
+
+        if let error = attemptThrowableError
+        {
+            throw error
+        }
+
+        attemptCallsCount += 1
+
+        // <attempt> - Return Value mock implementation
+
+        guard let closureReturn = attemptClosure else
+        {
+            guard let returnValue = attemptReturnValue else
+            {
+                let message = "No returnValue implemented for attemptClosure"
+                let error = SourceryMockError.implementErrorCaseFor(message)
+
+                // You should implement PrepareCode.Config
+
+                throw error
+            }
+            return returnValue
+        }
+
+        return try closureReturn()
+    }
+
+    // MARK: - <attemptWriteInfoPlistToAllPlists> - parameters
+
+    public var attemptWriteInfoPlistToAllPlistsInThrowableError: Error?
+    public var attemptWriteInfoPlistToAllPlistsInCallsCount = 0
+    public var attemptWriteInfoPlistToAllPlistsInCalled: Bool
+    {
+        return attemptWriteInfoPlistToAllPlistsInCallsCount > 0
+    }
+
+    public var attemptWriteInfoPlistToAllPlistsInReceivedFolder: FolderProtocol?
+
+    // MARK: - <attemptWriteInfoPlistToAllPlists> - closure mocks
+
+    public var attemptWriteInfoPlistToAllPlistsInClosure: ((FolderProtocol) throws -> Void)?
+
+    // MARK: - <attemptWriteInfoPlistToAllPlists> - method mocked
+
+    open func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
+    {
+        // <attemptWriteInfoPlistToAllPlists> - Throwable method implementation
+
+        if let error = attemptWriteInfoPlistToAllPlistsInThrowableError
+        {
+            throw error
+        }
+
+        attemptWriteInfoPlistToAllPlistsInCallsCount += 1
+        attemptWriteInfoPlistToAllPlistsInReceivedFolder = folder
+
+        // <attemptWriteInfoPlistToAllPlists> - Void return mock implementation
+
+        try attemptWriteInfoPlistToAllPlistsInClosure?(folder)
+    }
 }
 
 // MARK: - RNConfigurationBridgeProtocolMock
