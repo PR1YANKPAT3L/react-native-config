@@ -56,6 +56,9 @@ public struct RNConfiguration
     }
 }
 
+/**
+ It writes the env.*.json files into code for ios, android and JS
+ */
 public struct Coder
 {
     public static let name = "\(Coder.self)"
@@ -123,6 +126,26 @@ public struct Coder
     }
 }
 
+/**
+ Will run before pushing and in PR's on bitrise
+ */
+public struct PrePushAndPR
+{
+    public static let name = "\(PrePushAndPR.self)"
+    
+    public static let executable = Product.executable(
+        name: name,
+        targets: [name]
+    )
+    
+    public static let target = Target.target(
+        name: name,
+        dependencies: ["HighwayLibrary"]
+    )
+}
+/**
+ General models reused and separated to not create cyclic dependensies when generating RNConfiguration
+ */
 public struct RNModels
 {
     public static let name = "\(RNModels.self)"
@@ -164,6 +187,7 @@ let package = Package(
         // MARK: - Executable
 
         Coder.executable,
+        PrePushAndPR.executable,
 
         // MARK: - Library
 
@@ -203,6 +227,7 @@ let package = Package(
         // MARK: - executable
 
         Coder.target,
+        PrePushAndPR.target,
 
         // MARK: - Library
 
