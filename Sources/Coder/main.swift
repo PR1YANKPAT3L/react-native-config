@@ -6,10 +6,10 @@
 //  Copyright © 2019 Pedro Belo. All rights reserved.
 //
 
+import CoderLibrary
 import Errors
 import Foundation
 import HighwayLibrary
-import PrepareForConfigurationLibrary
 import SignPost
 import SourceryWorker
 import Terminal
@@ -23,15 +23,15 @@ do
     signPost.message("\(pretty_function()) ...")
     let configurationDisk = try ConfigurationDisk(rnConfigurationSrcRoot: srcRoot, environmentJsonFilesFolder: srcRoot)
     let sampler = try JSONToCodeSampler(from: configurationDisk)
-    
+
     let coder = Coder(disk: configurationDisk, builds: sampler)
 
     do
     {
         let config = try coder.attempt()
-        let xcode = try srcRoot.subfolder(named: "react-native-config")
-        try coder.attemptWriteInfoPlistToAllPlists(in: xcode)
-        
+        let xcode = try srcRoot.subfolder(named: "react-native-config.xcodeproj")
+//        try coder.attemptWriteInfoPlistToAllPlists(in: xcode)
+
         // enable and have a look at the file to make it work if you want.
         try highwayRunner.addGithooksPrePush()
 

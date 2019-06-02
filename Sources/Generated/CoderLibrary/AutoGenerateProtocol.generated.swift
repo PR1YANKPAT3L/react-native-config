@@ -19,8 +19,8 @@ import Foundation
 
  // types.implementing.AutoGenerateProtocol inline for Coder ..
  // sourcery:inline:Coder.AutoGenerateProtocol
- var disk: ConfigurationDisk { get }
- var builds: Builds { get }
+ var configurationDisk: ConfigurationDisk { get }
+ var codeSampler: JSONToCodeSampler { get }
  var signPost: SignPostProtocol { get }
  static var rnConfigurationModelDefault_TOP: String { get }
  static var rnConfigurationModelDefault_BOTTOM: String { get }
@@ -28,6 +28,8 @@ import Foundation
  static var rnConfigurationModelFactoryProtocolDefault: String { get }
  static var plistLinesXmlDefault: String { get }
 
+ func attempt() throws  -> Coder.Config
+ func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
  func writeRNConfigurationBridge() throws
  func writeRNConfigurationModel() throws
  func writeRNConfigurationModelFactory() throws
@@ -47,33 +49,17 @@ import Foundation
 
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for Coder.RNConfigurationBridge ✅
- // types.implementing.AutoGenerateProtocol inline for PrepareCode ..
- // sourcery:inline:PrepareCode.AutoGenerateProtocol
- var coder: Coder { get }
- var disk: ConfigurationDisk { get }
- var builds: Builds { get }
- var rnConfigurationSrcRoot: FolderProtocol { get }
- var environmentJsonFilesFolder: FolderProtocol { get }
-
- func attempt() throws  -> PrepareCode.Config
- func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
- // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for PrepareCode ✅
-
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk -> See code in the file of that type
-
- // sourcery:inline:ConfigurationDisk.AutoGenerateProtocol
- static var projectNameWithPrepareScript: String { get }
- var environmentJsonFilesFolder: FolderProtocol { get }
- var rnConfigurationSourcesFolder: FolderProtocol { get }
- var rnConfigurationBridgeSourcesFolder: FolderProtocol { get }
- var inputJSON: ConfigurationDisk.Input { get }
- var androidFolder: FolderProtocol { get }
- var iosFolder: FolderProtocol { get }
- var iOS: ConfigurationDisk.Output { get }
- var android: ConfigurationDisk.Output { get }
- var code: ConfigurationDisk.Output.Code { get }
+ // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ..
+ // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
+ var input: JSONToCodeSampler.Input { get }
+ var casesForEnum: String { get }
+ var configurationModelVar: String { get }
+ var configurationModelVarDescription: String { get }
+ var plistLinesXmlText: String { get }
+ var decoderInit: String { get }
+ var bridgeEnv: JSONToCodeSampler.BridgeEnv { get }
 
  // sourcery:end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk end
+ // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ✅
+
  */

@@ -10,21 +10,29 @@ import Foundation
 import RNModels
 import SourceryAutoProtocols
 
-public protocol JSONToCodeSamplerProtocol: AutoMockable {
+public protocol JSONToCodeSamplerProtocol: AutoMockable
+{
     // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
+    var input: JSONToCodeSampler.Input { get }
+    var casesForEnum: String { get }
+    var configurationModelVar: String { get }
+    var configurationModelVarDescription: String { get }
+    var plistLinesXmlText: String { get }
+    var decoderInit: String { get }
+    var bridgeEnv: JSONToCodeSampler.BridgeEnv { get }
     // sourcery:end
 }
 
 /**
  Will load input and decode input JSON -> Use RNConfigurationModel.create from this JSON.
- 
+
  It will read the json files and give code sampels to the Coder to write code to files.
-*/
+ */
 public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
 {
     private typealias MappingKeys = [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]
 
-    public let input: Input
+    public let input: JSONToCodeSampler.Input
 
     public let casesForEnum: String
 
@@ -187,5 +195,3 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
         )
     }
 }
-
-

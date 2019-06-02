@@ -1,4 +1,5 @@
-
+import CoderLibrary
+import Foundation
 
 // Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
@@ -9,20 +10,20 @@ open class CoderProtocolMock: CoderProtocol
 {
     public init() {}
 
-    public var disk: ConfigurationDisk
+    public var configurationDisk: ConfigurationDisk
     {
-        get { return underlyingDisk }
-        set(value) { underlyingDisk = value }
+        get { return underlyingConfigurationDisk }
+        set(value) { underlyingConfigurationDisk = value }
     }
 
-    public var underlyingDisk: ConfigurationDisk!
-    public var builds: Builds
+    public var underlyingConfigurationDisk: ConfigurationDisk!
+    public var codeSampler: JSONToCodeSampler
     {
-        get { return underlyingBuilds }
-        set(value) { underlyingBuilds = value }
+        get { return underlyingCodeSampler }
+        set(value) { underlyingCodeSampler = value }
     }
 
-    public var underlyingBuilds: Builds!
+    public var underlyingCodeSampler: JSONToCodeSampler!
     public var signPost: SignPostProtocol
     {
         get { return underlyingSignPost }
@@ -65,6 +66,87 @@ open class CoderProtocolMock: CoderProtocol
     }
 
     public static var underlyingPlistLinesXmlDefault: String = "AutoMockable filled value"
+
+    // MARK: - <attempt> - parameters
+
+    public var attemptThrowableError: Error?
+    public var attemptCallsCount = 0
+    public var attemptCalled: Bool
+    {
+        return attemptCallsCount > 0
+    }
+
+    public var attemptReturnValue: Coder.Config?
+
+    // MARK: - <attempt> - closure mocks
+
+    public var attemptClosure: (() throws -> Coder.Config)?
+
+    // MARK: - <attempt> - method mocked
+
+    open func attempt() throws -> Coder.Config
+    {
+        // <attempt> - Throwable method implementation
+
+        if let error = attemptThrowableError
+        {
+            throw error
+        }
+
+        attemptCallsCount += 1
+
+        // <attempt> - Return Value mock implementation
+
+        guard let closureReturn = attemptClosure else
+        {
+            guard let returnValue = attemptReturnValue else
+            {
+                let message = "No returnValue implemented for attemptClosure"
+                let error = SourceryMockError.implementErrorCaseFor(message)
+
+                // You should implement Coder.Config
+
+                throw error
+            }
+            return returnValue
+        }
+
+        return try closureReturn()
+    }
+
+    // MARK: - <attemptWriteInfoPlistToAllPlists> - parameters
+
+    public var attemptWriteInfoPlistToAllPlistsInThrowableError: Error?
+    public var attemptWriteInfoPlistToAllPlistsInCallsCount = 0
+    public var attemptWriteInfoPlistToAllPlistsInCalled: Bool
+    {
+        return attemptWriteInfoPlistToAllPlistsInCallsCount > 0
+    }
+
+    public var attemptWriteInfoPlistToAllPlistsInReceivedFolder: FolderProtocol?
+
+    // MARK: - <attemptWriteInfoPlistToAllPlists> - closure mocks
+
+    public var attemptWriteInfoPlistToAllPlistsInClosure: ((FolderProtocol) throws -> Void)?
+
+    // MARK: - <attemptWriteInfoPlistToAllPlists> - method mocked
+
+    open func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
+    {
+        // <attemptWriteInfoPlistToAllPlists> - Throwable method implementation
+
+        if let error = attemptWriteInfoPlistToAllPlistsInThrowableError
+        {
+            throw error
+        }
+
+        attemptWriteInfoPlistToAllPlistsInCallsCount += 1
+        attemptWriteInfoPlistToAllPlistsInReceivedFolder = folder
+
+        // <attemptWriteInfoPlistToAllPlists> - Void return mock implementation
+
+        try attemptWriteInfoPlistToAllPlistsInClosure?(folder)
+    }
 
     // MARK: - <writeRNConfigurationBridge> - parameters
 
@@ -303,128 +385,61 @@ open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol
     public var underlyingCode: ConfigurationDisk.Output.Code!
 }
 
-// MARK: - PrepareCodeProtocolMock
+// MARK: - JSONToCodeSamplerProtocolMock
 
-open class PrepareCodeProtocolMock: PrepareCodeProtocol
+open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
 {
     public init() {}
 
-    public var coder: Coder
+    public var input: JSONToCodeSampler.Input
     {
-        get { return underlyingCoder }
-        set(value) { underlyingCoder = value }
+        get { return underlyingInput }
+        set(value) { underlyingInput = value }
     }
 
-    public var underlyingCoder: Coder!
-    public var disk: ConfigurationDisk
+    public var underlyingInput: JSONToCodeSampler.Input!
+    public var casesForEnum: String
     {
-        get { return underlyingDisk }
-        set(value) { underlyingDisk = value }
+        get { return underlyingCasesForEnum }
+        set(value) { underlyingCasesForEnum = value }
     }
 
-    public var underlyingDisk: ConfigurationDisk!
-    public var builds: Builds
+    public var underlyingCasesForEnum: String = "AutoMockable filled value"
+    public var configurationModelVar: String
     {
-        get { return underlyingBuilds }
-        set(value) { underlyingBuilds = value }
+        get { return underlyingConfigurationModelVar }
+        set(value) { underlyingConfigurationModelVar = value }
     }
 
-    public var underlyingBuilds: Builds!
-    public var rnConfigurationSrcRoot: FolderProtocol
+    public var underlyingConfigurationModelVar: String = "AutoMockable filled value"
+    public var configurationModelVarDescription: String
     {
-        get { return underlyingRnConfigurationSrcRoot }
-        set(value) { underlyingRnConfigurationSrcRoot = value }
+        get { return underlyingConfigurationModelVarDescription }
+        set(value) { underlyingConfigurationModelVarDescription = value }
     }
 
-    public var underlyingRnConfigurationSrcRoot: FolderProtocol!
-    public var environmentJsonFilesFolder: FolderProtocol
+    public var underlyingConfigurationModelVarDescription: String = "AutoMockable filled value"
+    public var plistLinesXmlText: String
     {
-        get { return underlyingEnvironmentJsonFilesFolder }
-        set(value) { underlyingEnvironmentJsonFilesFolder = value }
+        get { return underlyingPlistLinesXmlText }
+        set(value) { underlyingPlistLinesXmlText = value }
     }
 
-    public var underlyingEnvironmentJsonFilesFolder: FolderProtocol!
-
-    // MARK: - <attempt> - parameters
-
-    public var attemptThrowableError: Error?
-    public var attemptCallsCount = 0
-    public var attemptCalled: Bool
+    public var underlyingPlistLinesXmlText: String = "AutoMockable filled value"
+    public var decoderInit: String
     {
-        return attemptCallsCount > 0
+        get { return underlyingDecoderInit }
+        set(value) { underlyingDecoderInit = value }
     }
 
-    public var attemptReturnValue: PrepareCode.Config?
-
-    // MARK: - <attempt> - closure mocks
-
-    public var attemptClosure: (() throws -> PrepareCode.Config)?
-
-    // MARK: - <attempt> - method mocked
-
-    open func attempt() throws -> PrepareCode.Config
+    public var underlyingDecoderInit: String = "AutoMockable filled value"
+    public var bridgeEnv: JSONToCodeSampler.BridgeEnv
     {
-        // <attempt> - Throwable method implementation
-
-        if let error = attemptThrowableError
-        {
-            throw error
-        }
-
-        attemptCallsCount += 1
-
-        // <attempt> - Return Value mock implementation
-
-        guard let closureReturn = attemptClosure else
-        {
-            guard let returnValue = attemptReturnValue else
-            {
-                let message = "No returnValue implemented for attemptClosure"
-                let error = SourceryMockError.implementErrorCaseFor(message)
-
-                // You should implement PrepareCode.Config
-
-                throw error
-            }
-            return returnValue
-        }
-
-        return try closureReturn()
+        get { return underlyingBridgeEnv }
+        set(value) { underlyingBridgeEnv = value }
     }
 
-    // MARK: - <attemptWriteInfoPlistToAllPlists> - parameters
-
-    public var attemptWriteInfoPlistToAllPlistsInThrowableError: Error?
-    public var attemptWriteInfoPlistToAllPlistsInCallsCount = 0
-    public var attemptWriteInfoPlistToAllPlistsInCalled: Bool
-    {
-        return attemptWriteInfoPlistToAllPlistsInCallsCount > 0
-    }
-
-    public var attemptWriteInfoPlistToAllPlistsInReceivedFolder: FolderProtocol?
-
-    // MARK: - <attemptWriteInfoPlistToAllPlists> - closure mocks
-
-    public var attemptWriteInfoPlistToAllPlistsInClosure: ((FolderProtocol) throws -> Void)?
-
-    // MARK: - <attemptWriteInfoPlistToAllPlists> - method mocked
-
-    open func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
-    {
-        // <attemptWriteInfoPlistToAllPlists> - Throwable method implementation
-
-        if let error = attemptWriteInfoPlistToAllPlistsInThrowableError
-        {
-            throw error
-        }
-
-        attemptWriteInfoPlistToAllPlistsInCallsCount += 1
-        attemptWriteInfoPlistToAllPlistsInReceivedFolder = folder
-
-        // <attemptWriteInfoPlistToAllPlists> - Void return mock implementation
-
-        try attemptWriteInfoPlistToAllPlistsInClosure?(folder)
-    }
+    public var underlyingBridgeEnv: JSONToCodeSampler.BridgeEnv!
 }
 
 // MARK: - RNConfigurationBridgeProtocolMock
