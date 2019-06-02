@@ -6,14 +6,16 @@
 //  Copyright © 2019 Pedro Belo. All rights reserved.
 //
 
+import Errors
 import Foundation
 import RNModels
 import SourceryAutoProtocols
+import ZFile
 
 public protocol JSONToCodeSamplerProtocol: AutoMockable
 {
     // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
-    var input: JSONToCodeSampler.InputJSON { get }
+    var input: EnvJSONsProtocol { get }
     var casesForEnum: String { get }
     var configurationModelVar: String { get }
     var configurationModelVarDescription: String { get }
@@ -33,16 +35,6 @@ public protocol BridgeEnvProtocol: AutoMockable
     // sourcery:end
 }
 
-public protocol InputJSONProtocol: AutoMockable
-{
-    // sourcery:inline:JSONToCodeSampler.InputJSON.AutoGenerateProtocol
-    var debug: JSONProtocol { get }
-    var release: JSONProtocol { get }
-    var local: JSONProtocol? { get }
-    var betaRelease: JSONProtocol? { get }
-    // sourcery:end
-}
-
 /**
  Will load input and decode input JSON -> Use RNConfigurationModel.create from this JSON.
 
@@ -50,9 +42,7 @@ public protocol InputJSONProtocol: AutoMockable
  */
 public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
 {
-    private typealias MappingKeys = [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]
-
-    public let input: JSONToCodeSampler.InputJSON
+    public let input: EnvJSONsProtocol
 
     public let casesForEnum: String
 
@@ -70,115 +60,17 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
         public let betaRelease: [String]
     }
 
-    // MARK: - INPUT
-
-    public struct InputJSON: InputJSONProtocol, AutoGenerateProtocol
-    {
-        public let debug: JSONProtocol
-        public let release: JSONProtocol
-        public let local: JSONProtocol?
-        public let betaRelease: JSONProtocol?
-    }
-
-    // MARK: - Private
-
-    private let allKeys: JSONToCodeSampler.MappingKeys
-    private let decoder: JSONDecoder
-
     // MARK: Initialize
 
     public init(
         from disk: ConfigurationDiskProtocol,
-        decoder: JSONDecoder = JSONDecoder()
+        textFileWriter: TextFileWriterProtocol = TextFileWriter.shared
     ) throws
     {
-        self.decoder = decoder
-        let debug = try decoder.decode(JSON.self, from: try disk.inputJSON.debug.read())
-        let release = try decoder.decode(JSON.self, from: try disk.inputJSON.release.read())
+        let input = try textFileWriter.writeIOSAndAndroidConfigFiles(from: disk)
 
-        try disk.android.debug.write(string: try debug.androidEnvEntry())
-        let entry = try debug.xcconfigEntry()
-        try disk.iOS.debug.write(string: entry)
-
-        try disk.android.release.write(string: try release.androidEnvEntry())
-        try disk.iOS.release.write(string: try release.xcconfigEntry())
-
-        var local: JSON?
-        var betaRelease: JSON?
-
-        if let localJSONfile = disk.inputJSON.local
-        {
-            local = try decoder.decode(JSON.self, from: try localJSONfile.read())
-            try disk.android.local?.write(string: try local!.androidEnvEntry())
-            try disk.iOS.local?.write(string: try local!.xcconfigEntry())
-        }
-        else
-        {
-            local = nil
-        }
-
-        if let betaReleaseJSONfile = disk.inputJSON.betaRelease
-        {
-            betaRelease = try decoder.decode(JSON.self, from: try betaReleaseJSONfile.read())
-
-            try disk.android.betaRelease?.write(string: try betaRelease!.androidEnvEntry())
-            try disk.iOS.betaRelease?.write(string: try betaRelease!.xcconfigEntry())
-        }
-        else
-        {
-            betaRelease = nil
-        }
-
-        input = InputJSON(debug: debug, release: release, local: local, betaRelease: betaRelease)
-
-        var allKeys: MappingKeys = debug.typed?.enumerated().compactMap
-        {
-            let key = $0.element.key
-            let typedValue = $0.element.value.typedValue
-            let swiftTypeString = typedValue.typeSwiftString
-            let xmlType = typedValue.typePlistString
-
-            return (
-                case: "case \(key)",
-                configurationModelVar: "public let \(key): \(swiftTypeString)",
-                configurationModelVarDescription: "\(key): \\(\(key))",
-                xmlEntry: """
-                <key>\(key)</key>
-                <\(xmlType)>$(\(key))</\(xmlType)>
-                """,
-                decoderInit: "\(key) = try container.decode(\(swiftTypeString).self, forKey: .\(key))"
-            )
-        } ?? [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]()
-
-        if let booleanKeys: MappingKeys = (
-            debug.booleans?.enumerated().compactMap
-            {
-                let key = $0.element.key
-                let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
-                let swiftTypeString = typedValue.typeSwiftString
-
-                return (
-                    case: "case \(key)",
-                    configurationModelVar: "public let \(key): \(swiftTypeString)",
-                    configurationModelVarDescription: "\(key): \\(\(key))",
-                    xmlEntry: """
-                    <key>\(key)</key>
-                    <string>$(\(key))</string>
-                    """,
-                    decoderInit: """
-                    
-                            guard let \(key) = Bool(try container.decode(String.self, forKey: .\(key))) else { throw Error.invalidBool(forKey: \"\(key)\")}
-                    
-                            self.\(key) = \(key)
-                    """
-                )
-            }
-        )
-        {
-            allKeys.append(contentsOf: booleanKeys)
-        }
-
-        self.allKeys = allKeys
+        let allKeys = textFileWriter.setupCodeSamples(json: input.debug)
+        self.input = input
 
         casesForEnum = allKeys
             .map { $0.case }

@@ -17,6 +17,15 @@ import Foundation
 // version 5.5
 /*
 
+ // types.implementing.AutoGenerateProtocol inline for EnvJSONs ..
+ // sourcery:inline:EnvJSONs.AutoGenerateProtocol
+ var debug: JSONProtocol { get }
+ var release: JSONProtocol { get }
+ var local: JSONProtocol? { get }
+ var betaRelease: JSONProtocol? { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for EnvJSONs ✅
  // types.implementing.AutoGenerateProtocol inline for JSON ..
  // sourcery:inline:JSON.AutoGenerateProtocol
  var typed: [String: JSONEntry]? { get }

@@ -5,6 +5,30 @@ import SourceryAutoProtocols
 // Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
+// MARK: - EnvJSONsProtocolMock
+
+open class EnvJSONsProtocolMock: EnvJSONsProtocol
+{
+    public init() {}
+
+    public var debug: JSONProtocol
+    {
+        get { return underlyingDebug }
+        set(value) { underlyingDebug = value }
+    }
+
+    public var underlyingDebug: JSONProtocol!
+    public var release: JSONProtocol
+    {
+        get { return underlyingRelease }
+        set(value) { underlyingRelease = value }
+    }
+
+    public var underlyingRelease: JSONProtocol!
+    public var local: JSONProtocol?
+    public var betaRelease: JSONProtocol?
+}
+
 // MARK: - JSONProtocolMock
 
 open class JSONProtocolMock: JSONProtocol

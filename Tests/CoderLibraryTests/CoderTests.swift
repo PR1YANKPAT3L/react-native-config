@@ -68,7 +68,7 @@ class CoderSpec: QuickSpec
                     configDisk.underlyingAndroidFolder = mockFolder
                     configDisk.underlyingIosFolder = mockFolder
                     
-                    let input = InputProtocolMock()
+                    let input = JSONFileProtocolMock()
                     input.underlyingDebug = mockFile
                     input.underlyingRelease = mockFile
                     
