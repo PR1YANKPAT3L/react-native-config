@@ -21,17 +21,16 @@ do
 
     try setupHighwayRunner(folder: srcRoot)
     signPost.message("\(pretty_function()) ...")
-    let prepareCode = try PrepareCode(
-        rnConfigurationSrcRoot: srcRoot,
-        environmentJsonFilesFolder: srcRoot,
-        signPost: signPost
-    )
+    let configurationDisk = try ConfigurationDisk(rnConfigurationSrcRoot: srcRoot, environmentJsonFilesFolder: srcRoot)
+    let sampler = try JSONToCodeSampler(from: configurationDisk)
+    
+    let coder = Coder(disk: configurationDisk, builds: sampler)
 
     do
     {
-        let config = try prepareCode.attempt()
+        let config = try coder.attempt()
         let xcode = try srcRoot.subfolder(named: "react-native-config")
-        try prepareCode.attemptWriteInfoPlistToAllPlists(in: xcode)
+        try coder.attemptWriteInfoPlistToAllPlists(in: xcode)
         
         // enable and have a look at the file to make it work if you want.
         try highwayRunner.addGithooksPrePush()

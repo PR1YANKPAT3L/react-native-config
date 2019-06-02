@@ -8,9 +8,19 @@
 
 import Foundation
 import RNModels
+import SourceryAutoProtocols
 
-/// Will load input and decode input JSON -> Use RNConfigurationModel.create from this JSON
-public struct Builds
+public protocol JSONToCodeSamplerProtocol: AutoMockable {
+    // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
+    // sourcery:end
+}
+
+/**
+ Will load input and decode input JSON -> Use RNConfigurationModel.create from this JSON.
+ 
+ It will read the json files and give code sampels to the Coder to write code to files.
+*/
+public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
 {
     private typealias MappingKeys = [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]
 
@@ -22,7 +32,7 @@ public struct Builds
     public let configurationModelVarDescription: String
     public let plistLinesXmlText: String
     public let decoderInit: String
-    public let bridgeEnv: Builds.BridgeEnv
+    public let bridgeEnv: JSONToCodeSampler.BridgeEnv
 
     public struct BridgeEnv
     {
@@ -44,7 +54,7 @@ public struct Builds
 
     // MARK: - Private
 
-    private let allKeys: Builds.MappingKeys
+    private let allKeys: JSONToCodeSampler.MappingKeys
     private let decoder: JSONDecoder
 
     // MARK: Initialize
@@ -178,16 +188,4 @@ public struct Builds
     }
 }
 
-extension Bool
-{
-    func toObjectiveC() -> String
-    {
-        switch self
-        {
-        case true:
-            return "@YES"
-        case false:
-            return "@NO"
-        }
-    }
-}
+

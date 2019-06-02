@@ -13,38 +13,55 @@ import RNModels
 import SignPostMock
 import ZFile
 import ZFileMock
+import RNConfigurationMock
+import TerminalMock
 
 import PrepareForConfigurationLibrary
 
-/// Test run a real filesystem
 class CoderSpec: QuickSpec
 {
     override func spec()
     {
-        // TODO: use mocks for this!
-        pending("Testing presense of configuaration after prepare")
+        describe("Testing presense of configuaration after prepare")
         {
-            var sut: PrepareCode?
+            var sut: PrepareCodeProtocol?
 
             var signPost: SignPostProtocolMock!
 
-            var srcRoot: FolderProtocol!
-            var environmentJsonFilesFolder: FolderProtocol!
+            var srcRoot: FolderProtocolMock!
+            var environmentJsonFilesFolder: FolderProtocolMock!
 
+            var terminal: TerminalProtocolMock!
+            var system: SystemProtocolMock!
+            
             beforeEach
             {
                 signPost = SignPostProtocolMock()
 
                 expect
                 {
-                    // /react-native-config/Tests/RNConfigurationHighwaySetupTests/env.debug.json
-                    srcRoot = try File(path: #file).parentFolder().subfolder(named: "/../../../")
-                    environmentJsonFilesFolder = srcRoot
+                    let mockFolder = try FolderProtocolMock()
+                    let mockFile = try FileProtocolMock()
 
+                    srcRoot = mockFolder
+                    environmentJsonFilesFolder = srcRoot
+                    
+                    // Mock folder setup
+                    
+                    mockFolder.fileNamedReturnValue = mockFile
+                    mockFolder.subfolderNamedReturnValue = srcRoot
+                    mockFolder.createFileIfNeededNamedReturnValue = mockFile
+                    mockFolder.containsSubfolderNamedReturnValue = true
+                    
+                    terminal = TerminalProtocolMock()
+                    system = SystemProtocolMock()
+                    
                     sut = try PrepareCode(
                         rnConfigurationSrcRoot: srcRoot,
                         environmentJsonFilesFolder: environmentJsonFilesFolder,
-                        signPost: signPost
+                        signPost: signPost,
+                        terminal: terminal,
+                        system: system
                     )
 
                     return sut
@@ -73,7 +90,7 @@ class CoderSpec: QuickSpec
             {
                 context("env contains some keys and values")
                 {
-                    var builds: Builds?
+                    var builds: JSONToCodeWriter?
                     var coder: Coder?
 
                     beforeEach

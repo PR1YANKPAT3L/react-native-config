@@ -10,11 +10,13 @@ import Foundation
 import SignPost
 import SourceryAutoProtocols
 import ZFile
+import Terminal
+import Errors
 
 public protocol CoderProtocol: AutoMockable {
     // sourcery:inline:Coder.AutoGenerateProtocol
-    var disk: ConfigurationDisk { get }
-    var builds: Builds { get }
+    var configurationDisk: ConfigurationDisk { get }
+    var codeSampler: JSONToCodeSampler { get }
     var signPost: SignPostProtocol { get }
     static var rnConfigurationModelDefault_TOP: String { get }
     static var rnConfigurationModelDefault_BOTTOM: String { get }
@@ -44,21 +46,116 @@ public protocol RNConfigurationBridgeProtocol: AutoMockable {
 
 // MARK: - Coder
 
-/// Generates code or plist content and write to corresponding file
+/**
+ Generates code or plist content and write to corresponding file
+ */
 public struct Coder: CoderProtocol, AutoGenerateProtocol {
     
-    public let disk: ConfigurationDisk
-    public let builds: Builds
+    // MARK: - Private
+    
+    public let configurationDisk: ConfigurationDisk
+    public let codeSampler: JSONToCodeSampler
     public let signPost: SignPostProtocol
+    private let terminal: TerminalProtocol
+    private let system: SystemProtocol
     
     // MARK: - Init
     
-    public init(disk: ConfigurationDisk, builds: Builds, signPost: SignPostProtocol = SignPost.shared) {
-        self.disk = disk
-        self.builds = builds
+    public init(
+        disk: ConfigurationDisk,
+        builds: JSONToCodeSampler,
+        signPost: SignPostProtocol = SignPost.shared,
+        decoder: JSONDecoder = JSONDecoder(),
+        terminal: TerminalProtocol = Terminal.shared,
+        system: SystemProtocol = System.shared
+    ) {
+        self.configurationDisk = disk
+        self.codeSampler = builds
         self.signPost = signPost
+        self.terminal = terminal
+        self.system = system
     }
     
+    public struct Config
+    {
+        let plist: FileProtocol
+        let xcconfig: FileProtocol
+    }
+    
+}
+
+// MARK: - Executable functions
+
+extension Coder {
+    
+    public func attempt() throws -> Coder.Config
+    {
+        do
+        {
+            try configurationDisk.code.clearContentAllFiles()
+            
+            signPost.verbose(
+                """
+                🚀 Env read from
+                \(configurationDisk.inputJSON.debug)
+                \(configurationDisk.inputJSON.release)
+                \(String(describing: configurationDisk.inputJSON.local))
+                \(String(describing: configurationDisk.inputJSON.betaRelease))
+                ...
+                """
+            )
+            
+            signPost.verbose(
+                """
+                🚀 Written to config files
+                
+                # ios
+                
+                * \(configurationDisk.iOS.debug)
+                * \(configurationDisk.iOS.release)
+                * \(String(describing: configurationDisk.iOS.local))
+                * \(String(describing: configurationDisk.iOS.betaRelease))
+                
+                # android
+                
+                * \(configurationDisk.android.debug)
+                * \(configurationDisk.android.release)
+                * \(String(describing: configurationDisk.android.local))
+                * \(String(describing: configurationDisk.android.betaRelease))
+                
+                """
+            )
+            
+            signPost.message("🏗🧙‍♂️ Generating SWIFT code RNConfigurationModel.swift & RNConfigurationModelFactory.swift ...")
+            try writeRNConfigurationModelFactory()
+            try writeRNConfigurationModel()
+            signPost.message("🏗🧙‍♂️ Generating SWIFT code RNConfigurationModel.swift & RNConfigurationModelFactory.swift ✅")
+            
+            signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ...")
+            try writeRNConfigurationPlist()
+            signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ✅")
+            
+            signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ...")
+            try writeRNConfigurationBridge()
+            signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ✅")
+            
+            // TODO: this should only be one config when we write it
+            
+            return Config(plist: configurationDisk.code.infoPlistRNConfiguration, xcconfig: configurationDisk.iOS.debug)
+        }
+        catch
+        {
+            throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
+        }
+    }
+    
+    public func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
+    {
+        try folder.makeFileSequence().forEach
+        { file in
+            try writeRNConfigurationPlist(to: file)
+        }
+    }
 }
 
 // MARK: - Extensions
@@ -143,14 +240,14 @@ extension Coder {
     public func writeRNConfigurationBridge() throws {
         
         var bridgeCode = RNConfigurationBridge(
-            envLocal: builds.bridgeEnv.local,
-            envDebug: builds.bridgeEnv.debug,
-            envRelease: builds.bridgeEnv.release,
-            envBetaRelease: builds.bridgeEnv.betaRelease,
+            envLocal: codeSampler.bridgeEnv.local,
+            envDebug: codeSampler.bridgeEnv.debug,
+            envRelease: codeSampler.bridgeEnv.release,
+            envBetaRelease: codeSampler.bridgeEnv.betaRelease,
             env: nil
         )
         
-        try disk.code.rnConfigurationBridgeObjectiveCMFile.write(data: """
+        try configurationDisk.code.rnConfigurationBridgeObjectiveCMFile.write(data: """
             \(RNConfigurationBridge.top)
             \(bridgeCode.env)
             \(RNConfigurationBridge.bottom)
@@ -168,8 +265,8 @@ extension Coder {
         
         var lines = Coder.rnConfigurationModelDefault_TOP + Coder.rnConfigurationModelDefault_BOTTOM
         
-        guard builds.configurationModelVar.count > 0 else {
-            try disk.code.rnConfigurationModelSwiftFile.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: "")  + "\n}")
+        guard codeSampler.configurationModelVar.count > 0 else {
+            try configurationDisk.code.rnConfigurationModelSwiftFile.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: "")  + "\n}")
             return
         }
         
@@ -178,13 +275,13 @@ extension Coder {
         
             // MARK: - Custom plist properties are added here
         
-            \(builds.configurationModelVar)
+            \(codeSampler.configurationModelVar)
         
             public init(from decoder: Decoder) throws {
         
                 let container = try decoder.container(keyedBy: CodingKeys.self)
         
-                \(builds.decoderInit)
+                \(codeSampler.decoderInit)
                 }
                 \(Coder.rnConfigurationModelDefault_BOTTOM)
         
@@ -194,13 +291,13 @@ extension Coder {
         
                 // Custom environment dependend constants from .env.<CONFIGURATION>.json
         
-                \(builds.configurationModelVarDescription)
+                \(codeSampler.configurationModelVarDescription)
                 \"""
                 }
             }
         
         """
-        try disk.code.rnConfigurationModelSwiftFile.write(string: lines)
+        try configurationDisk.code.rnConfigurationModelSwiftFile.write(string: lines)
     }
     
     
@@ -288,8 +385,8 @@ extension Coder {
         
         var lines = Coder.rnConfigurationModelFactoryProtocolDefault
         
-        guard builds.casesForEnum.count > 0 else {
-            try disk.code.rnConfigurationModelFactorySwiftFile.write(string: lines)
+        guard codeSampler.casesForEnum.count > 0 else {
+            try configurationDisk.code.rnConfigurationModelFactorySwiftFile.write(string: lines)
             return
         }
         
@@ -323,7 +420,7 @@ extension Coder {
             */
             public enum Case: String, CaseIterable {
         
-            \(builds.casesForEnum)
+            \(codeSampler.casesForEnum)
         
             }
         
@@ -373,7 +470,7 @@ extension Coder {
         
         """
         
-        try disk.code.rnConfigurationModelFactorySwiftFile.write(string: lines)
+        try configurationDisk.code.rnConfigurationModelFactorySwiftFile.write(string: lines)
     }
     
     public static let rnConfigurationModelFactoryProtocolDefault = """
@@ -491,15 +588,15 @@ extension Coder {
     
     public func writeRNConfigurationPlist() throws {
         
-        try writeRNConfigurationPlist(to: disk.code.infoPlistRNConfiguration)
-        try writeRNConfigurationPlist(to: disk.code.infoPlistRNConfigurationTests)
+        try writeRNConfigurationPlist(to: configurationDisk.code.infoPlistRNConfiguration)
+        try writeRNConfigurationPlist(to: configurationDisk.code.infoPlistRNConfigurationTests)
     }
     
     public func writeRNConfigurationPlist(to file: FileProtocol) throws {
         
         var plistLinesXml = Coder.plistLinesXmlDefault
         
-        guard builds.plistLinesXmlText.count > 0 else {
+        guard codeSampler.plistLinesXmlText.count > 0 else {
             try  file.write(string: plistLinesXml)
             return
         }
@@ -525,7 +622,7 @@ extension Coder {
         <string>1.0</string>
         <key>CFBundleVersion</key>
         <string>$(CURRENT_PROJECT_VERSION)</string>
-        \(builds.plistLinesXmlText)
+        \(codeSampler.plistLinesXmlText)
         </dict>
         </plist>
         """

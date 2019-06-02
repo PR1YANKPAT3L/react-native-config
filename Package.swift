@@ -56,9 +56,9 @@ public struct RNConfiguration
     }
 }
 
-public struct PrepareForConfiguration
+public struct Coder
 {
-    public static let name = "\(PrepareForConfiguration.self)"
+    public static let name = "\(Coder.self)"
 
     public static let executable = Product.executable(
         name: name,
@@ -96,7 +96,7 @@ public struct PrepareForConfiguration
         public static let tests = Target.testTarget(
             name: name + "Tests",
             dependencies:
-            ["SignPostMock", "ZFileMock"]
+            ["SignPostMock", "ZFileMock", "TerminalMock"]
                 + ["ZFile"]
                 + [
                     Target.Dependency(stringLiteral: name),
@@ -163,13 +163,13 @@ let package = Package(
     products: [
         // MARK: - Executable
 
-        PrepareForConfiguration.executable,
+        Coder.executable,
 
         // MARK: - Library
 
         RNModels.library,
         RNConfiguration.library,
-        PrepareForConfiguration.Library.library,
+        Coder.Library.library,
 
         // MARK: - Mocks
 
@@ -202,22 +202,23 @@ let package = Package(
     targets: [
         // MARK: - executable
 
-        PrepareForConfiguration.target,
+        Coder.target,
 
         // MARK: - Library
 
-        PrepareForConfiguration.Library.target,
+        Coder.Library.target,
         RNModels.target,
         RNConfiguration.target,
 
         // MARK: - Test
 
-        PrepareForConfiguration.Library.tests,
+        Coder.Library.tests,
         RNConfiguration.tests,
 
         // MARK: - Mock target
 
         RNModels.Mock.target,
         RNConfiguration.Mock.target,
+        Coder.Library.Mock.target,
     ]
 )

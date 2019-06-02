@@ -30,7 +30,6 @@ public protocol ConfigurationDiskProtocol
     // sourcery:end
 }
 
-// sourcery:AutoGenerateProtocol
 public struct ConfigurationDisk
 {
     public static let projectNameWithPrepareScript: String = "react-native-config.xcodeproj"
