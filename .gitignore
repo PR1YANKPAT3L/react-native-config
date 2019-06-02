@@ -17,3 +17,8 @@ xcuserdata
 /Sources/.sourcery-RNConfiguration.yml
 /RNConfigurationHighwaySetup.xcodeproj
 /react-native-config.xcodeproj
+.gitsecret/keys/random_seed
+/env.betaRelease.json
+/env.debug.json
+/env.local.json
+/env.release.json
