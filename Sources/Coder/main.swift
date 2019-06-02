@@ -15,66 +15,37 @@ import SourceryWorker
 import Terminal
 import ZFile
 
-do
+var configurationDisk: ConfigurationDiskProtocol!
+var sampler: JSONToCodeSamplerProtocol!
+var coder: CoderProtocol!
+
+doContinue(pretty_function() + " setup")
 {
-    srcRoot = try File(path: #file).parentFolder().parentFolder().parentFolder()
+    try setup(packageName: "react-native-config", try File(path: #file).parentFolder().parentFolder())
+    try setupHighwayRunner(gitHooksPrePushExecutableName: "PrePushAndPR")
+    try highwayRunner.addGithooksPrePush()
+    configurationDisk = try ConfigurationDisk(rnConfigurationSrcRoot: srcRoot, environmentJsonFilesFolder: srcRoot)
+    sampler = try JSONToCodeSampler(from: configurationDisk)
+    coder = Coder(disk: configurationDisk, builds: sampler)
+}
 
-    try setupHighwayRunner(folder: srcRoot)
-    signPost.message("\(pretty_function()) ...")
-    let configurationDisk = try ConfigurationDisk(rnConfigurationSrcRoot: srcRoot, environmentJsonFilesFolder: srcRoot)
-    let sampler = try JSONToCodeSampler(from: configurationDisk)
-
-    let coder = Coder(disk: configurationDisk, builds: sampler)
-
-    do
-    {
-        let config = try coder.attempt()
-        let xcode = try srcRoot.subfolder(named: "react-native-config.xcodeproj")
-//        try coder.attemptWriteInfoPlistToAllPlists(in: xcode)
-
-        // enable and have a look at the file to make it work if you want.
-        try highwayRunner.addGithooksPrePush()
-
-        highwayRunner.runSourcery(handleSourceryOutput)
-
-        dispatchGroup.notifyMain
+doContinue(pretty_function() + " coder") {
+    let config = try coder.attempt()
+    let xcode = try srcRoot.subfolder(named: "react-native-config.xcodeproj")
+    //        try coder.attemptWriteInfoPlistToAllPlists(in: xcode)
+    
+    // enable and have a look at the file to make it work if you want.
+    
+    highwayRunner.runSourcery(handleSourceryOutput)
+    
+    dispatchGroup.notifyMain
         {
             highwayRunner.runSwiftformat(handleSwiftformat)
             highwayRunner.runTests(handleTestOutput)
-
-            dispatchGroup.notifyMain
-            {
-                guard highwayRunner.errors?.count ?? 0 <= 0 else
-                {
-                    for error in highwayRunner.errors!
-                    {
-                        signPost.error("\(error)")
-                    }
-                    signPost.error("\(pretty_function()) ❌")
-                    exit(EXIT_FAILURE)
-                }
-                signPost.message("\(pretty_function()) ✅")
-
-                exit(EXIT_SUCCESS)
-            }
-        }
-
-        dispatchMain()
+            
+            dispatchGroup.notifyMain { highwayRunner.exitSuccesOrFail(location: pretty_function()) }
     }
+    
 }
-catch
-{
-    signPost.error(
-        """
-        ❌ \(pretty_function())
-        
-        \(error)
-        
-        ❌
-        ♥️ Fix it by adding environment files
-        \(ConfigurationDisk.JSONFileName.allCases.map { "* \($0.rawValue)" }.joined(separator: "\n"))
-        """
-    )
-    signPost.error("\(pretty_function()) ❌")
-    exit(EXIT_FAILURE)
-}
+
+dispatchMain()
