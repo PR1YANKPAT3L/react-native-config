@@ -8,6 +8,18 @@ import ZFile
 // Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
+// MARK: - BridgeEnvProtocolMock
+
+open class BridgeEnvProtocolMock: BridgeEnvProtocol
+{
+    public init() {}
+
+    public var local: [String] = []
+    public var debug: [String] = []
+    public var release: [String] = []
+    public var betaRelease: [String] = []
+}
+
 // MARK: - CoderProtocolMock
 
 open class CoderProtocolMock: CoderProtocol
@@ -345,13 +357,13 @@ open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol
     }
 
     public var underlyingRnConfigurationBridgeSourcesFolder: FolderProtocol!
-    public var inputJSON: ConfigurationDisk.Input
+    public var inputJSON: InputProtocol
     {
         get { return underlyingInputJSON }
         set(value) { underlyingInputJSON = value }
     }
 
-    public var underlyingInputJSON: ConfigurationDisk.Input!
+    public var underlyingInputJSON: InputProtocol!
     public var androidFolder: FolderProtocol
     {
         get { return underlyingAndroidFolder }
@@ -366,27 +378,149 @@ open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol
     }
 
     public var underlyingIosFolder: FolderProtocol!
-    public var iOS: ConfigurationDisk.Output
+    public var iOS: OutputProtocol
     {
         get { return underlyingIOS }
         set(value) { underlyingIOS = value }
     }
 
-    public var underlyingIOS: ConfigurationDisk.Output!
-    public var android: ConfigurationDisk.Output
+    public var underlyingIOS: OutputProtocol!
+    public var android: OutputProtocol
     {
         get { return underlyingAndroid }
         set(value) { underlyingAndroid = value }
     }
 
-    public var underlyingAndroid: ConfigurationDisk.Output!
-    public var code: ConfigurationDisk.Output.Code
+    public var underlyingAndroid: OutputProtocol!
+    public var code: GeneratedCodeProtocol
     {
         get { return underlyingCode }
         set(value) { underlyingCode = value }
     }
 
-    public var underlyingCode: ConfigurationDisk.Output.Code!
+    public var underlyingCode: GeneratedCodeProtocol!
+}
+
+// MARK: - GeneratedCodeProtocolMock
+
+open class GeneratedCodeProtocolMock: GeneratedCodeProtocol
+{
+    public init() {}
+
+    public var rnConfigurationModelFactorySwiftFile: FileProtocol
+    {
+        get { return underlyingRnConfigurationModelFactorySwiftFile }
+        set(value) { underlyingRnConfigurationModelFactorySwiftFile = value }
+    }
+
+    public var underlyingRnConfigurationModelFactorySwiftFile: FileProtocol!
+    public var infoPlistRNConfiguration: FileProtocol
+    {
+        get { return underlyingInfoPlistRNConfiguration }
+        set(value) { underlyingInfoPlistRNConfiguration = value }
+    }
+
+    public var underlyingInfoPlistRNConfiguration: FileProtocol!
+    public var infoPlistRNConfigurationTests: FileProtocol
+    {
+        get { return underlyingInfoPlistRNConfigurationTests }
+        set(value) { underlyingInfoPlistRNConfigurationTests = value }
+    }
+
+    public var underlyingInfoPlistRNConfigurationTests: FileProtocol!
+    public var rnConfigurationModelSwiftFile: FileProtocol
+    {
+        get { return underlyingRnConfigurationModelSwiftFile }
+        set(value) { underlyingRnConfigurationModelSwiftFile = value }
+    }
+
+    public var underlyingRnConfigurationModelSwiftFile: FileProtocol!
+    public var rnConfigurationBridgeObjectiveCMFile: FileProtocol
+    {
+        get { return underlyingRnConfigurationBridgeObjectiveCMFile }
+        set(value) { underlyingRnConfigurationBridgeObjectiveCMFile = value }
+    }
+
+    public var underlyingRnConfigurationBridgeObjectiveCMFile: FileProtocol!
+
+    // MARK: - <clearContentAllFiles> - parameters
+
+    public var clearContentAllFilesThrowableError: Error?
+    public var clearContentAllFilesCallsCount = 0
+    public var clearContentAllFilesCalled: Bool
+    {
+        return clearContentAllFilesCallsCount > 0
+    }
+
+    // MARK: - <clearContentAllFiles> - closure mocks
+
+    public var clearContentAllFilesClosure: (() throws -> Void)?
+
+    // MARK: - <clearContentAllFiles> - method mocked
+
+    open func clearContentAllFiles() throws
+    {
+        // <clearContentAllFiles> - Throwable method implementation
+
+        if let error = clearContentAllFilesThrowableError
+        {
+            throw error
+        }
+
+        clearContentAllFilesCallsCount += 1
+
+        // <clearContentAllFiles> - Void return mock implementation
+
+        try clearContentAllFilesClosure?()
+    }
+}
+
+// MARK: - InputJSONProtocolMock
+
+open class InputJSONProtocolMock: InputJSONProtocol
+{
+    public init() {}
+
+    public var debug: JSONProtocol
+    {
+        get { return underlyingDebug }
+        set(value) { underlyingDebug = value }
+    }
+
+    public var underlyingDebug: JSONProtocol!
+    public var release: JSONProtocol
+    {
+        get { return underlyingRelease }
+        set(value) { underlyingRelease = value }
+    }
+
+    public var underlyingRelease: JSONProtocol!
+    public var local: JSONProtocol?
+    public var betaRelease: JSONProtocol?
+}
+
+// MARK: - InputProtocolMock
+
+open class InputProtocolMock: InputProtocol
+{
+    public init() {}
+
+    public var debug: FileProtocol
+    {
+        get { return underlyingDebug }
+        set(value) { underlyingDebug = value }
+    }
+
+    public var underlyingDebug: FileProtocol!
+    public var release: FileProtocol
+    {
+        get { return underlyingRelease }
+        set(value) { underlyingRelease = value }
+    }
+
+    public var underlyingRelease: FileProtocol!
+    public var local: FileProtocol?
+    public var betaRelease: FileProtocol?
 }
 
 // MARK: - JSONToCodeSamplerProtocolMock
@@ -395,13 +529,13 @@ open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
 {
     public init() {}
 
-    public var input: JSONToCodeSampler.Input
+    public var input: JSONToCodeSampler.InputJSON
     {
         get { return underlyingInput }
         set(value) { underlyingInput = value }
     }
 
-    public var underlyingInput: JSONToCodeSampler.Input!
+    public var underlyingInput: JSONToCodeSampler.InputJSON!
     public var casesForEnum: String
     {
         get { return underlyingCasesForEnum }
@@ -437,13 +571,37 @@ open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
     }
 
     public var underlyingDecoderInit: String = "AutoMockable filled value"
-    public var bridgeEnv: JSONToCodeSampler.BridgeEnv
+    public var bridgeEnv: BridgeEnvProtocol
     {
         get { return underlyingBridgeEnv }
         set(value) { underlyingBridgeEnv = value }
     }
 
-    public var underlyingBridgeEnv: JSONToCodeSampler.BridgeEnv!
+    public var underlyingBridgeEnv: BridgeEnvProtocol!
+}
+
+// MARK: - OutputProtocolMock
+
+open class OutputProtocolMock: OutputProtocol
+{
+    public init() {}
+
+    public var debug: FileProtocol
+    {
+        get { return underlyingDebug }
+        set(value) { underlyingDebug = value }
+    }
+
+    public var underlyingDebug: FileProtocol!
+    public var release: FileProtocol
+    {
+        get { return underlyingRelease }
+        set(value) { underlyingRelease = value }
+    }
+
+    public var underlyingRelease: FileProtocol!
+    public var local: FileProtocol?
+    public var betaRelease: FileProtocol?
 }
 
 // MARK: - RNConfigurationBridgeProtocolMock

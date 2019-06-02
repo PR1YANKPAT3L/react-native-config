@@ -16,7 +16,8 @@ import ZFileMock
 import RNConfigurationMock
 import TerminalMock
 
-import PrepareForConfigurationLibrary
+import CoderLibrary
+import CoderLibraryMock
 
 class CoderSpec: QuickSpec
 {
@@ -24,15 +25,16 @@ class CoderSpec: QuickSpec
     {
         describe("Testing presense of configuaration after prepare")
         {
-            var sut: PrepareCodeProtocol?
+            var sut: CoderProtocol?
 
             var signPost: SignPostProtocolMock!
 
-            var srcRoot: FolderProtocolMock!
-            var environmentJsonFilesFolder: FolderProtocolMock!
+            var configDisk: ConfigurationDiskProtocolMock!
+            var sampler: JSONToCodeSamplerProtocolMock!
 
             var terminal: TerminalProtocolMock!
             var system: SystemProtocolMock!
+            var generatedCode = GeneratedCodeProtocolMock()
             
             beforeEach
             {
@@ -43,22 +45,43 @@ class CoderSpec: QuickSpec
                     let mockFolder = try FolderProtocolMock()
                     let mockFile = try FileProtocolMock()
 
-                    srcRoot = mockFolder
-                    environmentJsonFilesFolder = srcRoot
+                    generatedCode = GeneratedCodeProtocolMock()
                     
                     // Mock folder setup
                     
                     mockFolder.fileNamedReturnValue = mockFile
-                    mockFolder.subfolderNamedReturnValue = srcRoot
+                    mockFolder.subfolderNamedReturnValue = mockFolder
                     mockFolder.createFileIfNeededNamedReturnValue = mockFile
                     mockFolder.containsSubfolderNamedReturnValue = true
                     
                     terminal = TerminalProtocolMock()
                     system = SystemProtocolMock()
                     
-                    sut = try PrepareCode(
-                        rnConfigurationSrcRoot: srcRoot,
-                        environmentJsonFilesFolder: environmentJsonFilesFolder,
+                    configDisk = ConfigurationDiskProtocolMock()
+                    configDisk.underlyingEnvironmentJsonFilesFolder = mockFolder
+                    configDisk.underlyingAndroidFolder = mockFolder
+                    configDisk.underlyingIosFolder = mockFolder
+                    
+                    let input = InputProtocolMock()
+                    input.underlyingDebug = mockFile
+                    input.underlyingRelease = mockFile
+                    
+                    configDisk.underlyingInputJSON = input
+                    configDisk.underlyingCode = generatedCode
+            
+                    let output = OutputProtocolMock()
+                    output.debug = mockFile
+                    output.release = mockFile
+                    
+                    configDisk.underlyingIOS = output
+                    configDisk.underlyingAndroid = output
+                    
+                    sampler = JSONToCodeSamplerProtocolMock()
+                    
+                    
+                    sut = Coder(
+                        disk: configDisk,
+                        builds: sampler,
                         signPost: signPost,
                         terminal: terminal,
                         system: system
@@ -66,19 +89,6 @@ class CoderSpec: QuickSpec
 
                     return sut
                 }.toNot(throwError())
-            }
-
-            it("has a folder for env. files")
-            {
-                expect(srcRoot).toNot(beNil())
-            }
-
-            it("has all env.<configuration>.json files")
-            {
-                RNModels.Configuration.allCases.forEach
-                { configuration in
-                    expect(srcRoot.containsFile(named: "env.\(configuration).json")) == true
-                }
             }
 
             it("should have sut")
@@ -90,218 +100,122 @@ class CoderSpec: QuickSpec
             {
                 context("env contains some keys and values")
                 {
-                    var builds: JSONToCodeWriter?
-                    var coder: Coder?
 
+                    var modelFile: FileProtocolMock!
+                    var factoryFile: FileProtocolMock!
+                    var plistCode: FileProtocolMock!
+                    var plistTests: FileProtocolMock!
+                    
+//                    let bridg
                     beforeEach
                     {
                         expect
                         {
-                            sut = try PrepareCode(
-                                rnConfigurationSrcRoot: srcRoot,
-                                environmentJsonFilesFolder: environmentJsonFilesFolder,
-                                signPost: signPost
+                            factoryFile = try FileProtocolMock()
+                            modelFile = try FileProtocolMock()
+                            plistCode = try FileProtocolMock()
+                            plistTests = try FileProtocolMock()
+                            
+                            sut = Coder(
+                                disk: configDisk,
+                                builds: sampler,
+                                signPost: signPost,
+                                terminal: terminal,
+                                system: system
                             )
-                            try sut?.attempt()
-
-                            return sut
+                            generatedCode.underlyingRnConfigurationModelSwiftFile = modelFile
+                            generatedCode.underlyingRnConfigurationModelFactorySwiftFile = factoryFile
+                            generatedCode.infoPlistRNConfiguration = plistCode
+                            generatedCode.infoPlistRNConfigurationTests = plistTests
+                            
+                            return try sut?.attempt()
                         }.toNot(throwError())
-
-                        coder = sut?.coder
-                        builds = coder?.builds
                     }
 
                     it("can code")
                     {
-                        expect(coder).toNot(beNil())
+                        expect(sut).toNot(beNil())
                     }
 
-                    context("coder can created files")
+                    context("writes ios code")
                     {
-                        var rnConfigurationModelFile: String?
-                        var rnConfigurationFactoryFile: String?
-                        var plistFile: String?
-                        var xcconfigFile: String?
-                        var androidConfigFile: String?
-
-                        beforeEach
-                        {
-                            expect
-                            {
-                                guard let srcRoot = srcRoot else
-                                {
-                                    throw HighwayError.highwayError(atLocation: pretty_function(), error: "missing folder argument")
-                                }
-
-                                let rnConfigurationFolder = try srcRoot.subfolder(named: "Sources/RNConfiguration")
-
-                                rnConfigurationModelFile = try rnConfigurationFolder.file(named: "RNConfigurationModel.swift").readAsString()
-                                rnConfigurationFactoryFile = try rnConfigurationFolder.file(named: "RNConfigurationModelFactory.swift").readAsString()
-                                plistFile = try srcRoot.subfolder(named: "Sources/RNConfiguration").file(named: "Info.plist").readAsString()
-
-                                let iosFolder = try srcRoot.subfolder(named: "ios")
-                                let androidFolder = try srcRoot.subfolder(named: "android")
-
-                                xcconfigFile = try iosFolder.file(named: "Debug.xcconfig").readAsString()
-                                androidConfigFile = try androidFolder.file(named: ".env.debug").readAsString()
-
-                                return true
-                            }.toNot(throwError())
+                        it("to model") {
+                            expect(modelFile.writeStringReceivedString) == ""
                         }
-
-                        context("ios")
-                        {
-                            it("debug xcconfigfile")
-                            {
-                                expect(xcconfigFile).toNot(beNil())
-                            }
-
-                            context("swift code")
-                            {
-                                context("factory")
-                                {
-                                    it("all cases in factory")
-                                    {
-                                        let casesForEnum = builds?.casesForEnum.components(separatedBy: "\n") ?? ["to worker test went wrong"]
-
-                                        expect
-                                        {
-                                            for _case in casesForEnum
-                                            {
-                                                expect { rnConfigurationFactoryFile }.to(contain(_case))
-                                            }
-                                            return rnConfigurationModelFile
-                                        }.toNot(throwError())
-                                    }
-
-                                    it("all variables")
-                                    {
-                                        let varString = builds?.configurationModelVar.components(separatedBy: "\n") ?? ["to configuration model var's failed"]
-
-                                        expect
-                                        {
-                                            for _var in varString
-                                            {
-                                                expect { rnConfigurationModelFile }.to(contain(_var))
-                                            }
-                                            return rnConfigurationModelFile
-                                        }.toNot(throwError())
-                                    }
-                                }
-
-                                context("plist")
-                                {
-                                    it("RNConfiguration plist has build keys and values")
-                                    {
-                                        let plistKeys = builds?.plistLinesXmlText.components(separatedBy: "\n") ?? ["to plist keys failed"]
-
-                                        expect
-                                        {
-                                            for _plistEntry in plistKeys
-                                            {
-                                                expect { plistFile }.to(contain(_plistEntry))
-                                            }
-
-                                            return rnConfigurationModelFile
-                                        }.toNot(throwError())
-                                    }
-                                }
-
-                                context("xcconfig")
-                                {
-                                    it("xcconfigFile has keys and values")
-                                    {
-                                        if let booleans = builds?.input.debug.booleans?.keys,
-                                            let typedVariabels = builds?.input.debug.typed?.keys
-                                        {
-                                            expect
-                                            {
-                                                for _xconfigEntry in booleans
-                                                {
-                                                    expect { xcconfigFile }.to(contain(_xconfigEntry))
-                                                }
-
-                                                for _xconfigEntry in typedVariabels
-                                                {
-                                                    expect { xcconfigFile }.to(contain(_xconfigEntry))
-                                                }
-
-                                                return rnConfigurationModelFile
-                                            }.toNot(throwError())
-                                        }
-                                        else
-                                        {
-                                            fail("wrong input")
-                                        }
-                                    }
-                                }
-                            }
+                        
+                        it("to factory") {
+                             expect(factoryFile.writeStringReceivedString) == ""
                         }
-
+                        
+                        it("plist") {
+                            expect(plistCode.writeStringReceivedString) == ""
+                            expect(plistTests.writeStringReceivedString) == ""
+                        }
+                    }
                         context("android")
                         {
-                            var androidFolder: FolderProtocol!
-
-                            beforeEach
-                            {
-                                expect { androidFolder = try srcRoot.subfolder(named: "android") }.toNot(throwError())
-                            }
-
-                            it("build has keys and values")
-                            {
-                                if let booleans = builds?.input.debug.booleans?.keys,
-                                    let typedVariabels = builds?.input.debug.typed?.keys
-                                {
-                                    expect
-                                    {
-                                        for _xconfigEntry in booleans
-                                        {
-                                            expect { androidConfigFile }.to(contain(_xconfigEntry))
-                                        }
-
-                                        for _xconfigEntry in typedVariabels
-                                        {
-                                            expect { androidConfigFile }.to(contain(_xconfigEntry))
-                                        }
-
-                                        return rnConfigurationModelFile
-                                    }.toNot(throwError())
-                                }
-                                else
-                                {
-                                    fail("wrong input")
-                                }
-                            }
-
-                            it("created .env files")
-                            {
-                                expect
-                                {
-                                    RNModels.Configuration.allCases.forEach
-                                    { configuration in
-                                        expect(androidFolder.containsFile(named: ".env.\(configuration)")) == true
-                                    }
-                                    return androidFolder
-                                }.toNot(throwError())
-                            }
-
-                            it(".env.<configuration> contain expected keys")
-                            {
-                                expect
-                                {
-                                    try RNModels.Configuration.allCases.forEach
-                                    { configuration in
-                                        let content = try androidFolder.file(named: ".env.\(configuration)").readAsString()
-
-                                        expect(content) == """
-                                        url = https://\(configuration.fileName())
-                                        exampleBool = true
-                                        """
-                                    }
-                                    return androidFolder
-                                }.toNot(throwError())
-                            }
-                        }
+//                            var androidFolder: FolderProtocol!
+//
+//                            beforeEach
+//                            {
+//                                expect { androidFolder = try srcRoot.subfolder(named: "android") }.toNot(throwError())
+//                            }
+//
+//                            it("build has keys and values")
+//                            {
+//                                if let booleans = sut?.codeSampler.input.debug.booleans?.keys,
+//                                    let typedVariabels = sut?.codeSampler.input.debug.typed?.keys
+//                                {
+//                                    expect
+//                                    {
+//                                        for _xconfigEntry in booleans
+//                                        {
+//                                            expect { androidConfigFile }.to(contain(_xconfigEntry))
+//                                        }
+//
+//                                        for _xconfigEntry in typedVariabels
+//                                        {
+//                                            expect { androidConfigFile }.to(contain(_xconfigEntry))
+//                                        }
+//
+//                                        return rnConfigurationModelFile
+//                                    }.toNot(throwError())
+//                                }
+//                                else
+//                                {
+//                                    fail("wrong input")
+//                                }
+//                            }
+//
+//                            it("created .env files")
+//                            {
+//                                expect
+//                                {
+//                                    RNModels.Configuration.allCases.forEach
+//                                    { configuration in
+//                                        expect(androidFolder.containsFile(named: ".env.\(configuration)")) == true
+//                                    }
+//                                    return androidFolder
+//                                }.toNot(throwError())
+//                            }
+//
+//                            it(".env.<configuration> contain expected keys")
+//                            {
+//                                expect
+//                                {
+//                                    try RNModels.Configuration.allCases.forEach
+//                                    { configuration in
+//                                        let content = try androidFolder.file(named: ".env.\(configuration)").readAsString()
+//
+//                                        expect(content) == """
+//                                        url = https://\(configuration.fileName())
+//                                        exampleBool = true
+//                                        """
+//                                    }
+//                                    return androidFolder
+//                                }.toNot(throwError())
+//                            }
+//                        }
                     }
                 }
             }

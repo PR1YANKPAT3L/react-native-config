@@ -13,13 +13,33 @@ import SourceryAutoProtocols
 public protocol JSONToCodeSamplerProtocol: AutoMockable
 {
     // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
-    var input: JSONToCodeSampler.Input { get }
+    var input: JSONToCodeSampler.InputJSON { get }
     var casesForEnum: String { get }
     var configurationModelVar: String { get }
     var configurationModelVarDescription: String { get }
     var plistLinesXmlText: String { get }
     var decoderInit: String { get }
-    var bridgeEnv: JSONToCodeSampler.BridgeEnv { get }
+    var bridgeEnv: BridgeEnvProtocol { get }
+    // sourcery:end
+}
+
+public protocol BridgeEnvProtocol: AutoMockable
+{
+    // sourcery:inline:JSONToCodeSampler.BridgeEnv.AutoGenerateProtocol
+    var local: [String] { get }
+    var debug: [String] { get }
+    var release: [String] { get }
+    var betaRelease: [String] { get }
+    // sourcery:end
+}
+
+public protocol InputJSONProtocol: AutoMockable
+{
+    // sourcery:inline:JSONToCodeSampler.InputJSON.AutoGenerateProtocol
+    var debug: JSONProtocol { get }
+    var release: JSONProtocol { get }
+    var local: JSONProtocol? { get }
+    var betaRelease: JSONProtocol? { get }
     // sourcery:end
 }
 
@@ -32,7 +52,7 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
 {
     private typealias MappingKeys = [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]
 
-    public let input: JSONToCodeSampler.Input
+    public let input: JSONToCodeSampler.InputJSON
 
     public let casesForEnum: String
 
@@ -40,9 +60,9 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
     public let configurationModelVarDescription: String
     public let plistLinesXmlText: String
     public let decoderInit: String
-    public let bridgeEnv: JSONToCodeSampler.BridgeEnv
+    public let bridgeEnv: BridgeEnvProtocol
 
-    public struct BridgeEnv
+    public struct BridgeEnv: BridgeEnvProtocol, AutoGenerateProtocol
     {
         public let local: [String]
         public let debug: [String]
@@ -52,12 +72,12 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
 
     // MARK: - INPUT
 
-    public struct Input
+    public struct InputJSON: InputJSONProtocol, AutoGenerateProtocol
     {
-        public let debug: RNModels.JSON
-        public let release: JSON
-        public let local: JSON?
-        public let betaRelease: JSON?
+        public let debug: JSONProtocol
+        public let release: JSONProtocol
+        public let local: JSONProtocol?
+        public let betaRelease: JSONProtocol?
     }
 
     // MARK: - Private
@@ -109,7 +129,7 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
             betaRelease = nil
         }
 
-        input = Input(debug: debug, release: release, local: local, betaRelease: betaRelease)
+        input = InputJSON(debug: debug, release: release, local: local, betaRelease: betaRelease)
 
         var allKeys: MappingKeys = debug.typed?.enumerated().compactMap
         {

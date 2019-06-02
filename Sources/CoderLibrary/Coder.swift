@@ -253,11 +253,11 @@ extension Coder {
             env: nil
         )
         
-        try configurationDisk.code.rnConfigurationBridgeObjectiveCMFile.write(data: """
+        try configurationDisk.code.rnConfigurationBridgeObjectiveCMFile.write(string: """
             \(RNConfigurationBridge.top)
             \(bridgeCode.env)
             \(RNConfigurationBridge.bottom)
-            """.data(using: .utf8)!
+            """
         )
         
     }

@@ -17,4 +17,14 @@ import Foundation
 // version 5.5
 /*
 
+ // types.implementing.AutoGenerateProtocol inline for JSON ..
+ // sourcery:inline:JSON.AutoGenerateProtocol
+ var typed: [String: JSONEntry]? { get }
+ var booleans: [String: Bool]? { get }
+
+ func xcconfigEntry() throws  -> String
+ func androidEnvEntry() throws  -> String
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for JSON ✅
+
  */

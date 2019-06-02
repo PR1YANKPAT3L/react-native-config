@@ -12,6 +12,8 @@ import SignPost
 import Terminal
 import ZFile
 
+// MARK: - Protocols
+
 // sourcery:AutoMockable
 public protocol ConfigurationDiskProtocol
 {
@@ -20,16 +22,55 @@ public protocol ConfigurationDiskProtocol
     var environmentJsonFilesFolder: FolderProtocol { get }
     var rnConfigurationSourcesFolder: FolderProtocol { get }
     var rnConfigurationBridgeSourcesFolder: FolderProtocol { get }
-    var inputJSON: ConfigurationDisk.Input { get }
+    var inputJSON: InputProtocol { get }
     var androidFolder: FolderProtocol { get }
     var iosFolder: FolderProtocol { get }
-    var iOS: ConfigurationDisk.Output { get }
-    var android: ConfigurationDisk.Output { get }
-    var code: ConfigurationDisk.Output.Code { get }
+    var iOS: OutputProtocol { get }
+    var android: OutputProtocol { get }
+    var code: GeneratedCodeProtocol { get }
 
     // sourcery:end
 }
 
+// sourcery:AutoMockable
+public protocol InputProtocol
+{
+    // sourcery:inline:ConfigurationDisk.Input.AutoGenerateProtocol
+    var debug: FileProtocol { get }
+    var release: FileProtocol { get }
+    var local: FileProtocol? { get }
+    var betaRelease: FileProtocol? { get }
+    // sourcery:end
+}
+
+// sourcery:AutoMockable
+public protocol OutputProtocol
+{
+    // sourcery:inline:ConfigurationDisk.Output.AutoGenerateProtocol
+    var debug: FileProtocol { get }
+    var release: FileProtocol { get }
+    var local: FileProtocol? { get }
+    var betaRelease: FileProtocol? { get }
+    // sourcery:end
+}
+
+// sourcery:AutoMockable
+public protocol GeneratedCodeProtocol
+{
+    // sourcery:inline:ConfigurationDisk.Output.GeneratedCode.AutoGenerateProtocol
+    var rnConfigurationModelFactorySwiftFile: FileProtocol { get }
+    var infoPlistRNConfiguration: FileProtocol { get }
+    var infoPlistRNConfigurationTests: FileProtocol { get }
+    var rnConfigurationModelSwiftFile: FileProtocol { get }
+    var rnConfigurationBridgeObjectiveCMFile: FileProtocol { get }
+
+    func clearContentAllFiles() throws
+    // sourcery:end
+}
+
+// MARK: - Struct
+
+// sourcery:AutoGenerateProtocol
 public struct ConfigurationDisk: ConfigurationDiskProtocol
 {
     public static let projectNameWithPrepareScript: String = "react-native-config.xcodeproj"
@@ -42,15 +83,15 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
 
     // MARK: - destination project
 
-    public let inputJSON: ConfigurationDisk.Input
+    public let inputJSON: InputProtocol
 
     public let androidFolder: FolderProtocol
     public let iosFolder: FolderProtocol
 
-    public let iOS: ConfigurationDisk.Output
-    public let android: ConfigurationDisk.Output
+    public let iOS: OutputProtocol
+    public let android: OutputProtocol
 
-    public let code: ConfigurationDisk.Output.Code
+    public let code: GeneratedCodeProtocol
 
     // MARK: - Private
 
@@ -159,7 +200,7 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
                 }
             }
 
-            code = Output.Code(
+            code = Output.GeneratedCode(
                 rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
                 infoPlistRNConfiguration: try rnConfigurationSrcRoot.file(named: "\(ConfigurationDisk.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
                 infoPlistRNConfigurationTests: try rnConfigurationSrcRoot.file(named: "\(ConfigurationDisk.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
@@ -186,7 +227,8 @@ extension ConfigurationDisk
         case betaRelease = "env.betaRelease.json"
     }
 
-    public struct Input
+    // sourcery:AutoGenerateProtocol
+    public struct Input: InputProtocol
     {
         public let debug: FileProtocol
         public let release: FileProtocol
@@ -194,14 +236,16 @@ extension ConfigurationDisk
         public let betaRelease: FileProtocol?
     }
 
-    public struct Output
+    // sourcery:AutoGenerateProtocol
+    public struct Output: OutputProtocol
     {
         public let debug: FileProtocol
         public let release: FileProtocol
         public let local: FileProtocol?
         public let betaRelease: FileProtocol?
 
-        public struct Code
+        // sourcery:AutoGenerateProtocol
+        public struct GeneratedCode: GeneratedCodeProtocol
         {
             public let rnConfigurationModelFactorySwiftFile: FileProtocol
             public let infoPlistRNConfiguration: FileProtocol

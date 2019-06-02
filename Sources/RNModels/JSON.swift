@@ -7,10 +7,22 @@
 //
 
 import Foundation
+import SourceryAutoProtocols
+
+public protocol JSONProtocol: AutoMockable
+{
+    // sourcery:inline:JSON.AutoGenerateProtocol
+    var typed: [String: JSONEntry]? { get }
+    var booleans: [String: Bool]? { get }
+
+    func xcconfigEntry() throws -> String
+    func androidEnvEntry() throws -> String
+    // sourcery:end
+}
 
 // MARK: - JSON struct
 
-public struct JSON: Codable
+public struct JSON: Codable, JSONProtocol, AutoGenerateProtocol
 {
     public let typed: [String: JSONEntry]?
     public let booleans: [String: Bool]?
