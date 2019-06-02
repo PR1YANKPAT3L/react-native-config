@@ -17,9 +17,23 @@ import Foundation
 // version 5.5
 /*
 
- // types.implementing.AutoGenerateProtocol inline for Coder ..
+ // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ..
+ // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
+ var input: JSONToCodeSampler.Input { get }
+ var casesForEnum: String { get }
+ var configurationModelVar: String { get }
+ var configurationModelVarDescription: String { get }
+ var plistLinesXmlText: String { get }
+ var decoderInit: String { get }
+ var bridgeEnv: JSONToCodeSampler.BridgeEnv { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ✅
+
+ // type.annotations.AutoGenerateProtocol for Coder -> See code in the file of that type
+
  // sourcery:inline:Coder.AutoGenerateProtocol
- var configurationDisk: ConfigurationDisk { get }
+ var configurationDisk: ConfigurationDiskProtocol { get }
  var codeSampler: JSONToCodeSampler { get }
  var signPost: SignPostProtocol { get }
  static var rnConfigurationModelDefault_TOP: String { get }
@@ -36,8 +50,9 @@ import Foundation
  func writeRNConfigurationPlist() throws
  func writeRNConfigurationPlist(to file: FileProtocol) throws
  // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for Coder ✅
- // types.implementing.AutoGenerateProtocol inline for Coder.RNConfigurationBridge ..
+ // type.annotations.AutoGenerateProtocol for Coder end
+ // type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge -> See code in the file of that type
+
  // sourcery:inline:Coder.RNConfigurationBridge.AutoGenerateProtocol
  var envLocal: [String] { get }
  var envDebug: [String] { get }
@@ -48,18 +63,5 @@ import Foundation
  static var bottom: String { get }
 
  // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for Coder.RNConfigurationBridge ✅
- // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ..
- // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
- var input: JSONToCodeSampler.Input { get }
- var casesForEnum: String { get }
- var configurationModelVar: String { get }
- var configurationModelVarDescription: String { get }
- var plistLinesXmlText: String { get }
- var decoderInit: String { get }
- var bridgeEnv: JSONToCodeSampler.BridgeEnv { get }
-
- // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ✅
-
+ // type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge end
  */

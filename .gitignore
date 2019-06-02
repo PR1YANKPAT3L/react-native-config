@@ -27,3 +27,5 @@ xcuserdata
 /Sources/.swiftformat.md
 /Sources/.sourcery-Coder.yml
 /Sources/.sourcery-CoderLibrary.yml
+/Sources/.sourcery-CoderSourcery.yml
+/Sources/.sourcery-PrePushAndPR.yml

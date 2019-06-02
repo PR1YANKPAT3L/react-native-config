@@ -143,6 +143,25 @@ public struct PrePushAndPR
         dependencies: ["HighwayLibrary"]
     )
 }
+
+/**
+ Will run before pushing and in PR's on bitrise
+ */
+public struct CoderSourcery
+{
+    public static let name = "\(CoderSourcery.self)"
+    
+    public static let executable = Product.executable(
+        name: name,
+        targets: [name]
+    )
+    
+    public static let target = Target.target(
+        name: name,
+        dependencies: ["HighwayLibrary"]
+    )
+}
+
 /**
  General models reused and separated to not create cyclic dependensies when generating RNConfiguration
  */
@@ -188,6 +207,7 @@ let package = Package(
 
         Coder.executable,
         PrePushAndPR.executable,
+        CoderSourcery.executable,
 
         // MARK: - Library
 
@@ -228,6 +248,7 @@ let package = Package(
 
         Coder.target,
         PrePushAndPR.target,
+        CoderSourcery.target,
 
         // MARK: - Library
 

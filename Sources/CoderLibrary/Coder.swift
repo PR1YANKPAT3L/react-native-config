@@ -8,14 +8,14 @@
 
 import Foundation
 import SignPost
-import SourceryAutoProtocols
 import ZFile
 import Terminal
 import Errors
 
-public protocol CoderProtocol: AutoMockable {
+// sourcery:AutoMockable
+public protocol CoderProtocol {
     // sourcery:inline:Coder.AutoGenerateProtocol
-    var configurationDisk: ConfigurationDisk { get }
+    var configurationDisk: ConfigurationDiskProtocol { get }
     var codeSampler: JSONToCodeSampler { get }
     var signPost: SignPostProtocol { get }
     static var rnConfigurationModelDefault_TOP: String { get }
@@ -31,10 +31,12 @@ public protocol CoderProtocol: AutoMockable {
     func writeRNConfigurationModelFactory() throws 
     func writeRNConfigurationPlist() throws 
     func writeRNConfigurationPlist(to file: FileProtocol) throws 
+   
     // sourcery:end
 }
 
-public protocol RNConfigurationBridgeProtocol: AutoMockable {
+// sourcery:AutoMockable
+public protocol RNConfigurationBridgeProtocol {
     // sourcery:inline:Coder.RNConfigurationBridge.AutoGenerateProtocol
     var envLocal: [String] { get }
     var envDebug: [String] { get }
@@ -51,11 +53,12 @@ public protocol RNConfigurationBridgeProtocol: AutoMockable {
 /**
  Generates code or plist content and write to corresponding file
  */
-public struct Coder: CoderProtocol, AutoGenerateProtocol {
+// sourcery:AutoGenerateProtocol
+public struct Coder: CoderProtocol {
     
     // MARK: - Private
     
-    public let configurationDisk: ConfigurationDisk
+    public let configurationDisk: ConfigurationDiskProtocol
     public let codeSampler: JSONToCodeSampler
     public let signPost: SignPostProtocol
     private let terminal: TerminalProtocol
@@ -170,7 +173,8 @@ extension Coder {
     
     // Template
     
-    public struct RNConfigurationBridge: RNConfigurationBridgeProtocol, AutoGenerateProtocol {
+    // sourcery:AutoGenerateProtocol
+    public struct RNConfigurationBridge: RNConfigurationBridgeProtocol {
         
         // MARK: - Code
         

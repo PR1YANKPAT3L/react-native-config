@@ -10,13 +10,13 @@ open class CoderProtocolMock: CoderProtocol
 {
     public init() {}
 
-    public var configurationDisk: ConfigurationDisk
+    public var configurationDisk: ConfigurationDiskProtocol
     {
         get { return underlyingConfigurationDisk }
         set(value) { underlyingConfigurationDisk = value }
     }
 
-    public var underlyingConfigurationDisk: ConfigurationDisk!
+    public var underlyingConfigurationDisk: ConfigurationDiskProtocol!
     public var codeSampler: JSONToCodeSampler
     {
         get { return underlyingCodeSampler }

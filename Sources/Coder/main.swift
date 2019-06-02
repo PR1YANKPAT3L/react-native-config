@@ -29,23 +29,23 @@ doContinue(pretty_function() + " setup")
     coder = Coder(disk: configurationDisk, builds: sampler)
 }
 
-doContinue(pretty_function() + " coder") {
+doContinue(pretty_function() + " coder")
+{
     let config = try coder.attempt()
     let xcode = try srcRoot.subfolder(named: "react-native-config.xcodeproj")
     //        try coder.attemptWriteInfoPlistToAllPlists(in: xcode)
-    
+
     // enable and have a look at the file to make it work if you want.
-    
+
     highwayRunner.runSourcery(handleSourceryOutput)
-    
+
     dispatchGroup.notifyMain
-        {
-            highwayRunner.runSwiftformat(handleSwiftformat)
-            highwayRunner.runTests(handleTestOutput)
-            
-            dispatchGroup.notifyMain { highwayRunner.exitSuccesOrFail(location: pretty_function()) }
+    {
+        highwayRunner.runSwiftformat(handleSwiftformat)
+        highwayRunner.runTests(handleTestOutput)
+
+        dispatchGroup.notifyMain { highwayRunner.exitSuccesOrFail(location: pretty_function()) }
     }
-    
 }
 
 dispatchMain()
