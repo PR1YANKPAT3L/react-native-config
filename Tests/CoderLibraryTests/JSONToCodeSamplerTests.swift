@@ -9,17 +9,20 @@ import Foundation
 import Errors
 import Nimble
 import Quick
-import RNModels
-import SignPostMock
 import ZFile
-import ZFileMock
+
+import RNModels
 import RNConfiguration
-import RNConfigurationMock
+import CoderLibrary
+
+import ZFileMock
+import SignPostMock
 import TerminalMock
 
-import CoderLibrary
 import CoderLibraryMock
 import RNModelsMock
+import RNConfigurationMock
+
 
 class JSONToCodeSamplerTests: QuickSpec
 {

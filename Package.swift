@@ -70,14 +70,7 @@ public struct Coder
 
     public static let target = Target.target(
         name: name,
-        dependencies: [
-            "SignPost",
-            "HighwayLibrary",
-            "SourceryAutoProtocols",
-            "SourceryWorker",
-            "ZFile",
-        ]
-            + [Target.Dependency(stringLiteral: Library.library.name)]
+        dependencies: [Target.Dependency(stringLiteral: Library.library.name)]
     )
 
     public struct Library
@@ -92,7 +85,7 @@ public struct Coder
         public static let target = Target.target(
             name: name,
             dependencies:
-            ["SignPost", "Terminal", "ZFile"]
+            ["SignPost", "Terminal", "ZFile", "HighwayLibrary"]
                 + [Target.Dependency(stringLiteral: RNModels.library.name)]
         )
 
@@ -100,11 +93,12 @@ public struct Coder
             name: name + "Tests",
             dependencies:
             ["SignPostMock", "ZFileMock", "TerminalMock"]
-                + ["ZFile"]
                 + [
-                    Target.Dependency(stringLiteral: name),
                     Target.Dependency(stringLiteral: RNConfiguration.Mock.name),
+                    Target.Dependency(stringLiteral: Coder.Library.Mock.name),
+                    Target.Dependency(stringLiteral: RNModels.Mock.name)
                 ]
+                + [Target.Dependency(stringLiteral: name)]
                 + quickNimble
         )
 
