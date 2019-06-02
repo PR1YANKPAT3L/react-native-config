@@ -97,7 +97,7 @@ extension Coder {
     {
         do
         {
-            try configurationDisk.code.clearContentAllFiles()
+            try configurationDisk.code.writeDefaultsToFiles()
             
             signPost.verbose(
                 """

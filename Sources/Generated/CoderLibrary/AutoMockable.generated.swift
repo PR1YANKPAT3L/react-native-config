@@ -443,35 +443,35 @@ open class GeneratedCodeProtocolMock: GeneratedCodeProtocol
 
     public var underlyingRnConfigurationBridgeObjectiveCMFile: FileProtocol!
 
-    // MARK: - <clearContentAllFiles> - parameters
+    // MARK: - <writeDefaultsToFiles> - parameters
 
-    public var clearContentAllFilesThrowableError: Error?
-    public var clearContentAllFilesCallsCount = 0
-    public var clearContentAllFilesCalled: Bool
+    public var writeDefaultsToFilesThrowableError: Error?
+    public var writeDefaultsToFilesCallsCount = 0
+    public var writeDefaultsToFilesCalled: Bool
     {
-        return clearContentAllFilesCallsCount > 0
+        return writeDefaultsToFilesCallsCount > 0
     }
 
-    // MARK: - <clearContentAllFiles> - closure mocks
+    // MARK: - <writeDefaultsToFiles> - closure mocks
 
-    public var clearContentAllFilesClosure: (() throws -> Void)?
+    public var writeDefaultsToFilesClosure: (() throws -> Void)?
 
-    // MARK: - <clearContentAllFiles> - method mocked
+    // MARK: - <writeDefaultsToFiles> - method mocked
 
-    open func clearContentAllFiles() throws
+    open func writeDefaultsToFiles() throws
     {
-        // <clearContentAllFiles> - Throwable method implementation
+        // <writeDefaultsToFiles> - Throwable method implementation
 
-        if let error = clearContentAllFilesThrowableError
+        if let error = writeDefaultsToFilesThrowableError
         {
             throw error
         }
 
-        clearContentAllFilesCallsCount += 1
+        writeDefaultsToFilesCallsCount += 1
 
-        // <clearContentAllFiles> - Void return mock implementation
+        // <writeDefaultsToFiles> - Void return mock implementation
 
-        try clearContentAllFilesClosure?()
+        try writeDefaultsToFilesClosure?()
     }
 }
 

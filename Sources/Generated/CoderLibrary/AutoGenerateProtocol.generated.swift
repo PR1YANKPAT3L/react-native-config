@@ -127,7 +127,7 @@ import Foundation
  var rnConfigurationModelSwiftFile: FileProtocol { get }
  var rnConfigurationBridgeObjectiveCMFile: FileProtocol { get }
 
- func clearContentAllFiles() throws
+ func writeDefaultsToFiles() throws
  // sourcery:end
  // type.annotations.AutoGenerateProtocol for ConfigurationDisk.Output.GeneratedCode end
  */

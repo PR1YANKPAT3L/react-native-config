@@ -64,7 +64,7 @@ public protocol GeneratedCodeProtocol
     var rnConfigurationModelSwiftFile: FileProtocol { get }
     var rnConfigurationBridgeObjectiveCMFile: FileProtocol { get }
 
-    func clearContentAllFiles() throws
+    func writeDefaultsToFiles() throws
     // sourcery:end
 }
 
@@ -253,48 +253,11 @@ extension ConfigurationDisk
             public let rnConfigurationModelSwiftFile: FileProtocol
             public let rnConfigurationBridgeObjectiveCMFile: FileProtocol
 
-            public func clearContentAllFiles() throws
+            public func writeDefaultsToFiles() throws
             {
-                try rnConfigurationModelFactorySwiftFile.write(
-                    string: """
-                        import Foundation
-
-                        /// ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
-                        @objc public class RNConfigurationModelFactory: NSObject {
-                        }
-                    """
-                )
-                try infoPlistRNConfiguration.write(string: """
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-                    <plist version="1.0">
-                    <dict>
-                    <key>CFBundleDevelopmentRegion</key>
-                        <string>$(DEVELOPMENT_LANGUAGE)</string>
-                    <key>CFBundleExecutable</key>
-                        <string>$(EXECUTABLE_NAME)</string>
-                    <key>CFBundleIdentifier</key>
-                        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-                    <key>CFBundleInfoDictionaryVersion</key>
-                    <string>6.0</string>
-                    <key>CFBundleName</key>
-                        <string>$(PRODUCT_NAME)</string>
-                    <key>CFBundlePackageType</key>
-                        <string>FMWK</string>
-                    <key>CFBundleShortVersionString</key>
-                        <string>1.0</string>
-                    <key>CFBundleVersion</key>
-                        <string>$(CURRENT_PROJECT_VERSION)</string>
-                    </dict>
-                    </plist>
-
-                """)
-                try rnConfigurationModelSwiftFile.write(string: """
-                    //⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
-
-                    public struct RNConfigurationModel: Codable {
-                    }
-                """)
+                try rnConfigurationModelFactorySwiftFile.write(string: Coder.rnConfigurationModelFactoryProtocolDefault)
+                try infoPlistRNConfiguration.write(string: Coder.plistLinesXmlDefault)
+                try rnConfigurationModelSwiftFile.write(string: Coder.rnConfigurationModelDefault_TOP + "\n\(Coder.rnConfigurationModelDefault_BOTTOM)")
             }
         }
     }
