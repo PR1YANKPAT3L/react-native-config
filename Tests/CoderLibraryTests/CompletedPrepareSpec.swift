@@ -39,6 +39,9 @@ class CoderSpec: QuickSpec
             var system: SystemProtocolMock!
             var generatedCode = GeneratedCodeProtocolMock()
             
+            var outputIOS: OutputProtocolMock!
+            var outputAndroid: OutputProtocolMock!
+            
             beforeEach
             {
                 signPost = SignPostProtocolMock()
@@ -72,12 +75,16 @@ class CoderSpec: QuickSpec
                     configDisk.underlyingInputJSON = input
                     configDisk.underlyingCode = generatedCode
             
-                    let output = OutputProtocolMock()
-                    output.debug = mockFile
-                    output.release = mockFile
+                    outputIOS = OutputProtocolMock()
+                    outputIOS.debug = try FileProtocolMock()
+                    outputIOS.release = try FileProtocolMock()
                     
-                    configDisk.underlyingIOS = output
-                    configDisk.underlyingAndroid = output
+                    outputAndroid = OutputProtocolMock()
+                    outputAndroid.debug = try FileProtocolMock()
+                    outputAndroid.release = try FileProtocolMock()
+                    
+                    configDisk.underlyingIOS = outputIOS
+                    configDisk.underlyingAndroid = outputAndroid
                     
                     sampler = JSONToCodeSamplerProtocolMock()
                     
@@ -180,19 +187,18 @@ class CoderSpec: QuickSpec
                              expect(objectiveC.writeStringReceivedString).to(contain(Coder.RNConfigurationBridge.top))
                         }
                     }
-                        context("android")
+                    
+                    context("android")
+                    {
+                        
+                        
+                        it("writes all env.* files")
                         {
-        
-
-                            it("writes all env.* files")
-                            {
-                                RNModels.Configuration.allCases.forEach
-                                    { configuration in
-                                        expect(androidFolder.containsFile(named: ".env.\(configuration)")) == true
-                                }
+                            RNModels.Configuration.allCases.forEach { configuration in
+                                    expect((outputAndroid.debug as! FileProtocolMock).writeStringReceivedString ) == ""
                             }
-
                         }
+                        
                     }
                 }
             }
