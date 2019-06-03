@@ -8,16 +8,8 @@ Bring some [12 factor](http://12factor.net/config) love to your mobile apps!
 Run this before building
 
 ``` bash
- swift build --product RNConfigurationHighwaySetup -c release --static-swift-stdlib
-./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup -path $PATH noGithooksPrePush
-```
-Run tests
-
-``` bash
-cd <#react native root folder#>
-# run test so you are sure all file changed to the expected value for the configuration you set next
-./.build/x86_64-apple-macosx10.10/release/RNConfigurationHighwaySetup -path $PATH noGithooksPrePush <#configuration#>
-swift test
+ swift build --product Coder -c release --static-swift-stdlib
+./.build/x86_64-apple-macosx10.10/release/Coder
 ```
 more info about the misterious `<#configuration#> below.
 
@@ -42,6 +34,8 @@ Create a new file `.env.<#configuration#>.json` (release and debug are required)
 Then access variables defined there from your app:
 
 
+## JS
+
 ```js
 import Config from 'react-native-config'
 
@@ -52,7 +46,19 @@ Keep in mind this module doesn't obfuscate or encrypt secrets for packaging, so 
 
 It's [basically impossible to prevent users from reverse engineering mobile app secrets](https://rammic.github.io/2015/07/28/hiding-secrets-in-android-apps/), so design your app (and APIs) with that in mind.
 
-// TODO: add secret keys in both android and iOS that are stored using git_secret and secure storage for both Android and iOS to solve issue above [github issue #1](https://github.com/doozMen/react-native-config/issues/1)
+## iOS
+
+For iOS there is ready to use `RNConfiguration` module swift code. This code is generated from the key `env.*.json`. Take a look at the `RNConfigurationProtocol` to see what is possible.
+
+To create an RNConfigurationModel you do.
+
+```swift
+let configuration = RN
+```
+## Android
+
+
+secret keys in both android and iOS that are stored using git_secret and secure storage for both Android and iOS to solve issue above [github issue #1](https://github.com/doozMen/react-native-config/issues/1)
 
 ## Integrate in React Native
 

@@ -3,59 +3,129 @@
 
 import PackageDescription
 
-// MARK: - Exteranal
-
-let quickNimble: [Target.Dependency] = ["Quick", "Nimble"]
-
-// MARK: - Libraries and executables
-
 /**
- This is the code generated for you by running RNConfigurationPrepare <#config#>
- This is the dependency you want to add to your project.
+ 
+ The executables and libraries are separet into generated code and static code.
+ 
+ To generate code change something in the `env.*.json` files and run the `Coder`.
  */
-public struct RNConfiguration
-{
-    public static let name = "\(RNConfiguration.self)"
 
+public struct External {
+    public static let quickNimble: [Target.Dependency] = ["Quick", "Nimble"]
+    public static let packages: [Package.Dependency] = [
+        
+        .package(url: "https://www.github.com/dooZdev/ZFile", "2.4.2" ..< "3.0.0"),
+        .package(url: "https://www.github.com/dooZdev/Highway", "2.11.11" ..< "3.0.0"),
+        
+        // Quick & Nimble
+        
+        .package(url: "https://www.github.com/Quick/Quick", "1.3.4" ..< "2.1.0"),
+        .package(url: "https://www.github.com/Quick/Nimble", "7.3.4" ..< "8.1.0"),
+        
+        // Sourcery
+        
+        .package(url: "https://www.github.com/doozMen/Sourcery", "0.16.3" ..< "1.0.0"),
+        .package(url: "https://www.github.com/dooZdev/template-sourcery", "1.4.3" ..< "2.0.0"),
+        
+        // Logging
+        
+        .package(url: "https://www.github.com/doozMen/SignPost", "1.0.0" ..< "2.0.0"),
+    ]
+}
+
+// MARK: - Generated
+
+// MARK: - RNConfiguration
+
+public struct Generated {
+    /**
+     This is the code generated for you by running RNConfigurationPrepare <#config#>
+     This is the dependency you want to add to your project.
+     */
+    public struct RNConfiguration
+    {
+        public static let name = "\(Generated.RNConfiguration.self)"
+        
+        public static let library = Product.library(
+            name: name,
+            targets: [name]
+        )
+        
+        public static let target = Target.target(
+            name: name,
+            dependencies: ["RNModels", "SourceryAutoProtocols"]
+        )
+        
+        public static let tests = Target.testTarget(
+            name: name + "Tests",
+            dependencies:
+            [
+                Target.Dependency(stringLiteral: name),
+                Target.Dependency(stringLiteral: Generated.RNConfiguration.Mock.name),
+                ]
+                + External.quickNimble
+        )
+        
+        public struct Mock
+        {
+            public static let name = library.name + "Mock"
+            
+            public static let product = Product.library(
+                name: name,
+                targets: [name]
+            )
+            
+            public static let target = Target.target(
+                name: name,
+                dependencies:
+                Generated.RNConfiguration.target.dependencies
+                    + [Target.Dependency(stringLiteral: library.name)],
+                path: "Sources/Generated/\(library.name)"
+            )
+        }
+    }
+}
+
+
+// MARK: -
+// MARK: - RNModels
+/**
+ General models reused and separated to not create cyclic dependensies when generating RNConfiguration
+ */
+public struct RNModels
+{
+    public static let name = "\(RNModels.self)"
+    
     public static let library = Product.library(
         name: name,
         targets: [name]
     )
-
+    
     public static let target = Target.target(
         name: name,
-        dependencies: ["RNModels", "SourceryAutoProtocols"]
+        dependencies: ["SourceryAutoProtocols"]
     )
-
-    public static let tests = Target.testTarget(
-        name: name + "Tests",
-        dependencies:
-        [
-            Target.Dependency(stringLiteral: name),
-            Target.Dependency(stringLiteral: RNConfiguration.Mock.name),
-        ]
-            + quickNimble
-    )
-
+    
     public struct Mock
     {
         public static let name = library.name + "Mock"
-
+        
         public static let product = Product.library(
             name: name,
             targets: [name]
         )
-
+        
         public static let target = Target.target(
             name: name,
             dependencies:
-            RNConfiguration.target.dependencies
+            RNModels.target.dependencies
                 + [Target.Dependency(stringLiteral: library.name)],
             path: "Sources/Generated/\(library.name)"
         )
     }
 }
 
+// MARK: - Coder
 /**
  It writes the env.*.json files into code for ios, android and JS
  */
@@ -94,12 +164,12 @@ public struct Coder
             dependencies:
             ["SignPostMock", "ZFileMock", "TerminalMock"]
                 + [
-                    Target.Dependency(stringLiteral: RNConfiguration.Mock.name),
+                    Target.Dependency(stringLiteral: Generated.RNConfiguration.Mock.name),
                     Target.Dependency(stringLiteral: Coder.Library.Mock.name),
                     Target.Dependency(stringLiteral: RNModels.Mock.name)
                 ]
                 + [Target.Dependency(stringLiteral: name)]
-                + quickNimble
+                + External.quickNimble
         )
 
         public struct Mock
@@ -122,6 +192,8 @@ public struct Coder
     }
 }
 
+// MARK: - Lanes
+// MARK: - PrePushAndPR
 /**
  Will run before pushing and in PR's on bitrise
  */
@@ -140,6 +212,7 @@ public struct PrePushAndPR
     )
 }
 
+// MARK: - CoderSourcery
 /**
  Will run before pushing and in PR's on bitrise
  */
@@ -158,109 +231,83 @@ public struct CoderSourcery
     )
 }
 
-/**
- General models reused and separated to not create cyclic dependensies when generating RNConfiguration
- */
-public struct RNModels
-{
-    public static let name = "\(RNModels.self)"
 
-    public static let library = Product.library(
-        name: name,
-        targets: [name]
-    )
+// MARK: - Examples
 
-    public static let target = Target.target(
-        name: name,
-        dependencies: ["SourceryAutoProtocols"]
-    )
-
-    public struct Mock
-    {
-        public static let name = library.name + "Mock"
-
-        public static let product = Product.library(
+public struct Example {
+    
+    static let basePath = "Sources/Example/"
+    
+    /**
+     Based on the configuration you build for different values will be printed. They are also available in JS and Android.
+     
+     ## setup
+     
+     ```swift
+     swift build --product Coder --configuration release --static-swift-stdlib
+     ./.build/x86_64-apple-macosx10.10/release/Coder
+     open react-native-config.xcodeproj
+     ```
+     After this you will have have to run the Example executable scheme and take a look at terminal output.
+     
+     - warning: Before you run this from xcode you should setup the Coder by running it!
+     - throws: when the xcodeconfig is loaded without a xcconfig file this code will not work and exit in failiure
+     */
+    public struct BuildConfiguration {
+        
+        public static let name = "\(BuildConfiguration.self)"
+        
+        public static let executable = Product.library(
             name: name,
             targets: [name]
         )
-
+        
         public static let target = Target.target(
             name: name,
-            dependencies:
-            RNModels.target.dependencies
-                + [Target.Dependency(stringLiteral: library.name)],
-            path: "Sources/Generated/\(library.name)"
+            dependencies: [Target.Dependency(stringLiteral: Generated.RNConfiguration.library.name)],
+            path: basePath + name
         )
     }
+    
 }
 
 // MARK: - Package
 
+// MARK: - Product Package - react-native-config
+
 let package = Package(
     name: "react-native-config",
     products: [
-        // MARK: - Executable
-
         Coder.executable,
         PrePushAndPR.executable,
         CoderSourcery.executable,
-
-        // MARK: - Library
+        Example.BuildConfiguration.executable,
 
         RNModels.library,
-        RNConfiguration.library,
+        Generated.RNConfiguration.library,
         Coder.Library.library,
 
-        // MARK: - Mocks
-
         RNModels.Mock.product,
-        RNConfiguration.Mock.product,
+        Generated.RNConfiguration.Mock.product,
 
     ],
-    dependencies: [
-        // MARK: - External Dependencies
-
-        // MARK: - Highway
-
-        .package(url: "https://www.github.com/dooZdev/ZFile", "2.4.2" ..< "3.0.0"),
-        .package(url: "https://www.github.com/dooZdev/Highway", "2.11.11" ..< "3.0.0"),
-
-        // MARK: - Quick & Nimble
-
-        .package(url: "https://www.github.com/Quick/Quick", "1.3.4" ..< "2.1.0"),
-        .package(url: "https://www.github.com/Quick/Nimble", "7.3.4" ..< "8.1.0"),
-
-        // MARK: - Sourcery
-
-        .package(url: "https://www.github.com/doozMen/Sourcery", "0.16.3" ..< "1.0.0"),
-        .package(url: "https://www.github.com/dooZdev/template-sourcery", "1.4.3" ..< "2.0.0"),
-
-        // MARK: - Logging
-
-        .package(url: "https://www.github.com/doozMen/SignPost", "1.0.0" ..< "2.0.0"),
-    ],
+    dependencies: External.packages,
     targets: [
-        // MARK: - executable
 
         Coder.target,
         PrePushAndPR.target,
         CoderSourcery.target,
-
-        // MARK: - Library
+        Example.BuildConfiguration.target,
 
         Coder.Library.target,
         RNModels.target,
-        RNConfiguration.target,
-
-        // MARK: - Test
+        Generated.RNConfiguration.target,
 
         Coder.Library.tests,
-        RNConfiguration.tests,
-
-        // MARK: - Mock target
+        Generated.RNConfiguration.tests,
 
         RNModels.Mock.target,
-        RNConfiguration.Mock.target,
+        Generated.RNConfiguration.Mock.target,
         Coder.Library.Mock.target,
     ]
 )
