@@ -32,3 +32,4 @@ xcuserdata
 /Sources/.sourcery-BuildConfiguration.yml
 /Sources/.sourcery-CoderSecrets.yml
 /Coder.xcodeproj
+/ios/Coder.xcconfig

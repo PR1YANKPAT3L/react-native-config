@@ -158,6 +158,7 @@
 
 /* Begin PBXFileReference section */
 		3DF7F6AC203AA09B00D0EAB7 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C005134F22A9B87300378083 /* Coder.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Coder.xcconfig; sourceTree = "<group>"; };
 		C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurationBridgeTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNConfigurationBridgeTests_iOS.m; sourceTree = "<group>"; };
 		C04F636E2247910700AED2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,18 +167,14 @@
 		EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeConfig.m; sourceTree = "<group>"; };
 		FD1674202229B2C300A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1674802229B5A700A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD4867C82201B6C50092A63E /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		FD4867C92201B6D10092A63E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		FD4868762201D1810092A63E /* RNConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModel.swift; sourceTree = "<group>"; };
 		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
-		FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BetaRelease.xcconfig; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CC862200B4270044D1A7 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD55CC882200B4270044D1A7 /* RNConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNConfiguration.h; sourceTree = "<group>"; };
 		FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModelFactory.swift; sourceTree = "<group>"; };
 		FD7F1D222215D390009A4F34 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD84BA112209C8D7000B86BC /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 		FDAA4BDE22257CCD0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BE022257CD60091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA4BF322257F5F0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,10 +277,7 @@
 		EB2648D61C7BE17A00B8F155 = {
 			isa = PBXGroup;
 			children = (
-				FD4867C82201B6C50092A63E /* Debug.xcconfig */,
-				FD84BA112209C8D7000B86BC /* Local.xcconfig */,
-				FD4867C92201B6D10092A63E /* Release.xcconfig */,
-				FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */,
+				C005134F22A9B87300378083 /* Coder.xcconfig */,
 				FDB74B2C2229276B000B068C /* Sources */,
 				C04F636B2247910700AED2F5 /* RNConfigurationBridgeTests-iOS */,
 				EB2648E01C7BE17A00B8F155 /* Products */,
@@ -596,6 +590,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -802,7 +797,7 @@
 /* Begin XCBuildConfiguration section */
 		3DF7F6B2203AA09B00D0EAB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -828,7 +823,7 @@
 		};
 		3DF7F6B3203AA09B00D0EAB7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -854,6 +849,7 @@
 		};
 		C04F63732247910700AED2F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -878,6 +874,7 @@
 		};
 		C04F63742247910700AED2F5 /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -901,6 +898,7 @@
 		};
 		C04F63752247910700AED2F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -924,6 +922,7 @@
 		};
 		C04F63762247910700AED2F5 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -947,7 +946,7 @@
 		};
 		EB2648E61C7BE17A00B8F155 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1011,7 +1010,7 @@
 		};
 		EB2648E71C7BE17A00B8F155 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1071,7 +1070,7 @@
 		};
 		EB2648E91C7BE17A00B8F155 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNConfigurationBridge;
@@ -1081,7 +1080,7 @@
 		};
 		EB2648EA1C7BE17A00B8F155 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNConfigurationBridge;
@@ -1091,6 +1090,7 @@
 		};
 		FD1674322229B2C400A67996 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1124,6 +1124,7 @@
 		};
 		FD1674332229B2C400A67996 /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1155,6 +1156,7 @@
 		};
 		FD1674342229B2C400A67996 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1186,6 +1188,7 @@
 		};
 		FD1674352229B2C400A67996 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1217,6 +1220,7 @@
 		};
 		FD1674862229B5A700A67996 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1253,6 +1257,7 @@
 		};
 		FD1674872229B5A700A67996 /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1287,6 +1292,7 @@
 		};
 		FD1674882229B5A700A67996 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1321,6 +1327,7 @@
 		};
 		FD1674892229B5A700A67996 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1355,7 +1362,7 @@
 		};
 		FD55CC8C2200B4270044D1A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1399,7 +1406,7 @@
 		};
 		FD55CC8D2200B4270044D1A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1441,7 +1448,7 @@
 		};
 		FD7F1D2C2215D390009A4F34 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C82201B6C50092A63E /* Debug.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1481,7 +1488,7 @@
 		};
 		FD7F1D2D2215D390009A4F34 /* Local */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1519,7 +1526,7 @@
 		};
 		FD7F1D2E2215D390009A4F34 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD4867C92201B6D10092A63E /* Release.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1553,7 +1560,7 @@
 		};
 		FD84BA0B2209C8BC000B86BC /* Local */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1618,7 +1625,7 @@
 		};
 		FD84BA0C2209C8BC000B86BC /* Local */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNConfigurationBridge;
@@ -1628,7 +1635,7 @@
 		};
 		FD84BA0D2209C8BC000B86BC /* Local */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1654,7 +1661,7 @@
 		};
 		FD84BA102209C8BC000B86BC /* Local */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD84BA112209C8D7000B86BC /* Local.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1698,6 +1705,7 @@
 		};
 		FDB74B2022291E8F000B068C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1739,6 +1747,7 @@
 		};
 		FDB74B2122291E8F000B068C /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1778,6 +1787,7 @@
 		};
 		FDB74B2222291E8F000B068C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1813,6 +1823,7 @@
 		};
 		FDB74B2322291E8F000B068C /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1848,6 +1859,7 @@
 		};
 		FDB74B3D222933E0000B068C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1883,6 +1895,7 @@
 		};
 		FDB74B3E222933E0000B068C /* Local */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1916,6 +1929,7 @@
 		};
 		FDB74B3F222933E0000B068C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1949,6 +1963,7 @@
 		};
 		FDB74B40222933E0000B068C /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1982,7 +1997,7 @@
 		};
 		FDECFC8E221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2042,7 +2057,7 @@
 		};
 		FDECFC8F221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNConfigurationBridge;
@@ -2052,7 +2067,7 @@
 		};
 		FDECFC90221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2078,7 +2093,7 @@
 		};
 		FDECFC93221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2120,7 +2135,7 @@
 		};
 		FDECFC94221B652300EA1E33 /* BetaRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD49391D221C4CA800B6BBAE /* BetaRelease.xcconfig */;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
