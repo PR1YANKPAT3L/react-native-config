@@ -54,13 +54,16 @@ func continueWithXcodeProjectPresent(_ sync: @escaping HighwayRunner.SyncSwiftPa
 doContinue(pretty_function() + " coder")
 {
     let config = try coder.attempt()
+    signPost.message("found config \(config)")
 
-    guard srcRoot.containsSubfolder(named: xcodeName) else
-    {
-        highwayRunner.generateXcodeProject(override: config.xcconfig, continueWithXcodeProjectPresent)
-        return
-    }
-    continueWithXcodeProjectPresent({ ["xcode already present"] })
+    highwayRunner.generateXcodeProject(override: config.xcconfig, continueWithXcodeProjectPresent)
+
+//    guard srcRoot.containsSubfolder(named: xcodeName) else
+//    {
+//        highwayRunner.generateXcodeProject(override: config.xcconfig, continueWithXcodeProjectPresent)
+//        return
+//    }
+//    continueWithXcodeProjectPresent({ ["xcode already present"] })
 }
 
 dispatchMain()

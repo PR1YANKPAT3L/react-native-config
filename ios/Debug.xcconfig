@@ -1,2 +1,4 @@
 example_url = https:\/\/debug
 exampleBool = true
+MACOSX_DEPLOYMENT_TARGET[sdk=macOS] = 10.13
+OTHER_SWIFT_FLAGS[sdk=macOS] = -DMacOS
