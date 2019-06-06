@@ -22,14 +22,11 @@ public protocol CoderProtocol {
     static var rnConfigurationModelDefault_BOTTOM: String { get }
     static var factoryTop: String { get }
     static var rnConfigurationModelFactoryProtocolDefault: String { get }
-    static var plistLinesXmlDefault: String { get }
 
     func attempt() throws  -> Coder.Config
     func writeRNConfigurationBridge() throws 
     func writeRNConfigurationModel() throws 
     func writeRNConfigurationModelFactory() throws 
-    func writeRNConfigurationPlist() throws 
-    func writeRNConfigurationPlist(to file: FileProtocol) throws 
    
     // sourcery:end
 }
@@ -554,78 +551,4 @@ extension Coder {
     }
     """
     
-}
-
-// MARK: - RNConfigurationPlist
-
-extension Coder {
-    
-    public static let plistLinesXmlDefault = """
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-        <dict>
-        <key>CFBundleDevelopmentRegion</key>
-            <string>$(DEVELOPMENT_LANGUAGE)</string>
-        <key>CFBundleExecutable</key>
-            <string>$(EXECUTABLE_NAME)</string>
-        <key>CFBundleIdentifier</key>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-        <key>CFBundleInfoDictionaryVersion</key>
-            <string>6.0</string>
-        <key>CFBundleName</key>
-            <string>$(PRODUCT_NAME)</string>
-        <key>CFBundlePackageType</key>
-            <string>FMWK</string>
-        <key>CFBundleShortVersionString</key>
-            <string>1.0</string>
-        <key>CFBundleVersion</key>
-            <string>$(CURRENT_PROJECT_VERSION)</string>
-        </dict>
-    </plist>
-    """
-    
-    public func writeRNConfigurationPlist() throws {
-        
-        try writeRNConfigurationPlist(to: configurationDisk.code.infoPlistRNConfiguration)
-        try writeRNConfigurationPlist(to: configurationDisk.code.infoPlistRNConfigurationTests)
-    }
-    
-    public func writeRNConfigurationPlist(to file: FileProtocol) throws {
-        
-        var plistLinesXml = Coder.plistLinesXmlDefault
-        
-        guard codeSampler.plistLinesXmlText.count > 0 else {
-            try  file.write(string: plistLinesXml)
-            return
-        }
-        
-        plistLinesXml = """
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-        <key>CFBundleDevelopmentRegion</key>
-        <string>$(DEVELOPMENT_LANGUAGE)</string>
-        <key>CFBundleExecutable</key>
-        <string>$(EXECUTABLE_NAME)</string>
-        <key>CFBundleIdentifier</key>
-        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-        <key>CFBundleInfoDictionaryVersion</key>
-        <string>6.0</string>
-        <key>CFBundleName</key>
-        <string>$(PRODUCT_NAME)</string>
-        <key>CFBundlePackageType</key>
-        <string>FMWK</string>
-        <key>CFBundleShortVersionString</key>
-        <string>1.0</string>
-        <key>CFBundleVersion</key>
-        <string>$(CURRENT_PROJECT_VERSION)</string>
-        \(codeSampler.plistLinesXmlText)
-        </dict>
-        </plist>
-        """
-        
-        try file.write(string: plistLinesXml)
-    }
 }

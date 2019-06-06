@@ -76,13 +76,6 @@ open class CoderProtocolMock: CoderProtocol
     }
 
     public static var underlyingRnConfigurationModelFactoryProtocolDefault: String = "AutoMockable filled value"
-    public static var plistLinesXmlDefault: String
-    {
-        get { return underlyingPlistLinesXmlDefault }
-        set(value) { underlyingPlistLinesXmlDefault = value }
-    }
-
-    public static var underlyingPlistLinesXmlDefault: String = "AutoMockable filled value"
 
     // MARK: - <attempt> - parameters
 
@@ -222,71 +215,6 @@ open class CoderProtocolMock: CoderProtocol
         // <writeRNConfigurationModelFactory> - Void return mock implementation
 
         try writeRNConfigurationModelFactoryClosure?()
-    }
-
-    // MARK: - <writeRNConfigurationPlist> - parameters
-
-    public var writeRNConfigurationPlistThrowableError: Error?
-    public var writeRNConfigurationPlistCallsCount = 0
-    public var writeRNConfigurationPlistCalled: Bool
-    {
-        return writeRNConfigurationPlistCallsCount > 0
-    }
-
-    // MARK: - <writeRNConfigurationPlist> - closure mocks
-
-    public var writeRNConfigurationPlistClosure: (() throws -> Void)?
-
-    // MARK: - <writeRNConfigurationPlist> - method mocked
-
-    open func writeRNConfigurationPlist() throws
-    {
-        // <writeRNConfigurationPlist> - Throwable method implementation
-
-        if let error = writeRNConfigurationPlistThrowableError
-        {
-            throw error
-        }
-
-        writeRNConfigurationPlistCallsCount += 1
-
-        // <writeRNConfigurationPlist> - Void return mock implementation
-
-        try writeRNConfigurationPlistClosure?()
-    }
-
-    // MARK: - <writeRNConfigurationPlist> - parameters
-
-    public var writeRNConfigurationPlistToThrowableError: Error?
-    public var writeRNConfigurationPlistToCallsCount = 0
-    public var writeRNConfigurationPlistToCalled: Bool
-    {
-        return writeRNConfigurationPlistToCallsCount > 0
-    }
-
-    public var writeRNConfigurationPlistToReceivedFile: FileProtocol?
-
-    // MARK: - <writeRNConfigurationPlist> - closure mocks
-
-    public var writeRNConfigurationPlistToClosure: ((FileProtocol) throws -> Void)?
-
-    // MARK: - <writeRNConfigurationPlist> - method mocked
-
-    open func writeRNConfigurationPlist(to file: FileProtocol) throws
-    {
-        // <writeRNConfigurationPlist> - Throwable method implementation
-
-        if let error = writeRNConfigurationPlistToThrowableError
-        {
-            throw error
-        }
-
-        writeRNConfigurationPlistToCallsCount += 1
-        writeRNConfigurationPlistToReceivedFile = file
-
-        // <writeRNConfigurationPlist> - Void return mock implementation
-
-        try writeRNConfigurationPlistToClosure?(file)
     }
 }
 
@@ -545,6 +473,100 @@ open class OutputFilesProtocolMock: OutputFilesProtocol
     public var underlyingRelease: FileProtocol!
     public var local: FileProtocol?
     public var betaRelease: FileProtocol?
+}
+
+// MARK: - PlistWriterProtocolMock
+
+open class PlistWriterProtocolMock: PlistWriterProtocol
+{
+    public init() {}
+
+    public static var plistLinesXmlDefault: String
+    {
+        get { return underlyingPlistLinesXmlDefault }
+        set(value) { underlyingPlistLinesXmlDefault = value }
+    }
+
+    public static var underlyingPlistLinesXmlDefault: String = "AutoMockable filled value"
+    public var code: GeneratedCodeProtocol
+    {
+        get { return underlyingCode }
+        set(value) { underlyingCode = value }
+    }
+
+    public var underlyingCode: GeneratedCodeProtocol!
+    public var sampler: JSONToCodeSamplerProtocol
+    {
+        get { return underlyingSampler }
+        set(value) { underlyingSampler = value }
+    }
+
+    public var underlyingSampler: JSONToCodeSamplerProtocol!
+
+    // MARK: - <writeRNConfigurationPlist> - parameters
+
+    public var writeRNConfigurationPlistThrowableError: Error?
+    public var writeRNConfigurationPlistCallsCount = 0
+    public var writeRNConfigurationPlistCalled: Bool
+    {
+        return writeRNConfigurationPlistCallsCount > 0
+    }
+
+    // MARK: - <writeRNConfigurationPlist> - closure mocks
+
+    public var writeRNConfigurationPlistClosure: (() throws -> Void)?
+
+    // MARK: - <writeRNConfigurationPlist> - method mocked
+
+    open func writeRNConfigurationPlist() throws
+    {
+        // <writeRNConfigurationPlist> - Throwable method implementation
+
+        if let error = writeRNConfigurationPlistThrowableError
+        {
+            throw error
+        }
+
+        writeRNConfigurationPlistCallsCount += 1
+
+        // <writeRNConfigurationPlist> - Void return mock implementation
+
+        try writeRNConfigurationPlistClosure?()
+    }
+
+    // MARK: - <writeRNConfigurationPlist> - parameters
+
+    public var writeRNConfigurationPlistToThrowableError: Error?
+    public var writeRNConfigurationPlistToCallsCount = 0
+    public var writeRNConfigurationPlistToCalled: Bool
+    {
+        return writeRNConfigurationPlistToCallsCount > 0
+    }
+
+    public var writeRNConfigurationPlistToReceivedFile: FileProtocol?
+
+    // MARK: - <writeRNConfigurationPlist> - closure mocks
+
+    public var writeRNConfigurationPlistToClosure: ((FileProtocol) throws -> Void)?
+
+    // MARK: - <writeRNConfigurationPlist> - method mocked
+
+    open func writeRNConfigurationPlist(to file: FileProtocol) throws
+    {
+        // <writeRNConfigurationPlist> - Throwable method implementation
+
+        if let error = writeRNConfigurationPlistToThrowableError
+        {
+            throw error
+        }
+
+        writeRNConfigurationPlistToCallsCount += 1
+        writeRNConfigurationPlistToReceivedFile = file
+
+        // <writeRNConfigurationPlist> - Void return mock implementation
+
+        try writeRNConfigurationPlistToClosure?(file)
+    }
 }
 
 // MARK: - RNConfigurationBridgeProtocolMock

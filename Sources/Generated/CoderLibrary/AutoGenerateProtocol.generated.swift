@@ -38,6 +38,16 @@ import Foundation
 
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler.BridgeEnv ✅
+ // types.implementing.AutoGenerateProtocol inline for PlistWriter ..
+ // sourcery:inline:PlistWriter.AutoGenerateProtocol
+ static var plistLinesXmlDefault: String { get }
+ var code: GeneratedCodeProtocol { get }
+ var sampler: JSONToCodeSamplerProtocol { get }
+
+ func writeRNConfigurationPlist() throws
+ func writeRNConfigurationPlist(to file: FileProtocol) throws
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for PlistWriter ✅
  // types.implementing.AutoGenerateProtocol inline for TextFileWriter ..
  // sourcery:inline:TextFileWriter.AutoGenerateProtocol
  static var shared: TextFileWriterProtocol { get }
@@ -59,14 +69,11 @@ import Foundation
  static var rnConfigurationModelDefault_BOTTOM: String { get }
  static var factoryTop: String { get }
  static var rnConfigurationModelFactoryProtocolDefault: String { get }
- static var plistLinesXmlDefault: String { get }
 
  func attempt() throws  -> Coder.Config
  func writeRNConfigurationBridge() throws
  func writeRNConfigurationModel() throws
  func writeRNConfigurationModelFactory() throws
- func writeRNConfigurationPlist() throws
- func writeRNConfigurationPlist(to file: FileProtocol) throws
  // sourcery:end
  // type.annotations.AutoGenerateProtocol for Coder end
  // type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge -> See code in the file of that type

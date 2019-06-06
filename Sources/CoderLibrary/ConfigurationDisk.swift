@@ -234,7 +234,7 @@ extension ConfigurationDisk
             public func writeDefaultsToFiles() throws
             {
                 try rnConfigurationModelFactorySwiftFile.write(string: Coder.rnConfigurationModelFactoryProtocolDefault)
-                try infoPlistRNConfiguration.write(string: Coder.plistLinesXmlDefault)
+                try infoPlistRNConfiguration.write(string: PlistWriter.plistLinesXmlDefault)
                 try rnConfigurationModelSwiftFile.write(string: Coder.rnConfigurationModelDefault_TOP + "\n\(Coder.rnConfigurationModelDefault_BOTTOM)")
             }
         }
