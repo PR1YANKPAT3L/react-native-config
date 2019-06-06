@@ -6,7 +6,7 @@ import ZFile
 
 doContinue(pretty_function() + " setup")
 {
-    try setup(packageName: "react-native-config", try File(path: #file).parentFolder().parentFolder().parentFolder())
+    try setup(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
     try setupHighwayRunner(gitHooksPrePushExecutableName: "PrePushAndPR")
     try highwayRunner.addGithooksPrePush()
 }

@@ -219,7 +219,7 @@ extension Coder {
                 \(self.envBetaRelease.joined(separator: ",\n"))
             };
             #else
-                NSLog(@"⚠️ (react-native-config) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
+                NSLog(@"⚠️ (Coder) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
             return nil;
             #endif
         }

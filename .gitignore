@@ -30,3 +30,5 @@ xcuserdata
 /Sources/.sourcery-CoderSourcery.yml
 /Sources/.sourcery-PrePushAndPR.yml
 /Sources/.sourcery-BuildConfiguration.yml
+/Sources/.sourcery-CoderSecrets.yml
+/Coder.xcodeproj

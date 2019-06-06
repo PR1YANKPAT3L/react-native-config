@@ -34,7 +34,7 @@ RCT_EXPORT_MODULE()
     @"exampleBool" : @YES
     };
     #else
-        NSLog(@"⚠️ (react-native-config) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
+        NSLog(@"⚠️ (Coder) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
     return nil;
     #endif
 }

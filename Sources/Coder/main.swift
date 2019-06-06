@@ -18,13 +18,16 @@ import ZFile
 var configurationDisk: ConfigurationDiskProtocol!
 var sampler: JSONToCodeSamplerProtocol!
 var coder: CoderProtocol!
-let xcodeName = "react-native-config.xcodeproj"
+let xcodeName = "Coder.xcodeproj"
 
 doContinue(pretty_function() + " setup")
 {
-    try setup(packageName: "react-native-config", try File(path: #file).parentFolder().parentFolder().parentFolder())
+    try setup(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
     try setupHighwayRunner(gitHooksPrePushExecutableName: "PrePushAndPR")
+
     try highwayRunner.addGithooksPrePush()
+    try highwayRunner.validateSecrets(in: srcRoot)
+
     configurationDisk = try ConfigurationDisk(rnConfigurationSrcRoot: srcRoot, environmentJsonFilesFolder: srcRoot)
     sampler = try JSONToCodeSampler(from: configurationDisk)
     coder = Coder(disk: configurationDisk, builds: sampler)

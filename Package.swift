@@ -87,7 +87,6 @@ public struct Generated {
 }
 
 
-// MARK: -
 // MARK: - RNModels
 /**
  General models reused and separated to not create cyclic dependensies when generating RNConfiguration
@@ -123,6 +122,26 @@ public struct RNModels
             path: "Sources/Generated/\(library.name)"
         )
     }
+}
+
+// MARK: - RNModels
+/**
+ General models reused and separated to not create cyclic dependensies when generating RNConfiguration
+ */
+public struct CoderSecrets
+{
+    public static let name = "\(CoderSecrets.self)"
+    
+    public static let executable = Product.executable(
+        name: name,
+        targets: [name]
+    )
+    
+    public static let target = Target.target(
+        name: name,
+        dependencies: ["HighwayLibrary"]
+    )
+    
 }
 
 // MARK: - Coder
@@ -246,7 +265,7 @@ public struct Example {
      ```swift
      swift build --product Coder --configuration release --static-swift-stdlib
      ./.build/x86_64-apple-macosx10.10/release/Coder
-     open react-native-config.xcodeproj
+     open Coder.xcodeproj
      ```
      After this you will have have to run the Example executable scheme and take a look at terminal output.
      
@@ -276,12 +295,13 @@ public struct Example {
 // MARK: - Product Package - react-native-config
 
 let package = Package(
-    name: "react-native-config",
+    name: "Coder",
     products: [
         Coder.executable,
         PrePushAndPR.executable,
         CoderSourcery.executable,
         Example.BuildConfiguration.executable,
+        CoderSecrets.executable,
 
         RNModels.library,
         Generated.RNConfiguration.library,
@@ -298,6 +318,7 @@ let package = Package(
         PrePushAndPR.target,
         CoderSourcery.target,
         Example.BuildConfiguration.target,
+        CoderSecrets.target,
 
         Coder.Library.target,
         RNModels.target,

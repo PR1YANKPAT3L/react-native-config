@@ -8,6 +8,7 @@
 
 import Errors
 import Foundation
+import HighwayLibrary
 import SignPost
 import Terminal
 import ZFile
@@ -73,9 +74,9 @@ public protocol GeneratedCodeProtocol
 // sourcery:AutoGenerateProtocol
 public struct ConfigurationDisk: ConfigurationDiskProtocol
 {
-    public static let projectNameWithPrepareScript: String = "react-native-config.xcodeproj"
+    public static let projectNameWithPrepareScript: String = "Coder.xcodeproj"
 
-    // MARK: - react-native-config : folders of this module
+    // MARK: - Coder : folders of this module
 
     public let environmentJsonFilesFolder: FolderProtocol
     public let rnConfigurationSourcesFolder: FolderProtocol
@@ -184,19 +185,8 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
 
             if !rnConfigurationSrcRoot.containsSubfolder(named: ConfigurationDisk.projectNameWithPrepareScript)
             {
-                do
-                {
-                    signPost.message("🏗 generating react-native-config.xcodeproj ...")
-                    // TODO: this should be with the correct config file
-                    let process = try self.system.process(nameInPATHFolders: "swift", in: srcRoot, arguments: ["package", "generate-xcodeproj"])
-
-                    signPost.verbose(try terminal.runProcess(process).joined(separator: "\n"))
-                    signPost.message("🏗 generating react-native-config.xcodeproj ✅")
-                }
-                catch
-                {
-                    throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
-                }
+                highwayRunner.generateXcodeProject(override: iOS.debug, handleSwiftPackageGenerateXcodeProject)
+                dispatchGroup.wait()
             }
 
             code = OutputFiles.GeneratedCode(
