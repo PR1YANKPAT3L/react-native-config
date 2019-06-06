@@ -33,3 +33,7 @@ xcuserdata
 /Sources/.sourcery-CoderSecrets.yml
 /Coder.xcodeproj
 /ios/Coder.xcconfig
+/android/.env.betaRelease
+/android/.env.debug
+/android/.env.local
+/android/.env.release
