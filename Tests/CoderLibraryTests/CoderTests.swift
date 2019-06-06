@@ -83,7 +83,7 @@ class CoderSpec: QuickSpec
                     outputAndroid.debug = try FileProtocolMock()
                     outputAndroid.release = try FileProtocolMock()
                     
-                    configDisk.underlyingIOS = outputIOS
+                    configDisk.underlyingXcconfigFile = try FileProtocolMock()
                     configDisk.underlyingAndroid = outputAndroid
                     
                     sampler = JSONToCodeSamplerProtocolMock()

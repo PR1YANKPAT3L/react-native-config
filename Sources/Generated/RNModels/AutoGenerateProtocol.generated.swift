@@ -31,7 +31,7 @@ import Foundation
  var typed: [String: JSONEntry]? { get }
  var booleans: [String: Bool]? { get }
 
- func xcconfigEntry() throws  -> String
+ func xcconfigEntry(for configuration: Configuration) throws  -> String
  func androidEnvEntry() throws  -> String
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for JSON ✅

@@ -345,13 +345,13 @@ open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol
     }
 
     public var underlyingIosFolder: FolderProtocol!
-    public var iOS: OutputFilesProtocol
+    public var xcconfigFile: FileProtocol
     {
-        get { return underlyingIOS }
-        set(value) { underlyingIOS = value }
+        get { return underlyingXcconfigFile }
+        set(value) { underlyingXcconfigFile = value }
     }
 
-    public var underlyingIOS: OutputFilesProtocol!
+    public var underlyingXcconfigFile: FileProtocol!
     public var android: OutputFilesProtocol
     {
         get { return underlyingAndroid }
@@ -603,41 +603,41 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
 
     // MARK: - <writeConfigIfNeeded> - parameters
 
-    public var writeConfigIfNeededFromAndroidIosThrowableError: Error?
-    public var writeConfigIfNeededFromAndroidIosCallsCount = 0
-    public var writeConfigIfNeededFromAndroidIosCalled: Bool
+    public var writeConfigIfNeededFromForAndroidIosThrowableError: Error?
+    public var writeConfigIfNeededFromForAndroidIosCallsCount = 0
+    public var writeConfigIfNeededFromForAndroidIosCalled: Bool
     {
-        return writeConfigIfNeededFromAndroidIosCallsCount > 0
+        return writeConfigIfNeededFromForAndroidIosCallsCount > 0
     }
 
-    public var writeConfigIfNeededFromAndroidIosReceivedArguments: (jsonFile: FileProtocol?, android: FileProtocol?, ios: FileProtocol?)?
-    public var writeConfigIfNeededFromAndroidIosReturnValue: JSONProtocol??
+    public var writeConfigIfNeededFromForAndroidIosReceivedArguments: (jsonFile: FileProtocol?, configuration: Configuration, android: FileProtocol?, ios: FileProtocol?)?
+    public var writeConfigIfNeededFromForAndroidIosReturnValue: JSONProtocol??
 
     // MARK: - <writeConfigIfNeeded> - closure mocks
 
-    public var writeConfigIfNeededFromAndroidIosClosure: ((FileProtocol?, FileProtocol?, FileProtocol?) throws -> JSONProtocol?)?
+    public var writeConfigIfNeededFromForAndroidIosClosure: ((FileProtocol?, Configuration, FileProtocol?, FileProtocol?) throws -> JSONProtocol?)?
 
     // MARK: - <writeConfigIfNeeded> - method mocked
 
-    open func writeConfigIfNeeded(from jsonFile: FileProtocol?, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
+    open func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
     {
         // <writeConfigIfNeeded> - Throwable method implementation
 
-        if let error = writeConfigIfNeededFromAndroidIosThrowableError
+        if let error = writeConfigIfNeededFromForAndroidIosThrowableError
         {
             throw error
         }
 
-        writeConfigIfNeededFromAndroidIosCallsCount += 1
-        writeConfigIfNeededFromAndroidIosReceivedArguments = (jsonFile: jsonFile, android: android, ios: ios)
+        writeConfigIfNeededFromForAndroidIosCallsCount += 1
+        writeConfigIfNeededFromForAndroidIosReceivedArguments = (jsonFile: jsonFile, configuration: configuration, android: android, ios: ios)
 
         // <writeConfigIfNeeded> - Return Value mock implementation
 
-        guard let closureReturn = writeConfigIfNeededFromAndroidIosClosure else
+        guard let closureReturn = writeConfigIfNeededFromForAndroidIosClosure else
         {
-            guard let returnValue = writeConfigIfNeededFromAndroidIosReturnValue else
+            guard let returnValue = writeConfigIfNeededFromForAndroidIosReturnValue else
             {
-                let message = "No returnValue implemented for writeConfigIfNeededFromAndroidIosClosure"
+                let message = "No returnValue implemented for writeConfigIfNeededFromForAndroidIosClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
                 // You should implement JSONProtocol?
@@ -647,7 +647,7 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
             return returnValue
         }
 
-        return try closureReturn(jsonFile, android, ios)
+        return try closureReturn(jsonFile, configuration, android, ios)
     }
 
     // MARK: - <writeIOSAndAndroidConfigFiles> - parameters

@@ -15,7 +15,7 @@ public protocol JSONProtocol: AutoMockable
     var typed: [String: JSONEntry]? { get }
     var booleans: [String: Bool]? { get }
 
-    func xcconfigEntry() throws -> String
+    func xcconfigEntry(for configuration: Configuration) throws -> String
     func androidEnvEntry() throws -> String
     // sourcery:end
 }
@@ -27,14 +27,14 @@ public struct JSON: Codable, JSONProtocol, AutoGenerateProtocol
     public let typed: [String: JSONEntry]?
     public let booleans: [String: Bool]?
 
-    public func xcconfigEntry() throws -> String
+    public func xcconfigEntry(for configuration: Configuration) throws -> String
     {
         var entries = [String]()
-
+        let configSelector = "[config=\(configuration)]"
         if let typed = typed
         {
             entries = try typed
-                .map { return "\($0.key) = \(try xcconfigRawValue(for: $0.value))" }
+                .map { return "\($0.key) \(configSelector) = \(try xcconfigRawValue(for: $0.value))" }
                 .sorted()
         }
 
@@ -42,7 +42,7 @@ public struct JSON: Codable, JSONProtocol, AutoGenerateProtocol
         {
             entries.append(
                 contentsOf: booleanEntries
-                    .map { "\($0.key) = \($0.value)" }
+                    .map { "\($0.key) \(configSelector) = \($0.value)" }
                     .sorted()
             )
         }

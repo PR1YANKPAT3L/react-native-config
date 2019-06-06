@@ -40,39 +40,41 @@ open class JSONProtocolMock: JSONProtocol
 
     // MARK: - <xcconfigEntry> - parameters
 
-    public var xcconfigEntryThrowableError: Error?
-    public var xcconfigEntryCallsCount = 0
-    public var xcconfigEntryCalled: Bool
+    public var xcconfigEntryForThrowableError: Error?
+    public var xcconfigEntryForCallsCount = 0
+    public var xcconfigEntryForCalled: Bool
     {
-        return xcconfigEntryCallsCount > 0
+        return xcconfigEntryForCallsCount > 0
     }
 
-    public var xcconfigEntryReturnValue: String?
+    public var xcconfigEntryForReceivedConfiguration: Configuration?
+    public var xcconfigEntryForReturnValue: String?
 
     // MARK: - <xcconfigEntry> - closure mocks
 
-    public var xcconfigEntryClosure: (() throws -> String)?
+    public var xcconfigEntryForClosure: ((Configuration) throws -> String)?
 
     // MARK: - <xcconfigEntry> - method mocked
 
-    open func xcconfigEntry() throws -> String
+    open func xcconfigEntry(for configuration: Configuration) throws -> String
     {
         // <xcconfigEntry> - Throwable method implementation
 
-        if let error = xcconfigEntryThrowableError
+        if let error = xcconfigEntryForThrowableError
         {
             throw error
         }
 
-        xcconfigEntryCallsCount += 1
+        xcconfigEntryForCallsCount += 1
+        xcconfigEntryForReceivedConfiguration = configuration
 
         // <xcconfigEntry> - Return Value mock implementation
 
-        guard let closureReturn = xcconfigEntryClosure else
+        guard let closureReturn = xcconfigEntryForClosure else
         {
-            guard let returnValue = xcconfigEntryReturnValue else
+            guard let returnValue = xcconfigEntryForReturnValue else
             {
-                let message = "No returnValue implemented for xcconfigEntryClosure"
+                let message = "No returnValue implemented for xcconfigEntryForClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
                 // You should implement String
@@ -82,7 +84,7 @@ open class JSONProtocolMock: JSONProtocol
             return returnValue
         }
 
-        return try closureReturn()
+        return try closureReturn(configuration)
     }
 
     // MARK: - <androidEnvEntry> - parameters

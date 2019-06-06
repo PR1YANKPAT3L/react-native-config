@@ -17,7 +17,7 @@ public protocol TextFileWriterProtocol: AutoMockable
     static var shared: TextFileWriterProtocol { get }
     var decoder: JSONDecoder { get }
 
-    func writeConfigIfNeeded(from jsonFile: FileProtocol?, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
+    func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
     func writeIOSAndAndroidConfigFiles(from disk: ConfigurationDiskProtocol) throws -> EnvJSONsProtocol
     func setupCodeSamples(json: JSONProtocol) -> TextFileWriter.Sample
     // sourcery:end
@@ -41,30 +41,34 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
 
     // MARK: - Writing to text files for android and ios
 
-    public func writeConfigIfNeeded(from jsonFile: FileProtocol?, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
+    /**
+     Writes configuration entries to files. For android these are several files. For iOS it is a single file
+     */
+    public func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
     {
         guard let jsonFile = jsonFile else { return nil }
 
         let json = try decoder.decode(JSON.self, from: try jsonFile.read())
 
         try android?.write(string: try json.androidEnvEntry())
-        try ios?.write(string: try json.xcconfigEntry())
+        try ios?.append(string: "\n")
+        try ios?.append(string: try json.xcconfigEntry(for: configuration))
 
         return json
     }
 
     public func writeIOSAndAndroidConfigFiles(from disk: ConfigurationDiskProtocol) throws -> EnvJSONsProtocol
     {
-        let _debug = try writeConfigIfNeeded(from: disk.inputJSON.debug, android: disk.android.debug, ios: disk.iOS.debug)
-        let _release = try writeConfigIfNeeded(from: disk.inputJSON.release, android: disk.android.release, ios: disk.iOS.release)
+        let _debug = try writeConfigIfNeeded(from: disk.inputJSON.debug, for: .Debug, android: disk.android.debug, ios: disk.xcconfigFile)
+        let _release = try writeConfigIfNeeded(from: disk.inputJSON.release, for: .Release, android: disk.android.release, ios: disk.xcconfigFile)
 
         guard let debug = _debug, let release = _release else { throw "\(pretty_function()) debug or release config missing!" }
 
         return EnvJSONs(
             debug: debug,
             release: release,
-            local: try writeConfigIfNeeded(from: disk.inputJSON.local, android: disk.android.local, ios: disk.iOS.local),
-            betaRelease: try writeConfigIfNeeded(from: disk.inputJSON.betaRelease, android: disk.android.betaRelease, ios: disk.iOS.betaRelease)
+            local: try writeConfigIfNeeded(from: disk.inputJSON.local, for: .Local, android: disk.android.local, ios: disk.xcconfigFile),
+            betaRelease: try writeConfigIfNeeded(from: disk.inputJSON.betaRelease, for: .BetaRelease, android: disk.android.betaRelease, ios: disk.xcconfigFile)
         )
     }
 

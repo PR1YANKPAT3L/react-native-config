@@ -26,7 +26,7 @@ public protocol ConfigurationDiskProtocol
     var inputJSON: JSONFileProtocol { get }
     var androidFolder: FolderProtocol { get }
     var iosFolder: FolderProtocol { get }
-    var iOS: OutputFilesProtocol { get }
+    var xcconfigFile: FileProtocol { get }
     var android: OutputFilesProtocol { get }
     var code: GeneratedCodeProtocol { get }
 
@@ -89,7 +89,7 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
     public let androidFolder: FolderProtocol
     public let iosFolder: FolderProtocol
 
-    public let iOS: OutputFilesProtocol
+    public let xcconfigFile: FileProtocol
     public let android: OutputFilesProtocol
 
     public let code: GeneratedCodeProtocol
@@ -142,39 +142,28 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
             iosFolder = try rnConfigurationSrcRoot.subfolder(named: "ios")
             self.environmentJsonFilesFolder = rnConfigurationSrcRoot
 
-            var localXconfigFile: FileProtocol?
             var localAndroidConfigurationFile: FileProtocol?
-            var betaReleaseXconfigFile: FileProtocol?
             var betaReleaseAndroidConfigurationFile: FileProtocol?
 
             if localJSON != nil
             {
-                localXconfigFile = try iosFolder.createFileIfNeeded(named: "Local.xcconfig")
                 localAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.local")
             }
             else
             {
-                localXconfigFile = nil
                 localAndroidConfigurationFile = nil
             }
 
             if betaReleaseJSON != nil
             {
-                betaReleaseXconfigFile = try iosFolder.createFileIfNeeded(named: "BetaRelease.xcconfig")
                 betaReleaseAndroidConfigurationFile = try androidFolder.createFileIfNeeded(named: ".env.betaRelease")
             }
             else
             {
-                betaReleaseXconfigFile = nil
                 betaReleaseAndroidConfigurationFile = nil
             }
 
-            iOS = OutputFiles(
-                debug: try iosFolder.createFileIfNeeded(named: "Debug.xcconfig"),
-                release: try iosFolder.createFileIfNeeded(named: "Release.xcconfig"),
-                local: localXconfigFile,
-                betaRelease: betaReleaseXconfigFile
-            )
+            xcconfigFile = try iosFolder.createFileIfNeeded(named: "Coder.xcconfig")
 
             android = OutputFiles(
                 debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
@@ -185,7 +174,7 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
 
             if !rnConfigurationSrcRoot.containsSubfolder(named: ConfigurationDisk.projectNameWithPrepareScript)
             {
-                highwayRunner.generateXcodeProject(override: iOS.debug, handleSwiftPackageGenerateXcodeProject)
+                highwayRunner.generateXcodeProject(override: xcconfigFile, handleSwiftPackageGenerateXcodeProject)
                 dispatchGroup.wait()
             }
 

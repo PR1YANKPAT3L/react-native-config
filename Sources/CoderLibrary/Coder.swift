@@ -119,10 +119,7 @@ extension Coder {
                 
                 # ios
                 
-                * \(configurationDisk.iOS.debug)
-                * \(configurationDisk.iOS.release)
-                * \(String(describing: configurationDisk.iOS.local))
-                * \(String(describing: configurationDisk.iOS.betaRelease))
+                * \(configurationDisk.xcconfigFile)
                 
                 # android
                 
@@ -149,7 +146,7 @@ extension Coder {
             
             // TODO: this should only be one config when we write it
             
-            return Config(plist: configurationDisk.code.infoPlistRNConfiguration, xcconfig: configurationDisk.iOS.debug)
+            return Config(plist: configurationDisk.code.infoPlistRNConfiguration, xcconfig: configurationDisk.xcconfigFile)
         }
         catch
         {

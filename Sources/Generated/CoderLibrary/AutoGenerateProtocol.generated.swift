@@ -43,7 +43,7 @@ import Foundation
  static var shared: TextFileWriterProtocol { get }
  var decoder: JSONDecoder { get }
 
- func writeConfigIfNeeded(from jsonFile: FileProtocol?, android: FileProtocol?, ios: FileProtocol?) throws  -> JSONProtocol?
+ func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws  -> JSONProtocol?
  func writeIOSAndAndroidConfigFiles(from disk: ConfigurationDiskProtocol) throws  -> EnvJSONsProtocol
  func setupCodeSamples(json: JSONProtocol) -> TextFileWriter.Sample
  // sourcery:end
@@ -92,7 +92,7 @@ import Foundation
  var inputJSON: JSONFileProtocol { get }
  var androidFolder: FolderProtocol { get }
  var iosFolder: FolderProtocol { get }
- var iOS: OutputFilesProtocol { get }
+ var xcconfigFile: FileProtocol { get }
  var android: OutputFilesProtocol { get }
  var code: GeneratedCodeProtocol { get }
 
