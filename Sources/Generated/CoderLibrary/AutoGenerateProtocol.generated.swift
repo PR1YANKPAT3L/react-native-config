@@ -62,7 +62,6 @@ import Foundation
  static var plistLinesXmlDefault: String { get }
 
  func attempt() throws  -> Coder.Config
- func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
  func writeRNConfigurationBridge() throws
  func writeRNConfigurationModel() throws
  func writeRNConfigurationModelFactory() throws

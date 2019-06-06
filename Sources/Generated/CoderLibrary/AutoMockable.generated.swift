@@ -131,40 +131,6 @@ open class CoderProtocolMock: CoderProtocol
         return try closureReturn()
     }
 
-    // MARK: - <attemptWriteInfoPlistToAllPlists> - parameters
-
-    public var attemptWriteInfoPlistToAllPlistsInThrowableError: Error?
-    public var attemptWriteInfoPlistToAllPlistsInCallsCount = 0
-    public var attemptWriteInfoPlistToAllPlistsInCalled: Bool
-    {
-        return attemptWriteInfoPlistToAllPlistsInCallsCount > 0
-    }
-
-    public var attemptWriteInfoPlistToAllPlistsInReceivedFolder: FolderProtocol?
-
-    // MARK: - <attemptWriteInfoPlistToAllPlists> - closure mocks
-
-    public var attemptWriteInfoPlistToAllPlistsInClosure: ((FolderProtocol) throws -> Void)?
-
-    // MARK: - <attemptWriteInfoPlistToAllPlists> - method mocked
-
-    open func attemptWriteInfoPlistToAllPlists(in folder: FolderProtocol) throws
-    {
-        // <attemptWriteInfoPlistToAllPlists> - Throwable method implementation
-
-        if let error = attemptWriteInfoPlistToAllPlistsInThrowableError
-        {
-            throw error
-        }
-
-        attemptWriteInfoPlistToAllPlistsInCallsCount += 1
-        attemptWriteInfoPlistToAllPlistsInReceivedFolder = folder
-
-        // <attemptWriteInfoPlistToAllPlists> - Void return mock implementation
-
-        try attemptWriteInfoPlistToAllPlistsInClosure?(folder)
-    }
-
     // MARK: - <writeRNConfigurationBridge> - parameters
 
     public var writeRNConfigurationBridgeThrowableError: Error?
