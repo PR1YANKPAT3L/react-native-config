@@ -92,6 +92,7 @@ class CoderSpec: QuickSpec
                     sut = Coder(
                         disk: configDisk,
                         builds: sampler,
+                        plistWriter: PlistWriterProtocolMock(),
                         signPost: signPost,
                         terminal: terminal,
                         system: system
@@ -115,6 +116,7 @@ class CoderSpec: QuickSpec
                 var objectiveC: FileProtocolMock!
                 
                 var bridge: BridgeEnvProtocolMock!
+                var plistWriter: PlistWriterProtocolMock!
                 
                 beforeEach
                     {
@@ -126,10 +128,12 @@ class CoderSpec: QuickSpec
                                 plistTests = try FileProtocolMock()
                                 bridge = BridgeEnvProtocolMock()
                                 objectiveC = try FileProtocolMock()
+                                plistWriter = PlistWriterProtocolMock()
                                 
                                 sut = Coder(
                                     disk: configDisk,
                                     builds: sampler,
+                                    plistWriter: plistWriter,
                                     signPost: signPost,
                                     terminal: terminal,
                                     system: system
@@ -172,14 +176,7 @@ class CoderSpec: QuickSpec
                         }
                         
                         it("plist") {
-                            expect {
-                                let result: RNConfigurationModel = try PropertyListDecoder().decode(RNConfigurationModel.self, from: plistCode.writeStringReceivedString!.data(using: .utf8)!)
-                                
-                                expect(result.example_url.url.absoluteString) == "http://www.mockedURL.safe"
-                                expect(result.exampleBool) == false
-                                
-                                return true
-                            }.toNot(throwError())
+                            expect(plistWriter.writeRNConfigurationPlistCalled) == true
                           
                         }
                         
