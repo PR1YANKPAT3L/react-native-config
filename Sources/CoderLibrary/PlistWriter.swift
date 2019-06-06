@@ -17,11 +17,10 @@ public protocol PlistWriterProtocol: AutoMockable
     var sampler: JSONToCodeSamplerProtocol { get }
 
     func writeRNConfigurationPlist() throws
-    func writeRNConfigurationPlist(to file: FileProtocol) throws
     // sourcery:end
 }
 
-struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
+public struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
 {
     public static let plistLinesXmlDefault = """
     <?xml version="1.0" encoding="UTF-8"?>
@@ -66,7 +65,7 @@ struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
         try writeRNConfigurationPlist(to: code.infoPlistRNConfigurationTests)
     }
 
-    public func writeRNConfigurationPlist(to file: FileProtocol) throws
+    private func writeRNConfigurationPlist(to file: FileProtocol) throws
     {
         var plistLinesXml = PlistWriter.plistLinesXmlDefault
 
@@ -82,21 +81,21 @@ struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
         <plist version="1.0">
         <dict>
         <key>CFBundleDevelopmentRegion</key>
-        <string>$(DEVELOPMENT_LANGUAGE)</string>
+            <string>$(DEVELOPMENT_LANGUAGE)</string>
         <key>CFBundleExecutable</key>
-        <string>$(EXECUTABLE_NAME)</string>
+            <string>$(EXECUTABLE_NAME)</string>
         <key>CFBundleIdentifier</key>
-        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
         <key>CFBundleInfoDictionaryVersion</key>
-        <string>6.0</string>
+            <string>6.0</string>
         <key>CFBundleName</key>
-        <string>$(PRODUCT_NAME)</string>
+            <string>$(PRODUCT_NAME)</string>
         <key>CFBundlePackageType</key>
-        <string>FMWK</string>
+            <string>FMWK</string>
         <key>CFBundleShortVersionString</key>
-        <string>1.0</string>
+            <string>1.0</string>
         <key>CFBundleVersion</key>
-        <string>$(CURRENT_PROJECT_VERSION)</string>
+            <string>$(CURRENT_PROJECT_VERSION)</string>
         \(sampler.plistLinesXmlText)
         </dict>
         </plist>

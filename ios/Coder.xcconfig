@@ -1,14 +1,1 @@
 
-
-example_url [config=Debug] = https:\/\/debug
-exampleBool [config=Debug] = true
-example_url [config=Release] = https:\/\/release
-exampleBool [config=Release] = true
-example_url [config=Local] = https:\/\/local
-exampleBool [config=Local] = true
-example_url [config=BetaRelease] = https:\/\/betaRelease
-exampleBool [config=BetaRelease] = trueexample_url [config=Debug] = https:\/\/debug
-exampleBool [config=Debug] = trueexample_url [config=Release] = https:\/\/release
-exampleBool [config=Release] = trueexample_url [config=Local] = https:\/\/local
-exampleBool [config=Local] = trueexample_url [config=BetaRelease] = https:\/\/betaRelease
-exampleBool [config=BetaRelease] = true

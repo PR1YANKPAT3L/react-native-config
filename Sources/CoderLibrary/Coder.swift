@@ -63,12 +63,14 @@ public struct Coder: CoderProtocol {
     public let signPost: SignPostProtocol
     private let terminal: TerminalProtocol
     private let system: SystemProtocol
+    private let plistWriter: PlistWriterProtocol
     
     // MARK: - Init
     
     public init(
         disk: ConfigurationDiskProtocol,
         builds: JSONToCodeSamplerProtocol,
+        plistWriter: PlistWriterProtocol,
         signPost: SignPostProtocol = SignPost.shared,
         decoder: JSONDecoder = JSONDecoder(),
         terminal: TerminalProtocol = Terminal.shared,
@@ -79,6 +81,7 @@ public struct Coder: CoderProtocol {
         self.signPost = signPost
         self.terminal = terminal
         self.system = system
+        self.plistWriter = plistWriter
     }
     
     public struct Config
@@ -134,7 +137,7 @@ extension Coder {
             signPost.message("🏗🧙‍♂️ Generating SWIFT code RNConfigurationModel.swift & RNConfigurationModelFactory.swift ✅")
             
             signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ...")
-            try writeRNConfigurationPlist()
+            try plistWriter.writeRNConfigurationPlist()
             signPost.message("🏗🧙‍♂️ Generating Plist with build dependend keys ✅")
             
             signPost.message("🏗🧙‍♂️ Generating Objective-C to Javascript bridge code - RNConfigurationBridge ...")

@@ -533,40 +533,6 @@ open class PlistWriterProtocolMock: PlistWriterProtocol
 
         try writeRNConfigurationPlistClosure?()
     }
-
-    // MARK: - <writeRNConfigurationPlist> - parameters
-
-    public var writeRNConfigurationPlistToThrowableError: Error?
-    public var writeRNConfigurationPlistToCallsCount = 0
-    public var writeRNConfigurationPlistToCalled: Bool
-    {
-        return writeRNConfigurationPlistToCallsCount > 0
-    }
-
-    public var writeRNConfigurationPlistToReceivedFile: FileProtocol?
-
-    // MARK: - <writeRNConfigurationPlist> - closure mocks
-
-    public var writeRNConfigurationPlistToClosure: ((FileProtocol) throws -> Void)?
-
-    // MARK: - <writeRNConfigurationPlist> - method mocked
-
-    open func writeRNConfigurationPlist(to file: FileProtocol) throws
-    {
-        // <writeRNConfigurationPlist> - Throwable method implementation
-
-        if let error = writeRNConfigurationPlistToThrowableError
-        {
-            throw error
-        }
-
-        writeRNConfigurationPlistToCallsCount += 1
-        writeRNConfigurationPlistToReceivedFile = file
-
-        // <writeRNConfigurationPlist> - Void return mock implementation
-
-        try writeRNConfigurationPlistToClosure?(file)
-    }
 }
 
 // MARK: - RNConfigurationBridgeProtocolMock

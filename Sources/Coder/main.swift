@@ -30,7 +30,7 @@ doContinue(pretty_function() + " setup")
 
     configurationDisk = try ConfigurationDisk(rnConfigurationSrcRoot: srcRoot, environmentJsonFilesFolder: srcRoot)
     sampler = try JSONToCodeSampler(from: configurationDisk)
-    coder = Coder(disk: configurationDisk, builds: sampler)
+    coder = Coder(disk: configurationDisk, builds: sampler, plistWriter: PlistWriter(code: configurationDisk.code, sampler: sampler))
 }
 
 func continueWithXcodeProjectPresent(_ sync: @escaping HighwayRunner.SyncSwiftPackageGenerateXcodeProj)

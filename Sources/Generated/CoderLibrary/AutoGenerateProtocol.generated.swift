@@ -45,7 +45,6 @@ import Foundation
  var sampler: JSONToCodeSamplerProtocol { get }
 
  func writeRNConfigurationPlist() throws
- func writeRNConfigurationPlist(to file: FileProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for PlistWriter ✅
  // types.implementing.AutoGenerateProtocol inline for TextFileWriter ..

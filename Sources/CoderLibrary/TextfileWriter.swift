@@ -51,8 +51,17 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
         let json = try decoder.decode(JSON.self, from: try jsonFile.read())
 
         try android?.write(string: try json.androidEnvEntry())
+        let entry = try json.xcconfigEntry(for: configuration)
+        
+        let content = try ios?.readAsString()
+        
+        guard content?.contains(entry) ?? false else {
+            return nil
+        }
+        
         try ios?.append(string: "\n")
-        try ios?.append(string: try json.xcconfigEntry(for: configuration))
+
+        try ios?.append(string: entry)
 
         return json
     }
