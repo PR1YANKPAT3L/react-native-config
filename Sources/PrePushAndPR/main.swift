@@ -20,7 +20,7 @@ dispatchGroup.notifyMain
 
     dispatchGroup.notifyMain
     {
-        doContinue(pretty_function() + " git clean") { try git.isClean() }
+        doContinue(pretty_function() + " git clean") { try git.isClean(in: srcRoot) }
         highwayRunner.exitSuccesOrFail(location: pretty_function())
     }
 }

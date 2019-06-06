@@ -187,11 +187,10 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
                 do
                 {
                     signPost.message("🏗 generating react-native-config.xcodeproj ...")
-                    let process = try self.system.process("swift")
-                    process.currentDirectoryPath = rnConfigurationSrcRoot.path
-                    process.arguments = ["package", "generate-xcodeproj"]
+                    // TODO: this should be with the correct config file
+                    let process = try self.system.process(nameInPATHFolders: "swift", in: srcRoot, arguments: ["package", "generate-xcodeproj"])
 
-                    try terminal.runProcess(process)
+                    signPost.verbose(try terminal.runProcess(process).joined(separator: "\n"))
                     signPost.message("🏗 generating react-native-config.xcodeproj ✅")
                 }
                 catch
