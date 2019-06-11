@@ -6,17 +6,17 @@ import ZFile
 
 doContinue(pretty_function() + " setup")
 {
-    try setup(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
-    try setupHighwayRunner(gitHooksPrePushExecutableName: "PrePushAndPR")
+    try terminalInit(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
+    try highwayInit(gitHooks: GitHooks(prePushExecutable: (name: "PrePushAndPR", arguments: nil)))
 }
 
-highwayRunner.runSourcery(handleSourceryOutput)
+highway.runSourcery(handleSourceryOutput)
 
 dispatchGroup.notifyMain
 {
-    highwayRunner.runSwiftformat(handleSwiftformat)
+    highway.runSwiftformat(handleSwiftformat)
 
-    dispatchGroup.notifyMain { highwayRunner.exitSuccesOrFail(location: pretty_function()) }
+    dispatchGroup.notifyMain { highway.exitSuccesOrFail(location: pretty_function()) }
 }
 
 dispatchMain()

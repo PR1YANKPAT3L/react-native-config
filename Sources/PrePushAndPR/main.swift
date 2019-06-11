@@ -6,22 +6,22 @@ import ZFile
 
 doContinue(pretty_function() + " setup")
 {
-    try setup(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
-    try setupHighwayRunner(gitHooksPrePushExecutableName: "PrePushAndPR")
-    try highwayRunner.addGithooksPrePush()
+    try terminalInit(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
+    try highwayInit(gitHooks: GitHooks(prePushExecutable: (name: "PrePushAndPR", arguments: nil)))
+    try highway.addGithooksPrePush()
 }
 
-highwayRunner.runSourcery(handleSourceryOutput)
+highway.runSourcery(handleSourceryOutput)
 
 dispatchGroup.notifyMain
 {
-    highwayRunner.runSwiftformat(handleSwiftformat)
-    highwayRunner.runTests(handleTestOutput)
+    highway.runSwiftformat(handleSwiftformat)
+    highway.runTests(handleTestOutput)
 
     dispatchGroup.notifyMain
     {
         doContinue(pretty_function() + " git clean") { try git.isClean(in: srcRoot) }
-        highwayRunner.exitSuccesOrFail(location: pretty_function())
+        highway.exitSuccesOrFail(location: pretty_function())
     }
 }
 

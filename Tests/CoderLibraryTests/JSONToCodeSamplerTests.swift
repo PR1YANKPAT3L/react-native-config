@@ -50,7 +50,7 @@ class JSONToCodeSamplerTests: QuickSpec
                     mockFolder.fileNamedReturnValue = mockFile
                     mockFolder.subfolderNamedReturnValue = mockFolder
                     mockFolder.createFileIfNeededNamedReturnValue = mockFile
-                    mockFolder.containsSubfolderNamedReturnValue = true
+                    mockFolder.containsSubfolderPossiblyInvalidNameReturnValue = true
                     
                     configDisk = ConfigurationDiskProtocolMock()
                     configDisk.underlyingEnvironmentJsonFilesFolder = mockFolder

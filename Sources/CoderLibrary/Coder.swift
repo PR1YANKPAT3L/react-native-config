@@ -15,18 +15,18 @@ import Errors
 // sourcery:AutoMockable
 public protocol CoderProtocol {
     // sourcery:inline:Coder.AutoGenerateProtocol
-    var configurationDisk: ConfigurationDiskProtocol { get }
-    var codeSampler: JSONToCodeSamplerProtocol { get }
-    var signPost: SignPostProtocol { get }
-    static var rnConfigurationModelDefault_TOP: String { get }
-    static var rnConfigurationModelDefault_BOTTOM: String { get }
-    static var factoryTop: String { get }
-    static var rnConfigurationModelFactoryProtocolDefault: String { get }
+        var configurationDisk: ConfigurationDiskProtocol { get }
+        var codeSampler: JSONToCodeSamplerProtocol { get }
+        var signPost: SignPostProtocol { get }
+        static var rnConfigurationModelDefault_TOP: String { get }
+        static var rnConfigurationModelDefault_BOTTOM: String { get }
+        static var factoryTop: String { get }
+        static var rnConfigurationModelFactoryProtocolDefault: String { get }
 
-    func attempt() throws  -> Coder.Config
-    func writeRNConfigurationBridge() throws 
-    func writeRNConfigurationModel() throws 
-    func writeRNConfigurationModelFactory() throws 
+        func attempt() throws  -> Coder.Config
+        func writeRNConfigurationBridge() throws 
+        func writeRNConfigurationModel() throws 
+        func writeRNConfigurationModelFactory() throws 
    
     // sourcery:end
 }
@@ -34,13 +34,13 @@ public protocol CoderProtocol {
 // sourcery:AutoMockable
 public protocol RNConfigurationBridgeProtocol {
     // sourcery:inline:Coder.RNConfigurationBridge.AutoGenerateProtocol
-    var envLocal: [String] { get }
-    var envDebug: [String] { get }
-    var envRelease: [String] { get }
-    var envBetaRelease: [String] { get }
-    static var top: String { get }
-    var env: String { mutating get }
-    static var bottom: String { get }
+        var envLocal: [String] { get }
+        var envDebug: [String] { get }
+        var envRelease: [String] { get }
+        var envBetaRelease: [String] { get }
+        static var top: String { get }
+        var env: String { mutating get }
+        static var bottom: String { get }
     // sourcery:end
 }
 

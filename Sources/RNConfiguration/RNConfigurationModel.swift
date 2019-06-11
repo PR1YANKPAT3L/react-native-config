@@ -50,8 +50,7 @@ public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigur
         if let jsonBooleans = (
             json.booleans?
                 .compactMap { "\"\($0.key)\": \"\($0.value)\"," }
-                .joined(separator: "\n")
-        )
+                .joined(separator: "\n"))
         {
             jsonTyped.append(contentsOf: jsonBooleans)
         }

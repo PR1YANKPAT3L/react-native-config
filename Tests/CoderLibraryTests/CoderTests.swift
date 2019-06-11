@@ -58,7 +58,7 @@ class CoderSpec: QuickSpec
                     mockFolder.fileNamedReturnValue = mockFile
                     mockFolder.subfolderNamedReturnValue = mockFolder
                     mockFolder.createFileIfNeededNamedReturnValue = mockFile
-                    mockFolder.containsSubfolderNamedReturnValue = true
+                    mockFolder.containsSubfolderPossiblyInvalidNameReturnValue = true
                     
                     terminal = TerminalProtocolMock()
                     system = SystemProtocolMock()

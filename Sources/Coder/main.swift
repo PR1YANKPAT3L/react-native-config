@@ -11,7 +11,6 @@ import Errors
 import Foundation
 import HighwayLibrary
 import SignPost
-import SourceryWorker
 import Terminal
 import ZFile
 
@@ -22,18 +21,18 @@ let xcodeName = "Coder.xcodeproj"
 
 doContinue(pretty_function() + " setup")
 {
-    try setup(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
-    try setupHighwayRunner(gitHooksPrePushExecutableName: "PrePushAndPR")
+    try terminalInit(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
+    try highwayInit(gitHooks: GitHooks(prePushExecutable: (name: "PrePushAndPR", arguments: nil)))
 
-    try highwayRunner.addGithooksPrePush()
-    try highwayRunner.validateSecrets(in: srcRoot)
+    try highway.addGithooksPrePush()
+    try highway.validateSecrets(in: srcRoot)
 
     configurationDisk = try ConfigurationDisk(rnConfigurationSrcRoot: srcRoot, environmentJsonFilesFolder: srcRoot)
     sampler = try JSONToCodeSampler(from: configurationDisk)
     coder = Coder(disk: configurationDisk, builds: sampler, plistWriter: PlistWriter(code: configurationDisk.code, sampler: sampler))
 }
 
-func continueWithXcodeProjectPresent(_ sync: @escaping HighwayRunner.SyncSwiftPackageGenerateXcodeProj)
+func continueWithXcodeProjectPresent(_ sync: @escaping Highway.SyncSwiftPackageGenerateXcodeProj)
 {
     doContinue(pretty_function())
     {
@@ -42,14 +41,14 @@ func continueWithXcodeProjectPresent(_ sync: @escaping HighwayRunner.SyncSwiftPa
 
         // enable and have a look at the file to make it work if you want.
 
-        highwayRunner.runSourcery(handleSourceryOutput)
+        highway.runSourcery(handleSourceryOutput)
 
         dispatchGroup.notifyMain
         {
-            highwayRunner.runSwiftformat(handleSwiftformat)
-            highwayRunner.runTests(handleTestOutput)
+            highway.runSwiftformat(handleSwiftformat)
+            highway.runTests(handleTestOutput)
 
-            dispatchGroup.notifyMain { highwayRunner.exitSuccesOrFail(location: pretty_function()) }
+            dispatchGroup.notifyMain { highway.exitSuccesOrFail(location: pretty_function()) }
         }
     }
 }
@@ -59,12 +58,12 @@ doContinue(pretty_function() + " coder")
     let config = try coder.attempt()
     signPost.message("found config \(config)")
 
-    guard srcRoot.containsSubfolder(named: xcodeName) else
+    guard srcRoot.containsSubfolder(possiblyInvalidName: xcodeName) else
     {
-        highwayRunner.generateXcodeProject(override: config.xcconfig, continueWithXcodeProjectPresent)
+        highway.generateXcodeProject(override: config.xcconfig, continueWithXcodeProjectPresent)
         return
     }
-    continueWithXcodeProjectPresent({ ["xcode already present"] })
+    continueWithXcodeProjectPresent { ["xcode already present"] }
 }
 
 dispatchMain()

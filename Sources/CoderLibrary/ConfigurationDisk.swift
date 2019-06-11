@@ -172,9 +172,9 @@ public struct ConfigurationDisk: ConfigurationDiskProtocol
                 betaRelease: betaReleaseAndroidConfigurationFile
             )
 
-            if !rnConfigurationSrcRoot.containsSubfolder(named: ConfigurationDisk.projectNameWithPrepareScript)
+            if !rnConfigurationSrcRoot.containsSubfolder(possiblyInvalidName: ConfigurationDisk.projectNameWithPrepareScript)
             {
-                highwayRunner.generateXcodeProject(override: xcconfigFile, handleSwiftPackageGenerateXcodeProject)
+                highway.generateXcodeProject(override: xcconfigFile, handleSwiftPackageGenerateXcodeProject)
                 dispatchGroup.wait()
             }
 

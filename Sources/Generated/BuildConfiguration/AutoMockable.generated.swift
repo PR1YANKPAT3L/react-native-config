@@ -1,6 +1,7 @@
+import BuildConfiguration
+import Foundation
 
-
-// Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 // MARK: - OBJECTIVE-C

@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -14,22 +14,21 @@ public struct External {
     public static let quickNimble: [Target.Dependency] = ["Quick", "Nimble"]
     public static let packages: [Package.Dependency] = [
         
-        .package(url: "https://www.github.com/dooZdev/ZFile", "2.4.2" ..< "2.5.0"),
-        .package(url: "https://www.github.com/dooZdev/Highway", "2.14.0" ..< "2.15.0"),
+        .package(url: "https://www.github.com/dooZdev/ZFile", "2.5.0" ..< "2.6.0"),
+        .package(url: "https://www.github.com/dooZdev/Highway", "2.15.0" ..< "2.16.0"),
         
         // Quick & Nimble
         
-        .package(url: "https://www.github.com/Quick/Quick", "1.3.4" ..< "2.1.0"),
-        .package(url: "https://www.github.com/Quick/Nimble", "7.3.4" ..< "8.1.0"),
+        .package(url: "https://www.github.com/Quick/Quick", "2.0.0" ..< "2.2.0"),
+        .package(url: "https://www.github.com/Quick/Nimble", "8.0.0" ..< "8.2.0"),
         
         // Sourcery
         
-        .package(url: "https://www.github.com/doozMen/Sourcery", "0.17.0" ..< "0.18.0"),
-        .package(url: "https://www.github.com/dooZdev/template-sourcery", "1.4.5" ..< "1.5.0"),
+        .package(url: "https://www.github.com/dooZdev/template-sourcery", "1.5.0" ..< "1.6.0"),
         
         // Logging
         
-        .package(url: "https://www.github.com/doozMen/SignPost", "1.0.2" ..< "1.1.0"),
+        .package(url: "https://www.github.com/doozMen/SignPost", "1.1.0" ..< "1.2.0"),
     ]
 }
 
@@ -296,6 +295,9 @@ public struct Example {
 
 let package = Package(
     name: "Coder",
+    platforms: [
+        .macOS(.v10_12), .iOS(.v10), .tvOS(.v10)
+    ],
     products: [
         Coder.executable,
         PrePushAndPR.executable,
@@ -330,5 +332,6 @@ let package = Package(
         RNModels.Mock.target,
         Generated.RNConfiguration.Mock.target,
         Coder.Library.Mock.target,
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )

@@ -6,7 +6,7 @@ import SignPost
 import Terminal
 import ZFile
 
-// Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 // MARK: - BridgeEnvProtocolMock
@@ -598,7 +598,7 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
         return writeConfigIfNeededFromForAndroidIosCallsCount > 0
     }
 
-    public var writeConfigIfNeededFromForAndroidIosReceivedArguments: (jsonFile: FileProtocol?, configuration: Configuration, android: FileProtocol?, ios: FileProtocol?)?
+    public var writeConfigIfNeededFromForAndroidIosReceivedArguments: (jsonFile: (FileProtocol)?, configuration: Configuration, android: (FileProtocol)?, ios: (FileProtocol)?)?
     public var writeConfigIfNeededFromForAndroidIosReturnValue: JSONProtocol??
 
     // MARK: - <writeConfigIfNeeded> - closure mocks
