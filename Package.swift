@@ -123,7 +123,7 @@ public struct RNModels
     }
 }
 
-// MARK: - RNModels
+// MARK: - CoderSecrets
 /**
  General models reused and separated to not create cyclic dependensies when generating RNConfiguration
  */
@@ -282,7 +282,10 @@ public struct Example {
         
         public static let target = Target.target(
             name: name,
-            dependencies: [Target.Dependency(stringLiteral: Generated.RNConfiguration.library.name)],
+            dependencies: [
+                Target.Dependency(stringLiteral: Generated.RNConfiguration.library.name),
+                "Terminal"
+            ],
             path: basePath + name
         )
     }
@@ -302,7 +305,7 @@ let package = Package(
         Coder.executable,
         PrePushAndPR.executable,
         CoderSourcery.executable,
-        Example.BuildConfiguration.executable,
+//        Example.BuildConfiguration.executable,
         CoderSecrets.executable,
 
         RNModels.library,
