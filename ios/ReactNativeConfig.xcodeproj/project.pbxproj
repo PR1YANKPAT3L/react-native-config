@@ -59,13 +59,6 @@
 			remoteGlobalIDString = EB2648DE1C7BE17A00B8F155;
 			remoteInfo = "RNConfigurationBridge-iOS";
 		};
-		C089688122B10D6C00084843 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB2648DE1C7BE17A00B8F155;
-			remoteInfo = "RNConfigurationBridge-iOS";
-		};
 		C089688322B10D6C00084843 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
@@ -495,7 +488,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C089688222B10D6C00084843 /* PBXTargetDependency */,
 				C089688422B10D6C00084843 /* PBXTargetDependency */,
 				C089688622B10D6C00084843 /* PBXTargetDependency */,
 			);
@@ -897,11 +889,6 @@
 			isa = PBXTargetDependency;
 			target = EB2648DE1C7BE17A00B8F155 /* RNConfigurationBridge-iOS */;
 			targetProxy = C04F63702247910700AED2F5 /* PBXContainerItemProxy */;
-		};
-		C089688222B10D6C00084843 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EB2648DE1C7BE17A00B8F155 /* RNConfigurationBridge-iOS */;
-			targetProxy = C089688122B10D6C00084843 /* PBXContainerItemProxy */;
 		};
 		C089688422B10D6C00084843 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

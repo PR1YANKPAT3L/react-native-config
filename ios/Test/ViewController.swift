@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         
         do {
             let configuration = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
-            urlLabel.text = configuration.url
-            urlLabel.text = "isDebug: \(configuration.exampleBool)"
+            urlLabel.text = configuration.example_url.url.absoluteString
+            boolLabel.text = "isDebug: \(configuration.exampleBool)"
         } catch {
             print(error)
         }
