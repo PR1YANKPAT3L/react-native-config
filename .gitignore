@@ -40,3 +40,4 @@ xcuserdata
 /coder.env.json
 /ios/Sources/RNConfigurationBridge/ReactNativeConfig.h
 /ios/Sources/RNConfigurationBridge/ReactNativeConfig.m
+/ios/package.json
