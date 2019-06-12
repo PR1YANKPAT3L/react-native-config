@@ -17,9 +17,46 @@ import Foundation
 // version 5.5
 /*
 
+ // types.implementing.AutoGenerateProtocol inline for CoderInput ..
+ // sourcery:inline:CoderInput.AutoGenerateProtocol
+ static var projectNameWithPrepareScript: String { get }
+ static var jsonFileName: String { get set }
+ var inputJSONFile: FileProtocol { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for CoderInput ✅
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput ..
+ // sourcery:inline:CoderOutput.AutoGenerateProtocol
+ var android: CoderOutputAndroidProtocol { get }
+ var ios: CoderOutputiOSProtocol { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput ✅
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput.Android ..
+ // sourcery:inline:CoderOutput.Android.AutoGenerateProtocol
+ var sourcesFolder: FolderProtocol { get }
+ var debug: FileProtocol { get }
+ var release: FileProtocol { get }
+ var local: FileProtocol? { get }
+ var betaRelease: FileProtocol? { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput.Android ✅
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput.iOS ..
+ // sourcery:inline:CoderOutput.iOS.AutoGenerateProtocol
+ var sourcesFolder: FolderProtocol { get }
+ var xcconfigFile: FileProtocol { get }
+ var rnConfigurationModelFactorySwiftFile: FileProtocol { get }
+ var infoPlistRNConfiguration: FileProtocol { get }
+ var infoPlistRNConfigurationTests: FileProtocol { get }
+ var rnConfigurationModelSwiftFile: FileProtocol { get }
+ var rnConfigurationBridgeObjectiveCMFile: FileProtocol { get }
+
+ func writeDefaultsToFiles() throws
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput.iOS ✅
  // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ..
  // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
- var input: EnvJSONsProtocol { get }
  var casesForEnum: String { get }
  var configurationModelVar: String { get }
  var configurationModelVarDescription: String { get }
@@ -41,7 +78,7 @@ import Foundation
  // types.implementing.AutoGenerateProtocol inline for PlistWriter ..
  // sourcery:inline:PlistWriter.AutoGenerateProtocol
  static var plistLinesXmlDefault: String { get }
- var code: GeneratedCodeProtocol { get }
+ var output: CoderOutputProtocol { get }
  var sampler: JSONToCodeSamplerProtocol { get }
 
  func writeRNConfigurationPlist() throws
@@ -52,16 +89,17 @@ import Foundation
  static var shared: TextFileWriterProtocol { get }
  var decoder: JSONDecoder { get }
 
- func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws  -> JSONProtocol?
- func writeIOSAndAndroidConfigFiles(from disk: ConfigurationDiskProtocol) throws  -> EnvJSONsProtocol
- func setupCodeSamples(json: JSONProtocol) -> TextFileWriter.Sample
+ func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws
+ func writeIOSAndAndroidConfigFiles(from input: CoderInputProtocol, output: CoderOutputProtocol) throws
+ func setupCodeSamples(json: JSONEnvironmentProtocol) -> TextFileWriter.Sample
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for TextFileWriter ✅
 
  // type.annotations.AutoGenerateProtocol for Coder -> See code in the file of that type
 
  // sourcery:inline:Coder.AutoGenerateProtocol
- var configurationDisk: ConfigurationDiskProtocol { get }
+ var input: CoderInputProtocol { get }
+ var output: CoderOutputProtocol { get }
  var codeSampler: JSONToCodeSamplerProtocol { get }
  var signPost: SignPostProtocol { get }
  static var rnConfigurationModelDefault_TOP: String { get }
@@ -69,7 +107,7 @@ import Foundation
  static var factoryTop: String { get }
  static var rnConfigurationModelFactoryProtocolDefault: String { get }
 
- func attempt() throws  -> Coder.Config
+ func attempt() throws  -> CoderOutputProtocol
  func writeRNConfigurationBridge() throws
  func writeRNConfigurationModel() throws
  func writeRNConfigurationModelFactory() throws
@@ -88,52 +126,4 @@ import Foundation
 
  // sourcery:end
  // type.annotations.AutoGenerateProtocol for Coder.RNConfigurationBridge end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk -> See code in the file of that type
-
- // sourcery:inline:ConfigurationDisk.AutoGenerateProtocol
- static var projectNameWithPrepareScript: String { get }
- var environmentJsonFilesFolder: FolderProtocol { get }
- var rnConfigurationSourcesFolder: FolderProtocol { get }
- var rnConfigurationBridgeSourcesFolder: FolderProtocol { get }
- var inputJSON: JSONFileProtocol { get }
- var androidFolder: FolderProtocol { get }
- var iosFolder: FolderProtocol { get }
- var xcconfigFile: FileProtocol { get }
- var android: OutputFilesProtocol { get }
- var code: GeneratedCodeProtocol { get }
-
- // sourcery:end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.JSONFile -> See code in the file of that type
-
- // sourcery:inline:ConfigurationDisk.JSONFile.AutoGenerateProtocol
- var debug: FileProtocol { get }
- var release: FileProtocol { get }
- var local: FileProtocol? { get }
- var betaRelease: FileProtocol? { get }
-
- // sourcery:end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.JSONFile end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFiles -> See code in the file of that type
-
- // sourcery:inline:ConfigurationDisk.OutputFiles.AutoGenerateProtocol
- var debug: FileProtocol { get }
- var release: FileProtocol { get }
- var local: FileProtocol? { get }
- var betaRelease: FileProtocol? { get }
-
- // sourcery:end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFiles end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFiles.GeneratedCode -> See code in the file of that type
-
- // sourcery:inline:ConfigurationDisk.OutputFiles.GeneratedCode.AutoGenerateProtocol
- var rnConfigurationModelFactorySwiftFile: FileProtocol { get }
- var infoPlistRNConfiguration: FileProtocol { get }
- var infoPlistRNConfigurationTests: FileProtocol { get }
- var rnConfigurationModelSwiftFile: FileProtocol { get }
- var rnConfigurationBridgeObjectiveCMFile: FileProtocol { get }
-
- func writeDefaultsToFiles() throws
- // sourcery:end
- // type.annotations.AutoGenerateProtocol for ConfigurationDisk.OutputFiles.GeneratedCode end
  */

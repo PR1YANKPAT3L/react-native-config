@@ -37,3 +37,4 @@ xcuserdata
 /android/.env.debug
 /android/.env.local
 /android/.env.release
+/coder.env.json

@@ -9,17 +9,6 @@ import Foundation
 import SourceryAutoProtocols
 import ZFile
 
-public protocol PlistWriterProtocol: AutoMockable
-{
-    // sourcery:inline:PlistWriter.AutoGenerateProtocol
-    static var plistLinesXmlDefault: String { get }
-    var code: GeneratedCodeProtocol { get }
-    var sampler: JSONToCodeSamplerProtocol { get }
-
-    func writeRNConfigurationPlist() throws
-    // sourcery:end
-}
-
 public struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
 {
     public static let plistLinesXmlDefault = """
@@ -47,22 +36,22 @@ public struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
     </plist>
     """
 
-    public let code: GeneratedCodeProtocol
+    public let output: CoderOutputProtocol
     public let sampler: JSONToCodeSamplerProtocol
 
     public init(
-        code: GeneratedCodeProtocol,
+        output: CoderOutputProtocol,
         sampler: JSONToCodeSamplerProtocol
     )
     {
-        self.code = code
+        self.output = output
         self.sampler = sampler
     }
 
     public func writeRNConfigurationPlist() throws
     {
-        try writeRNConfigurationPlist(to: code.infoPlistRNConfiguration)
-        try writeRNConfigurationPlist(to: code.infoPlistRNConfigurationTests)
+        try writeRNConfigurationPlist(to: output.ios.infoPlistRNConfiguration)
+        try writeRNConfigurationPlist(to: output.ios.infoPlistRNConfigurationTests)
     }
 
     private func writeRNConfigurationPlist(to file: FileProtocol) throws

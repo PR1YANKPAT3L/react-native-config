@@ -11,18 +11,6 @@ import RNModels
 import SourceryAutoProtocols
 import ZFile
 
-public protocol TextFileWriterProtocol: AutoMockable
-{
-    // sourcery:inline:TextFileWriter.AutoGenerateProtocol
-    static var shared: TextFileWriterProtocol { get }
-    var decoder: JSONDecoder { get }
-
-    func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
-    func writeIOSAndAndroidConfigFiles(from disk: ConfigurationDiskProtocol) throws -> EnvJSONsProtocol
-    func setupCodeSamples(json: JSONProtocol) -> TextFileWriter.Sample
-    // sourcery:end
-}
-
 public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
 {
     public static let shared: TextFileWriterProtocol = TextFileWriter()
@@ -44,43 +32,34 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
     /**
      Writes configuration entries to files. For android these are several files. For iOS it is a single file
      */
-    public func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
+    public func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws
     {
-        guard let jsonFile = jsonFile else { return nil }
+        guard let jsonFile = jsonFile else { return }
 
-        let json = try decoder.decode(JSON.self, from: try jsonFile.read())
+        let json = try decoder.decode(JSONEnvironment.self, from: try jsonFile.read())
 
         try android?.write(string: try json.androidEnvEntry())
         let entry = try json.xcconfigEntry(for: configuration)
 
         guard let content = try ios?.readAsString(), !content.contains(entry) else
         {
-            return json
+            return
         }
 
         try ios?.append(string: "\n")
 
         try ios?.append(string: entry)
-
-        return json
     }
 
-    public func writeIOSAndAndroidConfigFiles(from disk: ConfigurationDiskProtocol) throws -> EnvJSONsProtocol
+    public func writeIOSAndAndroidConfigFiles(from input: CoderInputProtocol, output: CoderOutputProtocol) throws
     {
-        let _debug = try writeConfigIfNeeded(from: disk.inputJSON.debug, for: .Debug, android: disk.android.debug, ios: disk.xcconfigFile)
-        let _release = try writeConfigIfNeeded(from: disk.inputJSON.release, for: .Release, android: disk.android.release, ios: disk.xcconfigFile)
-
-        guard let debug = _debug, let release = _release else { throw "\(pretty_function()) debug or release config missing!" }
-
-        return EnvJSONs(
-            debug: debug,
-            release: release,
-            local: try writeConfigIfNeeded(from: disk.inputJSON.local, for: .Local, android: disk.android.local, ios: disk.xcconfigFile),
-            betaRelease: try writeConfigIfNeeded(from: disk.inputJSON.betaRelease, for: .BetaRelease, android: disk.android.betaRelease, ios: disk.xcconfigFile)
-        )
+        try writeConfigIfNeeded(from: input.inputJSONFile, for: .Debug, android: output.android.debug, ios: output.ios.xcconfigFile)
+        try writeConfigIfNeeded(from: input.inputJSONFile, for: .Release, android: output.android.release, ios: output.ios.xcconfigFile)
+        try writeConfigIfNeeded(from: input.inputJSONFile, for: .Local, android: output.android.local, ios: output.ios.xcconfigFile)
+        try writeConfigIfNeeded(from: input.inputJSONFile, for: .Local, android: output.android.local, ios: output.ios.xcconfigFile)
     }
 
-    public func setupCodeSamples(json: JSONProtocol) -> TextFileWriter.Sample
+    public func setupCodeSamples(json: JSONEnvironmentProtocol) -> TextFileWriter.Sample
     {
         var allKeys: Sample = json.typed?.enumerated().compactMap
         {
@@ -105,7 +84,7 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
             json.booleans?.enumerated().compactMap
             {
                 let key = $0.element.key
-                let typedValue = JSONEntry.PossibleTypes.bool($0.element.value)
+                let typedValue = TypedJsonEntry.PossibleTypes.bool($0.element.value)
                 let swiftTypeString = typedValue.typeSwiftString
 
                 return (

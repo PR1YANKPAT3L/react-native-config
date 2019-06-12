@@ -17,23 +17,23 @@ import Foundation
 // version 5.5
 /*
 
- // types.implementing.AutoGenerateProtocol inline for EnvJSONs ..
- // sourcery:inline:EnvJSONs.AutoGenerateProtocol
- var debug: JSONProtocol { get }
- var release: JSONProtocol { get }
- var local: JSONProtocol? { get }
- var betaRelease: JSONProtocol? { get }
-
- // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for EnvJSONs ✅
- // types.implementing.AutoGenerateProtocol inline for JSON ..
- // sourcery:inline:JSON.AutoGenerateProtocol
- var typed: [String: JSONEntry]? { get }
+ // types.implementing.AutoGenerateProtocol inline for JSONEnvironment ..
+ // sourcery:inline:JSONEnvironment.AutoGenerateProtocol
+ var typed: [String: TypedJsonEntry]? { get }
  var booleans: [String: Bool]? { get }
 
  func xcconfigEntry(for configuration: Configuration) throws  -> String
  func androidEnvEntry() throws  -> String
  // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for JSON ✅
+ // types.implementing.AutoGenerateProtocol inline for JSONEnvironment ✅
+ // types.implementing.AutoGenerateProtocol inline for JSONEnvironments ..
+ // sourcery:inline:JSONEnvironments.AutoGenerateProtocol
+ var debug: JSONEnvironment { get }
+ var release: JSONEnvironment { get }
+ var local: JSONEnvironment { get }
+ var betaRelease: JSONEnvironment { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for JSONEnvironments ✅
 
  */

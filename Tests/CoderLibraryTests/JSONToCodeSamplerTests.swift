@@ -18,11 +18,11 @@ import CoderLibrary
 import ZFileMock
 import SignPostMock
 import TerminalMock
+import Terminal
 
 import CoderLibraryMock
 import RNModelsMock
 import RNConfigurationMock
-
 
 class JSONToCodeSamplerTests: QuickSpec
 {
@@ -32,46 +32,33 @@ class JSONToCodeSamplerTests: QuickSpec
         {
             var sut: JSONToCodeSampler?
 
-            var configDisk: ConfigurationDiskProtocolMock!
+            var input: CoderInputProtocolMock!
+            var output: CoderOutputProtocolMock!
             
             var textFileWriter: TextFileWriterProtocolMock!
-            var inputJSON: EnvJSONsProtocolMock!
             
             beforeEach
             {
 
                 expect
                 {
-                    let mockFolder = try FolderProtocolMock()
-                    let mockFile = try FileProtocolMock()
+                    // Coder input setup
                     
-                    // Mock folder setup
+                    let correctCoder = try correctCoderInput()
+                    input = correctCoder.0
                     
-                    mockFolder.fileNamedReturnValue = mockFile
-                    mockFolder.subfolderNamedReturnValue = mockFolder
-                    mockFolder.createFileIfNeededNamedReturnValue = mockFile
-                    mockFolder.containsSubfolderPossiblyInvalidNameReturnValue = true
-                    
-                    configDisk = ConfigurationDiskProtocolMock()
-                    configDisk.underlyingEnvironmentJsonFilesFolder = mockFolder
-                    configDisk.underlyingAndroidFolder = mockFolder
-                    configDisk.underlyingIosFolder = mockFolder
-                    
-                    let jsonFiles = JSONFileProtocolMock()
-                    jsonFiles.underlyingDebug = mockFile
-                    jsonFiles.underlyingRelease = mockFile
-                    
-                    configDisk.underlyingInputJSON = jsonFiles
-                    
-                    inputJSON = EnvJSONsProtocolMock()
-                    inputJSON.underlyingDebug = JSONProtocolMock()
-                    inputJSON.underlyingRelease = JSONProtocolMock()
+                    // Text writer setup
                     
                     textFileWriter = TextFileWriterProtocolMock()
-                    textFileWriter.writeIOSAndAndroidConfigFilesFromReturnValue = inputJSON
                     textFileWriter.setupCodeSamplesJsonReturnValue = TextFileWriter.Sample(arrayLiteral: (case: "mock", configurationModelVar: "mock", configurationModelVarDescription: "mock", xmlEntry: "mock", decoderInit: "mock"))
+
+                    // Coder output setup
                     
-                    sut = try JSONToCodeSampler(from: configDisk, textFileWriter: textFileWriter)
+                    output = CoderOutputProtocolMock()
+                    
+                    // Sampler setup as subject under test
+                    
+                    sut = try JSONToCodeSampler(from: input, to: output, textFileWriter: textFileWriter)
 
                     return sut
                 }.toNot(throwError())
@@ -89,7 +76,7 @@ class JSONToCodeSamplerTests: QuickSpec
             context("writes to text files")
             {
                 it("ios and android") {
-                    expect(textFileWriter.writeIOSAndAndroidConfigFilesFromCalled) == true
+                    expect(textFileWriter.writeIOSAndAndroidConfigFilesFromOutputCalled) == true
                 }
                 
                 

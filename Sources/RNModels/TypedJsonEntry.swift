@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JSONEntry: Codable
+public struct TypedJsonEntry: Codable
 {
     public let value: String
     public let valueType: String

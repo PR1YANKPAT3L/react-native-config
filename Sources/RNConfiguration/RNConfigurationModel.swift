@@ -13,7 +13,7 @@ public protocol RNConfigurationModelProtocol: AutoMockable
     var example_url: URLEscaped { get }
     var description: String { get }
 
-    static func create(from json: JSON) throws -> RNConfigurationModelProtocol
+    static func create(from json: JSONEnvironment) throws -> RNConfigurationModelProtocol
     // sourcery:end
 }
 
@@ -34,9 +34,9 @@ public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigur
         example_url = try container.decode(URLEscaped.self, forKey: .example_url)
     }
 
-    public static func create(from json: JSON) throws -> RNConfigurationModelProtocol
+    public static func create(from json: JSONEnvironment) throws -> RNConfigurationModelProtocol
     {
-        let typed = json.typed ?? [String: JSONEntry]()
+        let typed = json.typed ?? [String: TypedJsonEntry]()
 
         var jsonTyped = "{"
 

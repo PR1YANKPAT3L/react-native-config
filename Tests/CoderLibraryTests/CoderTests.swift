@@ -16,6 +16,7 @@ import ZFileMock
 import RNConfiguration
 import RNConfigurationMock
 import TerminalMock
+import Terminal
 
 import CoderLibrary
 import CoderLibraryMock
@@ -32,68 +33,81 @@ class CoderSpec: QuickSpec
 
             var signPost: SignPostProtocolMock!
 
-            var configDisk: ConfigurationDiskProtocolMock!
+            var input: CoderInputProtocolMock!
+            var output: CoderOutputProtocolMock!
+            
             var sampler: JSONToCodeSamplerProtocolMock!
 
             var terminal: TerminalProtocolMock!
             var system: SystemProtocolMock!
-            var generatedCode = GeneratedCodeProtocolMock()
+            var plistWriter: PlistWriterProtocolMock!
             
-            var outputIOS: OutputFilesProtocolMock!
-            var outputAndroid: OutputFilesProtocolMock!
+            var json: FileProtocolMock!
             
             beforeEach
             {
                 signPost = SignPostProtocolMock()
-
+                terminal  = TerminalProtocolMock()
+                system = SystemProtocolMock()
+                
                 expect
                 {
-                    let mockFolder = try FolderProtocolMock()
-                    let mockFile = try FileProtocolMock()
-
-                    generatedCode = GeneratedCodeProtocolMock()
+                    // Coder input setup
                     
-                    // Mock folder setup
+                    let correctCoder = try correctCoderInput()
+                    input = correctCoder.0
+                    json = correctCoder.json
                     
-                    mockFolder.fileNamedReturnValue = mockFile
-                    mockFolder.subfolderNamedReturnValue = mockFolder
-                    mockFolder.createFileIfNeededNamedReturnValue = mockFile
-                    mockFolder.containsSubfolderPossiblyInvalidNameReturnValue = true
+                    // Coder output setup
                     
-                    terminal = TerminalProtocolMock()
-                    system = SystemProtocolMock()
+                    output = CoderOutputProtocolMock()
                     
-                    configDisk = ConfigurationDiskProtocolMock()
-                    configDisk.underlyingEnvironmentJsonFilesFolder = mockFolder
-                    configDisk.underlyingAndroidFolder = mockFolder
-                    configDisk.underlyingIosFolder = mockFolder
+                    let ios: CoderOutputiOSProtocolMock = CoderOutputiOSProtocolMock()
+                    ios.underlyingXcconfigFile = try FileProtocolMock()
+                    ios.underlyingSourcesFolder = correctCoder.srcRoot
+                    ios.underlyingInfoPlistRNConfiguration = try FileProtocolMock()
+                    ios.underlyingRnConfigurationModelSwiftFile = try FileProtocolMock()
+                    ios.underlyingInfoPlistRNConfigurationTests = try FileProtocolMock()
+                    ios.underlyingRnConfigurationBridgeObjectiveCMFile = try FileProtocolMock()
+                    ios.rnConfigurationModelSwiftFile = try FileProtocolMock()
+                    ios.underlyingRnConfigurationModelFactorySwiftFile = try FileProtocolMock()
                     
-                    let input = JSONFileProtocolMock()
-                    input.underlyingDebug = mockFile
-                    input.underlyingRelease = mockFile
+                    output.underlyingIos = ios
                     
-                    configDisk.underlyingInputJSON = input
-                    configDisk.underlyingCode = generatedCode
-            
-                    outputIOS = OutputFilesProtocolMock()
-                    outputIOS.debug = try FileProtocolMock()
-                    outputIOS.release = try FileProtocolMock()
+                    let android: CoderOutputAndroidProtocolMock = CoderOutputAndroidProtocolMock()
+                    android.sourcesFolder = correctCoder.srcRoot
+                    android.debug = try FileProtocolMock()
+                    android.release = try FileProtocolMock()
+                    android.local = try FileProtocolMock()
+                    android.betaRelease = try FileProtocolMock()
                     
-                    outputAndroid = OutputFilesProtocolMock()
-                    outputAndroid.debug = try FileProtocolMock()
-                    outputAndroid.release = try FileProtocolMock()
+                    output.underlyingAndroid = android
                     
-                    configDisk.underlyingXcconfigFile = try FileProtocolMock()
-                    configDisk.underlyingAndroid = outputAndroid
+                    // setup code sampler
                     
                     sampler = JSONToCodeSamplerProtocolMock()
+                    sampler.underlyingBridgeEnv = BridgeEnvProtocolMock()
+                    sampler.plistLinesXmlText = """
+                    <key>exampleBool</key>
+                    <string>false</string>
+                    <key>example_url</key>
+                    <string>http://www.mockedURL.safe</string>
+                    """
                     
+                    // setup plist writer
+                    
+                    plistWriter = PlistWriterProtocolMock()
+                    
+                    
+                    // setup coder
                     
                     sut = Coder(
-                        disk: configDisk,
+                        input: input,
+                        output: output,
                         builds: sampler,
-                        plistWriter: PlistWriterProtocolMock(),
+                        plistWriter: plistWriter,
                         signPost: signPost,
+                        decoder: JSONDecoder(),
                         terminal: terminal,
                         system: system
                     )
@@ -107,85 +121,44 @@ class CoderSpec: QuickSpec
                 expect(sut).toNot(beNil())
             }
 
-            context("correct Coder")
+            context("env contains some keys and values")
             {
-                var modelFile: FileProtocolMock!
-                var factoryFile: FileProtocolMock!
-                var plistCode: FileProtocolMock!
-                var plistTests: FileProtocolMock!
-                var objectiveC: FileProtocolMock!
-                
-                var bridge: BridgeEnvProtocolMock!
-                var plistWriter: PlistWriterProtocolMock!
-                
-                beforeEach
-                    {
-                        expect
-                            {
-                                factoryFile = try FileProtocolMock()
-                                modelFile = try FileProtocolMock()
-                                plistCode = try FileProtocolMock()
-                                plistTests = try FileProtocolMock()
-                                bridge = BridgeEnvProtocolMock()
-                                objectiveC = try FileProtocolMock()
-                                plistWriter = PlistWriterProtocolMock()
-                                
-                                sut = Coder(
-                                    disk: configDisk,
-                                    builds: sampler,
-                                    plistWriter: plistWriter,
-                                    signPost: signPost,
-                                    terminal: terminal,
-                                    system: system
-                                )
-                                generatedCode.underlyingRnConfigurationModelSwiftFile = modelFile
-                                generatedCode.underlyingRnConfigurationModelFactorySwiftFile = factoryFile
-                                generatedCode.infoPlistRNConfiguration = plistCode
-                                generatedCode.infoPlistRNConfigurationTests = plistTests
-                                generatedCode.underlyingRnConfigurationBridgeObjectiveCMFile = objectiveC
-                                
-                                sampler.underlyingBridgeEnv = bridge
-                                sampler.plistLinesXmlText = """
-                                <key>exampleBool</key>
-                                <string>false</string>
-                                <key>example_url</key>
-                                <string>http://www.mockedURL.safe</string>
-                                """
-                                
-                                return try sut?.attempt()
-                            }.toNot(throwError())
+                beforeEach {
+                    expect { try sut?.attempt() }.toNot(throwError())
                 }
                 
-                context("env contains some keys and values")
+                it("can code")
                 {
-
-                    it("can code")
-                    {
-                        expect(sut).toNot(beNil())
-                    }
-
-                    context("writes default ios code")
-                    {
-                        it("to model") {
-                            expect(modelFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_TOP))
-                            expect(modelFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_BOTTOM))
-                        }
+                    expect(sut).toNot(beNil())
+                }
+                
+                context("writes default ios code")
+                {
+                    it("to model") {
+                        let swiftFile: (FileProtocolMock) = (output.ios.rnConfigurationModelSwiftFile as! FileProtocolMock)
                         
-                        it("to factory") {
-                             expect(factoryFile.writeStringReceivedString).to(contain(Coder.factoryTop))
-                        }
-                        
-                        it("plist") {
-                            expect(plistWriter.writeRNConfigurationPlistCalled) == true
-                          
-                        }
-                        
-                        it("objectiveC") {
-                             expect(objectiveC.writeStringReceivedString).to(contain(Coder.RNConfigurationBridge.top))
-                        }
+                        expect(swiftFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_TOP))
+                        expect(swiftFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_BOTTOM))
                     }
                     
+                    it("to factory") {
+                        let factoryFile: (FileProtocolMock) = (output.ios.rnConfigurationModelFactorySwiftFile as! FileProtocolMock)
+
+                        expect(factoryFile.writeStringReceivedString).to(contain(Coder.factoryTop))
+                    }
+                    
+                    it("plist") {
+                        expect(plistWriter.writeRNConfigurationPlistCalled) == true
+                        
+                    }
+                    
+                    it("objectiveC") {
+                        let objectiveC: (FileProtocolMock) = (output.ios.rnConfigurationBridgeObjectiveCMFile as! FileProtocolMock)
+
+                        expect(objectiveC.writeStringReceivedString).to(contain(Coder.RNConfigurationBridge.top))
+                    }
                 }
+                
             }
         }
     }

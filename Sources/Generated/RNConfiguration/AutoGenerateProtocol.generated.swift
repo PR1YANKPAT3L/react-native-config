@@ -23,14 +23,14 @@ import Foundation
  var example_url: URLEscaped { get }
  var description: String { get }
 
- static func create(from json: JSON) throws  -> RNConfigurationModelProtocol
+ static func create(from json: JSONEnvironment) throws  -> RNConfigurationModelProtocol
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for RNConfigurationModel ✅
  // types.implementing.AutoGenerateProtocol inline for RNConfigurationModelFactory ..
  // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
  static var infoDict: [String: Any]? { get set }
 
- static func allValuesDictionary() throws  -> [String : String]
+ static func allValuesDictionary() throws  -> [String: String]
  func allCustomKeys() -> [String]
  static func readCurrentBuildConfiguration() throws  -> RNConfigurationModelProtocol
  static func allConstants() throws  -> [RNConfigurationModelFactory.Case: String]

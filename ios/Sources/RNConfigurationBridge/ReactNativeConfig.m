@@ -26,12 +26,12 @@ RCT_EXPORT_MODULE()
     #elif RELEASE
     return @{
             @"example_url" : @"https://release",
-    @"exampleBool" : @YES
+    @"exampleBool" : @NO
     };
     #elif BETARELEASE
     return @{
             @"example_url" : @"https://betaRelease",
-    @"exampleBool" : @YES
+    @"exampleBool" : @NO
     };
     #else
         NSLog(@"⚠️ (Coder) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");

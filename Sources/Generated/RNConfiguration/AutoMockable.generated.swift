@@ -43,16 +43,16 @@ open class RNConfigurationModelProtocolMock: RNConfigurationModelProtocol
         return createFromCallsCount > 0
     }
 
-    public static var createFromReceivedJson: JSON?
+    public static var createFromReceivedJson: JSONEnvironment?
     public static var createFromReturnValue: RNConfigurationModelProtocol?
 
     // MARK: - <create> - closure mocks
 
-    public static var createFromClosure: ((JSON) throws -> RNConfigurationModelProtocol)?
+    public static var createFromClosure: ((JSONEnvironment) throws -> RNConfigurationModelProtocol)?
 
     // MARK: - <create> - method mocked
 
-    public static func create(from json: JSON) throws -> RNConfigurationModelProtocol
+    public static func create(from json: JSONEnvironment) throws -> RNConfigurationModelProtocol
     {
         // <create> - Throwable method implementation
 
@@ -131,7 +131,7 @@ open class RNConfigurationModelFactoryProtocolMock: NSObject, RNConfigurationMod
                 let message = "No returnValue implemented for allValuesDictionaryClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
-                // You should implement [String : String]
+                // You should implement [String: String]
 
                 throw error
             }

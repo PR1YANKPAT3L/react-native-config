@@ -9,10 +9,10 @@
 import Foundation
 import SourceryAutoProtocols
 
-public protocol JSONProtocol: AutoMockable
+public protocol JSONEnvironmentProtocol: AutoMockable
 {
-    // sourcery:inline:JSON.AutoGenerateProtocol
-    var typed: [String: JSONEntry]? { get }
+    // sourcery:inline:JSONEnvironment.AutoGenerateProtocol
+    var typed: [String: TypedJsonEntry]? { get }
     var booleans: [String: Bool]? { get }
 
     func xcconfigEntry(for configuration: Configuration) throws -> String
@@ -20,11 +20,29 @@ public protocol JSONProtocol: AutoMockable
     // sourcery:end
 }
 
+public protocol JSONEnvironmentsProtocol: AutoMockable
+{
+    // sourcery:inline:JSONEnvironments.AutoGenerateProtocol
+    var debug: JSONEnvironment { get }
+    var release: JSONEnvironment { get }
+    var local: JSONEnvironment { get }
+    var betaRelease: JSONEnvironment { get }
+    // sourcery:end
+}
+
+public struct JSONEnvironments: Codable, JSONEnvironmentsProtocol, AutoGenerateProtocol
+{
+    public let debug: JSONEnvironment
+    public let release: JSONEnvironment
+    public let local: JSONEnvironment
+    public let betaRelease: JSONEnvironment
+}
+
 // MARK: - JSON struct
 
-public struct JSON: Codable, JSONProtocol, AutoGenerateProtocol
+public struct JSONEnvironment: Codable, JSONEnvironmentProtocol, AutoGenerateProtocol
 {
-    public let typed: [String: JSONEntry]?
+    public let typed: [String: TypedJsonEntry]?
     public let booleans: [String: Bool]?
 
     public func xcconfigEntry(for configuration: Configuration) throws -> String
@@ -69,7 +87,7 @@ public struct JSON: Codable, JSONProtocol, AutoGenerateProtocol
                     .map
                 {
                     let key = $0.key
-                    let jsonEntry = JSONEntry(typedValue: .bool($0.value))
+                    let jsonEntry = TypedJsonEntry(typedValue: .bool($0.value))
 
                     return "\(key) = \(try androidEnvRawValue(for: jsonEntry))"
                 }
@@ -82,7 +100,7 @@ public struct JSON: Codable, JSONProtocol, AutoGenerateProtocol
 
     // MARK: - Private
 
-    private func xcconfigRawValue(for jsonEntry: JSONEntry) throws -> String
+    private func xcconfigRawValue(for jsonEntry: TypedJsonEntry) throws -> String
     {
         switch jsonEntry.typedValue
         {
@@ -99,7 +117,7 @@ public struct JSON: Codable, JSONProtocol, AutoGenerateProtocol
         }
     }
 
-    private func androidEnvRawValue(for jsonEntry: JSONEntry) throws -> String
+    private func androidEnvRawValue(for jsonEntry: TypedJsonEntry) throws -> String
     {
         switch jsonEntry.typedValue
         {

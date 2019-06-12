@@ -21,19 +21,196 @@ open class BridgeEnvProtocolMock: BridgeEnvProtocol
     public var betaRelease: [String] = []
 }
 
+// MARK: - CoderInputProtocolMock
+
+open class CoderInputProtocolMock: CoderInputProtocol
+{
+    public init() {}
+
+    public static var projectNameWithPrepareScript: String
+    {
+        get { return underlyingProjectNameWithPrepareScript }
+        set(value) { underlyingProjectNameWithPrepareScript = value }
+    }
+
+    public static var underlyingProjectNameWithPrepareScript: String = "AutoMockable filled value"
+    public static var jsonFileName: String
+    {
+        get { return underlyingJsonFileName }
+        set(value) { underlyingJsonFileName = value }
+    }
+
+    public static var underlyingJsonFileName: String = "AutoMockable filled value"
+    public var inputJSONFile: FileProtocol
+    {
+        get { return underlyingInputJSONFile }
+        set(value) { underlyingInputJSONFile = value }
+    }
+
+    public var underlyingInputJSONFile: FileProtocol!
+}
+
+// MARK: - CoderOutputAndroidProtocolMock
+
+open class CoderOutputAndroidProtocolMock: CoderOutputAndroidProtocol
+{
+    public init() {}
+
+    public var sourcesFolder: FolderProtocol
+    {
+        get { return underlyingSourcesFolder }
+        set(value) { underlyingSourcesFolder = value }
+    }
+
+    public var underlyingSourcesFolder: FolderProtocol!
+    public var debug: FileProtocol
+    {
+        get { return underlyingDebug }
+        set(value) { underlyingDebug = value }
+    }
+
+    public var underlyingDebug: FileProtocol!
+    public var release: FileProtocol
+    {
+        get { return underlyingRelease }
+        set(value) { underlyingRelease = value }
+    }
+
+    public var underlyingRelease: FileProtocol!
+    public var local: FileProtocol?
+    public var betaRelease: FileProtocol?
+}
+
+// MARK: - CoderOutputProtocolMock
+
+open class CoderOutputProtocolMock: CoderOutputProtocol
+{
+    public init() {}
+
+    public var android: CoderOutputAndroidProtocol
+    {
+        get { return underlyingAndroid }
+        set(value) { underlyingAndroid = value }
+    }
+
+    public var underlyingAndroid: CoderOutputAndroidProtocol!
+    public var ios: CoderOutputiOSProtocol
+    {
+        get { return underlyingIos }
+        set(value) { underlyingIos = value }
+    }
+
+    public var underlyingIos: CoderOutputiOSProtocol!
+}
+
+// MARK: - CoderOutputiOSProtocolMock
+
+open class CoderOutputiOSProtocolMock: CoderOutputiOSProtocol
+{
+    public init() {}
+
+    public var sourcesFolder: FolderProtocol
+    {
+        get { return underlyingSourcesFolder }
+        set(value) { underlyingSourcesFolder = value }
+    }
+
+    public var underlyingSourcesFolder: FolderProtocol!
+    public var xcconfigFile: FileProtocol
+    {
+        get { return underlyingXcconfigFile }
+        set(value) { underlyingXcconfigFile = value }
+    }
+
+    public var underlyingXcconfigFile: FileProtocol!
+    public var rnConfigurationModelFactorySwiftFile: FileProtocol
+    {
+        get { return underlyingRnConfigurationModelFactorySwiftFile }
+        set(value) { underlyingRnConfigurationModelFactorySwiftFile = value }
+    }
+
+    public var underlyingRnConfigurationModelFactorySwiftFile: FileProtocol!
+    public var infoPlistRNConfiguration: FileProtocol
+    {
+        get { return underlyingInfoPlistRNConfiguration }
+        set(value) { underlyingInfoPlistRNConfiguration = value }
+    }
+
+    public var underlyingInfoPlistRNConfiguration: FileProtocol!
+    public var infoPlistRNConfigurationTests: FileProtocol
+    {
+        get { return underlyingInfoPlistRNConfigurationTests }
+        set(value) { underlyingInfoPlistRNConfigurationTests = value }
+    }
+
+    public var underlyingInfoPlistRNConfigurationTests: FileProtocol!
+    public var rnConfigurationModelSwiftFile: FileProtocol
+    {
+        get { return underlyingRnConfigurationModelSwiftFile }
+        set(value) { underlyingRnConfigurationModelSwiftFile = value }
+    }
+
+    public var underlyingRnConfigurationModelSwiftFile: FileProtocol!
+    public var rnConfigurationBridgeObjectiveCMFile: FileProtocol
+    {
+        get { return underlyingRnConfigurationBridgeObjectiveCMFile }
+        set(value) { underlyingRnConfigurationBridgeObjectiveCMFile = value }
+    }
+
+    public var underlyingRnConfigurationBridgeObjectiveCMFile: FileProtocol!
+
+    // MARK: - <writeDefaultsToFiles> - parameters
+
+    public var writeDefaultsToFilesThrowableError: Error?
+    public var writeDefaultsToFilesCallsCount = 0
+    public var writeDefaultsToFilesCalled: Bool
+    {
+        return writeDefaultsToFilesCallsCount > 0
+    }
+
+    // MARK: - <writeDefaultsToFiles> - closure mocks
+
+    public var writeDefaultsToFilesClosure: (() throws -> Void)?
+
+    // MARK: - <writeDefaultsToFiles> - method mocked
+
+    open func writeDefaultsToFiles() throws
+    {
+        // <writeDefaultsToFiles> - Throwable method implementation
+
+        if let error = writeDefaultsToFilesThrowableError
+        {
+            throw error
+        }
+
+        writeDefaultsToFilesCallsCount += 1
+
+        // <writeDefaultsToFiles> - Void return mock implementation
+
+        try writeDefaultsToFilesClosure?()
+    }
+}
+
 // MARK: - CoderProtocolMock
 
 open class CoderProtocolMock: CoderProtocol
 {
     public init() {}
 
-    public var configurationDisk: ConfigurationDiskProtocol
+    public var input: CoderInputProtocol
     {
-        get { return underlyingConfigurationDisk }
-        set(value) { underlyingConfigurationDisk = value }
+        get { return underlyingInput }
+        set(value) { underlyingInput = value }
     }
 
-    public var underlyingConfigurationDisk: ConfigurationDiskProtocol!
+    public var underlyingInput: CoderInputProtocol!
+    public var output: CoderOutputProtocol
+    {
+        get { return underlyingOutput }
+        set(value) { underlyingOutput = value }
+    }
+
+    public var underlyingOutput: CoderOutputProtocol!
     public var codeSampler: JSONToCodeSamplerProtocol
     {
         get { return underlyingCodeSampler }
@@ -86,15 +263,15 @@ open class CoderProtocolMock: CoderProtocol
         return attemptCallsCount > 0
     }
 
-    public var attemptReturnValue: Coder.Config?
+    public var attemptReturnValue: CoderOutputProtocol?
 
     // MARK: - <attempt> - closure mocks
 
-    public var attemptClosure: (() throws -> Coder.Config)?
+    public var attemptClosure: (() throws -> CoderOutputProtocol)?
 
     // MARK: - <attempt> - method mocked
 
-    open func attempt() throws -> Coder.Config
+    open func attempt() throws -> CoderOutputProtocol
     {
         // <attempt> - Throwable method implementation
 
@@ -114,7 +291,7 @@ open class CoderProtocolMock: CoderProtocol
                 let message = "No returnValue implemented for attemptClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
-                // You should implement Coder.Config
+                // You should implement CoderOutputProtocol
 
                 throw error
             }
@@ -218,195 +395,12 @@ open class CoderProtocolMock: CoderProtocol
     }
 }
 
-// MARK: - ConfigurationDiskProtocolMock
-
-open class ConfigurationDiskProtocolMock: ConfigurationDiskProtocol
-{
-    public init() {}
-
-    public static var projectNameWithPrepareScript: String
-    {
-        get { return underlyingProjectNameWithPrepareScript }
-        set(value) { underlyingProjectNameWithPrepareScript = value }
-    }
-
-    public static var underlyingProjectNameWithPrepareScript: String = "AutoMockable filled value"
-    public var environmentJsonFilesFolder: FolderProtocol
-    {
-        get { return underlyingEnvironmentJsonFilesFolder }
-        set(value) { underlyingEnvironmentJsonFilesFolder = value }
-    }
-
-    public var underlyingEnvironmentJsonFilesFolder: FolderProtocol!
-    public var rnConfigurationSourcesFolder: FolderProtocol
-    {
-        get { return underlyingRnConfigurationSourcesFolder }
-        set(value) { underlyingRnConfigurationSourcesFolder = value }
-    }
-
-    public var underlyingRnConfigurationSourcesFolder: FolderProtocol!
-    public var rnConfigurationBridgeSourcesFolder: FolderProtocol
-    {
-        get { return underlyingRnConfigurationBridgeSourcesFolder }
-        set(value) { underlyingRnConfigurationBridgeSourcesFolder = value }
-    }
-
-    public var underlyingRnConfigurationBridgeSourcesFolder: FolderProtocol!
-    public var inputJSON: JSONFileProtocol
-    {
-        get { return underlyingInputJSON }
-        set(value) { underlyingInputJSON = value }
-    }
-
-    public var underlyingInputJSON: JSONFileProtocol!
-    public var androidFolder: FolderProtocol
-    {
-        get { return underlyingAndroidFolder }
-        set(value) { underlyingAndroidFolder = value }
-    }
-
-    public var underlyingAndroidFolder: FolderProtocol!
-    public var iosFolder: FolderProtocol
-    {
-        get { return underlyingIosFolder }
-        set(value) { underlyingIosFolder = value }
-    }
-
-    public var underlyingIosFolder: FolderProtocol!
-    public var xcconfigFile: FileProtocol
-    {
-        get { return underlyingXcconfigFile }
-        set(value) { underlyingXcconfigFile = value }
-    }
-
-    public var underlyingXcconfigFile: FileProtocol!
-    public var android: OutputFilesProtocol
-    {
-        get { return underlyingAndroid }
-        set(value) { underlyingAndroid = value }
-    }
-
-    public var underlyingAndroid: OutputFilesProtocol!
-    public var code: GeneratedCodeProtocol
-    {
-        get { return underlyingCode }
-        set(value) { underlyingCode = value }
-    }
-
-    public var underlyingCode: GeneratedCodeProtocol!
-}
-
-// MARK: - GeneratedCodeProtocolMock
-
-open class GeneratedCodeProtocolMock: GeneratedCodeProtocol
-{
-    public init() {}
-
-    public var rnConfigurationModelFactorySwiftFile: FileProtocol
-    {
-        get { return underlyingRnConfigurationModelFactorySwiftFile }
-        set(value) { underlyingRnConfigurationModelFactorySwiftFile = value }
-    }
-
-    public var underlyingRnConfigurationModelFactorySwiftFile: FileProtocol!
-    public var infoPlistRNConfiguration: FileProtocol
-    {
-        get { return underlyingInfoPlistRNConfiguration }
-        set(value) { underlyingInfoPlistRNConfiguration = value }
-    }
-
-    public var underlyingInfoPlistRNConfiguration: FileProtocol!
-    public var infoPlistRNConfigurationTests: FileProtocol
-    {
-        get { return underlyingInfoPlistRNConfigurationTests }
-        set(value) { underlyingInfoPlistRNConfigurationTests = value }
-    }
-
-    public var underlyingInfoPlistRNConfigurationTests: FileProtocol!
-    public var rnConfigurationModelSwiftFile: FileProtocol
-    {
-        get { return underlyingRnConfigurationModelSwiftFile }
-        set(value) { underlyingRnConfigurationModelSwiftFile = value }
-    }
-
-    public var underlyingRnConfigurationModelSwiftFile: FileProtocol!
-    public var rnConfigurationBridgeObjectiveCMFile: FileProtocol
-    {
-        get { return underlyingRnConfigurationBridgeObjectiveCMFile }
-        set(value) { underlyingRnConfigurationBridgeObjectiveCMFile = value }
-    }
-
-    public var underlyingRnConfigurationBridgeObjectiveCMFile: FileProtocol!
-
-    // MARK: - <writeDefaultsToFiles> - parameters
-
-    public var writeDefaultsToFilesThrowableError: Error?
-    public var writeDefaultsToFilesCallsCount = 0
-    public var writeDefaultsToFilesCalled: Bool
-    {
-        return writeDefaultsToFilesCallsCount > 0
-    }
-
-    // MARK: - <writeDefaultsToFiles> - closure mocks
-
-    public var writeDefaultsToFilesClosure: (() throws -> Void)?
-
-    // MARK: - <writeDefaultsToFiles> - method mocked
-
-    open func writeDefaultsToFiles() throws
-    {
-        // <writeDefaultsToFiles> - Throwable method implementation
-
-        if let error = writeDefaultsToFilesThrowableError
-        {
-            throw error
-        }
-
-        writeDefaultsToFilesCallsCount += 1
-
-        // <writeDefaultsToFiles> - Void return mock implementation
-
-        try writeDefaultsToFilesClosure?()
-    }
-}
-
-// MARK: - JSONFileProtocolMock
-
-open class JSONFileProtocolMock: JSONFileProtocol
-{
-    public init() {}
-
-    public var debug: FileProtocol
-    {
-        get { return underlyingDebug }
-        set(value) { underlyingDebug = value }
-    }
-
-    public var underlyingDebug: FileProtocol!
-    public var release: FileProtocol
-    {
-        get { return underlyingRelease }
-        set(value) { underlyingRelease = value }
-    }
-
-    public var underlyingRelease: FileProtocol!
-    public var local: FileProtocol?
-    public var betaRelease: FileProtocol?
-}
-
 // MARK: - JSONToCodeSamplerProtocolMock
 
 open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
 {
     public init() {}
 
-    public var input: EnvJSONsProtocol
-    {
-        get { return underlyingInput }
-        set(value) { underlyingInput = value }
-    }
-
-    public var underlyingInput: EnvJSONsProtocol!
     public var casesForEnum: String
     {
         get { return underlyingCasesForEnum }
@@ -451,30 +445,6 @@ open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
     public var underlyingBridgeEnv: BridgeEnvProtocol!
 }
 
-// MARK: - OutputFilesProtocolMock
-
-open class OutputFilesProtocolMock: OutputFilesProtocol
-{
-    public init() {}
-
-    public var debug: FileProtocol
-    {
-        get { return underlyingDebug }
-        set(value) { underlyingDebug = value }
-    }
-
-    public var underlyingDebug: FileProtocol!
-    public var release: FileProtocol
-    {
-        get { return underlyingRelease }
-        set(value) { underlyingRelease = value }
-    }
-
-    public var underlyingRelease: FileProtocol!
-    public var local: FileProtocol?
-    public var betaRelease: FileProtocol?
-}
-
 // MARK: - PlistWriterProtocolMock
 
 open class PlistWriterProtocolMock: PlistWriterProtocol
@@ -488,13 +458,13 @@ open class PlistWriterProtocolMock: PlistWriterProtocol
     }
 
     public static var underlyingPlistLinesXmlDefault: String = "AutoMockable filled value"
-    public var code: GeneratedCodeProtocol
+    public var output: CoderOutputProtocol
     {
-        get { return underlyingCode }
-        set(value) { underlyingCode = value }
+        get { return underlyingOutput }
+        set(value) { underlyingOutput = value }
     }
 
-    public var underlyingCode: GeneratedCodeProtocol!
+    public var underlyingOutput: CoderOutputProtocol!
     public var sampler: JSONToCodeSamplerProtocol
     {
         get { return underlyingSampler }
@@ -599,15 +569,14 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
     }
 
     public var writeConfigIfNeededFromForAndroidIosReceivedArguments: (jsonFile: (FileProtocol)?, configuration: Configuration, android: (FileProtocol)?, ios: (FileProtocol)?)?
-    public var writeConfigIfNeededFromForAndroidIosReturnValue: JSONProtocol??
 
     // MARK: - <writeConfigIfNeeded> - closure mocks
 
-    public var writeConfigIfNeededFromForAndroidIosClosure: ((FileProtocol?, Configuration, FileProtocol?, FileProtocol?) throws -> JSONProtocol?)?
+    public var writeConfigIfNeededFromForAndroidIosClosure: ((FileProtocol?, Configuration, FileProtocol?, FileProtocol?) throws -> Void)?
 
     // MARK: - <writeConfigIfNeeded> - method mocked
 
-    open func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws -> JSONProtocol?
+    open func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws
     {
         // <writeConfigIfNeeded> - Throwable method implementation
 
@@ -619,72 +588,43 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
         writeConfigIfNeededFromForAndroidIosCallsCount += 1
         writeConfigIfNeededFromForAndroidIosReceivedArguments = (jsonFile: jsonFile, configuration: configuration, android: android, ios: ios)
 
-        // <writeConfigIfNeeded> - Return Value mock implementation
+        // <writeConfigIfNeeded> - Void return mock implementation
 
-        guard let closureReturn = writeConfigIfNeededFromForAndroidIosClosure else
-        {
-            guard let returnValue = writeConfigIfNeededFromForAndroidIosReturnValue else
-            {
-                let message = "No returnValue implemented for writeConfigIfNeededFromForAndroidIosClosure"
-                let error = SourceryMockError.implementErrorCaseFor(message)
-
-                // You should implement JSONProtocol?
-
-                throw error
-            }
-            return returnValue
-        }
-
-        return try closureReturn(jsonFile, configuration, android, ios)
+        try writeConfigIfNeededFromForAndroidIosClosure?(jsonFile, configuration, android, ios)
     }
 
     // MARK: - <writeIOSAndAndroidConfigFiles> - parameters
 
-    public var writeIOSAndAndroidConfigFilesFromThrowableError: Error?
-    public var writeIOSAndAndroidConfigFilesFromCallsCount = 0
-    public var writeIOSAndAndroidConfigFilesFromCalled: Bool
+    public var writeIOSAndAndroidConfigFilesFromOutputThrowableError: Error?
+    public var writeIOSAndAndroidConfigFilesFromOutputCallsCount = 0
+    public var writeIOSAndAndroidConfigFilesFromOutputCalled: Bool
     {
-        return writeIOSAndAndroidConfigFilesFromCallsCount > 0
+        return writeIOSAndAndroidConfigFilesFromOutputCallsCount > 0
     }
 
-    public var writeIOSAndAndroidConfigFilesFromReceivedDisk: ConfigurationDiskProtocol?
-    public var writeIOSAndAndroidConfigFilesFromReturnValue: EnvJSONsProtocol?
+    public var writeIOSAndAndroidConfigFilesFromOutputReceivedArguments: (input: CoderInputProtocol, output: CoderOutputProtocol)?
 
     // MARK: - <writeIOSAndAndroidConfigFiles> - closure mocks
 
-    public var writeIOSAndAndroidConfigFilesFromClosure: ((ConfigurationDiskProtocol) throws -> EnvJSONsProtocol)?
+    public var writeIOSAndAndroidConfigFilesFromOutputClosure: ((CoderInputProtocol, CoderOutputProtocol) throws -> Void)?
 
     // MARK: - <writeIOSAndAndroidConfigFiles> - method mocked
 
-    open func writeIOSAndAndroidConfigFiles(from disk: ConfigurationDiskProtocol) throws -> EnvJSONsProtocol
+    open func writeIOSAndAndroidConfigFiles(from input: CoderInputProtocol, output: CoderOutputProtocol) throws
     {
         // <writeIOSAndAndroidConfigFiles> - Throwable method implementation
 
-        if let error = writeIOSAndAndroidConfigFilesFromThrowableError
+        if let error = writeIOSAndAndroidConfigFilesFromOutputThrowableError
         {
             throw error
         }
 
-        writeIOSAndAndroidConfigFilesFromCallsCount += 1
-        writeIOSAndAndroidConfigFilesFromReceivedDisk = disk
+        writeIOSAndAndroidConfigFilesFromOutputCallsCount += 1
+        writeIOSAndAndroidConfigFilesFromOutputReceivedArguments = (input: input, output: output)
 
-        // <writeIOSAndAndroidConfigFiles> - Return Value mock implementation
+        // <writeIOSAndAndroidConfigFiles> - Void return mock implementation
 
-        guard let closureReturn = writeIOSAndAndroidConfigFilesFromClosure else
-        {
-            guard let returnValue = writeIOSAndAndroidConfigFilesFromReturnValue else
-            {
-                let message = "No returnValue implemented for writeIOSAndAndroidConfigFilesFromClosure"
-                let error = SourceryMockError.implementErrorCaseFor(message)
-
-                // You should implement EnvJSONsProtocol
-
-                throw error
-            }
-            return returnValue
-        }
-
-        return try closureReturn(disk)
+        try writeIOSAndAndroidConfigFilesFromOutputClosure?(input, output)
     }
 
     // MARK: - <setupCodeSamples> - parameters
@@ -695,16 +635,16 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
         return setupCodeSamplesJsonCallsCount > 0
     }
 
-    public var setupCodeSamplesJsonReceivedJson: JSONProtocol?
+    public var setupCodeSamplesJsonReceivedJson: JSONEnvironmentProtocol?
     public var setupCodeSamplesJsonReturnValue: TextFileWriter.Sample?
 
     // MARK: - <setupCodeSamples> - closure mocks
 
-    public var setupCodeSamplesJsonClosure: ((JSONProtocol) -> TextFileWriter.Sample)?
+    public var setupCodeSamplesJsonClosure: ((JSONEnvironmentProtocol) -> TextFileWriter.Sample)?
 
     // MARK: - <setupCodeSamples> - method mocked
 
-    open func setupCodeSamples(json: JSONProtocol) -> TextFileWriter.Sample
+    open func setupCodeSamples(json: JSONEnvironmentProtocol) -> TextFileWriter.Sample
     {
         setupCodeSamplesJsonCallsCount += 1
         setupCodeSamplesJsonReceivedJson = json

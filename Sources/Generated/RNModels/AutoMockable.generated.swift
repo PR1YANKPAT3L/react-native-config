@@ -5,37 +5,13 @@ import SourceryAutoProtocols
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
-// MARK: - EnvJSONsProtocolMock
+// MARK: - JSONEnvironmentProtocolMock
 
-open class EnvJSONsProtocolMock: EnvJSONsProtocol
+open class JSONEnvironmentProtocolMock: JSONEnvironmentProtocol
 {
     public init() {}
 
-    public var debug: JSONProtocol
-    {
-        get { return underlyingDebug }
-        set(value) { underlyingDebug = value }
-    }
-
-    public var underlyingDebug: JSONProtocol!
-    public var release: JSONProtocol
-    {
-        get { return underlyingRelease }
-        set(value) { underlyingRelease = value }
-    }
-
-    public var underlyingRelease: JSONProtocol!
-    public var local: JSONProtocol?
-    public var betaRelease: JSONProtocol?
-}
-
-// MARK: - JSONProtocolMock
-
-open class JSONProtocolMock: JSONProtocol
-{
-    public init() {}
-
-    public var typed: [String: JSONEntry]?
+    public var typed: [String: TypedJsonEntry]?
     public var booleans: [String: Bool]?
 
     // MARK: - <xcconfigEntry> - parameters
@@ -133,6 +109,42 @@ open class JSONProtocolMock: JSONProtocol
 
         return try closureReturn()
     }
+}
+
+// MARK: - JSONEnvironmentsProtocolMock
+
+open class JSONEnvironmentsProtocolMock: JSONEnvironmentsProtocol
+{
+    public init() {}
+
+    public var debug: JSONEnvironment
+    {
+        get { return underlyingDebug }
+        set(value) { underlyingDebug = value }
+    }
+
+    public var underlyingDebug: JSONEnvironment!
+    public var release: JSONEnvironment
+    {
+        get { return underlyingRelease }
+        set(value) { underlyingRelease = value }
+    }
+
+    public var underlyingRelease: JSONEnvironment!
+    public var local: JSONEnvironment
+    {
+        get { return underlyingLocal }
+        set(value) { underlyingLocal = value }
+    }
+
+    public var underlyingLocal: JSONEnvironment!
+    public var betaRelease: JSONEnvironment
+    {
+        get { return underlyingBetaRelease }
+        set(value) { underlyingBetaRelease = value }
+    }
+
+    public var underlyingBetaRelease: JSONEnvironment!
 }
 
 // MARK: - OBJECTIVE-C

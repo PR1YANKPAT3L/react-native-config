@@ -12,29 +12,6 @@ import RNModels
 import SourceryAutoProtocols
 import ZFile
 
-public protocol JSONToCodeSamplerProtocol: AutoMockable
-{
-    // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
-    var input: EnvJSONsProtocol { get }
-    var casesForEnum: String { get }
-    var configurationModelVar: String { get }
-    var configurationModelVarDescription: String { get }
-    var plistLinesXmlText: String { get }
-    var decoderInit: String { get }
-    var bridgeEnv: BridgeEnvProtocol { get }
-    // sourcery:end
-}
-
-public protocol BridgeEnvProtocol: AutoMockable
-{
-    // sourcery:inline:JSONToCodeSampler.BridgeEnv.AutoGenerateProtocol
-    var local: [String] { get }
-    var debug: [String] { get }
-    var release: [String] { get }
-    var betaRelease: [String] { get }
-    // sourcery:end
-}
-
 /**
  Will load input and decode input JSON -> Use RNConfigurationModel.create from this JSON.
 
@@ -42,17 +19,14 @@ public protocol BridgeEnvProtocol: AutoMockable
  */
 public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
 {
-    public let input: EnvJSONsProtocol
-
     public let casesForEnum: String
-
     public let configurationModelVar: String
     public let configurationModelVarDescription: String
     public let plistLinesXmlText: String
     public let decoderInit: String
     public let bridgeEnv: BridgeEnvProtocol
 
-    public struct BridgeEnv: BridgeEnvProtocol, AutoGenerateProtocol
+    private struct BridgeEnv: BridgeEnvProtocol, AutoGenerateProtocol
     {
         public let local: [String]
         public let debug: [String]
@@ -63,14 +37,16 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
     // MARK: Initialize
 
     public init(
-        from disk: ConfigurationDiskProtocol,
-        textFileWriter: TextFileWriterProtocol = TextFileWriter.shared
+        from input: CoderInputProtocol,
+        to output: CoderOutputProtocol,
+        textFileWriter: TextFileWriterProtocol = TextFileWriter.shared,
+        decoder: JSONDecoder = JSONDecoder()
     ) throws
     {
-        let input = try textFileWriter.writeIOSAndAndroidConfigFiles(from: disk)
+        try textFileWriter.writeIOSAndAndroidConfigFiles(from: input, output: output)
 
-        let allKeys = textFileWriter.setupCodeSamples(json: input.debug)
-        self.input = input
+        let json = try decoder.decode(JSONEnvironments.self, from: try input.inputJSONFile.read())
+        let allKeys = textFileWriter.setupCodeSamples(json: json.debug)
 
         casesForEnum = allKeys
             .map { $0.case }
@@ -103,10 +79,10 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
             .joined(separator: "\n")
 
         bridgeEnv = BridgeEnv(
-            local: (input.local?.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? []) + (input.local?.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
-            debug: (input.debug.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? []) + (input.debug.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
-            release: (input.release.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? []) + (input.release.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
-            betaRelease: (input.betaRelease?.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? []) + (input.betaRelease?.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? [])
+            local: (json.local.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? []) + (json.local.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
+            debug: (json.debug.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? []) + (json.debug.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
+            release: (json.release.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? []) + (json.release.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
+            betaRelease: (json.betaRelease.typed?.mapValues { $0.value }.map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? []) + (json.betaRelease.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? [])
         )
     }
 }
