@@ -43,7 +43,7 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
             }
 
             let destination = try yourSrcRoot.createSubfolder(named: copyToFolderName)
-            
+
             let rnConfiguration = try output.ios.rnConfigurationModelSwiftFile.parentFolder()
 
             if let existing = yourSrcRoot.subfolder(possiblyInvalidName: rnConfiguration.name)
