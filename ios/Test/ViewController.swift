@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import RNConfiguration
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var urlLabel: UILabel!
+    @IBOutlet weak var boolLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        do {
+            let configuration = try RNConfigurationModelFactory.readCurrentBuildConfiguration()
+            urlLabel.text = configuration.url
+            urlLabel.text = "isDebug: \(configuration.exampleBool)"
+        } catch {
+            print(error)
+        }
     }
 
 

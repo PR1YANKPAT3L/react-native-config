@@ -151,18 +151,18 @@ extension Coder {
     public static let rnConfigurationModelDefault_TOP = """
     import Foundation
     import RNModels
-    import SourceryAutoProtocols
 
     /**
         ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
     */
-
-    public protocol RNConfigurationModelProtocol: AutoMockable {
+    // sourcery:AutoMockable
+    public protocol RNConfigurationModelProtocol {
         // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
         // sourcery:end
     }
     
-    public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol, AutoGenerateProtocol {
+    // sourcery:AutoGenerateProtocol
+    public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol {
 
     """
     public static let rnConfigurationModelDefault_BOTTOM = """
@@ -205,14 +205,14 @@ extension Coder {
     
     public static let factoryTop = """
     import Foundation
-    import SourceryAutoProtocols
     import RNModels
     
     /**
      ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
      */
 
-    public protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
+    // sourcery:AutoObjcMockable
+    public protocol RNConfigurationModelFactoryProtocol
     {
         // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
 
@@ -222,7 +222,8 @@ extension Coder {
         // sourcery:end
     }
 
-    @objc public class RNConfigurationModelFactory: NSObject, RNConfigurationModelFactoryProtocol, AutoGenerateProtocol
+    // sourcery:AutoGenerateProtocol
+    @objc public class RNConfigurationModelFactory: NSObject, RNConfigurationModelFactoryProtocol
     {
         public static var infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary
     """

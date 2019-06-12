@@ -17,7 +17,8 @@ import Foundation
 // version 5.5
 /*
 
- // types.implementing.AutoGenerateProtocol inline for JSONEnvironment ..
+ // type.annotations.AutoGenerateProtocol for JSONEnvironment -> See code in the file of that type
+
  // sourcery:inline:JSONEnvironment.AutoGenerateProtocol
  var typed: [String: TypedJsonEntry]? { get }
  var booleans: [String: Bool]? { get }
@@ -25,8 +26,9 @@ import Foundation
  func xcconfigEntry(for configuration: Configuration) throws  -> String
  func androidEnvEntry() throws  -> String
  // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for JSONEnvironment ✅
- // types.implementing.AutoGenerateProtocol inline for JSONEnvironments ..
+ // type.annotations.AutoGenerateProtocol for JSONEnvironment end
+ // type.annotations.AutoGenerateProtocol for JSONEnvironments -> See code in the file of that type
+
  // sourcery:inline:JSONEnvironments.AutoGenerateProtocol
  var debug: JSONEnvironment { get }
  var release: JSONEnvironment { get }
@@ -34,6 +36,5 @@ import Foundation
  var betaRelease: JSONEnvironment { get }
 
  // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for JSONEnvironments ✅
-
+ // type.annotations.AutoGenerateProtocol for JSONEnvironments end
  */

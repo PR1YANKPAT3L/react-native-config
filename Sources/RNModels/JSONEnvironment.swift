@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import SourceryAutoProtocols
 
-public protocol JSONEnvironmentProtocol: AutoMockable
+// sourcery:AutoMockable
+public protocol JSONEnvironmentProtocol
 {
     // sourcery:inline:JSONEnvironment.AutoGenerateProtocol
     var typed: [String: TypedJsonEntry]? { get }
@@ -20,7 +20,8 @@ public protocol JSONEnvironmentProtocol: AutoMockable
     // sourcery:end
 }
 
-public protocol JSONEnvironmentsProtocol: AutoMockable
+// sourcery:AutoMockable
+public protocol JSONEnvironmentsProtocol
 {
     // sourcery:inline:JSONEnvironments.AutoGenerateProtocol
     var debug: JSONEnvironment { get }
@@ -30,7 +31,8 @@ public protocol JSONEnvironmentsProtocol: AutoMockable
     // sourcery:end
 }
 
-public struct JSONEnvironments: Codable, JSONEnvironmentsProtocol, AutoGenerateProtocol
+// sourcery:AutoGenerateProtocol
+public struct JSONEnvironments: Codable, JSONEnvironmentsProtocol
 {
     public let debug: JSONEnvironment
     public let release: JSONEnvironment
@@ -40,7 +42,8 @@ public struct JSONEnvironments: Codable, JSONEnvironmentsProtocol, AutoGenerateP
 
 // MARK: - JSON struct
 
-public struct JSONEnvironment: Codable, JSONEnvironmentProtocol, AutoGenerateProtocol
+// sourcery:AutoGenerateProtocol
+public struct JSONEnvironment: Codable, JSONEnvironmentProtocol
 {
     public let typed: [String: TypedJsonEntry]?
     public let booleans: [String: Bool]?

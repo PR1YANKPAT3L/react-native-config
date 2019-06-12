@@ -1,12 +1,12 @@
 import Foundation
 import RNModels
-import SourceryAutoProtocols
 
 /**
  ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
  */
 
-public protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
+// sourcery:AutoObjcMockable
+public protocol RNConfigurationModelFactoryProtocol
 {
     // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
     static var infoDict: [String: Any]? { get set }
@@ -19,7 +19,8 @@ public protocol RNConfigurationModelFactoryProtocol: AutoObjcMockable
     // sourcery:end
 }
 
-@objc public class RNConfigurationModelFactory: NSObject, RNConfigurationModelFactoryProtocol, AutoGenerateProtocol
+// sourcery:AutoGenerateProtocol
+@objc public class RNConfigurationModelFactory: NSObject, RNConfigurationModelFactoryProtocol
 {
     public static var infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary
 

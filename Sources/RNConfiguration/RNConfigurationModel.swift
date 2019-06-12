@@ -1,12 +1,11 @@
 import Foundation
 import RNModels
-import SourceryAutoProtocols
 
 /**
  ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
  */
-
-public protocol RNConfigurationModelProtocol: AutoMockable
+// sourcery:AutoMockable
+public protocol RNConfigurationModelProtocol
 {
     // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
     var exampleBool: Bool { get }
@@ -17,7 +16,8 @@ public protocol RNConfigurationModelProtocol: AutoMockable
     // sourcery:end
 }
 
-public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol, AutoGenerateProtocol
+// sourcery:AutoGenerateProtocol
+public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol
 {
     // MARK: - Custom plist properties are added here
 

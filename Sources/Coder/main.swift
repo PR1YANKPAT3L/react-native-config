@@ -47,10 +47,8 @@ func continueWithXcodeProjectPresent(_ sync: @escaping Highway.SyncSwiftPackageG
 {
     doContinue(pretty_function())
     {
-        let xcode = try srcRoot.subfolder(named: xcodeName)
-        //    try coder.attemptWriteInfoPlistToAllPlists(in: xcode)
-
-        // enable and have a look at the file to make it work if you want.
+        let output = try coder.attempt()
+        signPost.verbose("found config \(output)")
 
         highway.runSourcery(handleSourceryOutput)
 
@@ -66,9 +64,6 @@ func continueWithXcodeProjectPresent(_ sync: @escaping Highway.SyncSwiftPackageG
 
 doContinue(pretty_function() + " coder")
 {
-    let output = try coder.attempt()
-    signPost.message("found config \(output)")
-
     guard srcRoot.containsSubfolder(possiblyInvalidName: xcodeName) else
     {
         highway.generateXcodeProject(override: output.ios.xcconfigFile, continueWithXcodeProjectPresent)

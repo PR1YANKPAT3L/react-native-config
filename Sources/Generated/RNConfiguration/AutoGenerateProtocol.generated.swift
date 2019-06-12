@@ -17,7 +17,8 @@ import Foundation
 // version 5.5
 /*
 
- // types.implementing.AutoGenerateProtocol inline for RNConfigurationModel ..
+ // type.annotations.AutoGenerateProtocol for RNConfigurationModel -> See code in the file of that type
+
  // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
  var exampleBool: Bool { get }
  var example_url: URLEscaped { get }
@@ -25,16 +26,16 @@ import Foundation
 
  static func create(from json: JSONEnvironment) throws  -> RNConfigurationModelProtocol
  // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for RNConfigurationModel ✅
- // types.implementing.AutoGenerateProtocol inline for RNConfigurationModelFactory ..
+ // type.annotations.AutoGenerateProtocol for RNConfigurationModel end
+ // type.annotations.AutoGenerateProtocol for RNConfigurationModelFactory -> See code in the file of that type
+
  // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
  static var infoDict: [String: Any]? { get set }
 
- static func allValuesDictionary() throws  -> [String: String]
+ static func allValuesDictionary() throws  -> [String : String]
  func allCustomKeys() -> [String]
  static func readCurrentBuildConfiguration() throws  -> RNConfigurationModelProtocol
  static func allConstants() throws  -> [RNConfigurationModelFactory.Case: String]
  // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for RNConfigurationModelFactory ✅
-
+ // type.annotations.AutoGenerateProtocol for RNConfigurationModelFactory end
  */
