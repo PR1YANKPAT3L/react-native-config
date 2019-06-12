@@ -17,26 +17,26 @@
 		C0169ED62246E6F4007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
 		C04F636D2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */; };
 		C04F636F2247910700AED2F5 /* libRNConfigurationBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */; };
+		C089686322B1097800084843 /* TypedJsonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686122B1097800084843 /* TypedJsonEntry.swift */; };
+		C089686422B1097800084843 /* TypedJsonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686122B1097800084843 /* TypedJsonEntry.swift */; };
+		C089686522B1097800084843 /* TypedJsonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686122B1097800084843 /* TypedJsonEntry.swift */; };
+		C089686622B1097800084843 /* JSONEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686222B1097800084843 /* JSONEnvironment.swift */; };
+		C089686722B1097800084843 /* JSONEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686222B1097800084843 /* JSONEnvironment.swift */; };
+		C089686822B1097800084843 /* JSONEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686222B1097800084843 /* JSONEnvironment.swift */; };
 		EB2648E31C7BE17A00B8F155 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
 		FD16745F2229B3E700A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; };
 		FD1674622229B3FC00A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B1622291E8F000B068C /* RNModels.framework */; };
 		FD1674662229B4A800A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
-		FD1674672229B4A800A67996 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
-		FD1674682229B4A800A67996 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FD1674692229B4A800A67996 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD16748A2229B63500A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
-		FD16748B2229B63500A67996 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
-		FD16748C2229B63500A67996 /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FD16748E2229B63500A67996 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FD1674912229B66100A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674802229B5A700A67996 /* RNModels.framework */; };
 		FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
 		FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
-		FDB74B2422291EA3000B068C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDECFC47221B530E00EA1E33 /* JSON.swift */; };
 		FDB74B2522291EA6000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
-		FDB74B2622291EA9000B068C /* JSONEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868AE2201E2D00092A63E /* JSONEntry.swift */; };
 		FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
 		FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
 		FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
@@ -162,13 +162,14 @@
 		C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurationBridgeTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNConfigurationBridgeTests_iOS.m; sourceTree = "<group>"; };
 		C04F636E2247910700AED2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C089686122B1097800084843 /* TypedJsonEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedJsonEntry.swift; sourceTree = "<group>"; };
+		C089686222B1097800084843 /* JSONEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEnvironment.swift; sourceTree = "<group>"; };
 		EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig.h; sourceTree = "<group>"; };
 		EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeConfig.m; sourceTree = "<group>"; };
 		FD1674202229B2C300A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1674802229B5A700A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4868762201D1810092A63E /* RNConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModel.swift; sourceTree = "<group>"; };
-		FD4868AE2201E2D00092A63E /* JSONEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEntry.swift; sourceTree = "<group>"; };
 		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
 		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		FD55CC862200B4270044D1A7 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +192,6 @@
 		FDB74B37222933E0000B068C /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDECFC47221B530E00EA1E33 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,9 +352,9 @@
 		FDB74B1722291E8F000B068C /* RNModels */ = {
 			isa = PBXGroup;
 			children = (
+				C089686222B1097800084843 /* JSONEnvironment.swift */,
+				C089686122B1097800084843 /* TypedJsonEntry.swift */,
 				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
-				FDECFC47221B530E00EA1E33 /* JSON.swift */,
-				FD4868AE2201E2D00092A63E /* JSONEntry.swift */,
 				FDB74B1822291E8F000B068C /* RNModels.h */,
 				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
 			);
@@ -713,9 +713,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C089686422B1097800084843 /* TypedJsonEntry.swift in Sources */,
 				FD1674662229B4A800A67996 /* Configuration.swift in Sources */,
-				FD1674682229B4A800A67996 /* JSONEntry.swift in Sources */,
-				FD1674672229B4A800A67996 /* JSON.swift in Sources */,
+				C089686722B1097800084843 /* JSONEnvironment.swift in Sources */,
 				FD1674692229B4A800A67996 /* UrlEscaped.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,9 +724,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C089686522B1097800084843 /* TypedJsonEntry.swift in Sources */,
 				FD16748A2229B63500A67996 /* Configuration.swift in Sources */,
-				FD16748C2229B63500A67996 /* JSONEntry.swift in Sources */,
-				FD16748B2229B63500A67996 /* JSON.swift in Sources */,
+				C089686822B1097800084843 /* JSONEnvironment.swift in Sources */,
 				FD16748E2229B63500A67996 /* UrlEscaped.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,9 +753,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C089686322B1097800084843 /* TypedJsonEntry.swift in Sources */,
 				FDB74B2522291EA6000B068C /* Configuration.swift in Sources */,
-				FDB74B2622291EA9000B068C /* JSONEntry.swift in Sources */,
-				FDB74B2422291EA3000B068C /* JSON.swift in Sources */,
+				C089686622B1097800084843 /* JSONEnvironment.swift in Sources */,
 				FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
