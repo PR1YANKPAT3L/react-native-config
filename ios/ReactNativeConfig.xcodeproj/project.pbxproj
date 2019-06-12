@@ -32,6 +32,12 @@
 		C089688822B10D7D00084843 /* RNConfiguration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C089688922B10D7D00084843 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; };
 		C089688A22B10D7D00084843 /* RNModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C089695022B1207800084843 /* JSONEnvironments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694D22B1207800084843 /* JSONEnvironments.swift */; };
+		C089695122B1207800084843 /* JSONEnvironments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694D22B1207800084843 /* JSONEnvironments.swift */; };
+		C089695222B1207800084843 /* JSONEnvironments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694D22B1207800084843 /* JSONEnvironments.swift */; };
+		C089695322B1207800084843 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694F22B1207800084843 /* Protocols.swift */; };
+		C089695422B1207800084843 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694F22B1207800084843 /* Protocols.swift */; };
+		C089695522B1207800084843 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694F22B1207800084843 /* Protocols.swift */; };
 		EB2648E31C7BE17A00B8F155 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
 		EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
 		FD16745F2229B3E700A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; };
@@ -206,6 +212,8 @@
 		C089687622B10D4B00084843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C089687922B10D4B00084843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C089687B22B10D4B00084843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C089694D22B1207800084843 /* JSONEnvironments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEnvironments.swift; sourceTree = "<group>"; };
+		C089694F22B1207800084843 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig.h; sourceTree = "<group>"; };
 		EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeConfig.m; sourceTree = "<group>"; };
@@ -338,6 +346,14 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		C089694E22B1207800084843 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				C089694F22B1207800084843 /* Protocols.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		EB2648D61C7BE17A00B8F155 = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +434,8 @@
 		FDB74B1722291E8F000B068C /* RNModels */ = {
 			isa = PBXGroup;
 			children = (
+				C089694E22B1207800084843 /* Generated */,
+				C089694D22B1207800084843 /* JSONEnvironments.swift */,
 				C089686222B1097800084843 /* JSONEnvironment.swift */,
 				C089686122B1097800084843 /* TypedJsonEntry.swift */,
 				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
@@ -829,7 +847,9 @@
 				C089686422B1097800084843 /* TypedJsonEntry.swift in Sources */,
 				FD1674662229B4A800A67996 /* Configuration.swift in Sources */,
 				C089686722B1097800084843 /* JSONEnvironment.swift in Sources */,
+				C089695422B1207800084843 /* Protocols.swift in Sources */,
 				FD1674692229B4A800A67996 /* UrlEscaped.swift in Sources */,
+				C089695122B1207800084843 /* JSONEnvironments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,7 +860,9 @@
 				C089686522B1097800084843 /* TypedJsonEntry.swift in Sources */,
 				FD16748A2229B63500A67996 /* Configuration.swift in Sources */,
 				C089686822B1097800084843 /* JSONEnvironment.swift in Sources */,
+				C089695522B1207800084843 /* Protocols.swift in Sources */,
 				FD16748E2229B63500A67996 /* UrlEscaped.swift in Sources */,
+				C089695222B1207800084843 /* JSONEnvironments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,7 +891,9 @@
 				C089686322B1097800084843 /* TypedJsonEntry.swift in Sources */,
 				FDB74B2522291EA6000B068C /* Configuration.swift in Sources */,
 				C089686622B1097800084843 /* JSONEnvironment.swift in Sources */,
+				C089695322B1207800084843 /* Protocols.swift in Sources */,
 				FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */,
+				C089695022B1207800084843 /* JSONEnvironments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

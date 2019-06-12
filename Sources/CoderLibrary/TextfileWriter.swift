@@ -30,7 +30,7 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
 
     public func writeIOSAndAndroidConfigFiles(from input: CoderInputProtocol, output: CoderOutputProtocol) throws
     {
-        let json = try decoder.decode(JSONEnvironments.self, from:  try input.inputJSONFile.read())
+        let json = try decoder.decode(JSONEnvironments.self, from: try input.inputJSONFile.read())
 
         try Configuration.allCases.forEach
         {
@@ -44,7 +44,7 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
     private func writeAndroidConfiguration(_ json: JSONEnvironmentsProtocol, _ configuration: Configuration, _ android: FileProtocol?) throws
     {
         guard let androidEntry = try json.config[configuration]?.androidEnvEntry() else { return }
-        
+
         try android?.write(string: androidEntry)
     }
 

@@ -75,6 +75,7 @@ extension Coder {
     
     public func attempt() throws -> CoderOutputProtocol
     {
+        signPost.message(pretty_function() + " ...")
         do
         {
           
@@ -88,11 +89,12 @@ extension Coder {
             try plistWriter.writeRNConfigurationPlist()
             
             try bridge.writeRNConfigurationBridge(to: output.ios.jsBridge)
-            
+            signPost.message(pretty_function() + " ✅")
             return output
         }
         catch
         {
+            signPost.message(pretty_function() + " ❌")
             throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
         }
     }
