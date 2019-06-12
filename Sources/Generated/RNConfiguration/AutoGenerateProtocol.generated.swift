@@ -32,7 +32,7 @@ import Foundation
  // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
  static var infoDict: [String: Any]? { get set }
 
- static func allValuesDictionary() throws  -> [String : String]
+ static func allValuesDictionary() throws  -> [String: String]
  func allCustomKeys() -> [String]
  static func readCurrentBuildConfiguration() throws  -> RNConfigurationModelProtocol
  static func allConstants() throws  -> [RNConfigurationModelFactory.Case: String]

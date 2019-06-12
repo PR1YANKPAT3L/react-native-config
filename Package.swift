@@ -14,7 +14,7 @@ public struct External {
     public static let quickNimble: [Target.Dependency] = ["Quick", "Nimble"]
     public static let packages: [Package.Dependency] = [
         
-        .package(url: "https://www.github.com/dooZdev/ZFile", "2.5.0" ..< "2.6.0"),
+        .package(url: "https://www.github.com/dooZdev/ZFile", "2.5.2" ..< "2.6.0"),
         .package(url: "https://www.github.com/dooZdev/Highway", "2.15.0" ..< "2.16.0"),
         
         // Quick & Nimble
@@ -143,6 +143,75 @@ public struct CoderSecrets
     
 }
 
+// MARK: - To setup your project
+
+/**
+ Will copy the files to given folder. Use this to have to configuration in your project setup.
+ */
+public struct Copy {
+    public static let name = "\(Copy.self)"
+    
+    public static let executable = Product.executable(
+        name: name,
+        targets: [name]
+    )
+    
+    public static let target = Target.target(
+        name: name,
+        dependencies: [Target.Dependency(stringLiteral: Library.library.name)]
+    )
+    
+    struct Library {
+        public static let name = "\(Copy.name)\(Library.self)"
+
+        public static let library = Product.library(
+            name: name,
+            targets: [name]
+        )
+        
+        public static let target = Target.target(
+            name: name,
+            dependencies: [
+                Target.Dependency(stringLiteral: Coder.Library.library.name),
+            ]
+        )
+        
+        public static let tests = Target.testTarget(
+            name: name + "Tests",
+            dependencies:
+            target.dependencies
+            + [
+               Target.Dependency(stringLiteral: Library.name),
+               Target.Dependency(stringLiteral: Mock.name),
+               Target.Dependency(stringLiteral: Coder.Library.Mock.name),
+               "TerminalMock", "ZFileMock"
+            ]
+            + External.quickNimble
+        )
+        
+        public struct Mock
+        {
+            public static let name = Library.name + "Mock"
+            
+            public static let libary = Product.library(
+                name: name,
+                targets: [name]
+            )
+            
+            public static let target = Target.target(
+                name: name,
+                dependencies:
+                    Library.target.dependencies
+                    + [Target.Dependency(stringLiteral: Library.name)]
+                    + ["ZFile", "Terminal"],
+                path: "Sources/Generated/\(library.name)"
+            )
+        }
+    }
+    
+    
+}
+
 // MARK: - Coder
 /**
  It writes the env.*.json files into code for ios, android and JS
@@ -160,6 +229,8 @@ public struct Coder
         name: name,
         dependencies: [Target.Dependency(stringLiteral: Library.library.name)]
     )
+    
+    
 
     public struct Library
     {
@@ -305,9 +376,10 @@ let package = Package(
         Coder.executable,
         PrePushAndPR.executable,
         CoderSourcery.executable,
-//        Example.BuildConfiguration.executable,
+        Copy.executable,
         CoderSecrets.executable,
 
+        Copy.Library.library,
         RNModels.library,
         Generated.RNConfiguration.library,
         Coder.Library.library,
@@ -324,7 +396,9 @@ let package = Package(
         CoderSourcery.target,
         Example.BuildConfiguration.target,
         CoderSecrets.target,
+        Copy.target,
 
+        Copy.Library.target,
         Coder.Library.target,
         RNModels.target,
         Generated.RNConfiguration.target,
@@ -332,9 +406,11 @@ let package = Package(
         Coder.Library.tests,
         Generated.RNConfiguration.tests,
 
+        Copy.Library.Mock.target,
         RNModels.Mock.target,
         Generated.RNConfiguration.Mock.target,
         Coder.Library.Mock.target,
+        Copy.Library.tests,
     ],
     swiftLanguageVersions: [.v5]
 )

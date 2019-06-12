@@ -7,11 +7,12 @@
 
 import Foundation
 import SourceryAutoProtocols
+import ZFile
 
 public protocol CopyProtocol: AutoMockable
 {
     // sourcery:inline:Copy.AutoGenerateProtocol
 
-    func attempt() throws
+    func copy(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws
     // sourcery:end
 }

@@ -52,13 +52,18 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
     {
         guard let iOSEntry = try json.config[configuration]?.xcconfigEntry(for: configuration) else { return }
 
-        guard let content = try ios?.readAsString(), !content.contains(iOSEntry) else
+        guard
+            let content = try ios?.readAsString(),
+            !content.isEmpty,
+            !content.contains(iOSEntry)
+        else
         {
             return
         }
-
-        try ios?.append(string: "\n")
-
-        try ios?.append(string: iOSEntry)
+        try ios?.append(string: "\n\(iOSEntry)")
     }
+
+//    private func removeEmptyLines(from file: FileProtocol) {
+//
+//    }
 }
