@@ -6,23 +6,11 @@
 //  Copyright © 2019 bolides. All rights reserved.
 //
 import Foundation
-import Errors
 import Nimble
 import Quick
-import ZFile
 
-import RNModels
-import RNConfiguration
 import CoderLibrary
-
-import ZFileMock
-import SignPostMock
-import TerminalMock
-import Terminal
-
 import CoderLibraryMock
-import RNModelsMock
-import RNConfigurationMock
 
 class JSONToCodeSamplerTests: QuickSpec
 {
@@ -35,8 +23,6 @@ class JSONToCodeSamplerTests: QuickSpec
             var input: CoderInputProtocolMock!
             var output: CoderOutputProtocolMock!
             
-            var textFileWriter: TextFileWriterProtocolMock!
-            
             beforeEach
             {
 
@@ -47,18 +33,13 @@ class JSONToCodeSamplerTests: QuickSpec
                     let correctCoder = try correctCoderInput()
                     input = correctCoder.0
                     
-                    // Text writer setup
-                    
-                    textFileWriter = TextFileWriterProtocolMock()
-                    textFileWriter.setupCodeSamplesJsonReturnValue = TextFileWriter.Sample(arrayLiteral: (case: "mock", configurationModelVar: "mock", configurationModelVarDescription: "mock", xmlEntry: "mock", decoderInit: "mock"))
-
                     // Coder output setup
                     
                     output = CoderOutputProtocolMock()
                     
                     // Sampler setup as subject under test
                     
-                    sut = try JSONToCodeSampler(from: input, to: output, textFileWriter: textFileWriter)
+                    sut = try JSONToCodeSampler(from: input, to: output)
 
                     return sut
                 }.toNot(throwError())
@@ -68,18 +49,51 @@ class JSONToCodeSamplerTests: QuickSpec
             {
                 expect(sut).toNot(beNil())
             }
-
-            it("setup samples") {
-                expect(textFileWriter.setupCodeSamplesJsonCalled) == true
-            }
             
-            context("writes to text files")
+            context("has code samples")
             {
-                it("ios and android") {
-                    expect(textFileWriter.writeIOSAndAndroidConfigFilesFromOutputCalled) == true
+                
+                it("plistLinesXmlText") {
+                    expect(sut?.plistLinesXmlText).to(contain(["example_url", "exampleBool"]))
                 }
                 
+                context("swift") {
+                    it("casesForEnum") {
+                        expect(sut?.casesForEnum).to(contain(["example_url", "exampleBool"]))
+                    }
+                    
+                    it("configurationModelVar") {
+                        expect(sut?.configurationModelVar).to(contain(["example_url", "exampleBool"]))
+                    }
+                    
+                    it("configurationModelVarDescription") {
+                        expect(sut?.configurationModelVarDescription).to(contain(["example_url", "exampleBool"]))
+                    }
+                    
+                    it("decoderInit") {
+                        expect(sut?.decoderInit).to(contain(["example_url", "exampleBool"]))
+                    }
+                    
+                }
                 
+                context("objc bridge samples ready") {
+                    
+                    it("Debug") {
+                        expect(sut?.bridgeEnv[.Debug]?.joined()).to(contain(["YES", "https://debug"]))
+                    }
+                    
+                    it("Release") {
+                        expect(sut?.bridgeEnv[.Release]?.joined()).to(contain(["NO", "https://release"]))
+                    }
+                    
+                    it("Local") {
+                        expect(sut?.bridgeEnv[.Local]?.joined()).to(contain(["YES", "https://local"]))
+                    }
+                    
+                    it("BetaRelease") {
+                        expect(sut?.bridgeEnv[.BetaRelease]?.joined()).to(contain(["NO", "https://betaRelease"]))
+                    }
+                }
                 
             }
         }

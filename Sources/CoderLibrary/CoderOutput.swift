@@ -8,6 +8,7 @@
 import Errors
 import Foundation
 import HighwayLibrary
+import RNModels
 import SourceryAutoProtocols
 import Terminal
 import ZFile
@@ -35,10 +36,12 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
 
             android = CoderOutput.Android(
                 sourcesFolder: androidFolder,
-                debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
-                release: try androidFolder.createFileIfNeeded(named: ".env.release"),
-                local: try androidFolder.createFileIfNeeded(named: ".env.local"),
-                betaRelease: try androidFolder.createFileIfNeeded(named: ".env.betaReleae")
+                configFiles: [
+                    .Debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
+                    .Release: try androidFolder.createFileIfNeeded(named: ".env.release"),
+                    .Local: try androidFolder.createFileIfNeeded(named: ".env.local"),
+                    .BetaRelease: try androidFolder.createFileIfNeeded(named: ".env.betaReleae"),
+                ]
             )
 
             if !packageCoderSources.containsSubfolder(possiblyInvalidName: CoderInput.projectNameWithPrepareScript)
@@ -54,7 +57,7 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
                 infoPlistRNConfiguration: try packageCoderSources.file(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
                 infoPlistRNConfigurationTests: try packageCoderSources.file(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
                 rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModel.swift"),
-                rnConfigurationBridgeObjectiveCMFile: try rnConfigurationBridgeSourcesFolder.file(named: "ReactNativeConfig.m")
+                jsBridge: try rnConfigurationBridgeSourcesFolder.file(named: "ReactNativeConfig.m")
             )
         }
         catch
@@ -67,10 +70,7 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
     {
         public let sourcesFolder: FolderProtocol
 
-        public let debug: FileProtocol
-        public let release: FileProtocol
-        public let local: FileProtocol?
-        public let betaRelease: FileProtocol?
+        public let configFiles: [RNModels.Configuration: FileProtocol]
     }
 
     public struct iOS: CoderOutputiOSProtocol, AutoGenerateProtocol
@@ -82,7 +82,7 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
         public let infoPlistRNConfiguration: FileProtocol
         public let infoPlistRNConfigurationTests: FileProtocol
         public let rnConfigurationModelSwiftFile: FileProtocol
-        public let rnConfigurationBridgeObjectiveCMFile: FileProtocol
+        public let jsBridge: FileProtocol
 
         public func writeDefaultsToFiles() throws
         {

@@ -34,11 +34,12 @@ doContinue(pretty_function() + " setup")
     output = try CoderOutput(packageCoderSources: srcRoot)
 
     sampler = try JSONToCodeSampler(from: input, to: output)
-    coder = try Coder(
+    coder = Coder(
         input: input,
         output: output,
-        builds: sampler,
-        plistWriter: PlistWriter(output: output, sampler: sampler)
+        codeSampler: sampler,
+        plistWriter: PlistWriter(output: output, sampler: sampler),
+        bridge: JSBridgeCodeSample(bridgeEnv: sampler.bridgeEnv)
     )
 }
 

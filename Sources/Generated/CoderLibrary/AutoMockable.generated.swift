@@ -9,18 +9,6 @@ import ZFile
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
-// MARK: - BridgeEnvProtocolMock
-
-open class BridgeEnvProtocolMock: BridgeEnvProtocol
-{
-    public init() {}
-
-    public var local: [String] = []
-    public var debug: [String] = []
-    public var release: [String] = []
-    public var betaRelease: [String] = []
-}
-
 // MARK: - CoderInputProtocolMock
 
 open class CoderInputProtocolMock: CoderInputProtocol
@@ -63,22 +51,7 @@ open class CoderOutputAndroidProtocolMock: CoderOutputAndroidProtocol
     }
 
     public var underlyingSourcesFolder: FolderProtocol!
-    public var debug: FileProtocol
-    {
-        get { return underlyingDebug }
-        set(value) { underlyingDebug = value }
-    }
-
-    public var underlyingDebug: FileProtocol!
-    public var release: FileProtocol
-    {
-        get { return underlyingRelease }
-        set(value) { underlyingRelease = value }
-    }
-
-    public var underlyingRelease: FileProtocol!
-    public var local: FileProtocol?
-    public var betaRelease: FileProtocol?
+    public var configFiles: [RNModels.Configuration: FileProtocol] = [:]
 }
 
 // MARK: - CoderOutputProtocolMock
@@ -151,13 +124,13 @@ open class CoderOutputiOSProtocolMock: CoderOutputiOSProtocol
     }
 
     public var underlyingRnConfigurationModelSwiftFile: FileProtocol!
-    public var rnConfigurationBridgeObjectiveCMFile: FileProtocol
+    public var jsBridge: FileProtocol
     {
-        get { return underlyingRnConfigurationBridgeObjectiveCMFile }
-        set(value) { underlyingRnConfigurationBridgeObjectiveCMFile = value }
+        get { return underlyingJsBridge }
+        set(value) { underlyingJsBridge = value }
     }
 
-    public var underlyingRnConfigurationBridgeObjectiveCMFile: FileProtocol!
+    public var underlyingJsBridge: FileProtocol!
 
     // MARK: - <writeDefaultsToFiles> - parameters
 
@@ -301,37 +274,6 @@ open class CoderProtocolMock: CoderProtocol
         return try closureReturn()
     }
 
-    // MARK: - <writeRNConfigurationBridge> - parameters
-
-    public var writeRNConfigurationBridgeThrowableError: Error?
-    public var writeRNConfigurationBridgeCallsCount = 0
-    public var writeRNConfigurationBridgeCalled: Bool
-    {
-        return writeRNConfigurationBridgeCallsCount > 0
-    }
-
-    // MARK: - <writeRNConfigurationBridge> - closure mocks
-
-    public var writeRNConfigurationBridgeClosure: (() throws -> Void)?
-
-    // MARK: - <writeRNConfigurationBridge> - method mocked
-
-    open func writeRNConfigurationBridge() throws
-    {
-        // <writeRNConfigurationBridge> - Throwable method implementation
-
-        if let error = writeRNConfigurationBridgeThrowableError
-        {
-            throw error
-        }
-
-        writeRNConfigurationBridgeCallsCount += 1
-
-        // <writeRNConfigurationBridge> - Void return mock implementation
-
-        try writeRNConfigurationBridgeClosure?()
-    }
-
     // MARK: - <writeRNConfigurationModel> - parameters
 
     public var writeRNConfigurationModelThrowableError: Error?
@@ -395,6 +337,49 @@ open class CoderProtocolMock: CoderProtocol
     }
 }
 
+// MARK: - JSBridgeCodeSampleProtocolMock
+
+open class JSBridgeCodeSampleProtocolMock: JSBridgeCodeSampleProtocol
+{
+    public init() {}
+
+    public var bridgeEnv: [RNModels.Configuration: [String]] = [:]
+
+    // MARK: - <writeRNConfigurationBridge> - parameters
+
+    public var writeRNConfigurationBridgeToThrowableError: Error?
+    public var writeRNConfigurationBridgeToCallsCount = 0
+    public var writeRNConfigurationBridgeToCalled: Bool
+    {
+        return writeRNConfigurationBridgeToCallsCount > 0
+    }
+
+    public var writeRNConfigurationBridgeToReceivedFile: FileProtocol?
+
+    // MARK: - <writeRNConfigurationBridge> - closure mocks
+
+    public var writeRNConfigurationBridgeToClosure: ((FileProtocol) throws -> Void)?
+
+    // MARK: - <writeRNConfigurationBridge> - method mocked
+
+    open func writeRNConfigurationBridge(to file: FileProtocol) throws
+    {
+        // <writeRNConfigurationBridge> - Throwable method implementation
+
+        if let error = writeRNConfigurationBridgeToThrowableError
+        {
+            throw error
+        }
+
+        writeRNConfigurationBridgeToCallsCount += 1
+        writeRNConfigurationBridgeToReceivedFile = file
+
+        // <writeRNConfigurationBridge> - Void return mock implementation
+
+        try writeRNConfigurationBridgeToClosure?(file)
+    }
+}
+
 // MARK: - JSONToCodeSamplerProtocolMock
 
 open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
@@ -436,13 +421,7 @@ open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
     }
 
     public var underlyingDecoderInit: String = "AutoMockable filled value"
-    public var bridgeEnv: BridgeEnvProtocol
-    {
-        get { return underlyingBridgeEnv }
-        set(value) { underlyingBridgeEnv = value }
-    }
-
-    public var underlyingBridgeEnv: BridgeEnvProtocol!
+    public var bridgeEnv: [RNModels.Configuration: [String]] = [:]
 }
 
 // MARK: - PlistWriterProtocolMock
@@ -505,39 +484,6 @@ open class PlistWriterProtocolMock: PlistWriterProtocol
     }
 }
 
-// MARK: - RNConfigurationBridgeProtocolMock
-
-open class RNConfigurationBridgeProtocolMock: RNConfigurationBridgeProtocol
-{
-    public init() {}
-
-    public var envLocal: [String] = []
-    public var envDebug: [String] = []
-    public var envRelease: [String] = []
-    public var envBetaRelease: [String] = []
-    public static var top: String
-    {
-        get { return underlyingTop }
-        set(value) { underlyingTop = value }
-    }
-
-    public static var underlyingTop: String = "AutoMockable filled value"
-    public var env: String
-    {
-        get { return underlyingEnv }
-        set(value) { underlyingEnv = value }
-    }
-
-    public var underlyingEnv: String = "AutoMockable filled value"
-    public static var bottom: String
-    {
-        get { return underlyingBottom }
-        set(value) { underlyingBottom = value }
-    }
-
-    public static var underlyingBottom: String = "AutoMockable filled value"
-}
-
 // MARK: - TextFileWriterProtocolMock
 
 open class TextFileWriterProtocolMock: TextFileWriterProtocol
@@ -558,40 +504,6 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
     }
 
     public var underlyingDecoder: JSONDecoder!
-
-    // MARK: - <writeConfigIfNeeded> - parameters
-
-    public var writeConfigIfNeededFromForAndroidIosThrowableError: Error?
-    public var writeConfigIfNeededFromForAndroidIosCallsCount = 0
-    public var writeConfigIfNeededFromForAndroidIosCalled: Bool
-    {
-        return writeConfigIfNeededFromForAndroidIosCallsCount > 0
-    }
-
-    public var writeConfigIfNeededFromForAndroidIosReceivedArguments: (jsonFile: (FileProtocol)?, configuration: Configuration, android: (FileProtocol)?, ios: (FileProtocol)?)?
-
-    // MARK: - <writeConfigIfNeeded> - closure mocks
-
-    public var writeConfigIfNeededFromForAndroidIosClosure: ((FileProtocol?, Configuration, FileProtocol?, FileProtocol?) throws -> Void)?
-
-    // MARK: - <writeConfigIfNeeded> - method mocked
-
-    open func writeConfigIfNeeded(from jsonFile: FileProtocol?, for configuration: Configuration, android: FileProtocol?, ios: FileProtocol?) throws
-    {
-        // <writeConfigIfNeeded> - Throwable method implementation
-
-        if let error = writeConfigIfNeededFromForAndroidIosThrowableError
-        {
-            throw error
-        }
-
-        writeConfigIfNeededFromForAndroidIosCallsCount += 1
-        writeConfigIfNeededFromForAndroidIosReceivedArguments = (jsonFile: jsonFile, configuration: configuration, android: android, ios: ios)
-
-        // <writeConfigIfNeeded> - Void return mock implementation
-
-        try writeConfigIfNeededFromForAndroidIosClosure?(jsonFile, configuration, android, ios)
-    }
 
     // MARK: - <writeIOSAndAndroidConfigFiles> - parameters
 
@@ -625,49 +537,6 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
         // <writeIOSAndAndroidConfigFiles> - Void return mock implementation
 
         try writeIOSAndAndroidConfigFilesFromOutputClosure?(input, output)
-    }
-
-    // MARK: - <setupCodeSamples> - parameters
-
-    public var setupCodeSamplesJsonCallsCount = 0
-    public var setupCodeSamplesJsonCalled: Bool
-    {
-        return setupCodeSamplesJsonCallsCount > 0
-    }
-
-    public var setupCodeSamplesJsonReceivedJson: JSONEnvironmentProtocol?
-    public var setupCodeSamplesJsonReturnValue: TextFileWriter.Sample?
-
-    // MARK: - <setupCodeSamples> - closure mocks
-
-    public var setupCodeSamplesJsonClosure: ((JSONEnvironmentProtocol) -> TextFileWriter.Sample)?
-
-    // MARK: - <setupCodeSamples> - method mocked
-
-    open func setupCodeSamples(json: JSONEnvironmentProtocol) -> TextFileWriter.Sample
-    {
-        setupCodeSamplesJsonCallsCount += 1
-        setupCodeSamplesJsonReceivedJson = json
-
-        // <setupCodeSamples> - Return Value mock implementation
-
-        guard let closureReturn = setupCodeSamplesJsonClosure else
-        {
-            guard let returnValue = setupCodeSamplesJsonReturnValue else
-            {
-                let message = "No returnValue implemented for setupCodeSamplesJsonClosure"
-                let error = SourceryMockError.implementErrorCaseFor(message)
-
-                // You should implement TextFileWriter.Sample
-
-                print("❌ \(error)")
-
-                fatalError("\(self) \(#function) should be mocked with return value or be able to throw")
-            }
-            return returnValue
-        }
-
-        return closureReturn(json)
     }
 }
 

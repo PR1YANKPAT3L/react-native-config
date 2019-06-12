@@ -41,8 +41,8 @@ class CoderSpec: QuickSpec
             var terminal: TerminalProtocolMock!
             var system: SystemProtocolMock!
             var plistWriter: PlistWriterProtocolMock!
-            
-            var json: FileProtocolMock!
+            var textFileWriter: TextFileWriterProtocolMock!
+            var bridge: JSBridgeCodeSampleProtocolMock!
             
             beforeEach
             {
@@ -56,37 +56,14 @@ class CoderSpec: QuickSpec
                     
                     let correctCoder = try correctCoderInput()
                     input = correctCoder.0
-                    json = correctCoder.json
                     
                     // Coder output setup
                     
-                    output = CoderOutputProtocolMock()
-                    
-                    let ios: CoderOutputiOSProtocolMock = CoderOutputiOSProtocolMock()
-                    ios.underlyingXcconfigFile = try FileProtocolMock()
-                    ios.underlyingSourcesFolder = correctCoder.srcRoot
-                    ios.underlyingInfoPlistRNConfiguration = try FileProtocolMock()
-                    ios.underlyingRnConfigurationModelSwiftFile = try FileProtocolMock()
-                    ios.underlyingInfoPlistRNConfigurationTests = try FileProtocolMock()
-                    ios.underlyingRnConfigurationBridgeObjectiveCMFile = try FileProtocolMock()
-                    ios.rnConfigurationModelSwiftFile = try FileProtocolMock()
-                    ios.underlyingRnConfigurationModelFactorySwiftFile = try FileProtocolMock()
-                    
-                    output.underlyingIos = ios
-                    
-                    let android: CoderOutputAndroidProtocolMock = CoderOutputAndroidProtocolMock()
-                    android.sourcesFolder = correctCoder.srcRoot
-                    android.debug = try FileProtocolMock()
-                    android.release = try FileProtocolMock()
-                    android.local = try FileProtocolMock()
-                    android.betaRelease = try FileProtocolMock()
-                    
-                    output.underlyingAndroid = android
+                    output = try correctCoderOutput(srcRoot: correctCoder.srcRoot)
                     
                     // setup code sampler
                     
                     sampler = JSONToCodeSamplerProtocolMock()
-                    sampler.underlyingBridgeEnv = BridgeEnvProtocolMock()
                     sampler.plistLinesXmlText = """
                     <key>exampleBool</key>
                     <string>false</string>
@@ -98,14 +75,25 @@ class CoderSpec: QuickSpec
                     
                     plistWriter = PlistWriterProtocolMock()
                     
+                    // Setup text file writer
+                    
+                    textFileWriter = TextFileWriterProtocolMock()
+                    textFileWriter.writeIOSAndAndroidConfigFilesFromOutputClosure = { _, _ in }
+                    
+                    // Setup code for bridge
+                    
+                    bridge = JSBridgeCodeSampleProtocolMock()
+                    bridge.writeRNConfigurationBridgeToClosure = { _ in }
                     
                     // setup coder
                     
                     sut = Coder(
                         input: input,
                         output: output,
-                        builds: sampler,
+                        codeSampler: sampler,
                         plistWriter: plistWriter,
+                        bridge: bridge,
+                        textFileWriter: textFileWriter,
                         signPost: signPost,
                         decoder: JSONDecoder(),
                         terminal: terminal,
@@ -120,16 +108,16 @@ class CoderSpec: QuickSpec
             {
                 expect(sut).toNot(beNil())
             }
-
+            
             context("env contains some keys and values")
             {
                 beforeEach {
                     expect { try sut?.attempt() }.toNot(throwError())
                 }
                 
-                it("can code")
+                it("writes to ios and android config files")
                 {
-                    expect(sut).toNot(beNil())
+                    expect(textFileWriter.writeIOSAndAndroidConfigFilesFromOutputCalled) == true
                 }
                 
                 context("writes default ios code")
@@ -153,9 +141,8 @@ class CoderSpec: QuickSpec
                     }
                     
                     it("objectiveC") {
-                        let objectiveC: (FileProtocolMock) = (output.ios.rnConfigurationBridgeObjectiveCMFile as! FileProtocolMock)
 
-                        expect(objectiveC.writeStringReceivedString).to(contain(Coder.RNConfigurationBridge.top))
+                        expect(bridge.writeRNConfigurationBridgeToCalled) == true
                     }
                 }
                 

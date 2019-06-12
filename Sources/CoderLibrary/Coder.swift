@@ -11,6 +11,8 @@ import SignPost
 import ZFile
 import Terminal
 import Errors
+import SourceryAutoProtocols
+import RNModels
 
 /**
  Generates code or plist content and write to corresponding file
@@ -19,8 +21,7 @@ import Errors
  
  But maybe in the future it can write Android too. The TextFileWriter now writes to needed config files for Android.
  */
-// sourcery:AutoGenerateProtocol
-public struct Coder: CoderProtocol {
+public struct Coder: CoderProtocol, AutoGenerateProtocol {
     
     // MARK: - Private
     
@@ -32,14 +33,18 @@ public struct Coder: CoderProtocol {
     private let terminal: TerminalProtocol
     private let system: SystemProtocol
     private let plistWriter: PlistWriterProtocol
+    private let textFileWriter: TextFileWriterProtocol
+    private let bridge: JSBridgeCodeSampleProtocol
     
     // MARK: - Init
     
     public init(
         input: CoderInputProtocol,
         output: CoderOutputProtocol,
-        builds: JSONToCodeSamplerProtocol,
+        codeSampler: JSONToCodeSamplerProtocol,
         plistWriter: PlistWriterProtocol,
+        bridge: JSBridgeCodeSampleProtocol,
+        textFileWriter: TextFileWriterProtocol = TextFileWriter(),
         signPost: SignPostProtocol = SignPost.shared,
         decoder: JSONDecoder = JSONDecoder(),
         terminal: TerminalProtocol = Terminal.shared,
@@ -47,11 +52,13 @@ public struct Coder: CoderProtocol {
     ) {
         self.output = output
         self.input = input
-        self.codeSampler = builds
+        self.codeSampler = codeSampler
         self.signPost = signPost
         self.terminal = terminal
         self.system = system
         self.plistWriter = plistWriter
+        self.textFileWriter = textFileWriter
+        self.bridge = bridge
     }
     
     public struct Config
@@ -71,6 +78,8 @@ extension Coder {
         do
         {
           
+            try textFileWriter.writeIOSAndAndroidConfigFiles(from: input, output: output)
+
             try output.ios.writeDefaultsToFiles()
             
             try writeRNConfigurationModelFactory()
@@ -78,8 +87,7 @@ extension Coder {
             
             try plistWriter.writeRNConfigurationPlist()
             
-            try writeRNConfigurationBridge()
-            
+            try bridge.writeRNConfigurationBridge(to: output.ios.jsBridge)
             
             return output
         }
@@ -94,102 +102,6 @@ extension Coder {
 // MARK: - Extensions
 
 // MARK: - Writing Functions
-
-// MARK: - RNConfigurationBridge
-
-extension Coder {
-    
-    // Template
-    
-    // sourcery:AutoGenerateProtocol
-    public struct RNConfigurationBridge: RNConfigurationBridgeProtocol {
-        
-        // MARK: - Code
-        
-        // "@@"<#key#>" : @"<#value#>"";
-        
-        public let envLocal: [String]
-        public let envDebug: [String]
-        public let envRelease: [String]
-        public let envBetaRelease: [String]
-        
-        // MARK: - Code Templates
-        
-        public static let top = """
-        #import "ReactNativeConfig.h"
-        #import <Foundation/Foundation.h>
-
-        @implementation ReactNativeConfig
-
-        RCT_EXPORT_MODULE()
-
-        + (BOOL)requiresMainQueueSetup
-        {
-            return YES;
-        }
-
-        """
-        
-        public private(set) lazy var env: String = """
-        + (NSDictionary *)env {
-            #ifdef DEBUG
-            #ifdef LOCAL
-            return @{
-                \(self.envLocal.joined(separator: ",\n"))
-            };
-            #else
-            return @{
-                \(self.envDebug.joined(separator: ",\n"))
-            };
-            #endif
-            #elif RELEASE
-            return @{
-                \(self.envRelease.joined(separator: ",\n"))
-            };
-            #elif BETARELEASE
-            return @{
-                \(self.envBetaRelease.joined(separator: ",\n"))
-            };
-            #else
-                NSLog(@"⚠️ (Coder) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
-            return nil;
-            #endif
-        }
-        """
-        
-        public static let bottom = """
-        + (NSString *)envFor: (NSString *)key {
-            NSString *value = (NSString *)[self.env objectForKey:key];
-            return value;
-        }
-
-        - (NSDictionary *)constantsToExport {
-            return [ReactNativeConfig env];
-        }
-        
-        @end
-        """
-    }
-    
-    public func writeRNConfigurationBridge() throws {
-        
-        var bridgeCode = RNConfigurationBridge(
-            envLocal: codeSampler.bridgeEnv.local,
-            envDebug: codeSampler.bridgeEnv.debug,
-            envRelease: codeSampler.bridgeEnv.release,
-            envBetaRelease: codeSampler.bridgeEnv.betaRelease,
-            env: nil
-        )
-        
-        try output.ios.rnConfigurationBridgeObjectiveCMFile.write(string: """
-            \(RNConfigurationBridge.top)
-            \(bridgeCode.env)
-            \(RNConfigurationBridge.bottom)
-            """
-        )
-        
-    }
-}
 
 // MARK: - RNConfigurationModel
 
