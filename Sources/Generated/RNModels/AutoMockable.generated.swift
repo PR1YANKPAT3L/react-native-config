@@ -145,6 +145,7 @@ open class JSONEnvironmentsProtocolMock: JSONEnvironmentsProtocol
     }
 
     public var underlyingBetaRelease: JSONEnvironment!
+    public var config: [RNModels.Configuration: JSONEnvironment] = [:]
 }
 
 // MARK: - OBJECTIVE-C

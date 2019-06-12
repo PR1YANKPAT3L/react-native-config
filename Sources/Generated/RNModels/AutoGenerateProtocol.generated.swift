@@ -34,6 +34,7 @@ import Foundation
  var release: JSONEnvironment { get }
  var local: JSONEnvironment { get }
  var betaRelease: JSONEnvironment { get }
+ var config: [RNModels.Configuration: JSONEnvironment] { get }
 
  // sourcery:end
  // type.annotations.AutoGenerateProtocol for JSONEnvironments end
