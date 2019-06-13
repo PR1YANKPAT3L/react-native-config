@@ -41,7 +41,6 @@ public struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
     public func writeRNConfigurationPlist(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
         try writeRNConfigurationPlist(to: output.ios.infoPlistRNConfiguration, sampler: sampler)
-        try writeRNConfigurationPlist(to: output.ios.infoPlistRNConfigurationTests, sampler: sampler)
     }
 
     private func writeRNConfigurationPlist(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws

@@ -14,6 +14,8 @@ import ZFile
 
 open class Copy: CopyProtocol, AutoGenerateProtocol
 {
+    public static var iosSubFolder: String = "GeneratedEnvironmentIOS"
+
     private let output: CoderOutputProtocol
     private let terminal: TerminalProtocol
     private let system: SystemProtocol
@@ -89,10 +91,10 @@ open class Copy: CopyProtocol, AutoGenerateProtocol
 
             // COPY IOS PROJECT
 
-            if !ios.containsSubfolder(possiblyInvalidName: "ReactNativeConfig")
+            if !ios.containsSubfolder(possiblyInvalidName: Copy.iosSubFolder)
             {
-                let destination = try ios.createSubfolderIfNeeded(named: "ReactNativeConfig")
-                _ = try output.ios.sourcesFolder.copy(to: ios)
+                let destination = try ios.createSubfolderIfNeeded(named: Copy.iosSubFolder)
+                _ = try output.ios.sourcesFolder.copy(to: destination)
             }
 
             if xcodeproj.containsFile(possiblyInvalidName: output.ios.infoPlistRNConfiguration.name)

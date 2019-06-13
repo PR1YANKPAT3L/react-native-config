@@ -48,7 +48,6 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
                 xcconfigFile: xcconfigFile,
                 rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
                 infoPlistRNConfiguration: try packageCoderSources.createFileIfNeeded(named: "\(xcodeProjectName).xcodeproj/RNConfiguration_Info.plist"),
-                infoPlistRNConfigurationTests: try packageCoderSources.createFileIfNeeded(named: "\(xcodeProjectName).xcodeproj/RNConfigurationTests_Info.plist"),
                 rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift"),
                 jsBridge: try rnConfigurationBridgeSourcesFolder.createFileIfNeeded(named: "ReactNativeConfig.m")
             )
@@ -73,7 +72,6 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
         public let xcconfigFile: FileProtocol
         public let rnConfigurationModelFactorySwiftFile: FileProtocol
         public let infoPlistRNConfiguration: FileProtocol
-        public let infoPlistRNConfigurationTests: FileProtocol
         public let rnConfigurationModelSwiftFile: FileProtocol
         public let jsBridge: FileProtocol
     }

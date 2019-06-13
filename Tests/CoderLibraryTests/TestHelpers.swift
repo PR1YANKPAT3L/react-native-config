@@ -63,7 +63,6 @@ func correctCoderOutput(srcRoot: FolderProtocolMock) throws -> CoderOutputProtoc
 
     ios.underlyingInfoPlistRNConfiguration = plist
     ios.underlyingRnConfigurationModelSwiftFile = try FileProtocolMock()
-    ios.underlyingInfoPlistRNConfigurationTests = try FileProtocolMock()
     ios.underlyingJsBridge = try FileProtocolMock()
     ios.underlyingInfoPlistRNConfiguration = plist
     

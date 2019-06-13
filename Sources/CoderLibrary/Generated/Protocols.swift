@@ -14,6 +14,7 @@ import ZFile
 public protocol CopyProtocol: AutoMockable
 {
     // sourcery:inline:Copy.AutoGenerateProtocol
+    static var iosSubFolder: String { get set }
 
     func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
     // sourcery:end
@@ -99,7 +100,6 @@ public protocol CoderOutputiOSProtocol: AutoMockable
     var xcconfigFile: FileProtocol { get }
     var rnConfigurationModelFactorySwiftFile: FileProtocol { get }
     var infoPlistRNConfiguration: FileProtocol { get }
-    var infoPlistRNConfigurationTests: FileProtocol { get }
     var rnConfigurationModelSwiftFile: FileProtocol { get }
     var jsBridge: FileProtocol { get }
     // sourcery:end

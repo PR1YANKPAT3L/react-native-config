@@ -81,13 +81,6 @@ open class CoderOutputiOSProtocolMock: CoderOutputiOSProtocol
     }
 
     public var underlyingInfoPlistRNConfiguration: FileProtocol!
-    public var infoPlistRNConfigurationTests: FileProtocol
-    {
-        get { return underlyingInfoPlistRNConfigurationTests }
-        set(value) { underlyingInfoPlistRNConfigurationTests = value }
-    }
-
-    public var underlyingInfoPlistRNConfigurationTests: FileProtocol!
     public var rnConfigurationModelSwiftFile: FileProtocol
     {
         get { return underlyingRnConfigurationModelSwiftFile }
@@ -262,6 +255,14 @@ open class CoderProtocolMock: CoderProtocol
 open class CopyProtocolMock: CopyProtocol
 {
     public init() {}
+
+    public static var iosSubFolder: String
+    {
+        get { return underlyingIosSubFolder }
+        set(value) { underlyingIosSubFolder = value }
+    }
+
+    public static var underlyingIosSubFolder: String = "AutoMockable filled value"
 
     // MARK: - <attempt> - parameters
 

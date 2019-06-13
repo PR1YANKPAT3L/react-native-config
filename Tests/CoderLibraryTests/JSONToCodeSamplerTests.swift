@@ -22,7 +22,6 @@ class JSONToCodeSamplerTests: QuickSpec
             var sut: JSONToCodeSampler?
 
             var input: FileProtocolMock!
-            var output: CoderOutputProtocolMock!
             
             beforeEach
             {
@@ -33,10 +32,6 @@ class JSONToCodeSamplerTests: QuickSpec
                     
                     let correctCoder = try correctCoderInput()
                     input = correctCoder.0
-                    
-                    // Coder output setup
-                    
-                    output = CoderOutputProtocolMock()
                     
                     // Sampler setup as subject under test
                     

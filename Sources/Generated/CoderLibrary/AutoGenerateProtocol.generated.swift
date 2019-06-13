@@ -49,7 +49,6 @@ import Foundation
  var xcconfigFile: FileProtocol { get }
  var rnConfigurationModelFactorySwiftFile: FileProtocol { get }
  var infoPlistRNConfiguration: FileProtocol { get }
- var infoPlistRNConfigurationTests: FileProtocol { get }
  var rnConfigurationModelSwiftFile: FileProtocol { get }
  var jsBridge: FileProtocol { get }
 
@@ -57,6 +56,7 @@ import Foundation
  // types.implementing.AutoGenerateProtocol inline for CoderOutput.iOS ✅
  // types.implementing.AutoGenerateProtocol inline for Copy ..
  // sourcery:inline:Copy.AutoGenerateProtocol
+ static var iosSubFolder: String { get set }
 
  func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
  // sourcery:end
