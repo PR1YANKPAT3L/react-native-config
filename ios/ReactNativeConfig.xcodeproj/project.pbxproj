@@ -15,7 +15,6 @@
 		C0169ED12246E6BB007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
 		C0169ED42246E6DB007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
 		C0169ED62246E6F4007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
-		C04F636D2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */; };
 		C04F636F2247910700AED2F5 /* libRNConfigurationBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */; };
 		C089686322B1097800084843 /* TypedJsonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686122B1097800084843 /* TypedJsonEntry.swift */; };
 		C089686422B1097800084843 /* TypedJsonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686122B1097800084843 /* TypedJsonEntry.swift */; };
@@ -201,8 +200,6 @@
 		3DF7F6AC203AA09B00D0EAB7 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C005134F22A9B87300378083 /* Coder.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Coder.xcconfig; sourceTree = "<group>"; };
 		C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurationBridgeTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNConfigurationBridgeTests_iOS.m; sourceTree = "<group>"; };
-		C04F636E2247910700AED2F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C089686122B1097800084843 /* TypedJsonEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedJsonEntry.swift; sourceTree = "<group>"; };
 		C089686222B1097800084843 /* JSONEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEnvironment.swift; sourceTree = "<group>"; };
 		C089686D22B10D4900084843 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,15 +321,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C04F636B2247910700AED2F5 /* RNConfigurationBridgeTests-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C04F636C2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m */,
-				C04F636E2247910700AED2F5 /* Info.plist */,
-			);
-			path = "RNConfigurationBridgeTests-iOS";
-			sourceTree = "<group>";
-		};
 		C089686E22B10D4900084843 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +331,8 @@
 				C089687822B10D4B00084843 /* LaunchScreen.storyboard */,
 				C089687B22B10D4B00084843 /* Info.plist */,
 			);
-			path = Test;
+			name = Test;
+			path = Sources/Test;
 			sourceTree = "<group>";
 		};
 		C089694E22B1207800084843 /* Generated */ = {
@@ -359,7 +348,6 @@
 			children = (
 				C005134F22A9B87300378083 /* Coder.xcconfig */,
 				FDB74B2C2229276B000B068C /* Sources */,
-				C04F636B2247910700AED2F5 /* RNConfigurationBridgeTests-iOS */,
 				C089686E22B10D4900084843 /* Test */,
 				EB2648E01C7BE17A00B8F155 /* Products */,
 				FD55CC902200B4460044D1A7 /* Frameworks */,
@@ -819,7 +807,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C04F636D2247910700AED2F5 /* RNConfigurationBridgeTests_iOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1121,7 +1108,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WWFDRU947Q;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1150,7 +1137,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WWFDRU947Q;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1177,7 +1164,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WWFDRU947Q;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1204,7 +1191,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WWFDRU947Q;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
@@ -1271,7 +1258,7 @@
 					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
 					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
 				);
-				INFOPLIST_FILE = ../Coder.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = RNConfiguration_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -1332,7 +1319,7 @@
 					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
 					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
 				);
-				INFOPLIST_FILE = ../Coder.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = RNConfiguration_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -1872,7 +1859,7 @@
 					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
 					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
 				);
-				INFOPLIST_FILE = ../Coder.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = RNConfiguration_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -2289,7 +2276,7 @@
 					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
 					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
 				);
-				INFOPLIST_FILE = ../Coder.xcodeproj/RNConfiguration_Info.plist;
+				INFOPLIST_FILE = RNConfiguration_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
