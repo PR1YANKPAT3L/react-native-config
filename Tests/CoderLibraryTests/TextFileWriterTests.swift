@@ -3,6 +3,10 @@ import Nimble
 import CoderLibrary
 import CoderLibraryMock
 import ZFileMock
+import RNModelsMock
+import Foundation
+import RNModels
+import ZFile
 
 class TextFileWriterTests: QuickSpec {
     
@@ -13,8 +17,7 @@ class TextFileWriterTests: QuickSpec {
             var sut: TextFileWriter?
             
             var output: CoderOutputProtocolMock!
-            var input: CoderInputProtocolMock!
-            
+            var json: JSONEnvironmentsProtocol!
             var result = [String]()
 
             var xcconfigFile: FileProtocolMock!
@@ -23,7 +26,6 @@ class TextFileWriterTests: QuickSpec {
                 
                 expect {
                     let correctCoder = try correctCoderInput()
-                    input  = correctCoder.0
                     
                     output = try correctCoderOutput(srcRoot: correctCoder.srcRoot)
                     
@@ -36,7 +38,8 @@ class TextFileWriterTests: QuickSpec {
                         
                     }
                     
-                    return try sut?.writeIOSAndAndroidConfigFiles(from: input, output: output)
+                    json = try JSONDecoder().decode(JSONEnvironments.self, from: try correctCoder.json.read())
+                    return try sut?.writeIOSAndAndroidConfigFiles(from: json, output: output)
                     
                 }.toNot(throwError())
             }

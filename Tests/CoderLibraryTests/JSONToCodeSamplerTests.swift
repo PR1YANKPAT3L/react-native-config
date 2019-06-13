@@ -11,6 +11,7 @@ import Quick
 
 import CoderLibrary
 import CoderLibraryMock
+import ZFileMock
 
 class JSONToCodeSamplerTests: QuickSpec
 {
@@ -20,7 +21,7 @@ class JSONToCodeSamplerTests: QuickSpec
         {
             var sut: JSONToCodeSampler?
 
-            var input: CoderInputProtocolMock!
+            var input: FileProtocolMock!
             var output: CoderOutputProtocolMock!
             
             beforeEach
@@ -39,7 +40,7 @@ class JSONToCodeSamplerTests: QuickSpec
                     
                     // Sampler setup as subject under test
                     
-                    sut = try JSONToCodeSampler(from: input, to: output)
+                    sut = try JSONToCodeSampler(inputJSONFile: input)
 
                     return sut
                 }.toNot(throwError())

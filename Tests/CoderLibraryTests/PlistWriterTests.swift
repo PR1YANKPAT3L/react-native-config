@@ -2,6 +2,7 @@ import Quick
 import Nimble
 import CoderLibrary
 import CoderLibraryMock
+import ZFileMock
 
 class PlistWriterTests: QuickSpec {
     
@@ -13,15 +14,22 @@ class PlistWriterTests: QuickSpec {
             
             var output: CoderOutputProtocolMock!
             var sampler: JSONToCodeSamplerProtocolMock!
+            
             beforeEach {
-                output = CoderOutputProtocolMock()
-                sampler = JSONToCodeSamplerProtocolMock()
                 
-                sut = PlistWriter(output: output, sampler: sampler)
+                expect {
+                    
+                    output = try correctCoderOutput(srcRoot: try FolderProtocolMock())
+                    sampler = JSONToCodeSamplerProtocolMock()
+                    
+                    sut = PlistWriter()
+                    return sut
+                }.toNot(throwError())
+                
             }
             
             it("writes to ios files") {
-                
+                expect{ try sut?.writeRNConfigurationPlist(output: output, sampler: sampler) }.toNot(throwError())
             }
             
             it("writes to ios files") {

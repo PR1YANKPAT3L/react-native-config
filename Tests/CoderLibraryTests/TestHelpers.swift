@@ -22,7 +22,7 @@ import CoderLibraryMock
 import RNModelsMock
 import RNConfigurationMock
 
-func correctCoderInput() throws -> (CoderInputProtocolMock, srcRoot: FolderProtocolMock, json: FileProtocolMock) {
+func correctCoderInput() throws -> (FileProtocolMock, srcRoot: FolderProtocolMock, json: FileProtocolMock) {
     let mockFolder = try FolderProtocolMock()
     let mockFile = try FileProtocolMock()
     
@@ -39,11 +39,8 @@ func correctCoderInput() throws -> (CoderInputProtocolMock, srcRoot: FolderProto
     mockFile.readReturnValue = correctInputJSON.data(using: .utf8)!
     mockFile.readAsStringReturnValue = correctInputJSON
     
-    let input = CoderInputProtocolMock()
-    input.underlyingInputJSONFile = mockFile
-    
     return  (
-        input,
+        mockFile,
         srcRoot: mockFolder,
         json: mockFile
     )

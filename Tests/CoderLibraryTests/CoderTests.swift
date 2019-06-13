@@ -22,6 +22,7 @@ import CoderLibrary
 import CoderLibraryMock
 import Foundation
 import RNModels
+import RNModelsMock
 
 class CoderSpec: QuickSpec
 {
@@ -33,8 +34,8 @@ class CoderSpec: QuickSpec
 
             var signPost: SignPostProtocolMock!
 
-            var input: CoderInputProtocolMock!
             var output: CoderOutputProtocolMock!
+            var json: JSONEnvironmentsProtocolMock!
             
             var sampler: JSONToCodeSamplerProtocolMock!
 
@@ -55,7 +56,7 @@ class CoderSpec: QuickSpec
                     // Coder input setup
                     
                     let correctCoder = try correctCoderInput()
-                    input = correctCoder.0
+                    json = JSONEnvironmentsProtocolMock()
                     
                     // Coder output setup
                     
@@ -70,6 +71,7 @@ class CoderSpec: QuickSpec
                     <key>example_url</key>
                     <string>http://www.mockedURL.safe</string>
                     """
+                    sampler.underlyingJsonEnvironments = json
                     
                     // setup plist writer
                     
@@ -83,14 +85,12 @@ class CoderSpec: QuickSpec
                     // Setup code for bridge
                     
                     bridge = JSBridgeCodeSampleProtocolMock()
-                    bridge.writeRNConfigurationBridgeToClosure = { _ in }
+                    bridge.writeRNConfigurationBridgeToSamplerClosure = { _, _ in }
                     
                     // setup coder
                     
                     sut = Coder(
-                        input: input,
-                        output: output,
-                        codeSampler: sampler,
+                        sampler: sampler,
                         plistWriter: plistWriter,
                         bridge: bridge,
                         textFileWriter: textFileWriter,
@@ -112,7 +112,7 @@ class CoderSpec: QuickSpec
             context("env contains some keys and values")
             {
                 beforeEach {
-                    expect { try sut?.attempt() }.toNot(throwError())
+                    expect { try sut?.attemptCode(to: output) }.toNot(throwError())
                 }
                 
                 it("writes to ios and android config files")
@@ -136,13 +136,13 @@ class CoderSpec: QuickSpec
                     }
                     
                     it("plist") {
-                        expect(plistWriter.writeRNConfigurationPlistCalled) == true
+                        expect(plistWriter.writeRNConfigurationPlistOutputSamplerCalled) == true
                         
                     }
                     
                     it("objectiveC") {
 
-                        expect(bridge.writeRNConfigurationBridgeToCalled) == true
+                        expect(bridge.writeRNConfigurationBridgeToSamplerCalled) == true
                     }
                 }
                 

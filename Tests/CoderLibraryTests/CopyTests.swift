@@ -3,10 +3,15 @@ import Nimble
 
 import CoderLibrary
 import Errors
+import ZFile
 
 import TerminalMock
 import ZFileMock
 import CoderLibraryMock
+
+extension FileProtocolMock {
+    
+}
 
 class CopySpec: QuickSpec {
     
@@ -29,6 +34,8 @@ class CopySpec: QuickSpec {
                 folder.containsSubfolderPossiblyInvalidNameReturnValue = true
                 folder.subfolderNamedReturnValue = folder
                 folder.createSubfolderNamedReturnValue = folder
+                folder.createSubfolderIfNeededWithNameReturnValue = folder
+                folder.makeFileSequenceReturnValue = FileSystemSequence<FolderProtocolMock>()
                 
                 output = try! correctCoderOutput(srcRoot: folder)
                 terminal = TerminalProtocolMock()
@@ -52,7 +59,7 @@ class CopySpec: QuickSpec {
                     system: system
                 )
                 
-                expect{ try sut?.copy(to: folder, copyToFolderName: "mocked") }.toNot(throwError())
+                expect{ try sut?.attempt(to: folder, xcodeProjectName: "mock") }.toNot(throwError())
             }
             
             it("deletes folder first") {
