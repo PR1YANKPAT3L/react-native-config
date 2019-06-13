@@ -48,6 +48,7 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
      */
     public func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
     {
+        signPost.message(pretty_function() + " ...")
         do
         {
             let xcodeproj = try yourSrcRoot.createSubfolderIfNeeded(withName: xcodeProjectName + ".xcodeproj")
@@ -55,31 +56,55 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
             let rnConfiguration = try output.ios.rnConfigurationModelSwiftFile.parentFolder()
 
             let ios = try yourSrcRoot.createSubfolderIfNeeded(withName: "ios")
-            let iosConfiguration = try ios.createSubfolderIfNeeded(withName: "iOSConfiguration")
 
             let sources = try yourSrcRoot.createSubfolderIfNeeded(withName: "Sources")
+
+            // COPY RNCOFIGURATION
 
             let rnConfigurationName = "RNConfiguration"
 
             if sources.containsSubfolder(possiblyInvalidName: rnConfigurationName)
             {
-                let folder = try sources.subfolder(named: rnConfigurationName)
-                try folder.delete()
+                let destination = try sources.subfolder(named: rnConfigurationName)
+                try rnConfiguration.makeFileSequence().forEach
+                { file in
+                    if destination.containsFile(possiblyInvalidName: file.name)
+                    {
+                        try destination.file(named: file.name).write(data: try file.read())
+                    }
+                    else
+                    {
+                        try file.copy(to: destination)
+                    }
+                }
+            }
+            else
+            {
+                _ = try rnConfiguration.copy(to: sources)
             }
 
-            _ = try rnConfiguration.copy(to: sources)
+            // COPY IOS PROJECT
 
-            _ = try output.ios.sourcesFolder.copy(to: iosConfiguration)
+            if !ios.containsSubfolder(possiblyInvalidName: "GeneratedEnvironmentiOS")
+            {
+                let iosConfiguration = try ios.createSubfolderIfNeeded(withName: "GeneratedEnvironmentiOS")
+                _ = try output.ios.sourcesFolder.copy(to: iosConfiguration)
+            }
 
             if xcodeproj.containsFile(possiblyInvalidName: output.ios.infoPlistRNConfiguration.name)
             {
-                try xcodeproj.file(named: output.ios.infoPlistRNConfiguration.name).delete()
+                try xcodeproj.file(named: output.ios.infoPlistRNConfiguration.name).write(data: try output.ios.infoPlistRNConfiguration.read())
+            }
+            else
+            {
+                _ = try output.ios.infoPlistRNConfiguration.copy(to: xcodeproj)
             }
 
-            _ = try output.ios.infoPlistRNConfiguration.copy(to: xcodeproj)
+            signPost.message(pretty_function() + " ✅")
         }
         catch
         {
+            signPost.message(pretty_function() + " ❌")
             throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
         }
     }

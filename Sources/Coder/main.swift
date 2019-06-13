@@ -31,7 +31,7 @@ doContinue(pretty_function() + " setup")
     let output = try CoderOutput(packageCoderSources: srcRoot, xcodeProjectName: xcodeName)
     let copy = Copy(output: output)
     try copy.attempt(to: srcRoot, xcodeProjectName: "Coder")
-    
+
     copiedPackageCoderSources = try CoderOutput(packageCoderSources: srcRoot, xcodeProjectName: xcodeName)
 
     let sampler = try JSONToCodeSampler(inputJSONFile: input)
