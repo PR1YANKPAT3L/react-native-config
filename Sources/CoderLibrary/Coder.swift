@@ -24,12 +24,9 @@ import RNModels
 public struct Coder: CoderProtocol, AutoGenerateProtocol {
     
     // MARK: - Private
-    
-    public let input: CoderInputProtocol
-    public let output: CoderOutputProtocol
-    
-    public let codeSampler: JSONToCodeSamplerProtocol
-    public let signPost: SignPostProtocol
+        
+    private let sampler: JSONToCodeSamplerProtocol
+    private let signPost: SignPostProtocol
     private let terminal: TerminalProtocol
     private let system: SystemProtocol
     private let plistWriter: PlistWriterProtocol
@@ -39,20 +36,16 @@ public struct Coder: CoderProtocol, AutoGenerateProtocol {
     // MARK: - Init
     
     public init(
-        input: CoderInputProtocol,
-        output: CoderOutputProtocol,
-        codeSampler: JSONToCodeSamplerProtocol,
-        plistWriter: PlistWriterProtocol,
-        bridge: JSBridgeCodeSampleProtocol,
+        sampler: JSONToCodeSamplerProtocol,
+        plistWriter: PlistWriterProtocol = PlistWriter(),
+        bridge: JSBridgeCodeSampleProtocol = JSBridgeCodeSample(),
         textFileWriter: TextFileWriterProtocol = TextFileWriter(),
         signPost: SignPostProtocol = SignPost.shared,
         decoder: JSONDecoder = JSONDecoder(),
         terminal: TerminalProtocol = Terminal.shared,
         system: SystemProtocol = System.shared
     ) {
-        self.output = output
-        self.input = input
-        self.codeSampler = codeSampler
+        self.sampler = sampler
         self.signPost = signPost
         self.terminal = terminal
         self.system = system
@@ -73,22 +66,22 @@ public struct Coder: CoderProtocol, AutoGenerateProtocol {
 
 extension Coder {
     
-    public func attempt() throws -> CoderOutputProtocol
+    public func attemptCode(to output: CoderOutputProtocol) throws -> CoderOutputProtocol
     {
         signPost.message(pretty_function() + " ...")
         do
         {
           
-            try textFileWriter.writeIOSAndAndroidConfigFiles(from: input, output: output)
+            try textFileWriter.writeIOSAndAndroidConfigFiles(from: sampler.jsonEnvironments, output: output)
 
             try output.ios.writeDefaultsToFiles()
             
-            try writeRNConfigurationModelFactory()
-            try writeRNConfigurationModel()
+            try writeRNConfigurationModelFactory(to: output)
+            try writeRNConfigurationModel(to: output)
             
-            try plistWriter.writeRNConfigurationPlist()
+            try plistWriter.writeRNConfigurationPlist(output: output, sampler: sampler)
             
-            try bridge.writeRNConfigurationBridge(to: output.ios.jsBridge)
+            try bridge.writeRNConfigurationBridge(to: output.ios.jsBridge, sampler: sampler)
             signPost.message(pretty_function() + " ✅")
             return output
         }
@@ -109,11 +102,11 @@ extension Coder {
 
 extension Coder {
     
-    public func writeRNConfigurationModel() throws {
+    public func writeRNConfigurationModel(to output: CoderOutputProtocol) throws {
         
         var lines = Coder.rnConfigurationModelDefault_TOP + Coder.rnConfigurationModelDefault_BOTTOM
         
-        guard codeSampler.configurationModelVar.count > 0 else {
+        guard sampler.configurationModelVar.count > 0 else {
             try output.ios.rnConfigurationModelSwiftFile.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: "")  + "\n}")
             return
         }
@@ -123,13 +116,13 @@ extension Coder {
         
             // MARK: - Custom plist properties are added here
         
-            \(codeSampler.configurationModelVar)
+            \(sampler.configurationModelVar)
         
             public init(from decoder: Decoder) throws {
         
                 let container = try decoder.container(keyedBy: CodingKeys.self)
         
-                \(codeSampler.decoderInit)
+                \(sampler.decoderInit)
                 }
                 \(Coder.rnConfigurationModelDefault_BOTTOM)
         
@@ -139,7 +132,7 @@ extension Coder {
         
                 // Custom environment dependend constants from .env.<CONFIGURATION>.json
         
-                \(codeSampler.configurationModelVarDescription)
+                \(sampler.configurationModelVarDescription)
                 \"""
                 }
             }
@@ -230,11 +223,11 @@ extension Coder {
         public static var infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary
     """
 
-    public func writeRNConfigurationModelFactory() throws {
+    public func writeRNConfigurationModelFactory(to output: CoderOutputProtocol) throws {
         
         var lines = Coder.rnConfigurationModelFactoryProtocolDefault
         
-        guard codeSampler.casesForEnum.count > 0 else {
+        guard sampler.casesForEnum.count > 0 else {
             try output.ios.rnConfigurationModelFactorySwiftFile.write(string: lines)
             return
         }
@@ -269,7 +262,7 @@ extension Coder {
             */
             public enum Case: String, CaseIterable {
         
-            \(codeSampler.casesForEnum)
+            \(sampler.casesForEnum)
         
             }
         

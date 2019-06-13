@@ -21,6 +21,8 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
 {
     public typealias Sample = [(case: String, configurationModelVar: String, configurationModelVarDescription: String, xmlEntry: String, decoderInit: String)]
 
+    public let jsonEnvironments: JSONEnvironmentsProtocol
+
     public let casesForEnum: String
     public let configurationModelVar: String
     public let configurationModelVarDescription: String
@@ -31,13 +33,12 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
     // MARK: Initialize
 
     public init(
-        from input: CoderInputProtocol,
-        to output: CoderOutputProtocol,
+        inputJSONFile: FileProtocol,
         decoder: JSONDecoder = JSONDecoder()
     ) throws
     {
-        let json = try decoder.decode(JSONEnvironments.self, from: try input.inputJSONFile.read())
-        let allKeys = JSONToCodeSampler.setupCodeSamples(json: json.debug)
+        jsonEnvironments = try decoder.decode(JSONEnvironments.self, from: inputJSONFile.read())
+        let allKeys = JSONToCodeSampler.setupCodeSamples(json: jsonEnvironments.debug)
 
         casesForEnum = allKeys
             .map { $0.case }
@@ -70,22 +71,22 @@ public struct JSONToCodeSampler: JSONToCodeSamplerProtocol, AutoGenerateProtocol
             .joined(separator: "\n")
 
         bridgeEnv = [
-            .Local: (json.local.typed?
+            .Local: (jsonEnvironments.local.typed?
                 .mapValues { $0.value }
                 .map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? [])
-                + (json.local.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
-            .Debug: (json.debug.typed?
+                + (jsonEnvironments.local.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
+            .Debug: (jsonEnvironments.debug.typed?
                 .mapValues { $0.value }
                 .map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? [])
-                + (json.debug.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
-            .Release: (json.release.typed?
+                + (jsonEnvironments.debug.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
+            .Release: (jsonEnvironments.release.typed?
                 .mapValues { $0.value }
                 .map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? [])
-                + (json.release.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
-            .BetaRelease: (json.betaRelease.typed?
+                + (jsonEnvironments.release.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
+            .BetaRelease: (jsonEnvironments.betaRelease.typed?
                 .mapValues { $0.value }
                 .map { "    @\"\($0.key)\" : @\"\($0.value)\"" } ?? [])
-                + (json.betaRelease.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
+                + (jsonEnvironments.betaRelease.booleans?.map { "    @\"\($0.key)\" : \($0.value.toObjectiveC())" } ?? []),
         ]
     }
 

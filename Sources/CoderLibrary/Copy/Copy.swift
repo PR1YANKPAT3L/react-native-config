@@ -32,7 +32,21 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
         self.signPost = signPost
     }
 
-    public func copy(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws
+    /**
+     Takes the files from the original output and sets them in the folder you provide.
+     The destination folder will be deleted before files are copied to it
+
+     This is done because when you checkout the spac kage it is in a read only folder.
+     You can ignore the created folder in git as it will be recreated every time you update the configuration.
+
+     - parameters:
+         - yourSrcRoot: folder where a folder with name copyToFolderName will be created
+         - copyToFolderName: name of  the folder to be created
+     - throws: HighwayError
+     - returns: Folder that can be used to configure a Coder
+
+     */
+    public func attempt(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws -> FolderProtocol
     {
         do
         {
@@ -55,6 +69,8 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
             _ = try output.ios.sourcesFolder.copy(to: destination)
             _ = try output.android.sourcesFolder.copy(to: destination)
             _ = try output.ios.infoPlistRNConfiguration.copy(to: destination)
+
+            return destination
         }
         catch
         {

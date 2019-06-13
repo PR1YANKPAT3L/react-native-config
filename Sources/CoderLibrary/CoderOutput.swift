@@ -19,7 +19,7 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
 
     private let packageCoderSources: FolderProtocol
 
-    public init(packageCoderSources: FolderProtocol) throws
+    public init(packageCoderSources: FolderProtocol, xcodeProjectName: String) throws
     {
         self.packageCoderSources = packageCoderSources
 
@@ -31,7 +31,7 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
             let rnConfigurationSourcesFolder = try packageCoderSources.subfolder(named: "Sources/RNConfiguration")
             let rnConfigurationBridgeSourcesFolder = try iosFolder.subfolder(named: "Sources/RNConfigurationBridge")
 
-            let xcconfigFile = try iosFolder.createFileIfNeeded(named: "Coder.xcconfig")
+            let xcconfigFile = try iosFolder.createFileIfNeeded(named: "\(xcodeProjectName).xcconfig")
 
             android = CoderOutput.Android(
                 sourcesFolder: androidFolder,
@@ -47,8 +47,8 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
                 sourcesFolder: iosFolder,
                 xcconfigFile: xcconfigFile,
                 rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
-                infoPlistRNConfiguration: try packageCoderSources.createFileIfNeeded(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
-                infoPlistRNConfigurationTests: try packageCoderSources.createFileIfNeeded(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
+                infoPlistRNConfiguration: try packageCoderSources.createFileIfNeeded(named: "\(xcodeProjectName).xcodeproj/RNConfiguration_Info.plist"),
+                infoPlistRNConfigurationTests: try packageCoderSources.createFileIfNeeded(named: "\(xcodeProjectName).xcodeproj/RNConfigurationTests_Info.plist"),
                 rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift"),
                 jsBridge: try rnConfigurationBridgeSourcesFolder.createFileIfNeeded(named: "ReactNativeConfig.m")
             )

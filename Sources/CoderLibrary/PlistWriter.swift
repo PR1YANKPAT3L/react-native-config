@@ -36,25 +36,15 @@ public struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
     </plist>
     """
 
-    public let output: CoderOutputProtocol
-    public let sampler: JSONToCodeSamplerProtocol
+    public init() {}
 
-    public init(
-        output: CoderOutputProtocol,
-        sampler: JSONToCodeSamplerProtocol
-    )
+    public func writeRNConfigurationPlist(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
-        self.output = output
-        self.sampler = sampler
+        try writeRNConfigurationPlist(to: output.ios.infoPlistRNConfiguration, sampler: sampler)
+        try writeRNConfigurationPlist(to: output.ios.infoPlistRNConfigurationTests, sampler: sampler)
     }
 
-    public func writeRNConfigurationPlist() throws
-    {
-        try writeRNConfigurationPlist(to: output.ios.infoPlistRNConfiguration)
-        try writeRNConfigurationPlist(to: output.ios.infoPlistRNConfigurationTests)
-    }
-
-    private func writeRNConfigurationPlist(to file: FileProtocol) throws
+    private func writeRNConfigurationPlist(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
         var plistLinesXml = PlistWriter.plistLinesXmlDefault
 

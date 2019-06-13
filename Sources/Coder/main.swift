@@ -14,12 +14,10 @@ import SignPost
 import Terminal
 import ZFile
 
-var input: CoderInputProtocol!
-var output: CoderOutputProtocol!
 
-var sampler: JSONToCodeSamplerProtocol!
+let xcodeName = "Coder"
 var coder: CoderProtocol!
-let xcodeName = "Coder.xcodeproj"
+var copiedPackageCoderSources: CoderOutputProtocol!
 
 doContinue(pretty_function() + " setup")
 {
@@ -29,25 +27,26 @@ doContinue(pretty_function() + " setup")
     try highway.addGithooksPrePush()
     try highway.validateSecrets(in: srcRoot)
 
-    input = CoderInput(inputJSONFile: try srcRoot.file(named: "coder.env.json"))
+    let input = try srcRoot.file(named: "coder.env.json")
 
-    output = try CoderOutput(packageCoderSources: srcRoot)
+    let output = try CoderOutput(packageCoderSources: srcRoot, xcodeProjectName: xcodeName)
+    let copy = Copy(output: output)
+    let copiedFolder = try copy.attempt(to: srcRoot, copyToFolderName: "\(xcodeName)Environment")
+    copiedPackageCoderSources = try CoderOutput(packageCoderSources: copiedFolder, xcodeProjectName: xcodeName)
 
-    sampler = try JSONToCodeSampler(from: input, to: output)
-    coder = Coder(
-        input: input,
-        output: output,
-        codeSampler: sampler,
-        plistWriter: PlistWriter(output: output, sampler: sampler),
-        bridge: JSBridgeCodeSample(bridgeEnv: sampler.bridgeEnv)
-    )
+    let sampler = try JSONToCodeSampler(inputJSONFile: input)
+    
+    coder = Coder(sampler: sampler)
+    
 }
 
 func continueWithXcodeProjectPresent(_ sync: @escaping Highway.SyncSwiftPackageGenerateXcodeProj)
 {
     doContinue(pretty_function())
     {
-        let output = try coder.attempt()
+       
+        let output = try coder.attemptCode(to: copiedPackageCoderSources)
+        
         signPost.verbose("found config \(output)")
 
         highway.runSourcery(handleSourceryOutput)
@@ -66,7 +65,7 @@ doContinue(pretty_function() + " coder")
 {
     guard srcRoot.containsSubfolder(possiblyInvalidName: xcodeName) else
     {
-        highway.generateXcodeProject(override: output.ios.xcconfigFile, continueWithXcodeProjectPresent)
+        highway.generateXcodeProject(override: copiedPackageCoderSources.ios.xcconfigFile, continueWithXcodeProjectPresent)
         return
     }
     continueWithXcodeProjectPresent { ["xcode already present"] }

@@ -19,28 +19,16 @@ import Foundation
 
  // types.implementing.AutoGenerateProtocol inline for Coder ..
  // sourcery:inline:Coder.AutoGenerateProtocol
- var input: CoderInputProtocol { get }
- var output: CoderOutputProtocol { get }
- var codeSampler: JSONToCodeSamplerProtocol { get }
- var signPost: SignPostProtocol { get }
  static var rnConfigurationModelDefault_TOP: String { get }
  static var rnConfigurationModelDefault_BOTTOM: String { get }
  static var factoryTop: String { get }
  static var rnConfigurationModelFactoryProtocolDefault: String { get }
 
- func attempt() throws  -> CoderOutputProtocol
- func writeRNConfigurationModel() throws
- func writeRNConfigurationModelFactory() throws
+ func attemptCode(to output: CoderOutputProtocol) throws  -> CoderOutputProtocol
+ func writeRNConfigurationModel(to output: CoderOutputProtocol) throws
+ func writeRNConfigurationModelFactory(to output: CoderOutputProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for Coder ✅
- // types.implementing.AutoGenerateProtocol inline for CoderInput ..
- // sourcery:inline:CoderInput.AutoGenerateProtocol
- static var projectNameWithPrepareScript: String { get }
- static var jsonFileName: String { get set }
- var inputJSONFile: FileProtocol { get }
-
- // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for CoderInput ✅
  // types.implementing.AutoGenerateProtocol inline for CoderOutput ..
  // sourcery:inline:CoderOutput.AutoGenerateProtocol
  var android: CoderOutputAndroidProtocol { get }
@@ -71,18 +59,18 @@ import Foundation
  // types.implementing.AutoGenerateProtocol inline for Copy ..
  // sourcery:inline:Copy.AutoGenerateProtocol
 
- func copy(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws
+ func attempt(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws  -> FolderProtocol
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for Copy ✅
  // types.implementing.AutoGenerateProtocol inline for JSBridgeCodeSample ..
  // sourcery:inline:JSBridgeCodeSample.AutoGenerateProtocol
- var bridgeEnv: [RNModels.Configuration: [String]] { get }
 
- func writeRNConfigurationBridge(to file: FileProtocol) throws
+ func writeRNConfigurationBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for JSBridgeCodeSample ✅
  // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ..
  // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
+ var jsonEnvironments: JSONEnvironmentsProtocol { get }
  var casesForEnum: String { get }
  var configurationModelVar: String { get }
  var configurationModelVarDescription: String { get }
@@ -95,10 +83,8 @@ import Foundation
  // types.implementing.AutoGenerateProtocol inline for PlistWriter ..
  // sourcery:inline:PlistWriter.AutoGenerateProtocol
  static var plistLinesXmlDefault: String { get }
- var output: CoderOutputProtocol { get }
- var sampler: JSONToCodeSamplerProtocol { get }
 
- func writeRNConfigurationPlist() throws
+ func writeRNConfigurationPlist(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for PlistWriter ✅
  // types.implementing.AutoGenerateProtocol inline for TextFileWriter ..
@@ -106,7 +92,7 @@ import Foundation
  static var shared: TextFileWriterProtocol { get }
  var decoder: JSONDecoder { get }
 
- func writeIOSAndAndroidConfigFiles(from input: CoderInputProtocol, output: CoderOutputProtocol) throws
+ func writeIOSAndAndroidConfigFiles(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for TextFileWriter ✅
 

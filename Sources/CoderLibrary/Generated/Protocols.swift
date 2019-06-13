@@ -15,25 +15,21 @@ public protocol CopyProtocol: AutoMockable
 {
     // sourcery:inline:Copy.AutoGenerateProtocol
 
-    func copy(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws
+    func attempt(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws -> FolderProtocol
     // sourcery:end
 }
 
 public protocol CoderProtocol: AutoMockable
 {
     // sourcery:inline:Coder.AutoGenerateProtocol
-    var input: CoderInputProtocol { get }
-    var output: CoderOutputProtocol { get }
-    var codeSampler: JSONToCodeSamplerProtocol { get }
-    var signPost: SignPostProtocol { get }
     static var rnConfigurationModelDefault_TOP: String { get }
     static var rnConfigurationModelDefault_BOTTOM: String { get }
     static var factoryTop: String { get }
     static var rnConfigurationModelFactoryProtocolDefault: String { get }
 
-    func attempt() throws -> CoderOutputProtocol
-    func writeRNConfigurationModel() throws
-    func writeRNConfigurationModelFactory() throws
+    func attemptCode(to output: CoderOutputProtocol) throws -> CoderOutputProtocol
+    func writeRNConfigurationModel(to output: CoderOutputProtocol) throws
+    func writeRNConfigurationModelFactory(to output: CoderOutputProtocol) throws
 
     // sourcery:end
 }
@@ -41,18 +37,8 @@ public protocol CoderProtocol: AutoMockable
 public protocol JSBridgeCodeSampleProtocol: AutoMockable
 {
     // sourcery:inline:JSBridgeCodeSample.AutoGenerateProtocol
-    var bridgeEnv: [RNModels.Configuration: [String]] { get }
 
-    func writeRNConfigurationBridge(to file: FileProtocol) throws
-    // sourcery:end
-}
-
-public protocol CoderInputProtocol: AutoMockable
-{
-    // sourcery:inline:CoderInput.AutoGenerateProtocol
-    static var projectNameWithPrepareScript: String { get }
-    static var jsonFileName: String { get set }
-    var inputJSONFile: FileProtocol { get }
+    func writeRNConfigurationBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
     // sourcery:end
 }
 
@@ -67,6 +53,7 @@ public protocol CoderOutputProtocol: AutoMockable
 public protocol JSONToCodeSamplerProtocol: AutoMockable
 {
     // sourcery:inline:JSONToCodeSampler.AutoGenerateProtocol
+    var jsonEnvironments: JSONEnvironmentsProtocol { get }
     var casesForEnum: String { get }
     var configurationModelVar: String { get }
     var configurationModelVarDescription: String { get }
@@ -81,10 +68,8 @@ public protocol PlistWriterProtocol: AutoMockable
 {
     // sourcery:inline:PlistWriter.AutoGenerateProtocol
     static var plistLinesXmlDefault: String { get }
-    var output: CoderOutputProtocol { get }
-    var sampler: JSONToCodeSamplerProtocol { get }
 
-    func writeRNConfigurationPlist() throws
+    func writeRNConfigurationPlist(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
     // sourcery:end
 }
 
@@ -94,7 +79,7 @@ public protocol TextFileWriterProtocol: AutoMockable
     static var shared: TextFileWriterProtocol { get }
     var decoder: JSONDecoder { get }
 
-    func writeIOSAndAndroidConfigFiles(from input: CoderInputProtocol, output: CoderOutputProtocol) throws
+    func writeIOSAndAndroidConfigFiles(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
 
     // sourcery:end
 }

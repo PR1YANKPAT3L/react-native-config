@@ -12,14 +12,39 @@ import ZFile
 
 public struct JSBridgeCodeSample: JSBridgeCodeSampleProtocol, AutoGenerateProtocol
 {
-    // MARK: - Code
+    public init() {}
 
-    // "@@"<#key#>" : @"<#value#>"";
-
-    public let bridgeEnv: [RNModels.Configuration: [String]]
-
-    public func writeRNConfigurationBridge(to file: FileProtocol) throws
+    public func writeRNConfigurationBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
+        let bridgeEnv = sampler.bridgeEnv
+
+        let code = """
+        + (NSDictionary *)env {
+        #ifdef DEBUG
+        #ifdef LOCAL
+            return @{
+                \(bridgeEnv[.Local]?.joined(separator: ",\n") ?? "")
+            };
+        #else
+            return @{
+                \(bridgeEnv[.Debug]?.joined(separator: ",\n") ?? "")
+            };
+        #endif
+        #elif RELEASE
+            return @{
+                \(bridgeEnv[.Release]?.joined(separator: ",\n") ?? "")
+            };
+        #elif BETARELEASE
+            return @{
+                \(bridgeEnv[.BetaRelease]?.joined(separator: ",\n") ?? "")
+            };
+        #else
+            NSLog(@"⚠️ (Coder) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
+            return nil;
+        #endif
+        }
+        """
+
         try file.write(
             string: """
             \(JSBridgeCodeSample.top)
@@ -27,37 +52,6 @@ public struct JSBridgeCodeSample: JSBridgeCodeSampleProtocol, AutoGenerateProtoc
             \(JSBridgeCodeSample.bottom)
             """
         )
-    }
-
-    public init(bridgeEnv: [RNModels.Configuration: [String]])
-    {
-        self.bridgeEnv = bridgeEnv
-        code = """
-        + (NSDictionary *)env {
-        #ifdef DEBUG
-        #ifdef LOCAL
-        return @{
-        \(self.bridgeEnv[.Local]?.joined(separator: ",\n") ?? "")
-        };
-        #else
-        return @{
-        \(self.bridgeEnv[.Debug]?.joined(separator: ",\n") ?? "")
-        };
-        #endif
-        #elif RELEASE
-        return @{
-        \(self.bridgeEnv[.Release]?.joined(separator: ",\n") ?? "")
-        };
-        #elif BETARELEASE
-        return @{
-        \(self.bridgeEnv[.BetaRelease]?.joined(separator: ",\n") ?? "")
-        };
-        #else
-        NSLog(@"⚠️ (Coder) ReactNativeConfig.m needs preprocessor macro flag to be set in build settings to RELEASE / DEBUG / LOCAL / BETARELEASE ⚠️");
-        return nil;
-        #endif
-        }
-        """
     }
 
     // MARK: - Code Templates
@@ -76,8 +70,6 @@ public struct JSBridgeCodeSample: JSBridgeCodeSampleProtocol, AutoGenerateProtoc
     }
 
     """
-
-    private let code: String
 
     private static let bottom = """
     + (NSString *)envFor: (NSString *)key {

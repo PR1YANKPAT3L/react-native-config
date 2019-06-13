@@ -9,35 +9,6 @@ import ZFile
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
-// MARK: - CoderInputProtocolMock
-
-open class CoderInputProtocolMock: CoderInputProtocol
-{
-    public init() {}
-
-    public static var projectNameWithPrepareScript: String
-    {
-        get { return underlyingProjectNameWithPrepareScript }
-        set(value) { underlyingProjectNameWithPrepareScript = value }
-    }
-
-    public static var underlyingProjectNameWithPrepareScript: String = "AutoMockable filled value"
-    public static var jsonFileName: String
-    {
-        get { return underlyingJsonFileName }
-        set(value) { underlyingJsonFileName = value }
-    }
-
-    public static var underlyingJsonFileName: String = "AutoMockable filled value"
-    public var inputJSONFile: FileProtocol
-    {
-        get { return underlyingInputJSONFile }
-        set(value) { underlyingInputJSONFile = value }
-    }
-
-    public var underlyingInputJSONFile: FileProtocol!
-}
-
 // MARK: - CoderOutputAndroidProtocolMock
 
 open class CoderOutputAndroidProtocolMock: CoderOutputAndroidProtocol
@@ -170,34 +141,6 @@ open class CoderProtocolMock: CoderProtocol
 {
     public init() {}
 
-    public var input: CoderInputProtocol
-    {
-        get { return underlyingInput }
-        set(value) { underlyingInput = value }
-    }
-
-    public var underlyingInput: CoderInputProtocol!
-    public var output: CoderOutputProtocol
-    {
-        get { return underlyingOutput }
-        set(value) { underlyingOutput = value }
-    }
-
-    public var underlyingOutput: CoderOutputProtocol!
-    public var codeSampler: JSONToCodeSamplerProtocol
-    {
-        get { return underlyingCodeSampler }
-        set(value) { underlyingCodeSampler = value }
-    }
-
-    public var underlyingCodeSampler: JSONToCodeSamplerProtocol!
-    public var signPost: SignPostProtocol
-    {
-        get { return underlyingSignPost }
-        set(value) { underlyingSignPost = value }
-    }
-
-    public var underlyingSignPost: SignPostProtocol!
     public static var rnConfigurationModelDefault_TOP: String
     {
         get { return underlyingRnConfigurationModelDefault_TOP }
@@ -227,41 +170,43 @@ open class CoderProtocolMock: CoderProtocol
 
     public static var underlyingRnConfigurationModelFactoryProtocolDefault: String = "AutoMockable filled value"
 
-    // MARK: - <attempt> - parameters
+    // MARK: - <attemptCode> - parameters
 
-    public var attemptThrowableError: Error?
-    public var attemptCallsCount = 0
-    public var attemptCalled: Bool
+    public var attemptCodeToThrowableError: Error?
+    public var attemptCodeToCallsCount = 0
+    public var attemptCodeToCalled: Bool
     {
-        return attemptCallsCount > 0
+        return attemptCodeToCallsCount > 0
     }
 
-    public var attemptReturnValue: CoderOutputProtocol?
+    public var attemptCodeToReceivedOutput: CoderOutputProtocol?
+    public var attemptCodeToReturnValue: CoderOutputProtocol?
 
-    // MARK: - <attempt> - closure mocks
+    // MARK: - <attemptCode> - closure mocks
 
-    public var attemptClosure: (() throws -> CoderOutputProtocol)?
+    public var attemptCodeToClosure: ((CoderOutputProtocol) throws -> CoderOutputProtocol)?
 
-    // MARK: - <attempt> - method mocked
+    // MARK: - <attemptCode> - method mocked
 
-    open func attempt() throws -> CoderOutputProtocol
+    open func attemptCode(to output: CoderOutputProtocol) throws -> CoderOutputProtocol
     {
-        // <attempt> - Throwable method implementation
+        // <attemptCode> - Throwable method implementation
 
-        if let error = attemptThrowableError
+        if let error = attemptCodeToThrowableError
         {
             throw error
         }
 
-        attemptCallsCount += 1
+        attemptCodeToCallsCount += 1
+        attemptCodeToReceivedOutput = output
 
-        // <attempt> - Return Value mock implementation
+        // <attemptCode> - Return Value mock implementation
 
-        guard let closureReturn = attemptClosure else
+        guard let closureReturn = attemptCodeToClosure else
         {
-            guard let returnValue = attemptReturnValue else
+            guard let returnValue = attemptCodeToReturnValue else
             {
-                let message = "No returnValue implemented for attemptClosure"
+                let message = "No returnValue implemented for attemptCodeToClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
                 // You should implement CoderOutputProtocol
@@ -271,69 +216,75 @@ open class CoderProtocolMock: CoderProtocol
             return returnValue
         }
 
-        return try closureReturn()
+        return try closureReturn(output)
     }
 
     // MARK: - <writeRNConfigurationModel> - parameters
 
-    public var writeRNConfigurationModelThrowableError: Error?
-    public var writeRNConfigurationModelCallsCount = 0
-    public var writeRNConfigurationModelCalled: Bool
+    public var writeRNConfigurationModelToThrowableError: Error?
+    public var writeRNConfigurationModelToCallsCount = 0
+    public var writeRNConfigurationModelToCalled: Bool
     {
-        return writeRNConfigurationModelCallsCount > 0
+        return writeRNConfigurationModelToCallsCount > 0
     }
+
+    public var writeRNConfigurationModelToReceivedOutput: CoderOutputProtocol?
 
     // MARK: - <writeRNConfigurationModel> - closure mocks
 
-    public var writeRNConfigurationModelClosure: (() throws -> Void)?
+    public var writeRNConfigurationModelToClosure: ((CoderOutputProtocol) throws -> Void)?
 
     // MARK: - <writeRNConfigurationModel> - method mocked
 
-    open func writeRNConfigurationModel() throws
+    open func writeRNConfigurationModel(to output: CoderOutputProtocol) throws
     {
         // <writeRNConfigurationModel> - Throwable method implementation
 
-        if let error = writeRNConfigurationModelThrowableError
+        if let error = writeRNConfigurationModelToThrowableError
         {
             throw error
         }
 
-        writeRNConfigurationModelCallsCount += 1
+        writeRNConfigurationModelToCallsCount += 1
+        writeRNConfigurationModelToReceivedOutput = output
 
         // <writeRNConfigurationModel> - Void return mock implementation
 
-        try writeRNConfigurationModelClosure?()
+        try writeRNConfigurationModelToClosure?(output)
     }
 
     // MARK: - <writeRNConfigurationModelFactory> - parameters
 
-    public var writeRNConfigurationModelFactoryThrowableError: Error?
-    public var writeRNConfigurationModelFactoryCallsCount = 0
-    public var writeRNConfigurationModelFactoryCalled: Bool
+    public var writeRNConfigurationModelFactoryToThrowableError: Error?
+    public var writeRNConfigurationModelFactoryToCallsCount = 0
+    public var writeRNConfigurationModelFactoryToCalled: Bool
     {
-        return writeRNConfigurationModelFactoryCallsCount > 0
+        return writeRNConfigurationModelFactoryToCallsCount > 0
     }
+
+    public var writeRNConfigurationModelFactoryToReceivedOutput: CoderOutputProtocol?
 
     // MARK: - <writeRNConfigurationModelFactory> - closure mocks
 
-    public var writeRNConfigurationModelFactoryClosure: (() throws -> Void)?
+    public var writeRNConfigurationModelFactoryToClosure: ((CoderOutputProtocol) throws -> Void)?
 
     // MARK: - <writeRNConfigurationModelFactory> - method mocked
 
-    open func writeRNConfigurationModelFactory() throws
+    open func writeRNConfigurationModelFactory(to output: CoderOutputProtocol) throws
     {
         // <writeRNConfigurationModelFactory> - Throwable method implementation
 
-        if let error = writeRNConfigurationModelFactoryThrowableError
+        if let error = writeRNConfigurationModelFactoryToThrowableError
         {
             throw error
         }
 
-        writeRNConfigurationModelFactoryCallsCount += 1
+        writeRNConfigurationModelFactoryToCallsCount += 1
+        writeRNConfigurationModelFactoryToReceivedOutput = output
 
         // <writeRNConfigurationModelFactory> - Void return mock implementation
 
-        try writeRNConfigurationModelFactoryClosure?()
+        try writeRNConfigurationModelFactoryToClosure?(output)
     }
 }
 
@@ -343,38 +294,53 @@ open class CopyProtocolMock: CopyProtocol
 {
     public init() {}
 
-    // MARK: - <copy> - parameters
+    // MARK: - <attempt> - parameters
 
-    public var copyToCopyToFolderNameThrowableError: Error?
-    public var copyToCopyToFolderNameCallsCount = 0
-    public var copyToCopyToFolderNameCalled: Bool
+    public var attemptToCopyToFolderNameThrowableError: Error?
+    public var attemptToCopyToFolderNameCallsCount = 0
+    public var attemptToCopyToFolderNameCalled: Bool
     {
-        return copyToCopyToFolderNameCallsCount > 0
+        return attemptToCopyToFolderNameCallsCount > 0
     }
 
-    public var copyToCopyToFolderNameReceivedArguments: (yourSrcRoot: FolderProtocol, copyToFolderName: String)?
+    public var attemptToCopyToFolderNameReceivedArguments: (yourSrcRoot: FolderProtocol, copyToFolderName: String)?
+    public var attemptToCopyToFolderNameReturnValue: FolderProtocol?
 
-    // MARK: - <copy> - closure mocks
+    // MARK: - <attempt> - closure mocks
 
-    public var copyToCopyToFolderNameClosure: ((FolderProtocol, String) throws -> Void)?
+    public var attemptToCopyToFolderNameClosure: ((FolderProtocol, String) throws -> FolderProtocol)?
 
-    // MARK: - <copy> - method mocked
+    // MARK: - <attempt> - method mocked
 
-    open func copy(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws
+    open func attempt(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws -> FolderProtocol
     {
-        // <copy> - Throwable method implementation
+        // <attempt> - Throwable method implementation
 
-        if let error = copyToCopyToFolderNameThrowableError
+        if let error = attemptToCopyToFolderNameThrowableError
         {
             throw error
         }
 
-        copyToCopyToFolderNameCallsCount += 1
-        copyToCopyToFolderNameReceivedArguments = (yourSrcRoot: yourSrcRoot, copyToFolderName: copyToFolderName)
+        attemptToCopyToFolderNameCallsCount += 1
+        attemptToCopyToFolderNameReceivedArguments = (yourSrcRoot: yourSrcRoot, copyToFolderName: copyToFolderName)
 
-        // <copy> - Void return mock implementation
+        // <attempt> - Return Value mock implementation
 
-        try copyToCopyToFolderNameClosure?(yourSrcRoot, copyToFolderName)
+        guard let closureReturn = attemptToCopyToFolderNameClosure else
+        {
+            guard let returnValue = attemptToCopyToFolderNameReturnValue else
+            {
+                let message = "No returnValue implemented for attemptToCopyToFolderNameClosure"
+                let error = SourceryMockError.implementErrorCaseFor(message)
+
+                // You should implement FolderProtocol
+
+                throw error
+            }
+            return returnValue
+        }
+
+        return try closureReturn(yourSrcRoot, copyToFolderName)
     }
 }
 
@@ -384,40 +350,38 @@ open class JSBridgeCodeSampleProtocolMock: JSBridgeCodeSampleProtocol
 {
     public init() {}
 
-    public var bridgeEnv: [RNModels.Configuration: [String]] = [:]
-
     // MARK: - <writeRNConfigurationBridge> - parameters
 
-    public var writeRNConfigurationBridgeToThrowableError: Error?
-    public var writeRNConfigurationBridgeToCallsCount = 0
-    public var writeRNConfigurationBridgeToCalled: Bool
+    public var writeRNConfigurationBridgeToSamplerThrowableError: Error?
+    public var writeRNConfigurationBridgeToSamplerCallsCount = 0
+    public var writeRNConfigurationBridgeToSamplerCalled: Bool
     {
-        return writeRNConfigurationBridgeToCallsCount > 0
+        return writeRNConfigurationBridgeToSamplerCallsCount > 0
     }
 
-    public var writeRNConfigurationBridgeToReceivedFile: FileProtocol?
+    public var writeRNConfigurationBridgeToSamplerReceivedArguments: (file: FileProtocol, sampler: JSONToCodeSamplerProtocol)?
 
     // MARK: - <writeRNConfigurationBridge> - closure mocks
 
-    public var writeRNConfigurationBridgeToClosure: ((FileProtocol) throws -> Void)?
+    public var writeRNConfigurationBridgeToSamplerClosure: ((FileProtocol, JSONToCodeSamplerProtocol) throws -> Void)?
 
     // MARK: - <writeRNConfigurationBridge> - method mocked
 
-    open func writeRNConfigurationBridge(to file: FileProtocol) throws
+    open func writeRNConfigurationBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
         // <writeRNConfigurationBridge> - Throwable method implementation
 
-        if let error = writeRNConfigurationBridgeToThrowableError
+        if let error = writeRNConfigurationBridgeToSamplerThrowableError
         {
             throw error
         }
 
-        writeRNConfigurationBridgeToCallsCount += 1
-        writeRNConfigurationBridgeToReceivedFile = file
+        writeRNConfigurationBridgeToSamplerCallsCount += 1
+        writeRNConfigurationBridgeToSamplerReceivedArguments = (file: file, sampler: sampler)
 
         // <writeRNConfigurationBridge> - Void return mock implementation
 
-        try writeRNConfigurationBridgeToClosure?(file)
+        try writeRNConfigurationBridgeToSamplerClosure?(file, sampler)
     }
 }
 
@@ -427,6 +391,13 @@ open class JSONToCodeSamplerProtocolMock: JSONToCodeSamplerProtocol
 {
     public init() {}
 
+    public var jsonEnvironments: JSONEnvironmentsProtocol
+    {
+        get { return underlyingJsonEnvironments }
+        set(value) { underlyingJsonEnvironments = value }
+    }
+
+    public var underlyingJsonEnvironments: JSONEnvironmentsProtocol!
     public var casesForEnum: String
     {
         get { return underlyingCasesForEnum }
@@ -478,50 +449,39 @@ open class PlistWriterProtocolMock: PlistWriterProtocol
     }
 
     public static var underlyingPlistLinesXmlDefault: String = "AutoMockable filled value"
-    public var output: CoderOutputProtocol
-    {
-        get { return underlyingOutput }
-        set(value) { underlyingOutput = value }
-    }
-
-    public var underlyingOutput: CoderOutputProtocol!
-    public var sampler: JSONToCodeSamplerProtocol
-    {
-        get { return underlyingSampler }
-        set(value) { underlyingSampler = value }
-    }
-
-    public var underlyingSampler: JSONToCodeSamplerProtocol!
 
     // MARK: - <writeRNConfigurationPlist> - parameters
 
-    public var writeRNConfigurationPlistThrowableError: Error?
-    public var writeRNConfigurationPlistCallsCount = 0
-    public var writeRNConfigurationPlistCalled: Bool
+    public var writeRNConfigurationPlistOutputSamplerThrowableError: Error?
+    public var writeRNConfigurationPlistOutputSamplerCallsCount = 0
+    public var writeRNConfigurationPlistOutputSamplerCalled: Bool
     {
-        return writeRNConfigurationPlistCallsCount > 0
+        return writeRNConfigurationPlistOutputSamplerCallsCount > 0
     }
+
+    public var writeRNConfigurationPlistOutputSamplerReceivedArguments: (output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol)?
 
     // MARK: - <writeRNConfigurationPlist> - closure mocks
 
-    public var writeRNConfigurationPlistClosure: (() throws -> Void)?
+    public var writeRNConfigurationPlistOutputSamplerClosure: ((CoderOutputProtocol, JSONToCodeSamplerProtocol) throws -> Void)?
 
     // MARK: - <writeRNConfigurationPlist> - method mocked
 
-    open func writeRNConfigurationPlist() throws
+    open func writeRNConfigurationPlist(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
         // <writeRNConfigurationPlist> - Throwable method implementation
 
-        if let error = writeRNConfigurationPlistThrowableError
+        if let error = writeRNConfigurationPlistOutputSamplerThrowableError
         {
             throw error
         }
 
-        writeRNConfigurationPlistCallsCount += 1
+        writeRNConfigurationPlistOutputSamplerCallsCount += 1
+        writeRNConfigurationPlistOutputSamplerReceivedArguments = (output: output, sampler: sampler)
 
         // <writeRNConfigurationPlist> - Void return mock implementation
 
-        try writeRNConfigurationPlistClosure?()
+        try writeRNConfigurationPlistOutputSamplerClosure?(output, sampler)
     }
 }
 
@@ -555,15 +515,15 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
         return writeIOSAndAndroidConfigFilesFromOutputCallsCount > 0
     }
 
-    public var writeIOSAndAndroidConfigFilesFromOutputReceivedArguments: (input: CoderInputProtocol, output: CoderOutputProtocol)?
+    public var writeIOSAndAndroidConfigFilesFromOutputReceivedArguments: (json: JSONEnvironmentsProtocol, output: CoderOutputProtocol)?
 
     // MARK: - <writeIOSAndAndroidConfigFiles> - closure mocks
 
-    public var writeIOSAndAndroidConfigFilesFromOutputClosure: ((CoderInputProtocol, CoderOutputProtocol) throws -> Void)?
+    public var writeIOSAndAndroidConfigFilesFromOutputClosure: ((JSONEnvironmentsProtocol, CoderOutputProtocol) throws -> Void)?
 
     // MARK: - <writeIOSAndAndroidConfigFiles> - method mocked
 
-    open func writeIOSAndAndroidConfigFiles(from input: CoderInputProtocol, output: CoderOutputProtocol) throws
+    open func writeIOSAndAndroidConfigFiles(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
     {
         // <writeIOSAndAndroidConfigFiles> - Throwable method implementation
 
@@ -573,11 +533,11 @@ open class TextFileWriterProtocolMock: TextFileWriterProtocol
         }
 
         writeIOSAndAndroidConfigFilesFromOutputCallsCount += 1
-        writeIOSAndAndroidConfigFilesFromOutputReceivedArguments = (input: input, output: output)
+        writeIOSAndAndroidConfigFilesFromOutputReceivedArguments = (json: json, output: output)
 
         // <writeIOSAndAndroidConfigFiles> - Void return mock implementation
 
-        try writeIOSAndAndroidConfigFilesFromOutputClosure?(input, output)
+        try writeIOSAndAndroidConfigFilesFromOutputClosure?(json, output)
     }
 }
 

@@ -28,10 +28,8 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
 
     // MARK: - Writing to text files for android and ios
 
-    public func writeIOSAndAndroidConfigFiles(from input: CoderInputProtocol, output: CoderOutputProtocol) throws
+    public func writeIOSAndAndroidConfigFiles(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
     {
-        let json = try decoder.decode(JSONEnvironments.self, from: try input.inputJSONFile.read())
-
         try Configuration.allCases.forEach
         {
             try writeiOSConfiguration(json, $0, ios: output.ios.xcconfigFile)
