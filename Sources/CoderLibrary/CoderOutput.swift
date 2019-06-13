@@ -7,7 +7,6 @@
 
 import Errors
 import Foundation
-import HighwayLibrary
 import RNModels
 import SourceryAutoProtocols
 import Terminal
@@ -44,18 +43,12 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
                 ]
             )
 
-            if !packageCoderSources.containsSubfolder(possiblyInvalidName: CoderInput.projectNameWithPrepareScript)
-            {
-                highway.generateXcodeProject(override: xcconfigFile, handleSwiftPackageGenerateXcodeProject)
-                dispatchGroup.wait()
-            }
-
             ios = CoderOutput.iOS(
                 sourcesFolder: iosFolder,
                 xcconfigFile: xcconfigFile,
                 rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
-                infoPlistRNConfiguration: try packageCoderSources.file(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
-                infoPlistRNConfigurationTests: try packageCoderSources.file(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
+                infoPlistRNConfiguration: try packageCoderSources.createFileIfNeeded(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
+                infoPlistRNConfigurationTests: try packageCoderSources.createFileIfNeeded(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
                 rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModel.swift"),
                 jsBridge: try rnConfigurationBridgeSourcesFolder.file(named: "ReactNativeConfig.m")
             )
