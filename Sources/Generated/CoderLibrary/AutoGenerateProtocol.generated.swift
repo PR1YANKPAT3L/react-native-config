@@ -53,7 +53,6 @@ import Foundation
  var rnConfigurationModelSwiftFile: FileProtocol { get }
  var jsBridge: FileProtocol { get }
 
- func writeDefaultsToFiles() throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for CoderOutput.iOS ✅
  // types.implementing.AutoGenerateProtocol inline for Copy ..

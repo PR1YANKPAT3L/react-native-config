@@ -102,7 +102,5 @@ public protocol CoderOutputiOSProtocol: AutoMockable
     var infoPlistRNConfigurationTests: FileProtocol { get }
     var rnConfigurationModelSwiftFile: FileProtocol { get }
     var jsBridge: FileProtocol { get }
-
-    func writeDefaultsToFiles() throws
     // sourcery:end
 }

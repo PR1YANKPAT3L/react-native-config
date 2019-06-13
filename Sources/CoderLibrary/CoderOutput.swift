@@ -76,12 +76,5 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
         public let infoPlistRNConfigurationTests: FileProtocol
         public let rnConfigurationModelSwiftFile: FileProtocol
         public let jsBridge: FileProtocol
-
-        public func writeDefaultsToFiles() throws
-        {
-            try rnConfigurationModelFactorySwiftFile.write(string: Coder.rnConfigurationModelFactoryProtocolDefault)
-            try infoPlistRNConfiguration.write(string: PlistWriter.plistLinesXmlDefault)
-            try rnConfigurationModelSwiftFile.write(string: Coder.rnConfigurationModelDefault_TOP + "\n\(Coder.rnConfigurationModelDefault_BOTTOM)")
-        }
     }
 }

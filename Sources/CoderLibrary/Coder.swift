@@ -73,8 +73,6 @@ extension Coder {
         {
           
             try textFileWriter.writeIOSAndAndroidConfigFiles(from: sampler.jsonEnvironments, output: output)
-
-            try output.ios.writeDefaultsToFiles()
             
             try writeRNConfigurationModelFactory(to: output)
             try writeRNConfigurationModel(to: output)

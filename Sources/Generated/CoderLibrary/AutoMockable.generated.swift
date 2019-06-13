@@ -102,37 +102,6 @@ open class CoderOutputiOSProtocolMock: CoderOutputiOSProtocol
     }
 
     public var underlyingJsBridge: FileProtocol!
-
-    // MARK: - <writeDefaultsToFiles> - parameters
-
-    public var writeDefaultsToFilesThrowableError: Error?
-    public var writeDefaultsToFilesCallsCount = 0
-    public var writeDefaultsToFilesCalled: Bool
-    {
-        return writeDefaultsToFilesCallsCount > 0
-    }
-
-    // MARK: - <writeDefaultsToFiles> - closure mocks
-
-    public var writeDefaultsToFilesClosure: (() throws -> Void)?
-
-    // MARK: - <writeDefaultsToFiles> - method mocked
-
-    open func writeDefaultsToFiles() throws
-    {
-        // <writeDefaultsToFiles> - Throwable method implementation
-
-        if let error = writeDefaultsToFilesThrowableError
-        {
-            throw error
-        }
-
-        writeDefaultsToFilesCallsCount += 1
-
-        // <writeDefaultsToFiles> - Void return mock implementation
-
-        try writeDefaultsToFilesClosure?()
-    }
 }
 
 // MARK: - CoderProtocolMock
