@@ -49,8 +49,8 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
                 rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
                 infoPlistRNConfiguration: try packageCoderSources.createFileIfNeeded(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfiguration_Info.plist"),
                 infoPlistRNConfigurationTests: try packageCoderSources.createFileIfNeeded(named: "\(CoderInput.projectNameWithPrepareScript)/RNConfigurationTests_Info.plist"),
-                rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModel.swift"),
-                jsBridge: try rnConfigurationBridgeSourcesFolder.file(named: "ReactNativeConfig.m")
+                rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift"),
+                jsBridge: try rnConfigurationBridgeSourcesFolder.createFileIfNeeded(named: "ReactNativeConfig.m")
             )
         }
         catch
