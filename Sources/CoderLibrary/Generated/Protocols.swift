@@ -11,12 +11,12 @@ import SignPost
 import SourceryAutoProtocols
 import ZFile
 
-public protocol CopyProtocol: AutoMockable
+public protocol CopyIOSProjectProtocol: AutoMockable
 {
-    // sourcery:inline:Copy.AutoGenerateProtocol
+    // sourcery:inline:CopyIOSProject.AutoGenerateProtocol
     static var iosSubFolder: String { get set }
 
-    func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
+    func attempt(packageSrcRoot: FolderProtocol, to yourSrcRoot: FolderProtocol) throws
     // sourcery:end
 }
 

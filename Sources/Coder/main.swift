@@ -28,11 +28,8 @@ doContinue(pretty_function() + " setup")
 
     let input = try srcRoot.file(named: "coder.env.json")
 
-    // let packageCoderSources = highway.dependency(with: "Coder").path
-    // in your project use packageCoderSources from above, faking it here
-    let output = try CoderOutput(packageCoderSources: srcRoot, xcodeProjectName: xcodeName)
-    let copy = Copy(output: output)
-    try copy.attempt(to: srcRoot, xcodeProjectName: "Coder")
+    let copy = CopyIOSProject()
+    try copy.attempt(packageSrcRoot: srcRoot, to: srcRoot.subfolder(named: "ios"))
 
     // faking the copy, back to srcRoot
 

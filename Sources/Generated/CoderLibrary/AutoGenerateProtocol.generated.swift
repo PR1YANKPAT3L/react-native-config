@@ -54,13 +54,13 @@ import Foundation
 
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for CoderOutput.iOS ✅
- // types.implementing.AutoGenerateProtocol inline for Copy ..
- // sourcery:inline:Copy.AutoGenerateProtocol
+ // types.implementing.AutoGenerateProtocol inline for CopyIOSProject ..
+ // sourcery:inline:CopyIOSProject.AutoGenerateProtocol
  static var iosSubFolder: String { get set }
 
- func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
+ func attempt(packageSrcRoot: FolderProtocol, to yourSrcRoot: FolderProtocol) throws
  // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for Copy ✅
+ // types.implementing.AutoGenerateProtocol inline for CopyIOSProject ✅
  // types.implementing.AutoGenerateProtocol inline for JSBridgeCodeSample ..
  // sourcery:inline:JSBridgeCodeSample.AutoGenerateProtocol
 

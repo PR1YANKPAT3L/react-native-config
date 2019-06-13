@@ -250,9 +250,9 @@ open class CoderProtocolMock: CoderProtocol
     }
 }
 
-// MARK: - CopyProtocolMock
+// MARK: - CopyIOSProjectProtocolMock
 
-open class CopyProtocolMock: CopyProtocol
+open class CopyIOSProjectProtocolMock: CopyIOSProjectProtocol
 {
     public init() {}
 
@@ -266,36 +266,36 @@ open class CopyProtocolMock: CopyProtocol
 
     // MARK: - <attempt> - parameters
 
-    public var attemptToXcodeProjectNameThrowableError: Error?
-    public var attemptToXcodeProjectNameCallsCount = 0
-    public var attemptToXcodeProjectNameCalled: Bool
+    public var attemptPackageSrcRootToThrowableError: Error?
+    public var attemptPackageSrcRootToCallsCount = 0
+    public var attemptPackageSrcRootToCalled: Bool
     {
-        return attemptToXcodeProjectNameCallsCount > 0
+        return attemptPackageSrcRootToCallsCount > 0
     }
 
-    public var attemptToXcodeProjectNameReceivedArguments: (yourSrcRoot: FolderProtocol, xcodeProjectName: String)?
+    public var attemptPackageSrcRootToReceivedArguments: (packageSrcRoot: FolderProtocol, yourSrcRoot: FolderProtocol)?
 
     // MARK: - <attempt> - closure mocks
 
-    public var attemptToXcodeProjectNameClosure: ((FolderProtocol, String) throws -> Void)?
+    public var attemptPackageSrcRootToClosure: ((FolderProtocol, FolderProtocol) throws -> Void)?
 
     // MARK: - <attempt> - method mocked
 
-    open func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
+    open func attempt(packageSrcRoot: FolderProtocol, to yourSrcRoot: FolderProtocol) throws
     {
         // <attempt> - Throwable method implementation
 
-        if let error = attemptToXcodeProjectNameThrowableError
+        if let error = attemptPackageSrcRootToThrowableError
         {
             throw error
         }
 
-        attemptToXcodeProjectNameCallsCount += 1
-        attemptToXcodeProjectNameReceivedArguments = (yourSrcRoot: yourSrcRoot, xcodeProjectName: xcodeProjectName)
+        attemptPackageSrcRootToCallsCount += 1
+        attemptPackageSrcRootToReceivedArguments = (packageSrcRoot: packageSrcRoot, yourSrcRoot: yourSrcRoot)
 
         // <attempt> - Void return mock implementation
 
-        try attemptToXcodeProjectNameClosure?(yourSrcRoot, xcodeProjectName)
+        try attemptPackageSrcRootToClosure?(packageSrcRoot, yourSrcRoot)
     }
 }
 
