@@ -6,8 +6,8 @@
         "repositoryURL": "https://www.github.com/dooZdev/Highway",
         "state": {
           "branch": null,
-          "revision": "37e96ae0e7bbd1c2405e5ad373c92cf4997ae46f",
-          "version": "2.15.0"
+          "revision": "d6d7555172cf7a73e9113b88befebaf2cf08cb60",
+          "version": "2.15.2"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://www.github.com/dooZdev/ZFile",
         "state": {
           "branch": null,
-          "revision": "a697864b5a2f1d5be0f5fd6af7609e8b38eb93f6",
-          "version": "2.5.2"
+          "revision": "2aeaf52981f78e2b8866466235f630894b80472a",
+          "version": "2.5.4"
         }
       }
     ]

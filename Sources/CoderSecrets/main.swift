@@ -19,10 +19,6 @@ doContinue(pretty_function())
 
             signPost.message(try secrets.add(file).joined(separator: "\n"))
             signPost.message("Adding file ✅")
-        case .clean:
-            signPost.message("\(Secrets.Argument.clean) ...")
-            signPost.message(try secrets.clean(from: srcRoot).joined(separator: "\n"))
-            signPost.message("\(Secrets.Argument.clean) ✅")
         }
     }
 

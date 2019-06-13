@@ -8,11 +8,65 @@ import ZFile
 import TerminalMock
 import ZFileMock
 import CoderLibraryMock
+import Foundation
 
-extension FileProtocolMock {
+
+open class FileSystemIteratorMock: FileSystemIterator<FileProtocolMock> {
+    
+    public let file: FileProtocolMock
+    
+    public init(file: FileProtocolMock, parent: FolderProtocolMock) {
+        self.file = file
+        super.init(folder: parent, recursive: false, includeHidden: false, using: .default)
+    }
+    
+    override open func next() -> FileProtocolMock? {
+        return file
+    }
     
 }
+open class FileSystemSequenceMock: FileSystemSequence<FileProtocolMock> {
+    
+    public let iteratorFile: FileProtocolMock
+    public let parent: FolderProtocolMock
+    
+    public init(iteratorFile: FileProtocolMock, parent: FolderProtocolMock) {
+        self.iteratorFile = iteratorFile
+        self.parent = parent
+        super.init(folder: parent, recursive: false, includeHidden: true, using: FileManager.default)
+    }
+    
+    override open func makeIterator() -> FileSystemIterator<FileProtocolMock> {
+        return FileSystemIteratorMock(file: iteratorFile, parent: parent)
+    }
+}
 
+private class RNFolder: FolderMock {
+    
+    let file: FileProtocolMock
+    let parent: FolderProtocolMock
+    
+    required init() {
+        file = try! FileProtocolMock()
+        file.readReturnValue = "".data(using: .utf8)!
+        parent = try! FolderProtocolMock()
+        file.parentFolderReturnValue = parent
+        file.pReturnValue = parent
+        try! super.init()
+    }
+    
+    required init(path: String) throws {
+        fatalError("init(path:) has not been implemented")
+    }
+    
+    required init?(possibilyInvalidPath: String, using filemanager: FileManager) {
+        fatalError("init(possibilyInvalidPath:using:) has not been implemented")
+    }
+    
+    override func makeFileSequence<F>() throws -> FileSystemSequence<F> where F : FileProtocol {
+        return FileSystemSequenceMock(iteratorFile: file, parent: parent) as! FileSystemSequence<F>
+    }
+}
 class CopySpec: QuickSpec {
     
     override func spec() {
@@ -32,12 +86,15 @@ class CopySpec: QuickSpec {
                 folder.name = pretty_function()
 
                 folder.containsSubfolderPossiblyInvalidNameReturnValue = true
+                folder.containsFilePossiblyInvalidNameReturnValue = true
                 folder.subfolderNamedReturnValue = folder
                 folder.createSubfolderNamedReturnValue = folder
-                folder.createSubfolderIfNeededWithNameReturnValue = folder
-                folder.makeFileSequenceReturnValue = FileSystemSequence<FolderProtocolMock>()
+                folder.createSubfolderIfNeededNamedReturnValue = folder
                 
                 output = try! correctCoderOutput(srcRoot: folder)
+                let input = try! correctCoderInput()
+                folder.fileNamedReturnValue = input.json
+                
                 terminal = TerminalProtocolMock()
                 system = SystemProtocolMock()
                 
@@ -62,55 +119,11 @@ class CopySpec: QuickSpec {
                 expect{ try sut?.attempt(to: folder, xcodeProjectName: "mock") }.toNot(throwError())
             }
             
-            it("deletes folder first") {
-                expect(folder.deleteCalled) == true
-            }
-            
+          
             it("creates destination folder") {
-                expect(folder.createSubfolderNamedCalled) == true
+                expect(folder.createSubfolderIfNeededNamedCalled) == true
             }
             
-            it("copy all source files in <Project>Configuration folder name") {
-                
-                let rnConfigurationFolder = try! output.ios.rnConfigurationModelSwiftFile.parentFolder() as! FolderProtocolMock
-                
-                expect(rnConfigurationFolder.copyToCalled) == true
-            }
-            
-            it("copy plist") {
-                
-                let rnConfigurationFolder = try! output.ios.rnConfigurationModelSwiftFile.parentFolder() as! FolderProtocolMock
-                
-                expect(rnConfigurationFolder.copyToCalled) == true
-            }
-            
-            it("copy xcconfig") {
-                
-                let xcconfig = output.ios.xcconfigFile as! FileProtocolMock
-                
-                expect(xcconfig.copyToCalled) == true
-            }
-            
-            
-            it("copy ios folder") {
-                
-                let iosFolder = output.ios.sourcesFolder as! FolderProtocolMock
-                
-                expect(iosFolder.copyToCalled) == true
-            }
-            
-            it("copy android files") {
-                
-                let androidFolder = output.android.sourcesFolder as! FolderProtocolMock
-                
-                expect(androidFolder.copyToCalled) == true
-            }
-            
-            it ("copy plist") {
-                let plistFolder = output.ios.infoPlistRNConfiguration as! FileProtocolMock
-                
-                expect(plistFolder.copyToCalled) == true
-            }
         }
     }
 }

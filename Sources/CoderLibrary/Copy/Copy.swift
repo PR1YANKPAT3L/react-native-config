@@ -12,7 +12,7 @@ import SourceryAutoProtocols
 import Terminal
 import ZFile
 
-public struct Copy: CopyProtocol, AutoGenerateProtocol
+open class Copy: CopyProtocol, AutoGenerateProtocol
 {
     private let output: CoderOutputProtocol
     private let terminal: TerminalProtocol
@@ -51,13 +51,13 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
         signPost.message(pretty_function() + " ...")
         do
         {
-            let xcodeproj = try yourSrcRoot.createSubfolderIfNeeded(withName: xcodeProjectName + ".xcodeproj")
+            let xcodeproj = try yourSrcRoot.createSubfolderIfNeeded(named: xcodeProjectName + ".xcodeproj")
 
             let rnConfiguration = try output.ios.rnConfigurationModelSwiftFile.parentFolder()
 
-            let ios = try yourSrcRoot.createSubfolderIfNeeded(withName: "ios")
+            let ios = try yourSrcRoot.createSubfolderIfNeeded(named: "ios")
 
-            let sources = try yourSrcRoot.createSubfolderIfNeeded(withName: "Sources")
+            let sources = try yourSrcRoot.createSubfolderIfNeeded(named: "Sources")
 
             // COPY RNCOFIGURATION
 
@@ -66,15 +66,19 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
             if sources.containsSubfolder(possiblyInvalidName: rnConfigurationName)
             {
                 let destination = try sources.subfolder(named: rnConfigurationName)
-                try rnConfiguration.makeFileSequence().forEach
-                { file in
-                    if destination.containsFile(possiblyInvalidName: file.name)
-                    {
-                        try destination.file(named: file.name).write(data: try file.read())
-                    }
-                    else
-                    {
-                        try file.copy(to: destination)
+
+                if let files: FileSystemSequence<File> = try? rnConfiguration.makeFileSequence()
+                {
+                    try files.forEach
+                    { file in
+                        if destination.containsFile(possiblyInvalidName: file.name)
+                        {
+                            try destination.file(named: file.name).write(data: try file.read())
+                        }
+                        else
+                        {
+                            try file.copy(to: destination)
+                        }
                     }
                 }
             }
@@ -87,7 +91,7 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
 
             if !ios.containsSubfolder(possiblyInvalidName: "GeneratedEnvironmentiOS")
             {
-                let iosConfiguration = try ios.createSubfolderIfNeeded(withName: "GeneratedEnvironmentiOS")
+                let iosConfiguration = try ios.createSubfolderIfNeeded(named: "GeneratedEnvironmentiOS")
                 _ = try output.ios.sourcesFolder.copy(to: iosConfiguration)
             }
 
