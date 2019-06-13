@@ -75,8 +75,8 @@ class TextFileWriterTests: QuickSpec {
                     let debugFile: (FileProtocolMock) = (output.android.configFiles[.Debug] as! FileProtocolMock)
                     
                     expect(debugFile.writeStringReceivedString) == """
-                    example_url = https://debug
-                    exampleBool = true
+                    example_url=https://debug
+                    exampleBool=true
                     """
                 }
                 
@@ -84,8 +84,8 @@ class TextFileWriterTests: QuickSpec {
                     let releaseFile: (FileProtocolMock) = (output.android.configFiles[.Release] as! FileProtocolMock)
                     
                     expect(releaseFile.writeStringReceivedString) == """
-                    example_url = https://release
-                    exampleBool = false
+                    example_url=https://release
+                    exampleBool=false
                     """
                 }
                 
@@ -93,8 +93,8 @@ class TextFileWriterTests: QuickSpec {
                     let localFile: (FileProtocolMock) = (output.android.configFiles[.Local] as! FileProtocolMock)
                     
                     expect(localFile.writeStringReceivedString) == """
-                    example_url = https://local
-                    exampleBool = true
+                    example_url=https://local
+                    exampleBool=true
                     """
                     
                 }
@@ -103,8 +103,8 @@ class TextFileWriterTests: QuickSpec {
                     let betaRelease: (FileProtocolMock) = (output.android.configFiles[.BetaRelease] as! FileProtocolMock)
                     
                     expect(betaRelease.writeStringReceivedString) == """
-                    example_url = https://betaRelease
-                    exampleBool = false
+                    example_url=https://betaRelease
+                    exampleBool=false
                     """
                 }
             }

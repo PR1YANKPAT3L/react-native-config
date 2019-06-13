@@ -337,6 +337,47 @@ open class CoderProtocolMock: CoderProtocol
     }
 }
 
+// MARK: - CopyProtocolMock
+
+open class CopyProtocolMock: CopyProtocol
+{
+    public init() {}
+
+    // MARK: - <copy> - parameters
+
+    public var copyToCopyToFolderNameThrowableError: Error?
+    public var copyToCopyToFolderNameCallsCount = 0
+    public var copyToCopyToFolderNameCalled: Bool
+    {
+        return copyToCopyToFolderNameCallsCount > 0
+    }
+
+    public var copyToCopyToFolderNameReceivedArguments: (yourSrcRoot: FolderProtocol, copyToFolderName: String)?
+
+    // MARK: - <copy> - closure mocks
+
+    public var copyToCopyToFolderNameClosure: ((FolderProtocol, String) throws -> Void)?
+
+    // MARK: - <copy> - method mocked
+
+    open func copy(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws
+    {
+        // <copy> - Throwable method implementation
+
+        if let error = copyToCopyToFolderNameThrowableError
+        {
+            throw error
+        }
+
+        copyToCopyToFolderNameCallsCount += 1
+        copyToCopyToFolderNameReceivedArguments = (yourSrcRoot: yourSrcRoot, copyToFolderName: copyToFolderName)
+
+        // <copy> - Void return mock implementation
+
+        try copyToCopyToFolderNameClosure?(yourSrcRoot, copyToFolderName)
+    }
+}
+
 // MARK: - JSBridgeCodeSampleProtocolMock
 
 open class JSBridgeCodeSampleProtocolMock: JSBridgeCodeSampleProtocol

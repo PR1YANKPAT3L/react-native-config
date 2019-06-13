@@ -5,7 +5,6 @@
 //  Created by Stijn Willems on 12/06/2019.
 //
 
-import CoderLibrary
 import Errors
 import Foundation
 import SignPost

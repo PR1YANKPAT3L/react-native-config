@@ -6,7 +6,6 @@
 //
 
 import CoderLibrary
-import CopyLibrary
 import Errors
 import Foundation
 import Terminal

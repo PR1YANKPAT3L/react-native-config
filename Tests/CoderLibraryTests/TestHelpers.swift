@@ -55,14 +55,25 @@ func correctCoderOutput(srcRoot: FolderProtocolMock) throws -> CoderOutputProtoc
     let ios: CoderOutputiOSProtocolMock = CoderOutputiOSProtocolMock()
     let xcconfig = try FileProtocolMock()
     xcconfig.readAsStringReturnValue = ""
+    xcconfig.copyToClosure = { _ in return xcconfig }
     
     ios.underlyingXcconfigFile = xcconfig
     ios.underlyingSourcesFolder = srcRoot
-    ios.underlyingInfoPlistRNConfiguration = try FileProtocolMock()
+    let plist = try FileProtocolMock()
+    plist.copyToClosure = { _ in return plist }
+    
+    ios.underlyingInfoPlistRNConfiguration = plist
     ios.underlyingRnConfigurationModelSwiftFile = try FileProtocolMock()
     ios.underlyingInfoPlistRNConfigurationTests = try FileProtocolMock()
     ios.underlyingJsBridge = try FileProtocolMock()
-    ios.rnConfigurationModelSwiftFile = try FileProtocolMock()
+    
+    let file = try FileProtocolMock()
+    srcRoot.copyToClosure = { _ in return srcRoot }
+    
+    file.parentFolderReturnValue = srcRoot
+    
+    ios.rnConfigurationModelSwiftFile = file
+    
     ios.underlyingRnConfigurationModelFactorySwiftFile = try FileProtocolMock()
     
     output.underlyingIos = ios
