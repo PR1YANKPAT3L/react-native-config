@@ -89,10 +89,10 @@ open class Copy: CopyProtocol, AutoGenerateProtocol
 
             // COPY IOS PROJECT
 
-            if !ios.containsSubfolder(possiblyInvalidName: "ReactNativeConfig.xcodeproj")
+            if !ios.containsSubfolder(possiblyInvalidName: "ReactNativeConfig")
             {
-                let xcode = try output.ios.sourcesFolder.subfolder(named: "ReactNativeConfig.xcodeproj")
-                _ = try xcode.copy(to: ios)
+                let destination = try ios.createSubfolderIfNeeded(named: "ReactNativeConfig")
+                _ = try output.ios.sourcesFolder.copy(to: ios)
             }
 
             if xcodeproj.containsFile(possiblyInvalidName: output.ios.infoPlistRNConfiguration.name)
