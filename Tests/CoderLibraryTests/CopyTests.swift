@@ -1,11 +1,12 @@
 import Quick
 import Nimble
-import CopyLibrary
-import CopyLibraryMock
+
+import CoderLibrary
+import Errors
+
 import TerminalMock
 import ZFileMock
 import CoderLibraryMock
-import Errors
 
 class CopySpec: QuickSpec {
     

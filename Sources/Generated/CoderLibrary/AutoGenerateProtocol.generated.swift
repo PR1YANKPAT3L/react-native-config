@@ -68,6 +68,12 @@ import Foundation
  func writeDefaultsToFiles() throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for CoderOutput.iOS ✅
+ // types.implementing.AutoGenerateProtocol inline for Copy ..
+ // sourcery:inline:Copy.AutoGenerateProtocol
+
+ func copy(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for Copy ✅
  // types.implementing.AutoGenerateProtocol inline for JSBridgeCodeSample ..
  // sourcery:inline:JSBridgeCodeSample.AutoGenerateProtocol
  var bridgeEnv: [RNModels.Configuration: [String]] { get }

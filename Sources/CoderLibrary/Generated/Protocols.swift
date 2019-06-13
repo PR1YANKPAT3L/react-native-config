@@ -11,6 +11,14 @@ import SignPost
 import SourceryAutoProtocols
 import ZFile
 
+public protocol CopyProtocol: AutoMockable
+{
+    // sourcery:inline:Copy.AutoGenerateProtocol
+
+    func copy(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws
+    // sourcery:end
+}
+
 public protocol CoderProtocol: AutoMockable
 {
     // sourcery:inline:Coder.AutoGenerateProtocol

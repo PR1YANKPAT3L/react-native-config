@@ -62,8 +62,4 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
         }
         try ios?.append(string: "\n\(iOSEntry)")
     }
-
-//    private func removeEmptyLines(from file: FileProtocol) {
-//
-//    }
 }

@@ -37,10 +37,10 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
             android = CoderOutput.Android(
                 sourcesFolder: androidFolder,
                 configFiles: [
-                    .Debug: try androidFolder.createFileIfNeeded(named: ".env.debug"),
-                    .Release: try androidFolder.createFileIfNeeded(named: ".env.release"),
-                    .Local: try androidFolder.createFileIfNeeded(named: ".env.local"),
-                    .BetaRelease: try androidFolder.createFileIfNeeded(named: ".env.betaReleae"),
+                    .Debug: try androidFolder.createFileIfNeeded(named: ".env.\(RNModels.Configuration.Debug.fileName())"),
+                    .Release: try androidFolder.createFileIfNeeded(named: ".env.\(RNModels.Configuration.Release.fileName())"),
+                    .Local: try androidFolder.createFileIfNeeded(named: ".env.\(RNModels.Configuration.Local.fileName())"),
+                    .BetaRelease: try androidFolder.createFileIfNeeded(named: ".env.\(RNModels.Configuration.BetaRelease.fileName())"),
                 ]
             )
 

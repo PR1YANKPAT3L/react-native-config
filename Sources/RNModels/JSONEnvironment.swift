@@ -21,7 +21,7 @@ public struct JSONEnvironment: Codable, JSONEnvironmentProtocol
         if let typed = typed
         {
             entries = try typed
-                .map { return "\($0.key) \(configSelector) = \(try xcconfigRawValue(for: $0.value))" }
+                .map { return "\($0.key)\(configSelector)=\(try xcconfigRawValue(for: $0.value))".trimmingCharacters(in: .whitespacesAndNewlines) }
                 .sorted()
         }
 
@@ -29,7 +29,7 @@ public struct JSONEnvironment: Codable, JSONEnvironmentProtocol
         {
             entries.append(
                 contentsOf: booleanEntries
-                    .map { "\($0.key) \(configSelector) = \($0.value)" }
+                    .map { "\($0.key)\(configSelector)=\($0.value)".trimmingCharacters(in: .whitespacesAndNewlines) }
                     .sorted()
             )
         }
@@ -44,7 +44,7 @@ public struct JSONEnvironment: Codable, JSONEnvironmentProtocol
         if let typed = typed
         {
             entries = try typed
-                .map { return "\($0.key) = \(try androidEnvRawValue(for: $0.value))" }
+                .map { return "\($0.key)=\(try androidEnvRawValue(for: $0.value))".trimmingCharacters(in: .whitespacesAndNewlines) }
                 .sorted()
         }
 
@@ -58,7 +58,7 @@ public struct JSONEnvironment: Codable, JSONEnvironmentProtocol
                     let key = $0.key
                     let jsonEntry = TypedJsonEntry(typedValue: .bool($0.value))
 
-                    return "\(key) = \(try androidEnvRawValue(for: jsonEntry))"
+                    return "\(key)=\(try androidEnvRawValue(for: jsonEntry))".trimmingCharacters(in: .whitespacesAndNewlines)
                 }
                 .sorted()
             )
