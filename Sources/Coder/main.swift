@@ -14,7 +14,6 @@ import SignPost
 import Terminal
 import ZFile
 
-
 let xcodeName = "Coder"
 var coder: CoderProtocol!
 var copiedPackageCoderSources: CoderOutputProtocol!
@@ -31,22 +30,21 @@ doContinue(pretty_function() + " setup")
 
     let output = try CoderOutput(packageCoderSources: srcRoot, xcodeProjectName: xcodeName)
     let copy = Copy(output: output)
-    let copiedFolder = try copy.attempt(to: srcRoot, copyToFolderName: "\(xcodeName)Environment")
-    copiedPackageCoderSources = try CoderOutput(packageCoderSources: copiedFolder, xcodeProjectName: xcodeName)
+    try copy.attempt(to: srcRoot, xcodeProjectName: "Coder")
+    
+    copiedPackageCoderSources = try CoderOutput(packageCoderSources: srcRoot, xcodeProjectName: xcodeName)
 
     let sampler = try JSONToCodeSampler(inputJSONFile: input)
-    
+
     coder = Coder(sampler: sampler)
-    
 }
 
 func continueWithXcodeProjectPresent(_ sync: @escaping Highway.SyncSwiftPackageGenerateXcodeProj)
 {
     doContinue(pretty_function())
     {
-       
         let output = try coder.attemptCode(to: copiedPackageCoderSources)
-        
+
         signPost.verbose("found config \(output)")
 
         highway.runSourcery(handleSourceryOutput)

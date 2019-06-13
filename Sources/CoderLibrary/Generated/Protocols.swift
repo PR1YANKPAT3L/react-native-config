@@ -15,7 +15,7 @@ public protocol CopyProtocol: AutoMockable
 {
     // sourcery:inline:Copy.AutoGenerateProtocol
 
-    func attempt(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws -> FolderProtocol
+    func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
     // sourcery:end
 }
 

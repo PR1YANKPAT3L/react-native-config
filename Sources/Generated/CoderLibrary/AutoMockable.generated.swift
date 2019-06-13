@@ -296,51 +296,36 @@ open class CopyProtocolMock: CopyProtocol
 
     // MARK: - <attempt> - parameters
 
-    public var attemptToCopyToFolderNameThrowableError: Error?
-    public var attemptToCopyToFolderNameCallsCount = 0
-    public var attemptToCopyToFolderNameCalled: Bool
+    public var attemptToXcodeProjectNameThrowableError: Error?
+    public var attemptToXcodeProjectNameCallsCount = 0
+    public var attemptToXcodeProjectNameCalled: Bool
     {
-        return attemptToCopyToFolderNameCallsCount > 0
+        return attemptToXcodeProjectNameCallsCount > 0
     }
 
-    public var attemptToCopyToFolderNameReceivedArguments: (yourSrcRoot: FolderProtocol, copyToFolderName: String)?
-    public var attemptToCopyToFolderNameReturnValue: FolderProtocol?
+    public var attemptToXcodeProjectNameReceivedArguments: (yourSrcRoot: FolderProtocol, xcodeProjectName: String)?
 
     // MARK: - <attempt> - closure mocks
 
-    public var attemptToCopyToFolderNameClosure: ((FolderProtocol, String) throws -> FolderProtocol)?
+    public var attemptToXcodeProjectNameClosure: ((FolderProtocol, String) throws -> Void)?
 
     // MARK: - <attempt> - method mocked
 
-    open func attempt(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws -> FolderProtocol
+    open func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
     {
         // <attempt> - Throwable method implementation
 
-        if let error = attemptToCopyToFolderNameThrowableError
+        if let error = attemptToXcodeProjectNameThrowableError
         {
             throw error
         }
 
-        attemptToCopyToFolderNameCallsCount += 1
-        attemptToCopyToFolderNameReceivedArguments = (yourSrcRoot: yourSrcRoot, copyToFolderName: copyToFolderName)
+        attemptToXcodeProjectNameCallsCount += 1
+        attemptToXcodeProjectNameReceivedArguments = (yourSrcRoot: yourSrcRoot, xcodeProjectName: xcodeProjectName)
 
-        // <attempt> - Return Value mock implementation
+        // <attempt> - Void return mock implementation
 
-        guard let closureReturn = attemptToCopyToFolderNameClosure else
-        {
-            guard let returnValue = attemptToCopyToFolderNameReturnValue else
-            {
-                let message = "No returnValue implemented for attemptToCopyToFolderNameClosure"
-                let error = SourceryMockError.implementErrorCaseFor(message)
-
-                // You should implement FolderProtocol
-
-                throw error
-            }
-            return returnValue
-        }
-
-        return try closureReturn(yourSrcRoot, copyToFolderName)
+        try attemptToXcodeProjectNameClosure?(yourSrcRoot, xcodeProjectName)
     }
 }
 

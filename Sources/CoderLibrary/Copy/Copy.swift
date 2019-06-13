@@ -46,31 +46,37 @@ public struct Copy: CopyProtocol, AutoGenerateProtocol
      - returns: Folder that can be used to configure a Coder
 
      */
-    public func attempt(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws -> FolderProtocol
+    public func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
     {
         do
         {
-            if yourSrcRoot.containsSubfolder(possiblyInvalidName: copyToFolderName)
-            {
-                try yourSrcRoot.subfolder(named: copyToFolderName).delete()
-            }
-
-            let destination = try yourSrcRoot.createSubfolder(named: copyToFolderName)
+            let xcodeproj = try yourSrcRoot.createSubfolderIfNeeded(withName: xcodeProjectName + ".xcodeproj")
 
             let rnConfiguration = try output.ios.rnConfigurationModelSwiftFile.parentFolder()
 
-            if let existing = yourSrcRoot.subfolder(possiblyInvalidName: rnConfiguration.name)
+            let ios = try yourSrcRoot.createSubfolderIfNeeded(withName: "ios")
+            let iosConfiguration = try ios.createSubfolderIfNeeded(withName: "iOSConfiguration")
+
+            let sources = try yourSrcRoot.createSubfolderIfNeeded(withName: "Sources")
+
+            let rnConfigurationName = "RNConfiguration"
+
+            if sources.containsSubfolder(possiblyInvalidName: rnConfigurationName)
             {
-                try existing.delete()
+                let folder = try sources.subfolder(named: rnConfigurationName)
+                try folder.delete()
             }
 
-            _ = try rnConfiguration.copy(to: destination)
-            _ = try output.ios.xcconfigFile.copy(to: destination)
-            _ = try output.ios.sourcesFolder.copy(to: destination)
-            _ = try output.android.sourcesFolder.copy(to: destination)
-            _ = try output.ios.infoPlistRNConfiguration.copy(to: destination)
+            _ = try rnConfiguration.copy(to: sources)
 
-            return destination
+            _ = try output.ios.sourcesFolder.copy(to: iosConfiguration)
+
+            if xcodeproj.containsFile(possiblyInvalidName: output.ios.infoPlistRNConfiguration.name)
+            {
+                try xcodeproj.file(named: output.ios.infoPlistRNConfiguration.name).delete()
+            }
+
+            _ = try output.ios.infoPlistRNConfiguration.copy(to: xcodeproj)
         }
         catch
         {

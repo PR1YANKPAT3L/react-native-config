@@ -59,7 +59,7 @@ import Foundation
  // types.implementing.AutoGenerateProtocol inline for Copy ..
  // sourcery:inline:Copy.AutoGenerateProtocol
 
- func attempt(to yourSrcRoot: FolderProtocol, copyToFolderName: String) throws  -> FolderProtocol
+ func attempt(to yourSrcRoot: FolderProtocol, xcodeProjectName: String) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for Copy ✅
  // types.implementing.AutoGenerateProtocol inline for JSBridgeCodeSample ..
