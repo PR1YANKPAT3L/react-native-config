@@ -20,7 +20,7 @@ public protocol CoderProtocol: AutoMockable
     static var factoryDefault: String { get }
 
     func attemptCode(to output: CoderOutputProtocol) throws -> CoderOutputProtocol
-    func writeRNConfigurationModel(to output: CoderOutputProtocol) throws
+    func writeModel(to output: CoderOutputProtocol) throws
     func writeFactory(to output: CoderOutputProtocol) throws
 
     // sourcery:end
@@ -30,7 +30,7 @@ public protocol JSBridgeCodeSampleProtocol: AutoMockable
 {
     // sourcery:inline:JSBridgeCodeSample.AutoGenerateProtocol
 
-    func writeRNConfigurationBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
+    func writeBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
     // sourcery:end
 }
 
@@ -53,17 +53,17 @@ public protocol PlistWriterProtocol: AutoMockable
     // sourcery:inline:PlistWriter.AutoGenerateProtocol
     static var plistLinesXmlDefault: String { get }
 
-    func writeRNConfigurationPlist(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
+    func write(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
     // sourcery:end
 }
 
-public protocol TextFileWriterProtocol: AutoMockable
+public protocol PlatformSpecificConfigurationWriterProtocol: AutoMockable
 {
-    // sourcery:inline:TextFileWriter.AutoGenerateProtocol
-    static var shared: TextFileWriterProtocol { get }
+    // sourcery:inline:PlatformSpecificConfigurationWriter.AutoGenerateProtocol
+    static var shared: PlatformSpecificConfigurationWriterProtocol { get }
     var decoder: JSONDecoder { get }
 
-    func writeIOSAndAndroidConfigFiles(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
+    func writeToAllPlatforms(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
 
     // sourcery:end
 }

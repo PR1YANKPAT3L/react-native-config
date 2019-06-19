@@ -25,14 +25,14 @@ import Foundation
  static var factoryDefault: String { get }
 
  func attemptCode(to output: CoderOutputProtocol) throws  -> CoderOutputProtocol
- func writeRNConfigurationModel(to output: CoderOutputProtocol) throws
+ func writeModel(to output: CoderOutputProtocol) throws
  func writeFactory(to output: CoderOutputProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for Coder ✅
  // types.implementing.AutoGenerateProtocol inline for JSBridgeCodeSample ..
  // sourcery:inline:JSBridgeCodeSample.AutoGenerateProtocol
 
- func writeRNConfigurationBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
+ func writeBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for JSBridgeCodeSample ✅
  // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ..
@@ -47,20 +47,20 @@ import Foundation
 
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for JSONToCodeSampler ✅
+ // types.implementing.AutoGenerateProtocol inline for PlatformSpecificConfigurationWriter ..
+ // sourcery:inline:PlatformSpecificConfigurationWriter.AutoGenerateProtocol
+ static var shared: PlatformSpecificConfigurationWriterProtocol { get }
+ var decoder: JSONDecoder { get }
+
+ func writeToAllPlatforms(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for PlatformSpecificConfigurationWriter ✅
  // types.implementing.AutoGenerateProtocol inline for PlistWriter ..
  // sourcery:inline:PlistWriter.AutoGenerateProtocol
  static var plistLinesXmlDefault: String { get }
 
- func writeRNConfigurationPlist(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
+ func write(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
  // sourcery:end
  // types.implementing.AutoGenerateProtocol inline for PlistWriter ✅
- // types.implementing.AutoGenerateProtocol inline for TextFileWriter ..
- // sourcery:inline:TextFileWriter.AutoGenerateProtocol
- static var shared: TextFileWriterProtocol { get }
- var decoder: JSONDecoder { get }
-
- func writeIOSAndAndroidConfigFiles(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
- // sourcery:end
- // types.implementing.AutoGenerateProtocol inline for TextFileWriter ✅
 
  */

@@ -21,9 +21,9 @@ import ZFile
 doContinue(pretty_function())
 {
     try terminalInit(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder().parentFolder())
-    let configurationForBuildConfiguration = try Factory.readCurrentBuildConfiguration()
+    let model = try Factory.readCurrentBuildConfiguration()
 
-    signPost.message("base url = \(configurationForBuildConfiguration.example_url)")
+    signPost.message("base url = \(model.example_url)")
 }
 
 exit(EXIT_SUCCESS)

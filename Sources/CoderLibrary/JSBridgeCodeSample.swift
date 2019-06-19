@@ -14,7 +14,7 @@ public struct JSBridgeCodeSample: JSBridgeCodeSampleProtocol, AutoGenerateProtoc
 {
     public init() {}
 
-    public func writeRNConfigurationBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
+    public func writeBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
         let bridgeEnv = sampler.bridgeEnv
 

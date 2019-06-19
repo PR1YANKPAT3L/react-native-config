@@ -11,9 +11,9 @@ import RNModels
 import SourceryAutoProtocols
 import ZFile
 
-public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
+public struct PlatformSpecificConfigurationWriter: PlatformSpecificConfigurationWriterProtocol, AutoGenerateProtocol
 {
-    public static let shared: TextFileWriterProtocol = TextFileWriter()
+    public static let shared: PlatformSpecificConfigurationWriterProtocol = PlatformSpecificConfigurationWriter()
 
     public let decoder: JSONDecoder
 
@@ -28,7 +28,7 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
 
     // MARK: - Writing to text files for android and ios
 
-    public func writeIOSAndAndroidConfigFiles(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
+    public func writeToAllPlatforms(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
     {
         try Configuration.allCases.forEach
         {
@@ -52,7 +52,6 @@ public struct TextFileWriter: TextFileWriterProtocol, AutoGenerateProtocol
 
         guard
             let content = try ios?.readAsString(),
-            !content.isEmpty,
             !content.contains(iOSEntry)
         else
         {

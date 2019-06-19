@@ -29,7 +29,7 @@ class PlistWriterTests: QuickSpec {
             }
             
             it("writes to ios files") {
-                expect{ try sut?.writeRNConfigurationPlist(output: output, sampler: sampler) }.toNot(throwError())
+                expect{ try sut?.write(output: output, sampler: sampler) }.toNot(throwError())
             }
             
             it("writes to ios files") {

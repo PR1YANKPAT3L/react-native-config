@@ -21,28 +21,18 @@ class CurrentBuildConfigurationWorkerSpec: QuickSpec
 
             beforeEach
             {
+                Factory.infoDict = ["exampleBool": "true", "example_url": "http://www.dooz.be"]
                 sut = Factory()
             }
 
-            it("should instantiate RNConfigurationModelFactory")
+            it("should have keys from info plist")
             {
                 expect { sut?.allCustomKeys().count } >= 1
             }
 
-            context("can read current build configuration ")
+            it("has exampleURL")
             {
-                var currentBuildConfiguration: ModelProtocol?
-
-                beforeEach
-                {
-                    Factory.infoDict = ["exampleBool": "true", "example_url": "http://www.dooz.be"]
-                    expect { currentBuildConfiguration = try Factory.readCurrentBuildConfiguration() }.toNot(throwError())
-                }
-
-                it("has cases")
-                {
-                    expect(currentBuildConfiguration).toNot(beNil())
-                }
+                expect { try Factory.readCurrentBuildConfiguration().example_url }.toNot(beNil())
             }
         }
     }

@@ -42,7 +42,7 @@ class CoderSpec: QuickSpec
             var terminal: TerminalProtocolMock!
             var system: SystemProtocolMock!
             var plistWriter: PlistWriterProtocolMock!
-            var textFileWriter: TextFileWriterProtocolMock!
+            var textFileWriter: PlatformSpecificConfigurationWriterProtocolMock!
             var bridge: JSBridgeCodeSampleProtocolMock!
             
             beforeEach
@@ -79,13 +79,13 @@ class CoderSpec: QuickSpec
                     
                     // Setup text file writer
                     
-                    textFileWriter = TextFileWriterProtocolMock()
-                    textFileWriter.writeIOSAndAndroidConfigFilesFromOutputClosure = { _, _ in }
+                    textFileWriter = PlatformSpecificConfigurationWriterProtocolMock()
+                    textFileWriter.writeToAllPlatformsFromOutputClosure = { _, _ in }
                     
                     // Setup code for bridge
                     
                     bridge = JSBridgeCodeSampleProtocolMock()
-                    bridge.writeRNConfigurationBridgeToSamplerClosure = { _, _ in }
+                    bridge.writeBridgeToSamplerClosure = { _, _ in }
                     
                     // setup coder
                     
@@ -117,7 +117,7 @@ class CoderSpec: QuickSpec
                 
                 it("writes to ios and android config files")
                 {
-                    expect(textFileWriter.writeIOSAndAndroidConfigFilesFromOutputCalled) == true
+                    expect(textFileWriter.writeToAllPlatformsFromOutputCalled) == true
                 }
                 
                 context("writes default ios code")
@@ -136,13 +136,13 @@ class CoderSpec: QuickSpec
                     }
                     
                     it("plist") {
-                        expect(plistWriter.writeRNConfigurationPlistOutputSamplerCalled) == true
+                        expect(plistWriter.writeOutputSamplerCalled) == true
                         
                     }
                     
                     it("objectiveC") {
 
-                        expect(bridge.writeRNConfigurationBridgeToSamplerCalled) == true
+                        expect(bridge.writeBridgeToSamplerCalled) == true
                     }
                 }
                 

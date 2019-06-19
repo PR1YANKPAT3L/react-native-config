@@ -38,47 +38,46 @@ public struct PlistWriter: PlistWriterProtocol, AutoGenerateProtocol
 
     public init() {}
 
-    public func writeRNConfigurationPlist(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
+    public func write(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
-        try output.ios.plists.forEach { try writeRNConfigurationPlist(to: $0, sampler: sampler) }
-    }
+        try output.ios.plists.forEach
+        { plistFile in
 
-    private func writeRNConfigurationPlist(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
-    {
-        var plistLinesXml = PlistWriter.plistLinesXmlDefault
+            var plistLinesXml = PlistWriter.plistLinesXmlDefault
 
-        guard sampler.plistLinesXmlText.count > 0 else
-        {
-            try file.write(string: plistLinesXml)
-            return
-        }
+            guard sampler.plistLinesXmlText.count > 0 else
+            {
+                try plistFile.write(string: plistLinesXml)
+                return
+            }
 
-        plistLinesXml = """
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-        <key>CFBundleDevelopmentRegion</key>
+            plistLinesXml = """
+            <?xml version="1.0" encoding="UTF-8"?>
+            <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+            <plist version="1.0">
+            <dict>
+            <key>CFBundleDevelopmentRegion</key>
             <string>$(DEVELOPMENT_LANGUAGE)</string>
-        <key>CFBundleExecutable</key>
+            <key>CFBundleExecutable</key>
             <string>$(EXECUTABLE_NAME)</string>
-        <key>CFBundleIdentifier</key>
+            <key>CFBundleIdentifier</key>
             <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-        <key>CFBundleInfoDictionaryVersion</key>
+            <key>CFBundleInfoDictionaryVersion</key>
             <string>6.0</string>
-        <key>CFBundleName</key>
+            <key>CFBundleName</key>
             <string>$(PRODUCT_NAME)</string>
-        <key>CFBundlePackageType</key>
+            <key>CFBundlePackageType</key>
             <string>FMWK</string>
-        <key>CFBundleShortVersionString</key>
+            <key>CFBundleShortVersionString</key>
             <string>1.0</string>
-        <key>CFBundleVersion</key>
+            <key>CFBundleVersion</key>
             <string>$(CURRENT_PROJECT_VERSION)</string>
-        \(sampler.plistLinesXmlText)
-        </dict>
-        </plist>
-        """
+            \(sampler.plistLinesXmlText)
+            </dict>
+            </plist>
+            """
 
-        try file.write(string: plistLinesXml)
+            try plistFile.write(string: plistLinesXml)
+        }
     }
 }

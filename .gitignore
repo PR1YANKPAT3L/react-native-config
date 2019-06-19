@@ -15,8 +15,6 @@ xcuserdata
 /Sources/.sourcery-RNConfigurationPrepare.yml
 /Sources/.sourcery-RNModels.yml
 /Sources/.sourcery-RNConfiguration.yml
-/RNConfigurationHighwaySetup.xcodeproj
-/react-native-config.xcodeproj
 .gitsecret/keys/random_seed
 /env.betaRelease.json
 /env.debug.json
@@ -31,7 +29,6 @@ xcuserdata
 /Sources/.sourcery-PrePushAndPR.yml
 /Sources/.sourcery-BuildConfiguration.yml
 /Sources/.sourcery-CoderSecrets.yml
-/Coder.xcodeproj
 /ios/Coder.xcconfig
 /android/.env.betaRelease
 /android/.env.debug
@@ -45,3 +42,4 @@ xcuserdata
 /Sources/.sourcery-CopyConfigurationToYourProject.yml
 /Sources/.sourcery-CopyConfigurationToYourProjectLibrary.yml
 /Sources/.sourcery-CopyLibrary.yml
+/Coder.xcodeproj

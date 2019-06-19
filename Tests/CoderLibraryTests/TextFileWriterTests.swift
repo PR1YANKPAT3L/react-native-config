@@ -14,7 +14,7 @@ class TextFileWriterTests: QuickSpec {
         
         describe("TextFileWriter") {
             
-            var sut: TextFileWriter?
+            var sut: PlatformSpecificConfigurationWriter?
             
             var output: CoderOutputProtocolMock!
             var json: JSONEnvironmentsProtocol!
@@ -29,7 +29,7 @@ class TextFileWriterTests: QuickSpec {
                     
                     output = try correctCoderOutput(srcRoot: correctCoder.srcRoot)
                     
-                    sut = TextFileWriter()
+                    sut = PlatformSpecificConfigurationWriter()
                     
                     xcconfigFile = (output.ios.xcconfigFile as! FileProtocolMock)
 
@@ -39,7 +39,7 @@ class TextFileWriterTests: QuickSpec {
                     }
                     
                     json = try JSONDecoder().decode(JSONEnvironments.self, from: try correctCoder.json.read())
-                    return try sut?.writeIOSAndAndroidConfigFiles(from: json, output: output)
+                    return try sut?.writeToAllPlatforms(from: json, output: output)
                     
                 }.toNot(throwError())
             }

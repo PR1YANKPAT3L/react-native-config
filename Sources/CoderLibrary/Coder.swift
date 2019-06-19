@@ -30,7 +30,7 @@ public struct Coder: CoderProtocol, AutoGenerateProtocol {
     private let terminal: TerminalProtocol
     private let system: SystemProtocol
     private let plistWriter: PlistWriterProtocol
-    private let textFileWriter: TextFileWriterProtocol
+    private let textFileWriter: PlatformSpecificConfigurationWriterProtocol
     private let bridge: JSBridgeCodeSampleProtocol
     
     // MARK: - Init
@@ -39,7 +39,7 @@ public struct Coder: CoderProtocol, AutoGenerateProtocol {
         sampler: JSONToCodeSamplerProtocol,
         plistWriter: PlistWriterProtocol = PlistWriter(),
         bridge: JSBridgeCodeSampleProtocol = JSBridgeCodeSample(),
-        textFileWriter: TextFileWriterProtocol = TextFileWriter(),
+        textFileWriter: PlatformSpecificConfigurationWriterProtocol = PlatformSpecificConfigurationWriter(),
         signPost: SignPostProtocol = SignPost.shared,
         decoder: JSONDecoder = JSONDecoder(),
         terminal: TerminalProtocol = Terminal.shared,
@@ -72,15 +72,15 @@ extension Coder {
         do
         {
           
-            try textFileWriter.writeIOSAndAndroidConfigFiles(from: sampler.jsonEnvironments, output: output)
+            try textFileWriter.writeToAllPlatforms(from: sampler.jsonEnvironments, output: output)
             
             try writeFactory(to: output)
-            try writeRNConfigurationModel(to: output)
+            try writeModel(to: output)
             
-            try plistWriter.writeRNConfigurationPlist(output: output, sampler: sampler)
+            try plistWriter.write(output: output, sampler: sampler)
             
             // TODO: write to header also
-            try bridge.writeRNConfigurationBridge(to: output.ios.jsBridgeImplementation, sampler: sampler)
+            try bridge.writeBridge(to: output.ios.jsBridgeImplementation, sampler: sampler)
             signPost.message(pretty_function() + " ✅")
             return output
         }
@@ -101,7 +101,7 @@ extension Coder {
 
 extension Coder {
     
-    public func writeRNConfigurationModel(to output: CoderOutputProtocol) throws {
+    public func writeModel(to output: CoderOutputProtocol) throws {
         
         var lines = Coder.modelDefault_TOP + Coder.modelDefault_BOTTOM
         
