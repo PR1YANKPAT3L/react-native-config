@@ -5,9 +5,9 @@
         "package": "Highway",
         "repositoryURL": "https://www.github.com/dooZdev/Highway",
         "state": {
-          "branch": null,
-          "revision": "d6d7555172cf7a73e9113b88befebaf2cf08cb60",
-          "version": "2.15.2"
+          "branch": "master",
+          "revision": "d8e7684593b7cd00e9d4f7331a5197c11cfff7f0",
+          "version": null
         }
       },
       {
@@ -32,9 +32,9 @@
         "package": "SignPost",
         "repositoryURL": "https://www.github.com/doozMen/SignPost",
         "state": {
-          "branch": null,
+          "branch": "master",
           "revision": "04194f7781a348855c5069e654b97e904b34dfc4",
-          "version": "1.1.0"
+          "version": null
         }
       },
       {
@@ -50,18 +50,18 @@
         "package": "template-sourcery",
         "repositoryURL": "https://www.github.com/dooZdev/template-sourcery",
         "state": {
-          "branch": null,
+          "branch": "master",
           "revision": "1b189441ee4518f21039d0f709d6c0b24a80a864",
-          "version": "1.5.0"
+          "version": null
         }
       },
       {
         "package": "ZFile",
         "repositoryURL": "https://www.github.com/dooZdev/ZFile",
         "state": {
-          "branch": null,
+          "branch": "master",
           "revision": "2aeaf52981f78e2b8866466235f630894b80472a",
-          "version": "2.5.4"
+          "version": null
         }
       }
     ]

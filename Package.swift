@@ -14,8 +14,8 @@ public struct External {
     public static let quickNimble: [Target.Dependency] = ["Quick", "Nimble"]
     public static let packages: [Package.Dependency] = [
         
-        .package(url: "https://www.github.com/dooZdev/ZFile", "2.5.2" ..< "2.6.0"),
-        .package(url: "https://www.github.com/dooZdev/Highway", "2.15.0" ..< "2.16.0"),
+        .package(url: "https://www.github.com/dooZdev/ZFile", .branch("master")),
+        .package(url: "https://www.github.com/dooZdev/Highway", .branch("master")),
         
         // Quick & Nimble
         
@@ -24,11 +24,11 @@ public struct External {
         
         // Sourcery
         
-        .package(url: "https://www.github.com/dooZdev/template-sourcery", "1.5.0" ..< "1.6.0"),
+        .package(url: "https://www.github.com/dooZdev/template-sourcery", .branch("master")),
         
         // Logging
         
-        .package(url: "https://www.github.com/doozMen/SignPost", "1.1.0" ..< "1.2.0"),
+        .package(url: "https://www.github.com/doozMen/SignPost", .branch("master")),
     ]
 }
 
