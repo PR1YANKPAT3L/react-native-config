@@ -6,23 +6,23 @@ import RNModels
  */
 
 // sourcery:AutoObjcMockable
-public protocol RNConfigurationModelFactoryProtocol
+public protocol FactoryProtocol
 {
-    // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
+    // sourcery:inline:Factory.AutoGenerateProtocol
     static var infoDict: [String: Any]? { get set }
 
     static func allValuesDictionary() throws -> [String: String]
     func allCustomKeys() -> [String]
-    static func readCurrentBuildConfiguration() throws -> RNConfigurationModelProtocol
-    static func allConstants() throws -> [RNConfigurationModelFactory.Case: String]
+    static func readCurrentBuildConfiguration() throws -> ModelProtocol
+    static func allConstants() throws -> [Factory.Case: String]
 
     // sourcery:end
 }
 
 // sourcery:AutoGenerateProtocol
-@objc public class RNConfigurationModelFactory: NSObject, RNConfigurationModelFactoryProtocol
+@objc public class Factory: NSObject, FactoryProtocol
 {
-    public static var infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary
+    public static var infoDict: [String: Any]? = Bundle(for: Factory.self).infoDictionary
 
     public enum Error: Swift.Error
     {
@@ -34,7 +34,7 @@ public protocol RNConfigurationModelFactoryProtocol
     {
         var dict = [String: String]()
 
-        try RNConfigurationModelFactory.allConstants().forEach
+        try Factory.allConstants().forEach
         { _case in
             dict[_case.key.rawValue] = _case.value
         }
@@ -61,16 +61,16 @@ public protocol RNConfigurationModelFactoryProtocol
     /**
      Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
      */
-    public static func readCurrentBuildConfiguration() throws -> RNConfigurationModelProtocol
+    public static func readCurrentBuildConfiguration() throws -> ModelProtocol
     {
-        guard let infoDict = RNConfigurationModelFactory.infoDict else
+        guard let infoDict = Factory.infoDict else
         {
             throw Error.noInfoDictonary
         }
 
         let data = try JSONSerialization.data(withJSONObject: infoDict, options: .prettyPrinted)
 
-        return try JSONDecoder().decode(RNConfigurationModel.self, from: data)
+        return try JSONDecoder().decode(Model.self, from: data)
     }
 
     /**
@@ -78,11 +78,11 @@ public protocol RNConfigurationModelFactoryProtocol
      In Objective-C you can access this dictionary containing all custom environment dependend keys.
      They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
      */
-    public static func allConstants() throws -> [RNConfigurationModelFactory.Case: String]
+    public static func allConstants() throws -> [Factory.Case: String]
     {
         var result = [Case: String]()
 
-        let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration() as! RNConfigurationModel
+        let plist = try Factory.readCurrentBuildConfiguration() as! Model
         let data = try JSONEncoder().encode(plist)
 
         guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: String] else

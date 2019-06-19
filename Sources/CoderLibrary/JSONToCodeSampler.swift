@@ -13,7 +13,7 @@ import SourceryAutoProtocols
 import ZFile
 
 /**
- Will load input and decode input JSON -> Use RNConfigurationModel.create from this JSON.
+ Will load input and decode input JSON -> Use Model.create from this JSON.
 
  It will read the json files and give code sampels to the Coder to write code to files.
  */

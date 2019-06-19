@@ -17,11 +17,11 @@ class CurrentBuildConfigurationWorkerSpec: QuickSpec
     {
         describe("RNConfiguration")
         {
-            var sut: RNConfigurationModelFactory?
+            var sut: Factory?
 
             beforeEach
             {
-                sut = RNConfigurationModelFactory()
+                sut = Factory()
             }
 
             it("should instantiate RNConfigurationModelFactory")
@@ -31,12 +31,12 @@ class CurrentBuildConfigurationWorkerSpec: QuickSpec
 
             context("can read current build configuration ")
             {
-                var currentBuildConfiguration: RNConfigurationModelProtocol?
+                var currentBuildConfiguration: ModelProtocol?
 
                 beforeEach
                 {
-                    RNConfigurationModelFactory.infoDict = ["exampleBool": "true", "example_url": "http://www.dooz.be"]
-                    expect { currentBuildConfiguration = try RNConfigurationModelFactory.readCurrentBuildConfiguration() }.toNot(throwError())
+                    Factory.infoDict = ["exampleBool": "true", "example_url": "http://www.dooz.be"]
+                    expect { currentBuildConfiguration = try Factory.readCurrentBuildConfiguration() }.toNot(throwError())
                 }
 
                 it("has cases")

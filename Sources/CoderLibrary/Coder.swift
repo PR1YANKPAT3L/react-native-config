@@ -74,7 +74,7 @@ extension Coder {
           
             try textFileWriter.writeIOSAndAndroidConfigFiles(from: sampler.jsonEnvironments, output: output)
             
-            try writeRNConfigurationModelFactory(to: output)
+            try writeFactory(to: output)
             try writeRNConfigurationModel(to: output)
             
             try plistWriter.writeRNConfigurationPlist(output: output, sampler: sampler)
@@ -97,7 +97,7 @@ extension Coder {
 
 // MARK: - Writing Functions
 
-// MARK: - RNConfigurationModel
+// MARK: - Model
 
 extension Coder {
     
@@ -150,18 +150,18 @@ extension Coder {
         ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
     */
     // sourcery:AutoMockable
-    public protocol RNConfigurationModelProtocol {
-        // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
+    public protocol ModelProtocol {
+        // sourcery:inline:Model.AutoGenerateProtocol
         // sourcery:end
     }
     
     // sourcery:AutoGenerateProtocol
-    public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol {
+    public struct Model: Codable, CustomStringConvertible, ModelProtocol {
 
     """
     public static let modelDefault_BOTTOM = """
          
-        public static func create(from json: JSONEnvironment) throws -> RNConfigurationModelProtocol {
+        public static func create(from json: JSONEnvironment) throws -> ModelProtocol {
                 let typed = json.typed ?? [String: TypedJsonEntry]()
     
                 var jsonTyped = "{"
@@ -183,7 +183,7 @@ extension Coder {
     
                 jsonTyped.append(contentsOf: "}")
     
-                return try JSONDecoder().decode(RNConfigurationModel.self, from: jsonTyped.data(using: .utf8)!)
+                return try JSONDecoder().decode(Model.self, from: jsonTyped.data(using: .utf8)!)
         }
             
         public enum Error: Swift.Error {
@@ -192,7 +192,7 @@ extension Coder {
     """
 }
 
-// MARK: - RNConfigurationModelFactory
+// MARK: - Factory
 
 extension Coder {
     
@@ -206,9 +206,9 @@ extension Coder {
      */
 
     // sourcery:AutoObjcMockable
-    public protocol RNConfigurationModelFactoryProtocol
+    public protocol FactoryProtocol
     {
-        // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
+        // sourcery:inline:Factory.AutoGenerateProtocol
 
         static func allValuesDictionary() throws -> [String: String]
         func allCustomKeys() -> [String]
@@ -217,14 +217,14 @@ extension Coder {
     }
 
     // sourcery:AutoGenerateProtocol
-    @objc public class RNConfigurationModelFactory: NSObject, RNConfigurationModelFactoryProtocol
+    @objc public class Factory: NSObject, FactoryProtocol
     {
-        public static var infoDict: [String: Any]? = Bundle(for: RNConfigurationModelFactory.self).infoDictionary
+        public static var infoDict: [String: Any]? = Bundle(for: Factory.self).infoDictionary
     """
 
-    public func writeRNConfigurationModelFactory(to output: CoderOutputProtocol) throws {
+    public func writeFactory(to output: CoderOutputProtocol) throws {
         
-        var lines = Coder.rnConfigurationModelFactoryProtocolDefault
+        var lines = Coder.factoryDefault
         
         guard sampler.casesForEnum.count > 0 else {
             try output.ios.model.write(string: lines)
@@ -243,7 +243,7 @@ extension Coder {
         
                 var dict = [String : String]()
         
-                try RNConfigurationModelFactory.allConstants().forEach { _case in
+                try Factory.allConstants().forEach { _case in
                     dict[_case.key.rawValue] = _case.value
                 }
                 return dict
@@ -268,15 +268,15 @@ extension Coder {
             /**
                 Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
             */
-            public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModelProtocol {
+            public static func readCurrentBuildConfiguration() throws ->  ModelProtocol {
         
-                guard let infoDict = RNConfigurationModelFactory.infoDict else {
+                guard let infoDict = Factory.infoDict else {
                     throw Error.noInfoDictonary
                 }
         
                 let data = try JSONSerialization.data(withJSONObject: infoDict, options: .prettyPrinted)
         
-                return try JSONDecoder().decode(RNConfigurationModel.self, from: data)
+                return try JSONDecoder().decode(Model.self, from: data)
             }
         
             /**
@@ -284,11 +284,11 @@ extension Coder {
                 In Objective-C you can access this dictionary containing all custom environment dependend keys.
                 They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
             */
-            public static func allConstants() throws -> [RNConfigurationModelFactory.Case: String] {
+            public static func allConstants() throws -> [Factory.Case: String] {
         
                 var result = [Case: String]()
         
-                let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration() as! RNConfigurationModel
+                let plist = try Factory.readCurrentBuildConfiguration() as! Model
                 let data = try JSONEncoder().encode(plist)
         
                 guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {
@@ -311,10 +311,10 @@ extension Coder {
         
         """
         
-        try output.ios.model.write(string: lines)
+        try output.ios.factory.write(string: lines)
     }
     
-    public static let rnConfigurationModelFactoryProtocolDefault = """
+    public static let factoryDefault = """
     \(Coder.factoryTop)
         
         public enum Error: Swift.Error {
@@ -326,7 +326,7 @@ extension Coder {
             
             var dict = [String : String]()
             
-             try RNConfigurationModelFactory.allConstants().forEach { _case in
+             try Factory.allConstants().forEach { _case in
                 dict[_case.key.rawValue] = _case.value
             }
             return dict
@@ -351,15 +351,15 @@ extension Coder {
         /**
             Plist containing custom variables that are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
         */
-        public static func readCurrentBuildConfiguration() throws ->  RNConfigurationModel {
+        public static func readCurrentBuildConfiguration() throws ->  Model {
             
-            guard let infoDict = RNConfigurationModelFactory.infoDict else {
+            guard let infoDict = Factory.infoDict else {
                 throw Error.noInfoDictonary
             }
             
             let data = try JSONSerialization.data(withJSONObject: infoDict, options: .prettyPrinted)
             
-            return try JSONDecoder().decode(RNConfigurationModel.self, from: data)
+            return try JSONDecoder().decode(Model.self, from: data)
         }
         
         /**
@@ -367,15 +367,15 @@ extension Coder {
             In Objective-C you can access this dictionary containing all custom environment dependend keys.
             They are set from the .env.debug.json or .env.release.json dependend on the configuration you build for.
         */
-        public static func allConstants() throws -> [RNConfigurationModelFactory.Case: String] {
+        public static func allConstants() throws -> [Factory.Case: String] {
     
-            guard let infoDict = RNConfigurationModelFactory.infoDict else
+            guard let infoDict = Factory.infoDict else
             {
                 throw Error.noInfoDictonary
             }
             var result = [Case: String]()
             
-            let plist = try RNConfigurationModelFactory.readCurrentBuildConfiguration(infoDict: infoDict)
+            let plist = try Factory.readCurrentBuildConfiguration(infoDict: infoDict)
             let data = try JSONEncoder().encode(plist)
             
             guard let dict: [String: String] = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : String] else {

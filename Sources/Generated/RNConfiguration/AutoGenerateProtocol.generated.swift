@@ -17,25 +17,25 @@ import Foundation
 // version 5.5
 /*
 
- // type.annotations.AutoGenerateProtocol for RNConfigurationModel -> See code in the file of that type
+ // type.annotations.AutoGenerateProtocol for Factory -> See code in the file of that type
 
- // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
- var exampleBool: Bool { get }
- var example_url: URLEscaped { get }
- var description: String { get }
-
- static func create(from json: JSONEnvironment) throws  -> RNConfigurationModelProtocol
- // sourcery:end
- // type.annotations.AutoGenerateProtocol for RNConfigurationModel end
- // type.annotations.AutoGenerateProtocol for RNConfigurationModelFactory -> See code in the file of that type
-
- // sourcery:inline:RNConfigurationModelFactory.AutoGenerateProtocol
+ // sourcery:inline:Factory.AutoGenerateProtocol
  static var infoDict: [String: Any]? { get set }
 
  static func allValuesDictionary() throws  -> [String: String]
  func allCustomKeys() -> [String]
- static func readCurrentBuildConfiguration() throws  -> RNConfigurationModelProtocol
- static func allConstants() throws  -> [RNConfigurationModelFactory.Case: String]
+ static func readCurrentBuildConfiguration() throws  -> ModelProtocol
+ static func allConstants() throws  -> [Factory.Case: String]
  // sourcery:end
- // type.annotations.AutoGenerateProtocol for RNConfigurationModelFactory end
+ // type.annotations.AutoGenerateProtocol for Factory end
+ // type.annotations.AutoGenerateProtocol for Model -> See code in the file of that type
+
+ // sourcery:inline:Model.AutoGenerateProtocol
+ var exampleBool: Bool { get }
+ var example_url: URLEscaped { get }
+ var description: String { get }
+
+ static func create(from json: JSONEnvironment) throws  -> ModelProtocol
+ // sourcery:end
+ // type.annotations.AutoGenerateProtocol for Model end
  */

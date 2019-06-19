@@ -61,19 +61,16 @@ func correctCoderOutput(srcRoot: FolderProtocolMock) throws -> CoderOutputProtoc
     plist.copyToClosure = { _ in return plist }
     plist.readReturnValue = "".data(using: .utf8)!
 
-    ios.underlyingInfoPlistRNConfiguration = plist
-    ios.underlyingRnConfigurationModelSwiftFile = try FileProtocolMock()
-    ios.underlyingJsBridge = try FileProtocolMock()
-    ios.underlyingInfoPlistRNConfiguration = plist
+    ios.plists = [plist]
+    ios.underlyingJsBridgeImplementation = try FileProtocolMock()
     
     let file = try FileProtocolMock()
     srcRoot.copyToClosure = { _ in return srcRoot }
     
     file.parentFolderReturnValue = srcRoot
     
-    ios.rnConfigurationModelSwiftFile = file
-    
-    ios.underlyingRnConfigurationModelFactorySwiftFile = try FileProtocolMock()
+    ios.model = file
+    ios.factory = try FileProtocolMock()
     
     output.underlyingIos = ios
     

@@ -123,14 +123,14 @@ class CoderSpec: QuickSpec
                 context("writes default ios code")
                 {
                     it("to model") {
-                        let swiftFile: (FileProtocolMock) = (output.ios.rnConfigurationModelSwiftFile as! FileProtocolMock)
+                        let swiftFile: (FileProtocolMock) = (output.ios.model as! FileProtocolMock)
                         
                         expect(swiftFile.writeStringReceivedString).to(contain(Coder.modelDefault_TOP))
-                        expect(swiftFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_BOTTOM))
+                        expect(swiftFile.writeStringReceivedString).to(contain(Coder.modelDefault_TOP))
                     }
                     
                     it("to factory") {
-                        let factoryFile: (FileProtocolMock) = (output.ios.rnConfigurationModelFactorySwiftFile as! FileProtocolMock)
+                        let factoryFile: (FileProtocolMock) = (output.ios.factory as! FileProtocolMock)
 
                         expect(factoryFile.writeStringReceivedString).to(contain(Coder.factoryTop))
                     }

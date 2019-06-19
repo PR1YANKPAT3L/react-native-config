@@ -50,8 +50,8 @@ struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
             ios = CoderOutput.iOS(
                 sourcesFolder: iosFolder,
                 xcconfigFile: xcconfigFile,
-                factory: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
-                model: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift"),
+                factory: try rnConfigurationSourcesFolder.file(named: "Factory.swift"),
+                model: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "Model.swift"),
                 plists:
                 [
                     try packageCoderSources.createFileIfNeeded(named: "\(xcodeProjectName).xcodeproj/RNConfiguration_Info.plist"),

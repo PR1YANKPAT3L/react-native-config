@@ -17,11 +17,11 @@ public protocol CoderProtocol: AutoMockable
     static var modelDefault_TOP: String { get }
     static var modelDefault_BOTTOM: String { get }
     static var factoryTop: String { get }
-    static var rnConfigurationModelFactoryProtocolDefault: String { get }
+    static var factoryDefault: String { get }
 
     func attemptCode(to output: CoderOutputProtocol) throws -> CoderOutputProtocol
     func writeRNConfigurationModel(to output: CoderOutputProtocol) throws
-    func writeRNConfigurationModelFactory(to output: CoderOutputProtocol) throws
+    func writeFactory(to output: CoderOutputProtocol) throws
 
     // sourcery:end
 }

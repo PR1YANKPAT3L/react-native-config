@@ -23,7 +23,7 @@ doContinue(pretty_function() + " setup")
     try terminalInit(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
     try highwayInit(gitHooks: GitHooks(prePushExecutable: (name: "PrePushAndPR", arguments: nil)))
 
-    xcconfig = try srcRoot.file(named: "coder.env.json")
+    xcconfig = try srcRoot.subfolder(named: "ios").file(named: "Coder.xcconfig")
 
     try highway.addGithooksPrePush()
     #if DEBUG

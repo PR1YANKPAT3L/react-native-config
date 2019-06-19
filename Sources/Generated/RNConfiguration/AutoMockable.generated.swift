@@ -6,9 +6,9 @@ import SourceryAutoProtocols
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
-// MARK: - RNConfigurationModelProtocolMock
+// MARK: - ModelProtocolMock
 
-open class RNConfigurationModelProtocolMock: RNConfigurationModelProtocol
+open class ModelProtocolMock: ModelProtocol
 {
     public init() {}
 
@@ -44,15 +44,15 @@ open class RNConfigurationModelProtocolMock: RNConfigurationModelProtocol
     }
 
     public static var createFromReceivedJson: JSONEnvironment?
-    public static var createFromReturnValue: RNConfigurationModelProtocol?
+    public static var createFromReturnValue: ModelProtocol?
 
     // MARK: - <create> - closure mocks
 
-    public static var createFromClosure: ((JSONEnvironment) throws -> RNConfigurationModelProtocol)?
+    public static var createFromClosure: ((JSONEnvironment) throws -> ModelProtocol)?
 
     // MARK: - <create> - method mocked
 
-    public static func create(from json: JSONEnvironment) throws -> RNConfigurationModelProtocol
+    public static func create(from json: JSONEnvironment) throws -> ModelProtocol
     {
         // <create> - Throwable method implementation
 
@@ -73,7 +73,7 @@ open class RNConfigurationModelProtocolMock: RNConfigurationModelProtocol
                 let message = "No returnValue implemented for createFromClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
-                // You should implement RNConfigurationModelProtocol
+                // You should implement ModelProtocol
 
                 throw error
             }
@@ -86,9 +86,9 @@ open class RNConfigurationModelProtocolMock: RNConfigurationModelProtocol
 
 // MARK: - OBJECTIVE-C
 
-// MARK: - RNConfigurationModelFactoryProtocolMock
+// MARK: - FactoryProtocolMock
 
-open class RNConfigurationModelFactoryProtocolMock: NSObject, RNConfigurationModelFactoryProtocol
+open class FactoryProtocolMock: NSObject, FactoryProtocol
 {
     public override init() { super.init() }
 
@@ -191,15 +191,15 @@ open class RNConfigurationModelFactoryProtocolMock: NSObject, RNConfigurationMod
         return readCurrentBuildConfigurationCallsCount > 0
     }
 
-    public static var readCurrentBuildConfigurationReturnValue: RNConfigurationModelProtocol?
+    public static var readCurrentBuildConfigurationReturnValue: ModelProtocol?
 
     // MARK: - <readCurrentBuildConfiguration> - closure mocks
 
-    public static var readCurrentBuildConfigurationClosure: (() throws -> RNConfigurationModelProtocol)?
+    public static var readCurrentBuildConfigurationClosure: (() throws -> ModelProtocol)?
 
     // MARK: - <readCurrentBuildConfiguration> - method mocked
 
-    public static func readCurrentBuildConfiguration() throws -> RNConfigurationModelProtocol
+    public static func readCurrentBuildConfiguration() throws -> ModelProtocol
     {
         // <readCurrentBuildConfiguration> - Throwable method implementation
 
@@ -219,7 +219,7 @@ open class RNConfigurationModelFactoryProtocolMock: NSObject, RNConfigurationMod
                 let message = "No returnValue implemented for readCurrentBuildConfigurationClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
-                // You should implement RNConfigurationModelProtocol
+                // You should implement ModelProtocol
 
                 throw error
             }
@@ -238,15 +238,15 @@ open class RNConfigurationModelFactoryProtocolMock: NSObject, RNConfigurationMod
         return allConstantsCallsCount > 0
     }
 
-    public static var allConstantsReturnValue: [RNConfigurationModelFactory.Case: String]?
+    public static var allConstantsReturnValue: [Factory.Case: String]?
 
     // MARK: - <allConstants> - closure mocks
 
-    public static var allConstantsClosure: (() throws -> [RNConfigurationModelFactory.Case: String])?
+    public static var allConstantsClosure: (() throws -> [Factory.Case: String])?
 
     // MARK: - <allConstants> - method mocked
 
-    public static func allConstants() throws -> [RNConfigurationModelFactory.Case: String]
+    public static func allConstants() throws -> [Factory.Case: String]
     {
         // <allConstants> - Throwable method implementation
 
@@ -266,7 +266,7 @@ open class RNConfigurationModelFactoryProtocolMock: NSObject, RNConfigurationMod
                 let message = "No returnValue implemented for allConstantsClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
-                // You should implement [RNConfigurationModelFactory.Case: String]
+                // You should implement [Factory.Case: String]
 
                 throw error
             }

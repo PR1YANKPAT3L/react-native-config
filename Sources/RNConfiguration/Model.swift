@@ -5,19 +5,19 @@ import RNModels
  ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
  */
 // sourcery:AutoMockable
-public protocol RNConfigurationModelProtocol
+public protocol ModelProtocol
 {
-    // sourcery:inline:RNConfigurationModel.AutoGenerateProtocol
+    // sourcery:inline:Model.AutoGenerateProtocol
     var exampleBool: Bool { get }
     var example_url: URLEscaped { get }
     var description: String { get }
 
-    static func create(from json: JSONEnvironment) throws -> RNConfigurationModelProtocol
+    static func create(from json: JSONEnvironment) throws -> ModelProtocol
     // sourcery:end
 }
 
 // sourcery:AutoGenerateProtocol
-public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol
+public struct Model: Codable, CustomStringConvertible, ModelProtocol
 {
     // MARK: - Custom plist properties are added here
 
@@ -34,7 +34,7 @@ public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigur
         example_url = try container.decode(URLEscaped.self, forKey: .example_url)
     }
 
-    public static func create(from json: JSONEnvironment) throws -> RNConfigurationModelProtocol
+    public static func create(from json: JSONEnvironment) throws -> ModelProtocol
     {
         let typed = json.typed ?? [String: TypedJsonEntry]()
 
@@ -59,7 +59,7 @@ public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigur
 
         jsonTyped.append(contentsOf: "}")
 
-        return try JSONDecoder().decode(RNConfigurationModel.self, from: jsonTyped.data(using: .utf8)!)
+        return try JSONDecoder().decode(Model.self, from: jsonTyped.data(using: .utf8)!)
     }
 
     public enum Error: Swift.Error

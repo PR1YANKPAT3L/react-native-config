@@ -125,13 +125,13 @@ open class CoderProtocolMock: CoderProtocol
     }
 
     public static var underlyingFactoryTop: String = "AutoMockable filled value"
-    public static var rnConfigurationModelFactoryProtocolDefault: String
+    public static var factoryDefault: String
     {
-        get { return underlyingRnConfigurationModelFactoryProtocolDefault }
-        set(value) { underlyingRnConfigurationModelFactoryProtocolDefault = value }
+        get { return underlyingFactoryDefault }
+        set(value) { underlyingFactoryDefault = value }
     }
 
-    public static var underlyingRnConfigurationModelFactoryProtocolDefault: String = "AutoMockable filled value"
+    public static var underlyingFactoryDefault: String = "AutoMockable filled value"
 
     // MARK: - <attemptCode> - parameters
 
@@ -216,38 +216,38 @@ open class CoderProtocolMock: CoderProtocol
         try writeRNConfigurationModelToClosure?(output)
     }
 
-    // MARK: - <writeRNConfigurationModelFactory> - parameters
+    // MARK: - <writeFactory> - parameters
 
-    public var writeRNConfigurationModelFactoryToThrowableError: Error?
-    public var writeRNConfigurationModelFactoryToCallsCount = 0
-    public var writeRNConfigurationModelFactoryToCalled: Bool
+    public var writeFactoryToThrowableError: Error?
+    public var writeFactoryToCallsCount = 0
+    public var writeFactoryToCalled: Bool
     {
-        return writeRNConfigurationModelFactoryToCallsCount > 0
+        return writeFactoryToCallsCount > 0
     }
 
-    public var writeRNConfigurationModelFactoryToReceivedOutput: CoderOutputProtocol?
+    public var writeFactoryToReceivedOutput: CoderOutputProtocol?
 
-    // MARK: - <writeRNConfigurationModelFactory> - closure mocks
+    // MARK: - <writeFactory> - closure mocks
 
-    public var writeRNConfigurationModelFactoryToClosure: ((CoderOutputProtocol) throws -> Void)?
+    public var writeFactoryToClosure: ((CoderOutputProtocol) throws -> Void)?
 
-    // MARK: - <writeRNConfigurationModelFactory> - method mocked
+    // MARK: - <writeFactory> - method mocked
 
-    open func writeRNConfigurationModelFactory(to output: CoderOutputProtocol) throws
+    open func writeFactory(to output: CoderOutputProtocol) throws
     {
-        // <writeRNConfigurationModelFactory> - Throwable method implementation
+        // <writeFactory> - Throwable method implementation
 
-        if let error = writeRNConfigurationModelFactoryToThrowableError
+        if let error = writeFactoryToThrowableError
         {
             throw error
         }
 
-        writeRNConfigurationModelFactoryToCallsCount += 1
-        writeRNConfigurationModelFactoryToReceivedOutput = output
+        writeFactoryToCallsCount += 1
+        writeFactoryToReceivedOutput = output
 
-        // <writeRNConfigurationModelFactory> - Void return mock implementation
+        // <writeFactory> - Void return mock implementation
 
-        try writeRNConfigurationModelFactoryToClosure?(output)
+        try writeFactoryToClosure?(output)
     }
 }
 
