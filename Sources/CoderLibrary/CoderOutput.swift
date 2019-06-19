@@ -12,14 +12,17 @@ import SourceryAutoProtocols
 import Terminal
 import ZFile
 
-public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
+/**
+ This is configured to work for this project, not yours. Provice your own by adding a struct that conforms to CoderOutputProtocol
+ */
+struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
 {
-    public let android: CoderOutputAndroidProtocol
-    public let ios: CoderOutputiOSProtocol
+    let android: CoderOutputAndroidProtocol
+    let ios: CoderOutputiOSProtocol
 
     private let packageCoderSources: FolderProtocol
 
-    public init(packageCoderSources: FolderProtocol, xcodeProjectName: String) throws
+    init(packageCoderSources: FolderProtocol, xcodeProjectName: String) throws
     {
         self.packageCoderSources = packageCoderSources
 
@@ -46,10 +49,15 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
             ios = CoderOutput.iOS(
                 sourcesFolder: iosFolder,
                 xcconfigFile: xcconfigFile,
-                rnConfigurationModelFactorySwiftFile: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
-                infoPlistRNConfiguration: try packageCoderSources.createFileIfNeeded(named: "\(xcodeProjectName).xcodeproj/RNConfiguration_Info.plist"),
-                rnConfigurationModelSwiftFile: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift"),
-                jsBridge: try rnConfigurationBridgeSourcesFolder.createFileIfNeeded(named: "ReactNativeConfig.m")
+                factory: try rnConfigurationSourcesFolder.file(named: "RNConfigurationModelFactory.swift"),
+                model: try rnConfigurationSourcesFolder.createFileIfNeeded(named: "RNConfigurationModel.swift"),
+                plists:
+                [
+                    try packageCoderSources.createFileIfNeeded(named: "\(xcodeProjectName).xcodeproj/RNConfiguration_Info.plist"),
+                    try packageCoderSources.createFileIfNeeded(named: "\(xcodeProjectName).xcodeproj/RNConfigurationTests_Info.plist"),
+                ],
+                jsBridgeHeader: try rnConfigurationBridgeSourcesFolder.createFileIfNeeded(named: "ReactNativeConfig.h"),
+                jsBridgeImplementation: try rnConfigurationBridgeSourcesFolder.createFileIfNeeded(named: "ReactNativeConfig.m")
             )
         }
         catch
@@ -58,21 +66,32 @@ public struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
         }
     }
 
-    public struct Android: CoderOutputAndroidProtocol, AutoGenerateProtocol
+    struct Android: CoderOutputAndroidProtocol, AutoGenerateProtocol
     {
-        public let sourcesFolder: FolderProtocol
+        let sourcesFolder: FolderProtocol
 
-        public let configFiles: [RNModels.Configuration: FileProtocol]
+        let configFiles: [RNModels.Configuration: FileProtocol]
     }
 
-    public struct iOS: CoderOutputiOSProtocol, AutoGenerateProtocol
+    struct iOS: CoderOutputiOSProtocol, AutoGenerateProtocol
     {
-        public let sourcesFolder: FolderProtocol
+        let sourcesFolder: FolderProtocol
 
-        public let xcconfigFile: FileProtocol
-        public let rnConfigurationModelFactorySwiftFile: FileProtocol
-        public let infoPlistRNConfiguration: FileProtocol
-        public let rnConfigurationModelSwiftFile: FileProtocol
-        public let jsBridge: FileProtocol
+        let xcconfigFile: FileProtocol
+        /**
+         model and farctory are generated swift files from
+         */
+        let factory: FileProtocol
+        let model: FileProtocol
+
+        /**
+         Can be duplicated as this is for example for test and for normal code
+         */
+        let plists: [FileProtocol]
+        /**
+         Provide .m and .h file
+         */
+        let jsBridgeHeader: FileProtocol
+        let jsBridgeImplementation: FileProtocol
     }
 }

@@ -67,34 +67,35 @@ open class CoderOutputiOSProtocolMock: CoderOutputiOSProtocol
     }
 
     public var underlyingXcconfigFile: FileProtocol!
-    public var rnConfigurationModelFactorySwiftFile: FileProtocol
+    public var factory: FileProtocol
     {
-        get { return underlyingRnConfigurationModelFactorySwiftFile }
-        set(value) { underlyingRnConfigurationModelFactorySwiftFile = value }
+        get { return underlyingFactory }
+        set(value) { underlyingFactory = value }
     }
 
-    public var underlyingRnConfigurationModelFactorySwiftFile: FileProtocol!
-    public var infoPlistRNConfiguration: FileProtocol
+    public var underlyingFactory: FileProtocol!
+    public var model: FileProtocol
     {
-        get { return underlyingInfoPlistRNConfiguration }
-        set(value) { underlyingInfoPlistRNConfiguration = value }
+        get { return underlyingModel }
+        set(value) { underlyingModel = value }
     }
 
-    public var underlyingInfoPlistRNConfiguration: FileProtocol!
-    public var rnConfigurationModelSwiftFile: FileProtocol
+    public var underlyingModel: FileProtocol!
+    public var plists: [FileProtocol] = []
+    public var jsBridgeHeader: FileProtocol
     {
-        get { return underlyingRnConfigurationModelSwiftFile }
-        set(value) { underlyingRnConfigurationModelSwiftFile = value }
+        get { return underlyingJsBridgeHeader }
+        set(value) { underlyingJsBridgeHeader = value }
     }
 
-    public var underlyingRnConfigurationModelSwiftFile: FileProtocol!
-    public var jsBridge: FileProtocol
+    public var underlyingJsBridgeHeader: FileProtocol!
+    public var jsBridgeImplementation: FileProtocol
     {
-        get { return underlyingJsBridge }
-        set(value) { underlyingJsBridge = value }
+        get { return underlyingJsBridgeImplementation }
+        set(value) { underlyingJsBridgeImplementation = value }
     }
 
-    public var underlyingJsBridge: FileProtocol!
+    public var underlyingJsBridgeImplementation: FileProtocol!
 }
 
 // MARK: - CoderProtocolMock

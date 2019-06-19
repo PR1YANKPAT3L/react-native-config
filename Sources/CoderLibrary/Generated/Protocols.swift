@@ -98,9 +98,10 @@ public protocol CoderOutputiOSProtocol: AutoMockable
     // sourcery:inline:CoderOutput.iOS.AutoGenerateProtocol
     var sourcesFolder: FolderProtocol { get }
     var xcconfigFile: FileProtocol { get }
-    var rnConfigurationModelFactorySwiftFile: FileProtocol { get }
-    var infoPlistRNConfiguration: FileProtocol { get }
-    var rnConfigurationModelSwiftFile: FileProtocol { get }
-    var jsBridge: FileProtocol { get }
+    var factory: FileProtocol { get }
+    var model: FileProtocol { get }
+    var plists: [FileProtocol] { get }
+    var jsBridgeHeader: FileProtocol { get }
+    var jsBridgeImplementation: FileProtocol { get }
     // sourcery:end
 }
