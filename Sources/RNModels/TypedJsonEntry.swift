@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import SourceryAutoProtocols
 
-public struct TypedJsonEntry: Codable
+// sourcery:AutoGenerateProtocol
+public struct TypedJsonEntry: Codable, TypedJsonEntryProtocol
 {
     public let value: String
     public let valueType: String
 
-    public let typedValue: PossibleTypes
+    public let typedValue: TypedJsonEntry.PossibleTypes
 
     // MARK: - Enums
 

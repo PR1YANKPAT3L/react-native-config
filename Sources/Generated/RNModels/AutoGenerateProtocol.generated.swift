@@ -38,4 +38,21 @@ import Foundation
 
  // sourcery:end
  // type.annotations.AutoGenerateProtocol for JSONEnvironments end
+ // type.annotations.AutoGenerateProtocol for TypedJsonEntry -> See code in the file of that type
+
+ // sourcery:inline:TypedJsonEntry.AutoGenerateProtocol
+ var value: String { get }
+ var valueType: String { get }
+ var typedValue: TypedJsonEntry.PossibleTypes { get }
+
+ // sourcery:end
+ // type.annotations.AutoGenerateProtocol for TypedJsonEntry end
+ // type.annotations.AutoGenerateProtocol for URLEscaped -> See code in the file of that type
+
+ // sourcery:inline:URLEscaped.AutoGenerateProtocol
+ var url: URL { get }
+
+ func encode(to encoder: Encoder) throws
+ // sourcery:end
+ // type.annotations.AutoGenerateProtocol for URLEscaped end
  */

@@ -148,6 +148,84 @@ open class JSONEnvironmentsProtocolMock: JSONEnvironmentsProtocol
     public var config: [RNModels.Configuration: JSONEnvironment] = [:]
 }
 
+// MARK: - TypedJsonEntryProtocolMock
+
+open class TypedJsonEntryProtocolMock: TypedJsonEntryProtocol
+{
+    public init() {}
+
+    public var value: String
+    {
+        get { return underlyingValue }
+        set(value) { underlyingValue = value }
+    }
+
+    public var underlyingValue: String = "AutoMockable filled value"
+    public var valueType: String
+    {
+        get { return underlyingValueType }
+        set(value) { underlyingValueType = value }
+    }
+
+    public var underlyingValueType: String = "AutoMockable filled value"
+    public var typedValue: TypedJsonEntry.PossibleTypes
+    {
+        get { return underlyingTypedValue }
+        set(value) { underlyingTypedValue = value }
+    }
+
+    public var underlyingTypedValue: TypedJsonEntry.PossibleTypes!
+}
+
+// MARK: - URLEscapedProtocolMock
+
+open class URLEscapedProtocolMock: URLEscapedProtocol
+{
+    public init() {}
+
+    public var url: URL
+    {
+        get { return underlyingUrl }
+        set(value) { underlyingUrl = value }
+    }
+
+    public var underlyingUrl: URL!
+
+    // MARK: - <encode> - parameters
+
+    public var encodeToThrowableError: Error?
+    public var encodeToCallsCount = 0
+    public var encodeToCalled: Bool
+    {
+        return encodeToCallsCount > 0
+    }
+
+    public var encodeToReceivedEncoder: Encoder?
+
+    // MARK: - <encode> - closure mocks
+
+    public var encodeToClosure: ((Encoder) throws -> Void)?
+
+    // MARK: - <encode> - method mocked
+
+    open func encode(to encoder: Encoder) throws
+    {
+        // <encode> - Throwable method implementation
+
+        if let error = encodeToThrowableError
+        {
+            throw error
+        }
+
+        encodeToCallsCount += 1
+        encodeToReceivedEncoder = encoder
+
+        // <encode> - Void return mock implementation
+
+        try encodeToClosure?(encoder)
+    }
+}
+
 // MARK: - OBJECTIVE-C
 
 // MARK: - Sourcery Errors

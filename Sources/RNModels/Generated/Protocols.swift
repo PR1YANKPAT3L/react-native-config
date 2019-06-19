@@ -30,3 +30,23 @@ public protocol JSONEnvironmentsProtocol
     var config: [RNModels.Configuration: JSONEnvironment] { get }
     // sourcery:end
 }
+
+// sourcery:AutoMockable
+public protocol TypedJsonEntryProtocol
+{
+    // sourcery:inline:TypedJsonEntry.AutoGenerateProtocol
+    var value: String { get }
+    var valueType: String { get }
+    var typedValue: TypedJsonEntry.PossibleTypes { get }
+    // sourcery:end
+}
+
+// sourcery:AutoMockable
+public protocol URLEscapedProtocol
+{
+    // sourcery:inline:URLEscaped.AutoGenerateProtocol
+    var url: URL { get }
+
+    func encode(to encoder: Encoder) throws
+    // sourcery:end
+}

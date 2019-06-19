@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct URLEscaped: Codable
+// sourcery:AutoGenerateProtocol
+public struct URLEscaped: Codable, URLEscapedProtocol
 {
     public let url: URL
 
@@ -27,6 +28,11 @@ public struct URLEscaped: Codable
             throw Error.invalidUrlString(urlString)
         }
 
+        self.url = url
+    }
+
+    public init(url: URL)
+    {
         self.url = url
     }
 
