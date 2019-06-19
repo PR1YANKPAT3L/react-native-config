@@ -11,20 +11,11 @@ import SignPost
 import SourceryAutoProtocols
 import ZFile
 
-public protocol CopyIOSProjectProtocol: AutoMockable
-{
-    // sourcery:inline:CopyIOSProject.AutoGenerateProtocol
-    static var iosSubFolder: String { get set }
-
-    func attempt(packageSrcRoot: FolderProtocol, to yourSrcRoot: FolderProtocol) throws
-    // sourcery:end
-}
-
 public protocol CoderProtocol: AutoMockable
 {
     // sourcery:inline:Coder.AutoGenerateProtocol
-    static var rnConfigurationModelDefault_TOP: String { get }
-    static var rnConfigurationModelDefault_BOTTOM: String { get }
+    static var modelDefault_TOP: String { get }
+    static var modelDefault_BOTTOM: String { get }
     static var factoryTop: String { get }
     static var rnConfigurationModelFactoryProtocolDefault: String { get }
 
@@ -40,14 +31,6 @@ public protocol JSBridgeCodeSampleProtocol: AutoMockable
     // sourcery:inline:JSBridgeCodeSample.AutoGenerateProtocol
 
     func writeRNConfigurationBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
-    // sourcery:end
-}
-
-public protocol CoderOutputProtocol: AutoMockable
-{
-    // sourcery:inline:CoderOutput.AutoGenerateProtocol
-    var android: CoderOutputAndroidProtocol { get }
-    var ios: CoderOutputiOSProtocol { get }
     // sourcery:end
 }
 
@@ -82,26 +65,5 @@ public protocol TextFileWriterProtocol: AutoMockable
 
     func writeIOSAndAndroidConfigFiles(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
 
-    // sourcery:end
-}
-
-public protocol CoderOutputAndroidProtocol: AutoMockable
-{
-    // sourcery:inline:CoderOutput.Android.AutoGenerateProtocol
-    var sourcesFolder: FolderProtocol { get }
-    var configFiles: [RNModels.Configuration: FileProtocol] { get }
-    // sourcery:end
-}
-
-public protocol CoderOutputiOSProtocol: AutoMockable
-{
-    // sourcery:inline:CoderOutput.iOS.AutoGenerateProtocol
-    var sourcesFolder: FolderProtocol { get }
-    var xcconfigFile: FileProtocol { get }
-    var factory: FileProtocol { get }
-    var model: FileProtocol { get }
-    var plists: [FileProtocol] { get }
-    var jsBridgeHeader: FileProtocol { get }
-    var jsBridgeImplementation: FileProtocol { get }
     // sourcery:end
 }

@@ -1,0 +1,2528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3DF7F6B6203AA0C200D0EAB7 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
+		3DF7F6B7203AA0D600D0EAB7 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
+		C0169ECB2246E670007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ECD2246E68B007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ECF2246E6A5007679CF /* RNConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD55CC882200B4270044D1A7 /* RNConfiguration.h */; };
+		C0169ED12246E6BB007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
+		C0169ED42246E6DB007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
+		C0169ED62246E6F4007679CF /* RNModels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDB74B1822291E8F000B068C /* RNModels.h */; };
+		C04F636F2247910700AED2F5 /* libRNConfigurationBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */; };
+		C089686322B1097800084843 /* TypedJsonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686122B1097800084843 /* TypedJsonEntry.swift */; };
+		C089686422B1097800084843 /* TypedJsonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686122B1097800084843 /* TypedJsonEntry.swift */; };
+		C089686522B1097800084843 /* TypedJsonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686122B1097800084843 /* TypedJsonEntry.swift */; };
+		C089686622B1097800084843 /* JSONEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686222B1097800084843 /* JSONEnvironment.swift */; };
+		C089686722B1097800084843 /* JSONEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686222B1097800084843 /* JSONEnvironment.swift */; };
+		C089686822B1097800084843 /* JSONEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686222B1097800084843 /* JSONEnvironment.swift */; };
+		C089687022B10D4900084843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089686F22B10D4900084843 /* AppDelegate.swift */; };
+		C089687222B10D4900084843 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089687122B10D4900084843 /* ViewController.swift */; };
+		C089687522B10D4900084843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C089687322B10D4900084843 /* Main.storyboard */; };
+		C089687722B10D4B00084843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C089687622B10D4B00084843 /* Assets.xcassets */; };
+		C089687A22B10D4B00084843 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C089687822B10D4B00084843 /* LaunchScreen.storyboard */; };
+		C089688722B10D7D00084843 /* RNConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; };
+		C089688822B10D7D00084843 /* RNConfiguration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C089688922B10D7D00084843 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; };
+		C089688A22B10D7D00084843 /* RNModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C089695022B1207800084843 /* JSONEnvironments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694D22B1207800084843 /* JSONEnvironments.swift */; };
+		C089695122B1207800084843 /* JSONEnvironments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694D22B1207800084843 /* JSONEnvironments.swift */; };
+		C089695222B1207800084843 /* JSONEnvironments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694D22B1207800084843 /* JSONEnvironments.swift */; };
+		C089695322B1207800084843 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694F22B1207800084843 /* Protocols.swift */; };
+		C089695422B1207800084843 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694F22B1207800084843 /* Protocols.swift */; };
+		C089695522B1207800084843 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089694F22B1207800084843 /* Protocols.swift */; };
+		EB2648E31C7BE17A00B8F155 /* ReactNativeConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */; };
+		EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */; };
+		FD16745F2229B3E700A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674202229B2C300A67996 /* RNModels.framework */; };
+		FD1674622229B3FC00A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB74B1622291E8F000B068C /* RNModels.framework */; };
+		FD1674662229B4A800A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
+		FD1674692229B4A800A67996 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
+		FD16748A2229B63500A67996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
+		FD16748E2229B63500A67996 /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
+		FD1674912229B66100A67996 /* RNModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1674802229B5A700A67996 /* RNModels.framework */; };
+		FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
+		FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
+		FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
+		FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
+		FDB74B2522291EA6000B068C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE42F3221DADB7002E34EE /* Configuration.swift */; };
+		FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48698C220216DC0092A63E /* UrlEscaped.swift */; };
+		FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4868762201D1810092A63E /* RNConfigurationModel.swift */; };
+		FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C04F63702247910700AED2F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB2648DE1C7BE17A00B8F155;
+			remoteInfo = "RNConfigurationBridge-iOS";
+		};
+		C089688322B10D6C00084843 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD55CC852200B4270044D1A7;
+			remoteInfo = "RNConfiguration-iOS";
+		};
+		C089688522B10D6C00084843 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD16741F2229B2C300A67996;
+			remoteInfo = "RNModels-iOS";
+		};
+		FD16745D2229B3DE00A67996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD16741F2229B2C300A67996;
+			remoteInfo = "RNModels-iOS";
+		};
+		FD1674602229B3F200A67996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDB74B1522291E8F000B068C;
+			remoteInfo = "RNModels-macOS";
+		};
+		FD16748F2229B65700A67996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2648D71C7BE17A00B8F155 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD16747F2229B5A700A67996;
+			remoteInfo = "RNModels-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3DF7F6AA203AA09B00D0EAB7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				3DF7F6B7203AA0D600D0EAB7 /* ReactNativeConfig.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECA2246E65F007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECB2246E670007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECC2246E678007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECD2246E68B007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ECE2246E698007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ECF2246E6A5007679CF /* RNConfiguration.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED02246E6B0007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED12246E6BB007679CF /* RNModels.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED32246E6CF007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED42246E6DB007679CF /* RNModels.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0169ED52246E6EA007679CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				C0169ED62246E6F4007679CF /* RNModels.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C089688B22B10D7E00084843 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C089688A22B10D7D00084843 /* RNModels.framework in Embed Frameworks */,
+				C089688822B10D7D00084843 /* RNConfiguration.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB2648DD1C7BE17A00B8F155 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				EB2648E31C7BE17A00B8F155 /* ReactNativeConfig.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3DF7F6AC203AA09B00D0EAB7 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C005134F22A9B87300378083 /* Coder.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Coder.xcconfig; sourceTree = "<group>"; };
+		C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNConfigurationBridgeTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C089686122B1097800084843 /* TypedJsonEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypedJsonEntry.swift; sourceTree = "<group>"; };
+		C089686222B1097800084843 /* JSONEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEnvironment.swift; sourceTree = "<group>"; };
+		C089686D22B10D4900084843 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C089686F22B10D4900084843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C089687122B10D4900084843 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C089687422B10D4900084843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C089687622B10D4B00084843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C089687922B10D4B00084843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C089687B22B10D4B00084843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C089694D22B1207800084843 /* JSONEnvironments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEnvironments.swift; sourceTree = "<group>"; };
+		C089694F22B1207800084843 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNConfigurationBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeConfig.h; sourceTree = "<group>"; };
+		EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeConfig.m; sourceTree = "<group>"; };
+		FD1674202229B2C300A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1674802229B5A700A67996 /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD4868762201D1810092A63E /* RNConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModel.swift; sourceTree = "<group>"; };
+		FD48698C220216DC0092A63E /* UrlEscaped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEscaped.swift; sourceTree = "<group>"; };
+		FD4BE2B12201AA38008903DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		FD55CC862200B4270044D1A7 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD55CC882200B4270044D1A7 /* RNConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNConfiguration.h; sourceTree = "<group>"; };
+		FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNConfigurationModelFactory.swift; sourceTree = "<group>"; };
+		FD7F1D222215D390009A4F34 /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BDE22257CCD0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BE022257CD60091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BF322257F5F0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4BF522257F660091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C1E222596120091F9C3 /* Terminal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Terminal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C202225961E0091F9C3 /* XCBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C222225962D0091F9C3 /* Arguments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Arguments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SourceryAutoProtocols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C282225AACC0091F9C3 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDAE42F3221DADB7002E34EE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		FDB74B1622291E8F000B068C /* RNModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB74B1822291E8F000B068C /* RNModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNModels.h; path = ../../ios/Sources/RNModels/RNModels.h; sourceTree = "<group>"; };
+		FDB74B37222933E0000B068C /* RNConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNConfiguration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDECFBDB221B3BC200EA1E33 /* SignPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DF7F6A9203AA09B00D0EAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C04F63672247910700AED2F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C04F636F2247910700AED2F5 /* libRNConfigurationBridge.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C089686A22B10D4900084843 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089688922B10D7D00084843 /* RNModels.framework in Frameworks */,
+				C089688722B10D7D00084843 /* RNConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB2648DC1C7BE17A00B8F155 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16741D2229B2C300A67996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16747D2229B5A700A67996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD55CC832200B4270044D1A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD16745F2229B3E700A67996 /* RNModels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD7F1D1F2215D390009A4F34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1674622229B3FC00A67996 /* RNModels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB74B1322291E8F000B068C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB74B34222933E0000B068C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1674912229B66100A67996 /* RNModels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C089686E22B10D4900084843 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C089686F22B10D4900084843 /* AppDelegate.swift */,
+				C089687122B10D4900084843 /* ViewController.swift */,
+				C089687322B10D4900084843 /* Main.storyboard */,
+				C089687622B10D4B00084843 /* Assets.xcassets */,
+				C089687822B10D4B00084843 /* LaunchScreen.storyboard */,
+				C089687B22B10D4B00084843 /* Info.plist */,
+			);
+			name = Test;
+			path = Sources/Test;
+			sourceTree = "<group>";
+		};
+		C089694E22B1207800084843 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				C089694F22B1207800084843 /* Protocols.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		EB2648D61C7BE17A00B8F155 = {
+			isa = PBXGroup;
+			children = (
+				C005134F22A9B87300378083 /* Coder.xcconfig */,
+				FDB74B2C2229276B000B068C /* Sources */,
+				C089686E22B10D4900084843 /* Test */,
+				EB2648E01C7BE17A00B8F155 /* Products */,
+				FD55CC902200B4460044D1A7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EB2648E01C7BE17A00B8F155 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */,
+				3DF7F6AC203AA09B00D0EAB7 /* libRNConfigurationBridge.a */,
+				FD55CC862200B4270044D1A7 /* RNConfiguration.framework */,
+				FD7F1D222215D390009A4F34 /* RNConfiguration.framework */,
+				FDB74B1622291E8F000B068C /* RNModels.framework */,
+				FDB74B37222933E0000B068C /* RNConfiguration.framework */,
+				FD1674202229B2C300A67996 /* RNModels.framework */,
+				FD1674802229B5A700A67996 /* RNModels.framework */,
+				C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */,
+				C089686D22B10D4900084843 /* Test.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB2648E11C7BE17A00B8F155 /* RNConfigurationBridge */ = {
+			isa = PBXGroup;
+			children = (
+				EB2648E21C7BE17A00B8F155 /* ReactNativeConfig.h */,
+				EBE4E8461C7D2456000F8875 /* ReactNativeConfig.m */,
+			);
+			path = RNConfigurationBridge;
+			sourceTree = "<group>";
+		};
+		FD4868B52201EF0D0092A63E /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				FD4868762201D1810092A63E /* RNConfigurationModel.swift */,
+				FD55CC942200B4BA0044D1A7 /* RNConfigurationModelFactory.swift */,
+			);
+			name = Generated;
+			path = ../../../Sources/RNConfiguration;
+			sourceTree = "<group>";
+		};
+		FD55CC872200B4270044D1A7 /* RNConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				FD4868B52201EF0D0092A63E /* Generated */,
+				FD55CC882200B4270044D1A7 /* RNConfiguration.h */,
+			);
+			path = RNConfiguration;
+			sourceTree = "<group>";
+		};
+		FD55CC902200B4460044D1A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDAA4C2A2225AAD20091F9C3 /* Nimble.framework */,
+				FDAA4C282225AACC0091F9C3 /* Quick.framework */,
+				FDAA4C242225963E0091F9C3 /* SourceryAutoProtocols.framework */,
+				FDAA4C222225962D0091F9C3 /* Arguments.framework */,
+				FDAA4C202225961E0091F9C3 /* XCBuild.framework */,
+				FDAA4C1E222596120091F9C3 /* Terminal.framework */,
+				FDAA4BF522257F660091F9C3 /* Nimble.framework */,
+				FDAA4BF322257F5F0091F9C3 /* Quick.framework */,
+				FDAA4BE022257CD60091F9C3 /* Nimble.framework */,
+				FDAA4BDE22257CCD0091F9C3 /* Quick.framework */,
+				FDECFBDD221B3BEB00EA1E33 /* ZFile.framework */,
+				FDECFBDB221B3BC200EA1E33 /* SignPost.framework */,
+				FD4BE2B12201AA38008903DC /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDB74B1722291E8F000B068C /* RNModels */ = {
+			isa = PBXGroup;
+			children = (
+				C089694E22B1207800084843 /* Generated */,
+				C089694D22B1207800084843 /* JSONEnvironments.swift */,
+				C089686222B1097800084843 /* JSONEnvironment.swift */,
+				C089686122B1097800084843 /* TypedJsonEntry.swift */,
+				FDAE42F3221DADB7002E34EE /* Configuration.swift */,
+				FDB74B1822291E8F000B068C /* RNModels.h */,
+				FD48698C220216DC0092A63E /* UrlEscaped.swift */,
+			);
+			name = RNModels;
+			path = ../../Sources/RNModels;
+			sourceTree = "<group>";
+		};
+		FDB74B2C2229276B000B068C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FD55CC872200B4270044D1A7 /* RNConfiguration */,
+				EB2648E11C7BE17A00B8F155 /* RNConfigurationBridge */,
+				FDB74B1722291E8F000B068C /* RNModels */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DF7F6AB203AA09B00D0EAB7 /* RNConfigurationBridge-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DF7F6B4203AA09B00D0EAB7 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-tvOS" */;
+			buildPhases = (
+				3DF7F6A9203AA09B00D0EAB7 /* Frameworks */,
+				3DF7F6A8203AA09B00D0EAB7 /* Sources */,
+				3DF7F6AA203AA09B00D0EAB7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNConfigurationBridge-tvOS";
+			productName = "ReactNativeConfig-tvOS";
+			productReference = 3DF7F6AC203AA09B00D0EAB7 /* libRNConfigurationBridge.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C04F63692247910700AED2F5 /* RNConfigurationBridgeTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C04F63722247910700AED2F5 /* Build configuration list for PBXNativeTarget "RNConfigurationBridgeTests-iOS" */;
+			buildPhases = (
+				C04F63672247910700AED2F5 /* Frameworks */,
+				C04F63662247910700AED2F5 /* Sources */,
+				C04F63682247910700AED2F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C04F63712247910700AED2F5 /* PBXTargetDependency */,
+			);
+			name = "RNConfigurationBridgeTests-iOS";
+			productName = "RNConfigurationBridgeTests-iOS";
+			productReference = C04F636A2247910700AED2F5 /* RNConfigurationBridgeTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C089686C22B10D4900084843 /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C089687C22B10D4B00084843 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				C089686922B10D4900084843 /* Sources */,
+				C089686A22B10D4900084843 /* Frameworks */,
+				C089686B22B10D4900084843 /* Resources */,
+				C089688B22B10D7E00084843 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C089688422B10D6C00084843 /* PBXTargetDependency */,
+				C089688622B10D6C00084843 /* PBXTargetDependency */,
+			);
+			name = Test;
+			productName = Test;
+			productReference = C089686D22B10D4900084843 /* Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB2648DE1C7BE17A00B8F155 /* RNConfigurationBridge-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-iOS" */;
+			buildPhases = (
+				C04F637D224795C100AED2F5 /* ShellScript */,
+				EB2648DC1C7BE17A00B8F155 /* Frameworks */,
+				EB2648DD1C7BE17A00B8F155 /* CopyFiles */,
+				EB2648DB1C7BE17A00B8F155 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNConfigurationBridge-iOS";
+			productName = ReactNativeConfig;
+			productReference = EB2648DF1C7BE17A00B8F155 /* libRNConfigurationBridge.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FD16741F2229B2C300A67996 /* RNModels-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD1674312229B2C400A67996 /* Build configuration list for PBXNativeTarget "RNModels-iOS" */;
+			buildPhases = (
+				FD16741C2229B2C300A67996 /* Sources */,
+				FD16741D2229B2C300A67996 /* Frameworks */,
+				FD16741E2229B2C300A67996 /* Resources */,
+				C0169ED32246E6CF007679CF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNModels-iOS";
+			productName = "RNModels-iOS";
+			productReference = FD1674202229B2C300A67996 /* RNModels.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FD16747F2229B5A700A67996 /* RNModels-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD1674852229B5A700A67996 /* Build configuration list for PBXNativeTarget "RNModels-tvOS" */;
+			buildPhases = (
+				FD16747C2229B5A700A67996 /* Sources */,
+				FD16747D2229B5A700A67996 /* Frameworks */,
+				FD16747E2229B5A700A67996 /* Resources */,
+				C0169ED52246E6EA007679CF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNModels-tvOS";
+			productName = "RNModels-tvOS";
+			productReference = FD1674802229B5A700A67996 /* RNModels.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD55CC8B2200B4270044D1A7 /* Build configuration list for PBXNativeTarget "RNConfiguration-iOS" */;
+			buildPhases = (
+				FD55CC832200B4270044D1A7 /* Frameworks */,
+				FD55CC822200B4270044D1A7 /* Sources */,
+				FD55CC842200B4270044D1A7 /* Resources */,
+				C0169ECA2246E65F007679CF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD16745E2229B3DE00A67996 /* PBXTargetDependency */,
+			);
+			name = "RNConfiguration-iOS";
+			productName = ReactNativeConfigSwift;
+			productReference = FD55CC862200B4270044D1A7 /* RNConfiguration.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FD7F1D212215D390009A4F34 /* RNConfiguration-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD7F1D2B2215D390009A4F34 /* Build configuration list for PBXNativeTarget "RNConfiguration-macOS" */;
+			buildPhases = (
+				FD7F1D1E2215D390009A4F34 /* Sources */,
+				FD7F1D1F2215D390009A4F34 /* Frameworks */,
+				FD7F1D202215D390009A4F34 /* Resources */,
+				C0169ECC2246E678007679CF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD1674612229B3F200A67996 /* PBXTargetDependency */,
+			);
+			name = "RNConfiguration-macOS";
+			productName = "ReactNativeConfig-macOS";
+			productReference = FD7F1D222215D390009A4F34 /* RNConfiguration.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FDB74B1522291E8F000B068C /* RNModels-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDB74B1F22291E8F000B068C /* Build configuration list for PBXNativeTarget "RNModels-macOS" */;
+			buildPhases = (
+				FDB74B1222291E8F000B068C /* Sources */,
+				FDB74B1322291E8F000B068C /* Frameworks */,
+				FDB74B1422291E8F000B068C /* Resources */,
+				C0169ED02246E6B0007679CF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNModels-macOS";
+			productName = "RNModels-macOS";
+			productReference = FDB74B1622291E8F000B068C /* RNModels.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FDB74B36222933E0000B068C /* RNConfiguration-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDB74B3C222933E0000B068C /* Build configuration list for PBXNativeTarget "RNConfiguration-tvOS" */;
+			buildPhases = (
+				FDB74B34222933E0000B068C /* Frameworks */,
+				FDB74B33222933E0000B068C /* Sources */,
+				FDB74B35222933E0000B068C /* Resources */,
+				C0169ECE2246E698007679CF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD1674902229B65700A67996 /* PBXTargetDependency */,
+			);
+			name = "RNConfiguration-tvOS";
+			productName = "RNConfiguration-tvOS";
+			productReference = FDB74B37222933E0000B068C /* RNConfiguration.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB2648D71C7BE17A00B8F155 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Pedro Belo";
+				TargetAttributes = {
+					3DF7F6AB203AA09B00D0EAB7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C04F63692247910700AED2F5 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = PD7TVTH6DN;
+						ProvisioningStyle = Automatic;
+					};
+					C089686C22B10D4900084843 = {
+						CreatedOnToolsVersion = 10.2.1;
+						DevelopmentTeam = WWFDRU947Q;
+						ProvisioningStyle = Automatic;
+					};
+					EB2648DE1C7BE17A00B8F155 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					FD16741F2229B2C300A67996 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = WWFDRU947Q;
+					};
+					FD16747F2229B5A700A67996 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+					FD55CC852200B4270044D1A7 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = WWFDRU947Q;
+						LastSwiftMigration = 1010;
+					};
+					FD7F1D212215D390009A4F34 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FDB74B1522291E8F000B068C = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+					FDB74B36222933E0000B068C = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = EB2648DA1C7BE17A00B8F155 /* Build configuration list for PBXProject "ReactNativeConfig" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = EB2648D61C7BE17A00B8F155;
+			productRefGroup = EB2648E01C7BE17A00B8F155 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB2648DE1C7BE17A00B8F155 /* RNConfigurationBridge-iOS */,
+				3DF7F6AB203AA09B00D0EAB7 /* RNConfigurationBridge-tvOS */,
+				FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */,
+				FD7F1D212215D390009A4F34 /* RNConfiguration-macOS */,
+				FDB74B36222933E0000B068C /* RNConfiguration-tvOS */,
+				FDB74B1522291E8F000B068C /* RNModels-macOS */,
+				FD16741F2229B2C300A67996 /* RNModels-iOS */,
+				FD16747F2229B5A700A67996 /* RNModels-tvOS */,
+				C04F63692247910700AED2F5 /* RNConfigurationBridgeTests-iOS */,
+				C089686C22B10D4900084843 /* Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C04F63682247910700AED2F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C089686B22B10D4900084843 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089687A22B10D4B00084843 /* LaunchScreen.storyboard in Resources */,
+				C089687722B10D4B00084843 /* Assets.xcassets in Resources */,
+				C089687522B10D4900084843 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16741E2229B2C300A67996 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16747E2229B5A700A67996 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD55CC842200B4270044D1A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD7F1D202215D390009A4F34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB74B1422291E8F000B068C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB74B35222933E0000B068C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C04F637D224795C100AED2F5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"ℹ️ header search paths: \"  ${HEADER_SEARCH_PATHS}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DF7F6A8203AA09B00D0EAB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF7F6B6203AA0C200D0EAB7 /* ReactNativeConfig.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C04F63662247910700AED2F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C089686922B10D4900084843 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089687222B10D4900084843 /* ViewController.swift in Sources */,
+				C089687022B10D4900084843 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB2648DB1C7BE17A00B8F155 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBE4E8471C7D2456000F8875 /* ReactNativeConfig.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16741C2229B2C300A67996 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089686422B1097800084843 /* TypedJsonEntry.swift in Sources */,
+				FD1674662229B4A800A67996 /* Configuration.swift in Sources */,
+				C089686722B1097800084843 /* JSONEnvironment.swift in Sources */,
+				C089695422B1207800084843 /* Protocols.swift in Sources */,
+				FD1674692229B4A800A67996 /* UrlEscaped.swift in Sources */,
+				C089695122B1207800084843 /* JSONEnvironments.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD16747C2229B5A700A67996 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089686522B1097800084843 /* TypedJsonEntry.swift in Sources */,
+				FD16748A2229B63500A67996 /* Configuration.swift in Sources */,
+				C089686822B1097800084843 /* JSONEnvironment.swift in Sources */,
+				C089695522B1207800084843 /* Protocols.swift in Sources */,
+				FD16748E2229B63500A67996 /* UrlEscaped.swift in Sources */,
+				C089695222B1207800084843 /* JSONEnvironments.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD55CC822200B4270044D1A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD4868772201D1810092A63E /* RNConfigurationModel.swift in Sources */,
+				FD55CC952200B4BA0044D1A7 /* RNConfigurationModelFactory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD7F1D1E2215D390009A4F34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD7F1D302215D3F2009A4F34 /* RNConfigurationModel.swift in Sources */,
+				FD7F1D322215D3F2009A4F34 /* RNConfigurationModelFactory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB74B1222291E8F000B068C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089686322B1097800084843 /* TypedJsonEntry.swift in Sources */,
+				FDB74B2522291EA6000B068C /* Configuration.swift in Sources */,
+				C089686622B1097800084843 /* JSONEnvironment.swift in Sources */,
+				C089695322B1207800084843 /* Protocols.swift in Sources */,
+				FDB74B2722291EAD000B068C /* UrlEscaped.swift in Sources */,
+				C089695022B1207800084843 /* JSONEnvironments.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB74B33222933E0000B068C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDB74B4122293409000B068C /* RNConfigurationModel.swift in Sources */,
+				FDB74B4222293409000B068C /* RNConfigurationModelFactory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C04F63712247910700AED2F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB2648DE1C7BE17A00B8F155 /* RNConfigurationBridge-iOS */;
+			targetProxy = C04F63702247910700AED2F5 /* PBXContainerItemProxy */;
+		};
+		C089688422B10D6C00084843 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD55CC852200B4270044D1A7 /* RNConfiguration-iOS */;
+			targetProxy = C089688322B10D6C00084843 /* PBXContainerItemProxy */;
+		};
+		C089688622B10D6C00084843 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD16741F2229B2C300A67996 /* RNModels-iOS */;
+			targetProxy = C089688522B10D6C00084843 /* PBXContainerItemProxy */;
+		};
+		FD16745E2229B3DE00A67996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD16741F2229B2C300A67996 /* RNModels-iOS */;
+			targetProxy = FD16745D2229B3DE00A67996 /* PBXContainerItemProxy */;
+		};
+		FD1674612229B3F200A67996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDB74B1522291E8F000B068C /* RNModels-macOS */;
+			targetProxy = FD1674602229B3F200A67996 /* PBXContainerItemProxy */;
+		};
+		FD1674902229B65700A67996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD16747F2229B5A700A67996 /* RNModels-tvOS */;
+			targetProxy = FD16748F2229B65700A67996 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C089687322B10D4900084843 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C089687422B10D4900084843 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C089687822B10D4B00084843 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C089687922B10D4B00084843 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3DF7F6B2203AA09B00D0EAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNConfigurationBridge;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		3DF7F6B3203AA09B00D0EAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNConfigurationBridge;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		C04F63732247910700AED2F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PD7TVTH6DN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sourcery.RNConfigurationBridgeTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C04F63742247910700AED2F5 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PD7TVTH6DN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sourcery.RNConfigurationBridgeTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Local;
+		};
+		C04F63752247910700AED2F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PD7TVTH6DN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sourcery.RNConfigurationBridgeTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C04F63762247910700AED2F5 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PD7TVTH6DN;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sourcery.RNConfigurationBridgeTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = BetaRelease;
+		};
+		C089687D22B10D4B00084843 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.dooz.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C089687E22B10D4B00084843 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.dooz.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Local;
+		};
+		C089687F22B10D4B00084843 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.dooz.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C089688022B10D4B00084843 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.dooz.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = BetaRelease;
+		};
+		EB2648E61C7BE17A00B8F155 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../../../ios/Pods/Headers/Public/**",
+					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include/**",
+					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
+					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
+				);
+				INFOPLIST_FILE = RNConfiguration_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		EB2648E71C7BE17A00B8F155 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../../../ios/Pods/Headers/Public/**",
+					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include/**",
+					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
+					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
+				);
+				INFOPLIST_FILE = RNConfiguration_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB2648E91C7BE17A00B8F155 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNConfigurationBridge;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EB2648EA1C7BE17A00B8F155 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNConfigurationBridge;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FD1674322229B2C400A67996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD1674332229B2C400A67996 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FD1674342229B2C400A67996 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD1674352229B2C400A67996 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
+		};
+		FD1674862229B5A700A67996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD1674872229B5A700A67996 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FD1674882229B5A700A67996 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD1674892229B5A700A67996 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
+		};
+		FD55CC8C2200B4270044D1A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD55CC8D2200B4270044D1A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD7F1D2C2215D390009A4F34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD7F1D2D2215D390009A4F34 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FD7F1D2E2215D390009A4F34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD84BA0B2209C8BC000B86BC /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"LOCAL=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../../../ios/Pods/Headers/Public/**",
+					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include/**",
+					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
+					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
+				);
+				INFOPLIST_FILE = RNConfiguration_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Local;
+		};
+		FD84BA0C2209C8BC000B86BC /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNConfigurationBridge;
+				SKIP_INSTALL = YES;
+			};
+			name = Local;
+		};
+		FD84BA0D2209C8BC000B86BC /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNConfigurationBridge;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Local;
+		};
+		FD84BA102209C8BC000B86BC /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FDB74B2022291E8F000B068C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FDB74B2122291E8F000B068C /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TARGET_MAC_OS=1",
+				);
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FDB74B2222291E8F000B068C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDB74B2322291E8F000B068C /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnmodels;
+				PRODUCT_NAME = RNModels;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
+		};
+		FDB74B3D222933E0000B068C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FDB74B3E222933E0000B068C /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 3;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Local;
+		};
+		FDB74B3F222933E0000B068C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 3;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDB74B40222933E0000B068C /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = be.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 3;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
+		};
+		FDECFC8E221B652300EA1E33 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "BETARELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../../../ios/Pods/Headers/Public/**",
+					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					"$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/include/**",
+					"$(SRCROOT)/../../../iOS/Pods/Headers/Public/**",
+					"$(SRCROOT)/../../ios/Pods/Headers/Public/**",
+				);
+				INFOPLIST_FILE = RNConfiguration_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = BetaRelease;
+		};
+		FDECFC8F221B652300EA1E33 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNConfigurationBridge;
+				SKIP_INSTALL = YES;
+			};
+			name = BetaRelease;
+		};
+		FDECFC90221B652300EA1E33 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNConfigurationBridge;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = BetaRelease;
+		};
+		FDECFC93221B652300EA1E33 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WWFDRU947Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
+		};
+		FDECFC94221B652300EA1E33 /* BetaRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C005134F22A9B87300378083 /* Coder.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = "TARGET_MAC_OS=1";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.react.rnconfiguration;
+				PRODUCT_NAME = RNConfiguration;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = BetaRelease;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DF7F6B4203AA09B00D0EAB7 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DF7F6B2203AA09B00D0EAB7 /* Debug */,
+				FD84BA0D2209C8BC000B86BC /* Local */,
+				3DF7F6B3203AA09B00D0EAB7 /* Release */,
+				FDECFC90221B652300EA1E33 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C04F63722247910700AED2F5 /* Build configuration list for PBXNativeTarget "RNConfigurationBridgeTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C04F63732247910700AED2F5 /* Debug */,
+				C04F63742247910700AED2F5 /* Local */,
+				C04F63752247910700AED2F5 /* Release */,
+				C04F63762247910700AED2F5 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C089687C22B10D4B00084843 /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C089687D22B10D4B00084843 /* Debug */,
+				C089687E22B10D4B00084843 /* Local */,
+				C089687F22B10D4B00084843 /* Release */,
+				C089688022B10D4B00084843 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB2648DA1C7BE17A00B8F155 /* Build configuration list for PBXProject "ReactNativeConfig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB2648E61C7BE17A00B8F155 /* Debug */,
+				FD84BA0B2209C8BC000B86BC /* Local */,
+				EB2648E71C7BE17A00B8F155 /* Release */,
+				FDECFC8E221B652300EA1E33 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB2648E81C7BE17A00B8F155 /* Build configuration list for PBXNativeTarget "RNConfigurationBridge-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB2648E91C7BE17A00B8F155 /* Debug */,
+				FD84BA0C2209C8BC000B86BC /* Local */,
+				EB2648EA1C7BE17A00B8F155 /* Release */,
+				FDECFC8F221B652300EA1E33 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD1674312229B2C400A67996 /* Build configuration list for PBXNativeTarget "RNModels-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD1674322229B2C400A67996 /* Debug */,
+				FD1674332229B2C400A67996 /* Local */,
+				FD1674342229B2C400A67996 /* Release */,
+				FD1674352229B2C400A67996 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD1674852229B5A700A67996 /* Build configuration list for PBXNativeTarget "RNModels-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD1674862229B5A700A67996 /* Debug */,
+				FD1674872229B5A700A67996 /* Local */,
+				FD1674882229B5A700A67996 /* Release */,
+				FD1674892229B5A700A67996 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD55CC8B2200B4270044D1A7 /* Build configuration list for PBXNativeTarget "RNConfiguration-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD55CC8C2200B4270044D1A7 /* Debug */,
+				FD84BA102209C8BC000B86BC /* Local */,
+				FD55CC8D2200B4270044D1A7 /* Release */,
+				FDECFC93221B652300EA1E33 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD7F1D2B2215D390009A4F34 /* Build configuration list for PBXNativeTarget "RNConfiguration-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD7F1D2C2215D390009A4F34 /* Debug */,
+				FD7F1D2D2215D390009A4F34 /* Local */,
+				FD7F1D2E2215D390009A4F34 /* Release */,
+				FDECFC94221B652300EA1E33 /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDB74B1F22291E8F000B068C /* Build configuration list for PBXNativeTarget "RNModels-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDB74B2022291E8F000B068C /* Debug */,
+				FDB74B2122291E8F000B068C /* Local */,
+				FDB74B2222291E8F000B068C /* Release */,
+				FDB74B2322291E8F000B068C /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDB74B3C222933E0000B068C /* Build configuration list for PBXNativeTarget "RNConfiguration-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDB74B3D222933E0000B068C /* Debug */,
+				FDB74B3E222933E0000B068C /* Local */,
+				FDB74B3F222933E0000B068C /* Release */,
+				FDB74B40222933E0000B068C /* BetaRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB2648D71C7BE17A00B8F155 /* Project object */;
+}

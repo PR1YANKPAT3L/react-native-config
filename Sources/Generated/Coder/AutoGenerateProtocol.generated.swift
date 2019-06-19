@@ -17,4 +17,31 @@ import Foundation
 // version 5.5
 /*
 
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput ..
+ // sourcery:inline:CoderOutput.AutoGenerateProtocol
+ var android: CoderOutputAndroidProtocol { get }
+ var ios: CoderOutputiOSProtocol { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput ✅
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput.Android ..
+ // sourcery:inline:CoderOutput.Android.AutoGenerateProtocol
+ var sourcesFolder: FolderProtocol { get }
+ var configFiles: [RNModels.Configuration: FileProtocol] { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput.Android ✅
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput.iOS ..
+ // sourcery:inline:CoderOutput.iOS.AutoGenerateProtocol
+ var sourcesFolder: FolderProtocol { get }
+ var xcconfigFile: FileProtocol { get }
+ var factory: FileProtocol { get }
+ var model: FileProtocol { get }
+ var plists: [FileProtocol] { get }
+ var jsBridgeHeader: FileProtocol { get }
+ var jsBridgeImplementation: FileProtocol { get }
+
+ // sourcery:end
+ // types.implementing.AutoGenerateProtocol inline for CoderOutput.iOS ✅
+
  */

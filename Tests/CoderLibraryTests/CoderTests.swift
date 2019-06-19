@@ -125,7 +125,7 @@ class CoderSpec: QuickSpec
                     it("to model") {
                         let swiftFile: (FileProtocolMock) = (output.ios.rnConfigurationModelSwiftFile as! FileProtocolMock)
                         
-                        expect(swiftFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_TOP))
+                        expect(swiftFile.writeStringReceivedString).to(contain(Coder.modelDefault_TOP))
                         expect(swiftFile.writeStringReceivedString).to(contain(Coder.rnConfigurationModelDefault_BOTTOM))
                     }
                     

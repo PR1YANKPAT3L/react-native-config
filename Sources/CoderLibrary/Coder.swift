@@ -79,7 +79,8 @@ extension Coder {
             
             try plistWriter.writeRNConfigurationPlist(output: output, sampler: sampler)
             
-            try bridge.writeRNConfigurationBridge(to: output.ios.jsBridge, sampler: sampler)
+            // TODO: write to header also
+            try bridge.writeRNConfigurationBridge(to: output.ios.jsBridgeImplementation, sampler: sampler)
             signPost.message(pretty_function() + " ✅")
             return output
         }
@@ -102,15 +103,15 @@ extension Coder {
     
     public func writeRNConfigurationModel(to output: CoderOutputProtocol) throws {
         
-        var lines = Coder.rnConfigurationModelDefault_TOP + Coder.rnConfigurationModelDefault_BOTTOM
+        var lines = Coder.modelDefault_TOP + Coder.modelDefault_BOTTOM
         
         guard sampler.configurationModelVar.count > 0 else {
-            try output.ios.rnConfigurationModelSwiftFile.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: "")  + "\n}")
+            try output.ios.model.write(string: lines.replacingOccurrences(of: ", CustomStringConvertible", with: "")  + "\n}")
             return
         }
         
         lines = """
-            \(Coder.rnConfigurationModelDefault_TOP)
+            \(Coder.modelDefault_TOP)
         
             // MARK: - Custom plist properties are added here
         
@@ -122,7 +123,7 @@ extension Coder {
         
                 \(sampler.decoderInit)
                 }
-                \(Coder.rnConfigurationModelDefault_BOTTOM)
+                \(Coder.modelDefault_BOTTOM)
         
                 public var description: String {
                 return \"""
@@ -136,12 +137,12 @@ extension Coder {
             }
         
         """
-        try output.ios.rnConfigurationModelSwiftFile.write(string: lines)
+        try output.ios.model.write(string: lines)
     }
     
     
     
-    public static let rnConfigurationModelDefault_TOP = """
+    public static let modelDefault_TOP = """
     import Foundation
     import RNModels
 
@@ -158,7 +159,7 @@ extension Coder {
     public struct RNConfigurationModel: Codable, CustomStringConvertible, RNConfigurationModelProtocol {
 
     """
-    public static let rnConfigurationModelDefault_BOTTOM = """
+    public static let modelDefault_BOTTOM = """
          
         public static func create(from json: JSONEnvironment) throws -> RNConfigurationModelProtocol {
                 let typed = json.typed ?? [String: TypedJsonEntry]()
@@ -226,7 +227,7 @@ extension Coder {
         var lines = Coder.rnConfigurationModelFactoryProtocolDefault
         
         guard sampler.casesForEnum.count > 0 else {
-            try output.ios.rnConfigurationModelFactorySwiftFile.write(string: lines)
+            try output.ios.model.write(string: lines)
             return
         }
         
@@ -310,7 +311,7 @@ extension Coder {
         
         """
         
-        try output.ios.rnConfigurationModelFactorySwiftFile.write(string: lines)
+        try output.ios.model.write(string: lines)
     }
     
     public static let rnConfigurationModelFactoryProtocolDefault = """

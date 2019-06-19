@@ -104,20 +104,20 @@ open class CoderProtocolMock: CoderProtocol
 {
     public init() {}
 
-    public static var rnConfigurationModelDefault_TOP: String
+    public static var modelDefault_TOP: String
     {
-        get { return underlyingRnConfigurationModelDefault_TOP }
-        set(value) { underlyingRnConfigurationModelDefault_TOP = value }
+        get { return underlyingModelDefault_TOP }
+        set(value) { underlyingModelDefault_TOP = value }
     }
 
-    public static var underlyingRnConfigurationModelDefault_TOP: String = "AutoMockable filled value"
-    public static var rnConfigurationModelDefault_BOTTOM: String
+    public static var underlyingModelDefault_TOP: String = "AutoMockable filled value"
+    public static var modelDefault_BOTTOM: String
     {
-        get { return underlyingRnConfigurationModelDefault_BOTTOM }
-        set(value) { underlyingRnConfigurationModelDefault_BOTTOM = value }
+        get { return underlyingModelDefault_BOTTOM }
+        set(value) { underlyingModelDefault_BOTTOM = value }
     }
 
-    public static var underlyingRnConfigurationModelDefault_BOTTOM: String = "AutoMockable filled value"
+    public static var underlyingModelDefault_BOTTOM: String = "AutoMockable filled value"
     public static var factoryTop: String
     {
         get { return underlyingFactoryTop }
@@ -248,55 +248,6 @@ open class CoderProtocolMock: CoderProtocol
         // <writeRNConfigurationModelFactory> - Void return mock implementation
 
         try writeRNConfigurationModelFactoryToClosure?(output)
-    }
-}
-
-// MARK: - CopyIOSProjectProtocolMock
-
-open class CopyIOSProjectProtocolMock: CopyIOSProjectProtocol
-{
-    public init() {}
-
-    public static var iosSubFolder: String
-    {
-        get { return underlyingIosSubFolder }
-        set(value) { underlyingIosSubFolder = value }
-    }
-
-    public static var underlyingIosSubFolder: String = "AutoMockable filled value"
-
-    // MARK: - <attempt> - parameters
-
-    public var attemptPackageSrcRootToThrowableError: Error?
-    public var attemptPackageSrcRootToCallsCount = 0
-    public var attemptPackageSrcRootToCalled: Bool
-    {
-        return attemptPackageSrcRootToCallsCount > 0
-    }
-
-    public var attemptPackageSrcRootToReceivedArguments: (packageSrcRoot: FolderProtocol, yourSrcRoot: FolderProtocol)?
-
-    // MARK: - <attempt> - closure mocks
-
-    public var attemptPackageSrcRootToClosure: ((FolderProtocol, FolderProtocol) throws -> Void)?
-
-    // MARK: - <attempt> - method mocked
-
-    open func attempt(packageSrcRoot: FolderProtocol, to yourSrcRoot: FolderProtocol) throws
-    {
-        // <attempt> - Throwable method implementation
-
-        if let error = attemptPackageSrcRootToThrowableError
-        {
-            throw error
-        }
-
-        attemptPackageSrcRootToCallsCount += 1
-        attemptPackageSrcRootToReceivedArguments = (packageSrcRoot: packageSrcRoot, yourSrcRoot: yourSrcRoot)
-
-        // <attempt> - Void return mock implementation
-
-        try attemptPackageSrcRootToClosure?(packageSrcRoot, yourSrcRoot)
     }
 }
 
