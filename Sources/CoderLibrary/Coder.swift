@@ -68,8 +68,7 @@ extension Coder {
     
     public func attemptCode(to output: CoderOutputProtocol) throws -> CoderOutputProtocol
     {
-        signPost.message(pretty_function() + " ...")
-        do
+        return try attemptTo("generate code to support all configurations")
         {
           
             try textFileWriter.writeToAllPlatforms(from: sampler.jsonEnvironments, output: output)
@@ -81,14 +80,9 @@ extension Coder {
             
             // TODO: write to header also
             try bridge.writeBridge(to: output.ios.jsBridgeImplementation, sampler: sampler)
-            signPost.message(pretty_function() + " ✅")
             return output
         }
-        catch
-        {
-            signPost.message(pretty_function() + " ❌")
-            throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
-        }
+        
     }
     
 }

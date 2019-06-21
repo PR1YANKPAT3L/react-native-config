@@ -1,4 +1,5 @@
 import Coder
+import CoderLibrary
 import Foundation
 
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery

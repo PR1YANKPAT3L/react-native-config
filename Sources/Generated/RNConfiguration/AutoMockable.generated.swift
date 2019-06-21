@@ -131,7 +131,7 @@ open class FactoryProtocolMock: NSObject, FactoryProtocol
                 let message = "No returnValue implemented for allValuesDictionaryClosure"
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
-                // You should implement [String : String]
+                // You should implement [String: String]
 
                 throw error
             }

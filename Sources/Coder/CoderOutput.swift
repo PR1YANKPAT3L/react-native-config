@@ -63,7 +63,7 @@ struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
         }
         catch
         {
-            throw HighwayError.highwayError(atLocation: pretty_function(), error: error)
+            throw HighwayError.highwayError(atLocation: codeGeopoint(), error: error)
         }
     }
 

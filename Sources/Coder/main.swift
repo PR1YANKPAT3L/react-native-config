@@ -18,7 +18,7 @@ let xcodeName = "Coder"
 var coder: CoderProtocol!
 var xcconfig: FileProtocol!
 
-doContinue(pretty_function() + " setup")
+attemptForcedTo("generate code for all configurations", codeGeopoint())
 {
     try terminalInit(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder())
     try highwayInit(gitHooks: GitHooks(prePushExecutable: (name: "PrePushAndPR", arguments: nil)))
@@ -28,7 +28,7 @@ doContinue(pretty_function() + " setup")
     try highway.addGithooksPrePush()
     #if DEBUG
     #else
-        try highway.validateSecrets(in: srcRoot)
+        highway.validateSecretsAndHideIfNeededForced()
     #endif
 
     let input = try srcRoot.file(named: "coder.env.json")
@@ -48,6 +48,6 @@ highway.runTests(handleTestOutput)
     highway.generateXcodeProject(override: xcconfig, handleSwiftPackageGenerateXcodeProject)
 #endif
 
-dispatchGroup.notifyMain { highway.exitSuccesOrFail(location: pretty_function()) }
+dispatchGroup.notifyMain { highway.attemptForcedExitFrom(codeGeopoint()) }
 
 dispatchMain()
