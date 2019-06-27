@@ -9,6 +9,24 @@ import ZFile
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
+/**
+ # Protocols that mocks where generated for
+ * AutoCases
+ * AutoEquatable
+ * AutoGenerateProtocol
+ * AutoGenerateSelectiveProtocol
+ * AutoMockable
+ * AutoObjcMockable
+ * CoderOutputAndroidProtocol
+ * CoderOutputProtocol
+ * CoderOutputiOSProtocol
+ * CoderProtocol
+ * JSBridgeCodeSampleProtocol
+ * JSONToCodeSamplerProtocol
+ * PlatformSpecificConfigurationWriterProtocol
+ * PlistWriterProtocol
+ */
+
 // MARK: - CoderOutputAndroidProtocolMock
 
 open class CoderOutputAndroidProtocolMock: CoderOutputAndroidProtocol
@@ -133,7 +151,7 @@ open class CoderProtocolMock: CoderProtocol
 
     public static var underlyingFactoryDefault: String = "AutoMockable filled value"
 
-    // MARK: - <attemptCode> - parameters
+    // MARK: - <attemptCode > - parameters
 
     public var attemptCodeToThrowableError: Error?
     public var attemptCodeToCallsCount = 0
@@ -142,18 +160,18 @@ open class CoderProtocolMock: CoderProtocol
         return attemptCodeToCallsCount > 0
     }
 
-    public var attemptCodeToReceivedOutput: CoderOutputProtocol?
+    public var attemptCodeToReceived: CoderOutputProtocol?
     public var attemptCodeToReturnValue: CoderOutputProtocol?
 
-    // MARK: - <attemptCode> - closure mocks
+    // MARK: - <attemptCode > - closure mocks
 
     public var attemptCodeToClosure: ((CoderOutputProtocol) throws -> CoderOutputProtocol)?
 
-    // MARK: - <attemptCode> - method mocked
+    // MARK: - <attemptCode > - method mocked
 
     open func attemptCode(to output: CoderOutputProtocol) throws -> CoderOutputProtocol
     {
-        // <attemptCode> - Throwable method implementation
+        // <attemptCode > - Throwable method implementation
 
         if let error = attemptCodeToThrowableError
         {
@@ -161,15 +179,19 @@ open class CoderProtocolMock: CoderProtocol
         }
 
         attemptCodeToCallsCount += 1
-        attemptCodeToReceivedOutput = output
+        attemptCodeToReceived = output
 
-        // <attemptCode> - Return Value mock implementation
+        // <attemptCode > - Return Value mock implementation
 
         guard let closureReturn = attemptCodeToClosure else
         {
             guard let returnValue = attemptCodeToReturnValue else
             {
-                let message = "No returnValue implemented for attemptCodeToClosure"
+                let message = """
+                No returnValue implemented for attemptCode(to:)
+                arguments passed where
+                \(attemptCodeToReceived!)
+                """
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
                 // You should implement CoderOutputProtocol
@@ -182,7 +204,7 @@ open class CoderProtocolMock: CoderProtocol
         return try closureReturn(output)
     }
 
-    // MARK: - <writeModel> - parameters
+    // MARK: - <writeModel > - parameters
 
     public var writeModelToThrowableError: Error?
     public var writeModelToCallsCount = 0
@@ -191,17 +213,17 @@ open class CoderProtocolMock: CoderProtocol
         return writeModelToCallsCount > 0
     }
 
-    public var writeModelToReceivedOutput: CoderOutputProtocol?
+    public var writeModelToReceived: CoderOutputProtocol?
 
-    // MARK: - <writeModel> - closure mocks
+    // MARK: - <writeModel > - closure mocks
 
     public var writeModelToClosure: ((CoderOutputProtocol) throws -> Void)?
 
-    // MARK: - <writeModel> - method mocked
+    // MARK: - <writeModel > - method mocked
 
     open func writeModel(to output: CoderOutputProtocol) throws
     {
-        // <writeModel> - Throwable method implementation
+        // <writeModel > - Throwable method implementation
 
         if let error = writeModelToThrowableError
         {
@@ -209,14 +231,14 @@ open class CoderProtocolMock: CoderProtocol
         }
 
         writeModelToCallsCount += 1
-        writeModelToReceivedOutput = output
+        writeModelToReceived = output
 
-        // <writeModel> - Void return mock implementation
+        // <writeModel > - Void return mock implementation
 
         try writeModelToClosure?(output)
     }
 
-    // MARK: - <writeFactory> - parameters
+    // MARK: - <writeFactory > - parameters
 
     public var writeFactoryToThrowableError: Error?
     public var writeFactoryToCallsCount = 0
@@ -225,17 +247,17 @@ open class CoderProtocolMock: CoderProtocol
         return writeFactoryToCallsCount > 0
     }
 
-    public var writeFactoryToReceivedOutput: CoderOutputProtocol?
+    public var writeFactoryToReceived: CoderOutputProtocol?
 
-    // MARK: - <writeFactory> - closure mocks
+    // MARK: - <writeFactory > - closure mocks
 
     public var writeFactoryToClosure: ((CoderOutputProtocol) throws -> Void)?
 
-    // MARK: - <writeFactory> - method mocked
+    // MARK: - <writeFactory > - method mocked
 
     open func writeFactory(to output: CoderOutputProtocol) throws
     {
-        // <writeFactory> - Throwable method implementation
+        // <writeFactory > - Throwable method implementation
 
         if let error = writeFactoryToThrowableError
         {
@@ -243,9 +265,9 @@ open class CoderProtocolMock: CoderProtocol
         }
 
         writeFactoryToCallsCount += 1
-        writeFactoryToReceivedOutput = output
+        writeFactoryToReceived = output
 
-        // <writeFactory> - Void return mock implementation
+        // <writeFactory > - Void return mock implementation
 
         try writeFactoryToClosure?(output)
     }
@@ -257,7 +279,7 @@ open class JSBridgeCodeSampleProtocolMock: JSBridgeCodeSampleProtocol
 {
     public init() {}
 
-    // MARK: - <writeBridge> - parameters
+    // MARK: - <writeBridge > - parameters
 
     public var writeBridgeToSamplerThrowableError: Error?
     public var writeBridgeToSamplerCallsCount = 0
@@ -268,15 +290,15 @@ open class JSBridgeCodeSampleProtocolMock: JSBridgeCodeSampleProtocol
 
     public var writeBridgeToSamplerReceivedArguments: (file: FileProtocol, sampler: JSONToCodeSamplerProtocol)?
 
-    // MARK: - <writeBridge> - closure mocks
+    // MARK: - <writeBridge > - closure mocks
 
     public var writeBridgeToSamplerClosure: ((FileProtocol, JSONToCodeSamplerProtocol) throws -> Void)?
 
-    // MARK: - <writeBridge> - method mocked
+    // MARK: - <writeBridge > - method mocked
 
     open func writeBridge(to file: FileProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
-        // <writeBridge> - Throwable method implementation
+        // <writeBridge > - Throwable method implementation
 
         if let error = writeBridgeToSamplerThrowableError
         {
@@ -286,7 +308,7 @@ open class JSBridgeCodeSampleProtocolMock: JSBridgeCodeSampleProtocol
         writeBridgeToSamplerCallsCount += 1
         writeBridgeToSamplerReceivedArguments = (file: file, sampler: sampler)
 
-        // <writeBridge> - Void return mock implementation
+        // <writeBridge > - Void return mock implementation
 
         try writeBridgeToSamplerClosure?(file, sampler)
     }
@@ -364,7 +386,7 @@ open class PlatformSpecificConfigurationWriterProtocolMock: PlatformSpecificConf
 
     public var underlyingDecoder: JSONDecoder!
 
-    // MARK: - <writeToAllPlatforms> - parameters
+    // MARK: - <writeToAllPlatforms > - parameters
 
     public var writeToAllPlatformsFromOutputThrowableError: Error?
     public var writeToAllPlatformsFromOutputCallsCount = 0
@@ -375,15 +397,15 @@ open class PlatformSpecificConfigurationWriterProtocolMock: PlatformSpecificConf
 
     public var writeToAllPlatformsFromOutputReceivedArguments: (json: JSONEnvironmentsProtocol, output: CoderOutputProtocol)?
 
-    // MARK: - <writeToAllPlatforms> - closure mocks
+    // MARK: - <writeToAllPlatforms > - closure mocks
 
     public var writeToAllPlatformsFromOutputClosure: ((JSONEnvironmentsProtocol, CoderOutputProtocol) throws -> Void)?
 
-    // MARK: - <writeToAllPlatforms> - method mocked
+    // MARK: - <writeToAllPlatforms > - method mocked
 
     open func writeToAllPlatforms(from json: JSONEnvironmentsProtocol, output: CoderOutputProtocol) throws
     {
-        // <writeToAllPlatforms> - Throwable method implementation
+        // <writeToAllPlatforms > - Throwable method implementation
 
         if let error = writeToAllPlatformsFromOutputThrowableError
         {
@@ -393,7 +415,7 @@ open class PlatformSpecificConfigurationWriterProtocolMock: PlatformSpecificConf
         writeToAllPlatformsFromOutputCallsCount += 1
         writeToAllPlatformsFromOutputReceivedArguments = (json: json, output: output)
 
-        // <writeToAllPlatforms> - Void return mock implementation
+        // <writeToAllPlatforms > - Void return mock implementation
 
         try writeToAllPlatformsFromOutputClosure?(json, output)
     }
@@ -413,7 +435,7 @@ open class PlistWriterProtocolMock: PlistWriterProtocol
 
     public static var underlyingPlistLinesXmlDefault: String = "AutoMockable filled value"
 
-    // MARK: - <write> - parameters
+    // MARK: - <write > - parameters
 
     public var writeOutputSamplerThrowableError: Error?
     public var writeOutputSamplerCallsCount = 0
@@ -424,15 +446,15 @@ open class PlistWriterProtocolMock: PlistWriterProtocol
 
     public var writeOutputSamplerReceivedArguments: (output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol)?
 
-    // MARK: - <write> - closure mocks
+    // MARK: - <write > - closure mocks
 
     public var writeOutputSamplerClosure: ((CoderOutputProtocol, JSONToCodeSamplerProtocol) throws -> Void)?
 
-    // MARK: - <write> - method mocked
+    // MARK: - <write > - method mocked
 
     open func write(output: CoderOutputProtocol, sampler: JSONToCodeSamplerProtocol) throws
     {
-        // <write> - Throwable method implementation
+        // <write > - Throwable method implementation
 
         if let error = writeOutputSamplerThrowableError
         {
@@ -442,7 +464,7 @@ open class PlistWriterProtocolMock: PlistWriterProtocol
         writeOutputSamplerCallsCount += 1
         writeOutputSamplerReceivedArguments = (output: output, sampler: sampler)
 
-        // <write> - Void return mock implementation
+        // <write > - Void return mock implementation
 
         try writeOutputSamplerClosure?(output, sampler)
     }

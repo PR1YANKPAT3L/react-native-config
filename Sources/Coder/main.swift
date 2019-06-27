@@ -40,12 +40,12 @@ attemptForcedTo("generate code for all configurations", codeGeopoint())
     signPost.verbose("found config \(output)")
 }
 
-highway.runSourcery(handleSourceryOutput)
-highway.runSwiftformat(handleSwiftformat)
-highway.runTests(handleTestOutput)
+highway.sourcery()
+highway.swiftformat()
+highway.tests()
 #if DEBUG
 #else
-    highway.generateXcodeProject(override: xcconfig, handleSwiftPackageGenerateXcodeProject)
+    highway.xcode(xcconfig: xcconfig)
 #endif
 
 dispatchGroup.notifyMain { highway.attemptForcedExitFrom(codeGeopoint()) }

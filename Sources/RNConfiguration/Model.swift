@@ -4,17 +4,6 @@ import RNModels
 /**
  ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
  */
-// sourcery:AutoMockable
-public protocol ModelProtocol
-{
-    // sourcery:inline:Model.AutoGenerateProtocol
-    var exampleBool: Bool { get }
-    var example_url: URLEscaped { get }
-    var description: String { get }
-
-    static func create(from json: JSONEnvironment) throws -> ModelProtocol
-    // sourcery:end
-}
 
 // sourcery:AutoGenerateProtocol
 public struct Model: Codable, CustomStringConvertible, ModelProtocol

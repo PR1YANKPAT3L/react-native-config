@@ -1,9 +1,24 @@
 import Coder
 import CoderLibrary
 import Foundation
+import HighwayLibrary
+import RNModels
+import SignPost
+import Terminal
+import ZFile
 
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
+
+/**
+ # Protocols that mocks where generated for
+ * AutoCases
+ * AutoEquatable
+ * AutoGenerateProtocol
+ * AutoGenerateSelectiveProtocol
+ * AutoMockable
+ * AutoObjcMockable
+ */
 
 // MARK: - OBJECTIVE-C
 

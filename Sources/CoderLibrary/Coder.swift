@@ -143,11 +143,6 @@ extension Coder {
     /**
         ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
     */
-    // sourcery:AutoMockable
-    public protocol ModelProtocol {
-        // sourcery:inline:Model.AutoGenerateProtocol
-        // sourcery:end
-    }
     
     // sourcery:AutoGenerateProtocol
     public struct Model: Codable, CustomStringConvertible, ModelProtocol {
@@ -199,18 +194,8 @@ extension Coder {
      ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
      */
 
-    // sourcery:AutoObjcMockable
-    public protocol FactoryProtocol
-    {
-        // sourcery:inline:Factory.AutoGenerateProtocol
-
-        static func allValuesDictionary() throws -> [String: String]
-        func allCustomKeys() -> [String]
-        
-        // sourcery:end
-    }
-
     // sourcery:AutoGenerateProtocol
+    // sourcery:AutoObjcMockable
     @objc public class Factory: NSObject, FactoryProtocol
     {
         public static var infoDict: [String: Any]? = Bundle(for: Factory.self).infoDictionary

@@ -5,21 +5,8 @@ import RNModels
  ⚠️ File is generated and ignored in git. To change it change /RNConfigurationHighwaySetup/main.swift
  */
 
-// sourcery:AutoObjcMockable
-public protocol FactoryProtocol
-{
-    // sourcery:inline:Factory.AutoGenerateProtocol
-    static var infoDict: [String: Any]? { get set }
-
-    static func allValuesDictionary() throws -> [String: String]
-    func allCustomKeys() -> [String]
-    static func readCurrentBuildConfiguration() throws -> ModelProtocol
-    static func allConstants() throws -> [Factory.Case: String]
-
-    // sourcery:end
-}
-
 // sourcery:AutoGenerateProtocol
+// sourcery:AutoObjcMockable
 @objc public class Factory: NSObject, FactoryProtocol
 {
     public static var infoDict: [String: Any]? = Bundle(for: Factory.self).infoDictionary

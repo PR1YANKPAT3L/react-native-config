@@ -6,6 +6,16 @@ import Terminal
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
+/**
+ # Protocols that mocks where generated for
+ * AutoCases
+ * AutoEquatable
+ * AutoGenerateProtocol
+ * AutoGenerateSelectiveProtocol
+ * AutoMockable
+ * AutoObjcMockable
+ */
+
 // MARK: - OBJECTIVE-C
 
 // MARK: - Sourcery Errors

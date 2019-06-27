@@ -125,14 +125,14 @@ class CoderSpec: QuickSpec
                     it("to model") {
                         let swiftFile: (FileProtocolMock) = (output.ios.model as! FileProtocolMock)
                         
-                        expect(swiftFile.writeStringReceivedString).to(contain(Coder.modelDefault_TOP))
-                        expect(swiftFile.writeStringReceivedString).to(contain(Coder.modelDefault_TOP))
+                        expect(swiftFile.writeStringReceived).to(contain(Coder.modelDefault_TOP))
+                        expect(swiftFile.writeStringReceived).to(contain(Coder.modelDefault_TOP))
                     }
                     
                     it("to factory") {
                         let factoryFile: (FileProtocolMock) = (output.ios.factory as! FileProtocolMock)
 
-                        expect(factoryFile.writeStringReceivedString).to(contain(Coder.factoryTop))
+                        expect(factoryFile.writeStringReceived).to(contain(Coder.factoryTop))
                     }
                     
                     it("plist") {

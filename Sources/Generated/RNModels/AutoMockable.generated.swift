@@ -5,6 +5,20 @@ import SourceryAutoProtocols
 // Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
+/**
+ # Protocols that mocks where generated for
+ * AutoCases
+ * AutoEquatable
+ * AutoGenerateProtocol
+ * AutoGenerateSelectiveProtocol
+ * AutoMockable
+ * AutoObjcMockable
+ * JSONEnvironmentProtocol
+ * JSONEnvironmentsProtocol
+ * TypedJsonEntryProtocol
+ * URLEscapedProtocol
+ */
+
 // MARK: - JSONEnvironmentProtocolMock
 
 open class JSONEnvironmentProtocolMock: JSONEnvironmentProtocol
@@ -14,7 +28,7 @@ open class JSONEnvironmentProtocolMock: JSONEnvironmentProtocol
     public var typed: [String: TypedJsonEntry]?
     public var booleans: [String: Bool]?
 
-    // MARK: - <xcconfigEntry> - parameters
+    // MARK: - <xcconfigEntry > - parameters
 
     public var xcconfigEntryForThrowableError: Error?
     public var xcconfigEntryForCallsCount = 0
@@ -23,18 +37,18 @@ open class JSONEnvironmentProtocolMock: JSONEnvironmentProtocol
         return xcconfigEntryForCallsCount > 0
     }
 
-    public var xcconfigEntryForReceivedConfiguration: Configuration?
+    public var xcconfigEntryForReceived: Configuration?
     public var xcconfigEntryForReturnValue: String?
 
-    // MARK: - <xcconfigEntry> - closure mocks
+    // MARK: - <xcconfigEntry > - closure mocks
 
     public var xcconfigEntryForClosure: ((Configuration) throws -> String)?
 
-    // MARK: - <xcconfigEntry> - method mocked
+    // MARK: - <xcconfigEntry > - method mocked
 
     open func xcconfigEntry(for configuration: Configuration) throws -> String
     {
-        // <xcconfigEntry> - Throwable method implementation
+        // <xcconfigEntry > - Throwable method implementation
 
         if let error = xcconfigEntryForThrowableError
         {
@@ -42,15 +56,19 @@ open class JSONEnvironmentProtocolMock: JSONEnvironmentProtocol
         }
 
         xcconfigEntryForCallsCount += 1
-        xcconfigEntryForReceivedConfiguration = configuration
+        xcconfigEntryForReceived = configuration
 
-        // <xcconfigEntry> - Return Value mock implementation
+        // <xcconfigEntry > - Return Value mock implementation
 
         guard let closureReturn = xcconfigEntryForClosure else
         {
             guard let returnValue = xcconfigEntryForReturnValue else
             {
-                let message = "No returnValue implemented for xcconfigEntryForClosure"
+                let message = """
+                No returnValue implemented for xcconfigEntry(for:)
+                arguments passed where
+                \(xcconfigEntryForReceived!)
+                """
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
                 // You should implement String
@@ -63,7 +81,7 @@ open class JSONEnvironmentProtocolMock: JSONEnvironmentProtocol
         return try closureReturn(configuration)
     }
 
-    // MARK: - <androidEnvEntry> - parameters
+    // MARK: - <androidEnvEntry > - parameters
 
     public var androidEnvEntryThrowableError: Error?
     public var androidEnvEntryCallsCount = 0
@@ -74,15 +92,15 @@ open class JSONEnvironmentProtocolMock: JSONEnvironmentProtocol
 
     public var androidEnvEntryReturnValue: String?
 
-    // MARK: - <androidEnvEntry> - closure mocks
+    // MARK: - <androidEnvEntry > - closure mocks
 
     public var androidEnvEntryClosure: (() throws -> String)?
 
-    // MARK: - <androidEnvEntry> - method mocked
+    // MARK: - <androidEnvEntry > - method mocked
 
     open func androidEnvEntry() throws -> String
     {
-        // <androidEnvEntry> - Throwable method implementation
+        // <androidEnvEntry > - Throwable method implementation
 
         if let error = androidEnvEntryThrowableError
         {
@@ -91,13 +109,15 @@ open class JSONEnvironmentProtocolMock: JSONEnvironmentProtocol
 
         androidEnvEntryCallsCount += 1
 
-        // <androidEnvEntry> - Return Value mock implementation
+        // <androidEnvEntry > - Return Value mock implementation
 
         guard let closureReturn = androidEnvEntryClosure else
         {
             guard let returnValue = androidEnvEntryReturnValue else
             {
-                let message = "No returnValue implemented for androidEnvEntryClosure"
+                let message = """
+                No returnValue implemented for androidEnvEntry
+                """
                 let error = SourceryMockError.implementErrorCaseFor(message)
 
                 // You should implement String
@@ -191,7 +211,7 @@ open class URLEscapedProtocolMock: URLEscapedProtocol
 
     public var underlyingUrl: URL!
 
-    // MARK: - <encode> - parameters
+    // MARK: - <encode > - parameters
 
     public var encodeToThrowableError: Error?
     public var encodeToCallsCount = 0
@@ -200,17 +220,17 @@ open class URLEscapedProtocolMock: URLEscapedProtocol
         return encodeToCallsCount > 0
     }
 
-    public var encodeToReceivedEncoder: Encoder?
+    public var encodeToReceived: Encoder?
 
-    // MARK: - <encode> - closure mocks
+    // MARK: - <encode > - closure mocks
 
     public var encodeToClosure: ((Encoder) throws -> Void)?
 
-    // MARK: - <encode> - method mocked
+    // MARK: - <encode > - method mocked
 
     open func encode(to encoder: Encoder) throws
     {
-        // <encode> - Throwable method implementation
+        // <encode > - Throwable method implementation
 
         if let error = encodeToThrowableError
         {
@@ -218,9 +238,9 @@ open class URLEscapedProtocolMock: URLEscapedProtocol
         }
 
         encodeToCallsCount += 1
-        encodeToReceivedEncoder = encoder
+        encodeToReceived = encoder
 
-        // <encode> - Void return mock implementation
+        // <encode > - Void return mock implementation
 
         try encodeToClosure?(encoder)
     }

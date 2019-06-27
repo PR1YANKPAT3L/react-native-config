@@ -5,9 +5,9 @@
         "package": "Highway",
         "repositoryURL": "https://www.github.com/dooZdev/Highway",
         "state": {
-          "branch": "master",
-          "revision": "4847f3e5261e2eb392f42db3edca929722a91a38",
-          "version": null
+          "branch": null,
+          "revision": "e53b66ff0ac06699c7e6213f49c3a3d690126ed2",
+          "version": "3.0.2"
         }
       },
       {
@@ -32,9 +32,9 @@
         "package": "SignPost",
         "repositoryURL": "https://www.github.com/doozMen/SignPost",
         "state": {
-          "branch": "master",
-          "revision": "0815bc429b9db684b15d5a02ad6ddc0403ffeaed",
-          "version": null
+          "branch": null,
+          "revision": "224ea41f94776a2d69a3fb8f1067599f5ccec50b",
+          "version": "2.0.0"
         }
       },
       {
@@ -42,26 +42,26 @@
         "repositoryURL": "https://github.com/nicklockwood/SwiftFormat",
         "state": {
           "branch": null,
-          "revision": "ef65f79ccdc80216624bd2f609cb037a098ca1bb",
-          "version": "0.40.9"
+          "revision": "0708f1eefe0a2ce2aa42fc3ff86125cdb751e63c",
+          "version": "0.40.10"
         }
       },
       {
         "package": "template-sourcery",
         "repositoryURL": "https://www.github.com/dooZdev/template-sourcery",
         "state": {
-          "branch": "master",
-          "revision": "34b53bbadfdc04598f6c4410fb1d58271164c96d",
-          "version": null
+          "branch": null,
+          "revision": "c1856b6f118ad221a7e9af429a977882e628d1aa",
+          "version": "3.1.3"
         }
       },
       {
         "package": "ZFile",
         "repositoryURL": "https://www.github.com/dooZdev/ZFile",
         "state": {
-          "branch": "master",
-          "revision": "2aeaf52981f78e2b8866466235f630894b80472a",
-          "version": null
+          "branch": null,
+          "revision": "fb0ab109d3805829ac86f4ef2ab9f9ee5d7af2c5",
+          "version": "3.0.6"
         }
       }
     ]

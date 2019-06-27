@@ -43,3 +43,11 @@ xcuserdata
 /Sources/.sourcery-CopyConfigurationToYourProjectLibrary.yml
 /Sources/.sourcery-CopyLibrary.yml
 /Coder.xcodeproj
+/Sources/.sourcery-BuildConfigurationProtocols.yml
+/Sources/.sourcery-CoderLibraryProtocols.yml
+/Sources/.sourcery-CoderProtocols.yml
+/Sources/.sourcery-CoderSecretsProtocols.yml
+/Sources/.sourcery-CoderSourceryProtocols.yml
+/Sources/.sourcery-PrePushAndPRProtocols.yml
+/Sources/.sourcery-RNConfigurationProtocols.yml
+/Sources/.sourcery-RNModelsProtocols.yml

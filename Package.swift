@@ -14,8 +14,8 @@ public struct External {
     public static let quickNimble: [Target.Dependency] = ["Quick", "Nimble"]
     public static let packages: [Package.Dependency] = [
         
-        .package(url: "https://www.github.com/dooZdev/ZFile", .branch("master")),
-        .package(url: "https://www.github.com/dooZdev/Highway", .branch("master")),
+        .package(url: "https://www.github.com/dooZdev/ZFile", .upToNextMajor(from: "3.0.6")),
+        .package(url: "https://www.github.com/dooZdev/Highway", .upToNextMajor(from: "3.0.1")),
         
         // Quick & Nimble
         
@@ -24,11 +24,11 @@ public struct External {
         
         // Sourcery
         
-        .package(url: "https://www.github.com/dooZdev/template-sourcery", .branch("master")),
+        .package(url: "https://www.github.com/dooZdev/template-sourcery", .upToNextMajor(from: "3.1.2")),
         
         // Logging
         
-        .package(url: "https://www.github.com/doozMen/SignPost", .branch("master")),
+        .package(url: "https://www.github.com/doozMen/SignPost", .upToNextMajor(from: "2.0.0")),
     ]
 }
 
@@ -158,7 +158,7 @@ public struct Coder
 
     public static let target = Target.target(
         name: name,
-        dependencies: [Target.Dependency(stringLiteral: Library.library.name)]
+        dependencies: Library.target.dependencies + [Target.Dependency(stringLiteral: Library.library.name)]
     )
 
     public struct Library

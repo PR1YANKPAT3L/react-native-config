@@ -33,5 +33,4 @@ public protocol CoderOutputiOSProtocol: AutoMockable
     var plists: [FileProtocol] { get }
     var jsBridgeHeader: FileProtocol { get }
     var jsBridgeImplementation: FileProtocol { get }
-    // sourcery:end
 }

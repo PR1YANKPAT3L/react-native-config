@@ -16,7 +16,7 @@ import ZFile
 /**
  This is configured to work for this project, not yours. Provice your own by adding a struct that conforms to CoderOutputProtocol
  */
-struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
+struct CoderOutput: CoderOutputProtocol
 {
     let android: CoderOutputAndroidProtocol
     let ios: CoderOutputiOSProtocol
@@ -67,14 +67,14 @@ struct CoderOutput: CoderOutputProtocol, AutoGenerateProtocol
         }
     }
 
-    struct Android: CoderOutputAndroidProtocol, AutoGenerateProtocol
+    struct Android: CoderOutputAndroidProtocol
     {
         let sourcesFolder: FolderProtocol
 
         let configFiles: [RNModels.Configuration: FileProtocol]
     }
 
-    struct iOS: CoderOutputiOSProtocol, AutoGenerateProtocol
+    struct iOS: CoderOutputiOSProtocol
     {
         let sourcesFolder: FolderProtocol
 

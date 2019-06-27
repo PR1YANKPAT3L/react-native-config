@@ -18,7 +18,7 @@ import ZFile
  - returns: when doContinue encounters no throw the program continues and exits with success. Othwerwise it throws a Highway.Error
 
  */
-doContinue(pretty_function())
+attemptForcedTo(codeGeopoint())
 {
     try terminalInit(packageName: "Coder", try File(path: #file).parentFolder().parentFolder().parentFolder().parentFolder())
     let model = try Factory.readCurrentBuildConfiguration()
