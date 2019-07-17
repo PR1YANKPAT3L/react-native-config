@@ -1,17 +1,12 @@
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
-def getCurrentFlavor() {
-    Gradle gradle = getGradle()
-
+def getCurrentFlavorLowerCased() {
     // match optional modules followed by the task
     // (?:.*:)* is a non-capturing group to skip any :foo:bar: if they exist
     // *[a-z]+([A-Za-z]+) will capture the flavor part of the task name onward (e.g., assembleRelease --> Release)
-    def pattern = Pattern.compile("(?:.*:)*[a-z]+([A-Z][A-Za-z]+)")
+    def pattern = /(?:.*:)*[a-z]+([A-Z][A-Za-z]+)/
     def flavor = ""
 
     gradle.getStartParameter().getTaskNames().any { name ->
-        Matcher matcher = pattern.matcher(name)
+        def matcher = name =~ pattern
         if (matcher.find()) {
             flavor = matcher.group(1).toLowerCase()
             return true
@@ -21,47 +16,49 @@ def getCurrentFlavor() {
     return flavor
 }
 
-def loadDotEnv(flavor = getCurrentFlavor()) {
-    def envFile = ".env"
-
-    if (System.env['ENVFILE']) {
-        envFile = System.env['ENVFILE']
-    } else if (System.getProperty('ENVFILE')) {
-        envFile = System.getProperty('ENVFILE')
+def getEnvFilename(flavor) {
+    if (System.env['ENVFILE'] || System.getProperty('ENVFILE')) {
+        return System.env['ENVFILE'] ?: System.getProperty('ENVFILE')
+    } else if (project.hasProperty("defaultEnvFile")) {
+        return project.defaultEnvFile
     } else if (project.hasProperty("envConfigFiles")) {
         // use startsWith because sometimes the task is "generateDebugSources", so we want to match "debug"
-        project.ext.envConfigFiles.any { pair ->
-            if (flavor.contains(pair.key)) {
-                envFile = pair.value
-                return true
-            }
+        def possibleConfig = project.ext.envConfigFiles.find{pair -> 
+            flavor.startsWith(pair.key.toLowerCase())
         }
-    } else if (project.hasProperty("defaultEnvFile")) {
-        envFile = project.defaultEnvFile
+        return possibleConfig?.value ?: ".env"
+    } else {
+        return ".env";
     }
+}
 
-    def env = [:]
-    println("Reading env from: $envFile")
-
-    File f = new File("$project.rootDir/../$envFile");
-    if (!f.exists()) {
-        f = new File("$envFile");
-    }
-
-    if (f.exists()) {
-        f.eachLine { line ->
-            def matcher = (line =~ /^\s*(?:export\s+|)([\w\d\.\-_]+)\s*=\s*['"]?(.*?)?['"]?\s*$/)
+def getEnvVariableMap(file) {
+    if (file.exists()) {
+        return file.readLines().inject([:], { env, line ->
+            def matcher = line =~ /^\s*(?:export\s+|)([\w\d\.\-_]+)\s*=\s*['"]?(.*?)?['"]?\s*$/
             if (matcher.getCount() == 1 && matcher[0].size() == 3) {
                 env.put(matcher[0][1], matcher[0][2].replace('"', '\\"'))
             }
-        }
+            return env;
+        })
     } else {
         println("**************************")
         println("*** Missing .env file ****")
         println("**************************")
+        return [:]
+    }
+}
+
+def loadDotEnv(flavor = getCurrentFlavorLowerCased()) {
+    def envFilename = getEnvFilename(flavor)
+    println("Reading env from: $envFilename")
+
+    File f = new File("$project.rootDir/../$envFilename");
+    if (!f.exists()) {
+        f = new File("$envFilename");
     }
 
-    project.ext.set("env", env)
+    project.ext.set("env", getEnvVariableMap(f))
 }
 
 loadDotEnv()
@@ -97,4 +94,3 @@ tasks.whenTaskAdded { task ->
         }
     }
 }
-
